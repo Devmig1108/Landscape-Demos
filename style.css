@@ -3,8 +3,8 @@
    ========================================= */
 :root {
     /* Main Brand Colors - Sunset Orange #fcb736 */
-    --accent-main: #fcb736;
-    --accent-hover: #fc9636;
+    --accent-main: #fcbb76;
+    --accent-hover: #f0ab6a;
     --accent-soft: rgba(252, 183, 54, 0.1);
 
     /* Layout Colors (Light Mode Baseline) */
