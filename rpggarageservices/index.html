@@ -10,8 +10,8 @@
         rel="stylesheet">
     <style>
         /* =========================================
-           0. BRAND VARIABLES (RPG Green Theme)
-           ========================================= */
+            0. BRAND VARIABLES (RPG Green Theme)
+            ========================================= */
         :root {
             /* 30% Structural Accent (RPG Header Green) */
             --primary: #2a5a22;
@@ -28,8 +28,8 @@
         }
 
         /* =========================================
-           1. RESET & BASE
-           ========================================= */
+            1. RESET & BASE
+            ========================================= */
         * {
             margin: 0;
             padding: 0;
@@ -49,6 +49,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             width: 100%;
+            padding-bottom: 0;
         }
 
         h1,
@@ -60,8 +61,8 @@
         }
 
         /* =========================================
-           2. UPDATED: WHITE NAVIGATION BAR
-           ========================================= */
+            2. UPDATED: WHITE NAVIGATION BAR
+            ========================================= */
         .main-header {
             position: fixed;
             top: 0;
@@ -134,8 +135,8 @@
         }
 
         /* =========================================
-           3. SEO-OPTIMIZED HERO
-           ========================================= */
+            3. SEO-OPTIMIZED HERO
+            ========================================= */
         .split-hero {
             display: flex;
             height: 100vh;
@@ -262,9 +263,15 @@
             line-height: 1.2;
         }
 
+        .wd-partner-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
         /* =========================================
-           4. AUTHORITY STACK
-           ========================================= */
+            4. AUTHORITY STACK
+            ========================================= */
         .authority-stack {
             padding: 80px 10%;
             background: var(--primary);
@@ -335,8 +342,8 @@
         }
 
         /* =========================================
-           5. ASYMMETRIC GRID (Services)
-           ========================================= */
+            5. ASYMMETRIC GRID (Services)
+            ========================================= */
         .overlap-grid {
             padding: 150px 10%;
             display: grid;
@@ -436,8 +443,8 @@
         }
 
         /* =========================================
-           6. OUR TEAM SECTION
-           ========================================= */
+            6. OUR TEAM SECTION
+            ========================================= */
         .team-section {
             padding: 100px 10%;
             background: var(--light-bg);
@@ -503,8 +510,8 @@
         }
 
         /* =========================================
-           7. REVIEWS WIDGET
-           ========================================= */
+            7. REVIEWS WIDGET
+            ========================================= */
         .reviews-section {
             padding: 120px 10%;
             background: var(--dark);
@@ -546,8 +553,8 @@
         }
 
         /* =========================================
-           8. STICKY MODAL CTA (NO JS)
-           ========================================= */
+            8. STICKY MODAL CTA (NO JS)
+            ========================================= */
         .floating-cta-btn {
             position: fixed;
             bottom: 30px;
@@ -665,8 +672,8 @@
         }
 
         /* =========================================
-           9. MODERN FOOTER
-           ========================================= */
+            9. MODERN FOOTER
+            ========================================= */
         .modern-footer {
             padding: 100px 10% 50px;
             background: var(--dark);
@@ -740,9 +747,40 @@
             opacity: 0.4;
         }
 
+        .footer-logo-main {
+            height: 60px;
+            width: auto;
+            margin-bottom: 20px;
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .social-tags {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            color: white;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 15px;
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
         /* =========================================
-           10. MOBILE OVERRIDES
-           ========================================= */
+            10. MOBILE OVERRIDES
+            ========================================= */
         @media (max-width: 900px) {
             .main-header {
                 padding: 10px 5%;
@@ -809,11 +847,6 @@
                 justify-content: center;
             }
 
-            .main-img {
-                width: 100%;
-                height: 100%;
-            }
-
             .trust-icons {
                 flex-direction: column;
                 gap: 40px;
@@ -833,14 +866,6 @@
 
             .image-block {
                 height: 350px;
-            }
-
-            .content-block h2 {
-                font-size: 2.2rem;
-            }
-
-            .team-card {
-                width: 100%;
             }
 
             .accent-img {
@@ -908,9 +933,10 @@
         </div>
         <div class="hero-right">
             <div class="image-overlay-card">
-                <span class="card-tag">AUTHORIZED DEALER</span>
-                <h3>Wayne Dalton Partners</h3>
-                <p>We deliver exceptional garage solutions with unmatched professionalism and top-grade components.</p>
+                <img src="images/wayne-dalton.webp" alt="Wayne Dalton Logo" class="wd-partner-logo">
+                <span class="card-tag">OFFICIAL DEALER</span>
+                <h3>Authorized Installer</h3>
+                <p>We supply and maintain genuine Wayne Dalton systems for maximum durability and curb appeal.</p>
             </div>
         </div>
     </section>
@@ -972,14 +998,7 @@
                     <p>Owner & Lead Technician</p>
                 </div>
             </div>
-            <!-- <div class="team-card">
-                <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=600&q=80"
-                    alt="Rene Jr.">
-                <div class="team-info">
-                    <h3>Rene Jr.</h3>
-                    <p>Installation Specialist</p>
-                </div> -->
-        </div>
+            </div>
         </div>
     </section>
 
@@ -1012,16 +1031,18 @@
     <footer class="modern-footer">
         <div class="footer-top">
             <div class="footer-brand">
-                <h2>RPG<span>.</span></h2>
+                <img src="images/logo.webp" alt="RPG Logo" class="footer-logo-main">
                 <p>El Paso's leader in comprehensive garage door repair, installation, and maintenance.</p>
+                <div class="social-tags">
+                    <a href="#" class="social-btn">Facebook</a>
+                    <a href="#" class="social-btn">Instagram</a>
+                </div>
             </div>
             <div class="footer-links">
-                <h4>Services</h4>
-                <ul>
-                    <li><a href="#services">Door Repair</a></li>
-                    <li><a href="#services">New Installations</a></li>
-                    <li><a href="#services">Service Checks</a></li>
-                </ul>
+                <h4>Partners</h4>
+                <img src="images/wayne-dalton.webp" alt="Wayne Dalton"
+                    style="width: 150px; background: white; padding: 5px; border-radius: 2px;">
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Authorized Dealer & Installer</p>
             </div>
             <div class="footer-contact">
                 <h4>Contact</h4>
