@@ -15,12 +15,9 @@
             0. BRAND VARIABLES (Gil's Blue Theme)
             ========================================= */
         :root {
-            /* 30% Structural Accent (Matched to logo's blue) */
             --primary: #154ea3;
             --primary-dark: #0c3270;
-            /* 10% Accent (High-converting Orange for CTA) */
             --accent: #e67e22;
-            /* 60% Base / Text */
             --dark: #12141d;
             --slate: #2c3e50;
             --light-bg: #f4f5f7;
@@ -65,7 +62,7 @@
         }
 
         /* =========================================
-            2. UPDATED: WHITE NAVIGATION BAR
+            2. WHITE NAVIGATION BAR
             ========================================= */
         .main-header {
             position: fixed;
@@ -143,6 +140,11 @@
             color: var(--white) !important;
             padding: 12px 22px;
             border-radius: 4px;
+            transition: transform 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: scale(1.05);
         }
 
         /* =========================================
@@ -233,6 +235,7 @@
 
         .btn-main:hover {
             background: var(--dark);
+            transform: translateY(-2px);
         }
 
         .btn-sub {
@@ -241,6 +244,11 @@
             text-decoration: none;
             font-size: 1.2rem;
             font-family: 'Montserrat', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .btn-sub:hover {
+            color: var(--primary);
         }
 
         .image-overlay-card {
@@ -420,9 +428,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            transition: var(--transition);
+            transition: transform 0.4s ease;
             border: 1px solid #ddd;
-            background-image: url('');
         }
 
         .accent-img {
@@ -435,8 +442,7 @@
             right: -40px;
             border: 15px solid var(--white);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-            background-image: url('');
+            transition: transform 0.4s ease;
         }
 
         .reveal-effect:hover {
@@ -484,6 +490,11 @@
             text-align: center;
             width: 60%;
             margin: 0 auto;
+            transition: transform 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
         }
 
         .team-card img {
@@ -536,6 +547,11 @@
             padding: 40px 30px;
             border-top: 4px solid var(--accent);
             border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .review-card:hover {
+            background: rgba(255, 255, 255, 0.1);
         }
 
         .review-card blockquote {
@@ -557,6 +573,20 @@
         /* =========================================
             8. STICKY MODAL CTA (NO JS)
             ========================================= */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(230, 126, 34, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
+            }
+        }
+
         .floating-cta-btn {
             position: fixed;
             bottom: 30px;
@@ -574,11 +604,15 @@
             z-index: 2000;
             transition: 0.3s;
             border: 2px solid var(--white);
+            animation: pulse 2s infinite;
+            /* Added Pulse Animation */
         }
 
         .floating-cta-btn:hover {
             background: var(--primary);
             transform: translateY(-3px);
+            animation: none;
+            /* Stops pulse on hover */
         }
 
         .modal-toggle {
@@ -614,12 +648,12 @@
             width: 90%;
             max-width: 500px;
             position: relative;
-            transform: translateY(20px);
-            transition: 0.3s;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .modal-toggle:checked~.modal-overlay .modal-content {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .close-modal {
@@ -630,6 +664,11 @@
             color: var(--slate);
             cursor: pointer;
             line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: var(--accent);
         }
 
         .modal-content h3 {
@@ -685,7 +724,6 @@
             margin-bottom: 80px;
         }
 
-        /* NEW: Footer Logo Wrapper to match header style */
         .footer-logo-wrap {
             display: flex;
             align-items: center;
@@ -766,7 +804,6 @@
             flex-wrap: wrap;
         }
 
-        /* UPDATED: Social Buttons for FontAwesome Icons */
         .social-btn {
             display: inline-flex;
             align-items: center;
@@ -789,10 +826,91 @@
         .social-btn:hover {
             background: var(--primary);
             border-color: var(--primary);
+            transform: translateY(-2px);
         }
 
         /* =========================================
-            10. MOBILE OVERRIDES
+            10. NEW ANIMATION CLASSES 
+            ========================================= */
+
+        /* Hero Load Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-animate-1 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-animate-2 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .hero-animate-3 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .hero-animate-4 {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
+        }
+
+        .hero-animate-image {
+            opacity: 0;
+            animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+        }
+
+        /* Scroll Reveal Initial States */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* The class JS adds when element is visible */
+        .active-reveal {
+            opacity: 1;
+            transform: translate(0);
+        }
+
+
+        /* =========================================
+            11. MOBILE OVERRIDES
             ========================================= */
         @media (max-width: 900px) {
             .main-header {
@@ -950,22 +1068,23 @@
 
     <section class="split-hero">
         <div class="hero-left">
-            <div class="floating-badge">EL PASO'S GARAGE DOOR EXPERTS</div>
-            <h1 class="giant-text">
+            <div class="floating-badge hero-animate-1">EL PASO'S GARAGE DOOR EXPERTS</div>
+            <h1 class="giant-text hero-animate-2">
                 El Paso<br>
                 <span>Garage Door</span><br>
                 Repair
             </h1>
-            <p><strong>We fix, install, and maintain your garage with precision and care.</strong> Trust our certified
+            <p class="hero-animate-3"><strong>We fix, install, and maintain your garage with precision and
+                    care.</strong> Trust our certified
                 El Paso technicians to deliver top-quality service every time. From broken springs to new installations,
                 we handle it all.</p>
-            <div class="hero-actions">
+            <div class="hero-actions hero-animate-4">
                 <label for="modal-toggle" class="btn-main">Request Service</label>
                 <a href="tel:9152534796" class="btn-sub">915.253.4796</a>
             </div>
         </div>
         <div class="hero-right">
-            <div class="image-overlay-card">
+            <div class="image-overlay-card hero-animate-image">
                 <img src="images/logo.jpg" alt="Gil's Garage Door Services" class="logo-img">
                 <span class="card-tag">LOCAL & TRUSTED</span>
                 <h3>5-STAR SERVICE</h3>
@@ -977,17 +1096,17 @@
 
     <section class="authority-stack">
         <div class="authority-grid">
-            <div class="award-card">
+            <div class="award-card reveal-left">
                 <h3>Certified Pro</h3>
                 <p>Expert Techs & Lasting Repairs</p>
             </div>
-            <div class="trust-icons">
+            <div class="trust-icons reveal-right">
                 <div class="icon-pill">
                     <span class="icon">🔧</span>
                     <p>Top-Grade</p>
                     <strong>Quality Parts</strong>
                 </div>
-                <div class="icon-pill">
+                <div class="icon-pill" style="transition-delay: 0.2s;">
                     <span class="icon">💲</span>
                     <p>Fair & Transparent</p>
                     <strong>Competitive Pricing</strong>
@@ -997,7 +1116,7 @@
     </section>
 
     <section id="services" class="overlap-grid">
-        <div class="content-block">
+        <div class="content-block reveal-up">
             <h2 class="outline-text">Doors</h2>
             <h2>Comprehensive<br>Garage <span>Solutions</span></h2>
             <p>From complex off-track repairs to installing brand new door systems, we handle every garage
@@ -1012,21 +1131,23 @@
             </ul>
         </div>
         <div class="image-block">
-            <div class="main-img reveal-effect" style="background-image: url('images/glass-garage.jpg');">
+            <div class="main-img reveal-effect reveal-right"
+                style="background-image: url('images/glass-garage.jpg'); transition-delay: 0.2s;">
             </div>
-            <div class="accent-img reveal-effect" style="background-image: url('images/garage-windows.jpg');">
+            <div class="accent-img reveal-effect reveal-up"
+                style="background-image: url('images/garage-windows.jpg'); transition-delay: 0.4s;">
             </div>
         </div>
     </section>
 
     <section id="team" class="team-section">
-        <div class="section-header">
+        <div class="section-header reveal-up">
             <h2>Meet Our <span>Team</span></h2>
             <p style="margin-top: 15px; color: var(--slate); font-size: 1.1rem;">Skilled professionals dedicated to
                 solving your garage challenges.</p>
         </div>
         <div class="team-grid">
-            <div class="team-card">
+            <div class="team-card reveal-up" style="transition-delay: 0.2s;">
                 <img src="images/logo.jpg" alt="Gil">
                 <div class="team-info">
                     <h3>Gil</h3>
@@ -1037,11 +1158,11 @@
     </section>
 
     <section class="reviews-section">
-        <div class="section-header">
+        <div class="section-header reveal-up">
             <h2>Customer <span>Reviews</span></h2>
         </div>
         <div class="reviews-grid">
-            <div class="review-card">
+            <div class="review-card reveal-up" style="transition-delay: 0.1s;">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"Gil and his associate Danny repaired my three garage doors. They did an excellent job. They
                     did not replace the doors. They simply repaired them and added a new opener. But I feel like I’ve
@@ -1049,14 +1170,14 @@
                     and competently done done. I would recommend Gil’s garage doors."</blockquote>
                 <cite>— El Paso Resident</cite>
             </div>
-            <div class="review-card">
+            <div class="review-card reveal-up" style="transition-delay: 0.2s;">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"Gilbert was quick to respond to my garage issues. He took time to address any other small
                     things after repairing the main issue. Very professional and we would definitely recommend him to
                     anyone."</blockquote>
                 <cite>— Local Homeowner</cite>
             </div>
-            <div class="review-card">
+            <div class="review-card reveal-up" style="transition-delay: 0.3s;">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"Called 730pm on a Sunday and had him at the house at 9AM the following day. The repair was
                     quick and everything was in good working order within 20 minutes. Highly recommend if you have
@@ -1068,14 +1189,12 @@
 
     <footer class="modern-footer">
         <div class="footer-top">
-            <div class="footer-brand">
+            <div class="footer-brand reveal-up">
                 <div class="footer-logo-wrap">
                     <img src="images/logo.webp" alt="Gil's Garage Door Services Logo" class="footer-logo-main">
                     <span>Gil's Garage Door Services</span>
                 </div>
-
                 <p>El Paso's leader in comprehensive garage door repair, installation, and maintenance.</p>
-
                 <div class="social-tags">
                     <a href="https://www.facebook.com/profile.php?id=100056398045243" class="social-btn"
                         target="_blank">
@@ -1089,7 +1208,7 @@
                     </a>
                 </div>
             </div>
-            <div class="footer-contact">
+            <div class="footer-contact reveal-up" style="transition-delay: 0.2s;">
                 <h4>Contact</h4>
                 <p style="font-family: 'Montserrat', sans-serif; font-weight: 700; opacity: 0.7;">915.253.4796</p>
                 <p style="font-family: 'Montserrat', sans-serif; font-weight: 700; opacity: 0.7;">El Paso, TX</p>
@@ -1124,6 +1243,31 @@
             </form>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active-reveal');
+                        observer.unobserve(entry.target); // Stops animating after it appears once
+                    }
+                });
+            }, observerOptions);
+
+            // Select all elements with reveal classes
+            const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
+            revealElements.forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
 
 </body>
 
