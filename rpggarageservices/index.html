@@ -5,26 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPG Garage Door Services | El Paso Garage Door Repair</title>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Oswald:wght@400;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* =========================================
-            0. BRAND VARIABLES (RPG Green Theme)
+            0. DYNAMIC THEME VARIABLES
             ========================================= */
         :root {
-            /* 30% Structural Accent (RPG Header Green) */
+            --brand-green: #2a5a22;
+            --brand-green-dark: #1b3d15;
+            --brand-orange: #e67e22;
+
+            --bg-main: #FFFFFF;
+            --bg-sec: #F3F4F6;
+            --text-main: #111827;
+            --text-muted: #4B5563;
+
+            --glass: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.04);
+
+            --hero-gradient: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95));
+            --modal-overlay-bg: rgba(255, 255, 255, 0.9);
+
+            --highlight: var(--brand-green);
+            --btn-bg: var(--brand-green);
+            --btn-hover: var(--brand-green-dark);
+            --btn-text: #FFFFFF;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Baseline variables */
             --primary: #2a5a22;
             --primary-dark: #1b3d15;
-            /* 10% Accent (High-converting Orange for CTA) */
             --accent: #e67e22;
-            /* 60% Base / Text */
             --dark: #12141d;
             --slate: #2c3e50;
             --light-bg: #f4f5f7;
             --white: #ffffff;
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             --dot-pattern: radial-gradient(#d1d1d1 1px, transparent 1px);
+        }
+
+        /* DARK MODE OVERRIDES */
+        body.dark-theme {
+            --bg-main: #070709;
+            --bg-sec: #111216;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+
+            --glass: rgba(7, 7, 9, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+            --hero-gradient: linear-gradient(rgba(7, 7, 9, 0.5), rgba(7, 7, 9, 0.95));
+            --modal-overlay-bg: rgba(0, 0, 0, 0.9);
+
+            --highlight: var(--brand-orange);
+            --btn-bg: var(--brand-orange);
+            --btn-hover: var(--text-main);
+            --btn-text: var(--bg-main);
+
+            /* Baseline Dark Overrides */
+            --white: #070709;
+            --dark: #F3F4F6;
+            --slate: #9CA3AF;
+            --light-bg: #111216;
+            --dot-pattern: radial-gradient(#222 1px, transparent 1px);
+        }
+
+        body.dark-theme .theme-invert {
+            filter: brightness(0) invert(1);
         }
 
         /* =========================================
@@ -52,6 +106,7 @@
             overflow-x: hidden;
             width: 100%;
             padding-bottom: 0;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         h1,
@@ -60,10 +115,38 @@
         h4 {
             font-family: 'Montserrat', sans-serif;
             color: var(--dark);
+            transition: color 0.5s ease;
         }
 
         /* =========================================
-            2. UPDATED: WHITE NAVIGATION BAR
+            PREMIUM ANIMATIONS & MICRO-INTERACTIONS
+            ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-theme .hover-lift:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* =========================================
+            2. NAVIGATION BAR
             ========================================= */
         .main-header {
             position: fixed;
@@ -72,11 +155,15 @@
             z-index: 1000;
             padding: 10px 5%;
             background: var(--white);
-            /* Switched to White */
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             height: 90px;
             display: flex;
             align-items: center;
+            transition: var(--transition);
+        }
+
+        body.dark-theme .main-header {
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
         }
 
         .nav-container {
@@ -96,13 +183,8 @@
 
         .logo-img {
             height: 55px;
-            /* Sized for prominence on white bg */
             width: auto;
             object-fit: contain;
-        }
-
-        #menu-toggle {
-            display: none !important;
         }
 
         .nav-menu {
@@ -115,7 +197,6 @@
         .nav-menu a {
             text-decoration: none;
             color: var(--dark);
-            /* Dark text for white background */
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 0.8rem;
@@ -131,21 +212,30 @@
 
         .nav-cta {
             background: var(--primary) !important;
-            color: var(--white) !important;
+            color: #ffffff !important;
             padding: 12px 22px;
             border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
         }
 
         /* =========================================
-            3. SEO-OPTIMIZED HERO
+            3. HERO SECTION
             ========================================= */
         .split-hero {
             display: flex;
             height: 100vh;
             width: 100%;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             margin-top: 90px;
-            /* Offset for header */
         }
 
         .hero-left {
@@ -155,18 +245,17 @@
             flex-direction: column;
             justify-content: center;
             background: var(--white);
+            transition: var(--transition);
         }
 
         .hero-right {
             flex: 0.8;
-            /* Garage door installation placeholder */
             background: var(--primary) url('images/wood-garage.webp') no-repeat;
             background-size: cover;
             background-position: center;
             position: relative;
         }
 
-        /* SEO Efficient H1 Tag */
         .giant-text {
             font-size: clamp(2.8rem, 6vw, 5.5rem);
             line-height: 0.9;
@@ -210,7 +299,7 @@
 
         .btn-main {
             background: var(--accent);
-            color: var(--white);
+            color: #ffffff;
             text-decoration: none;
             padding: 18px 35px;
             font-family: 'Montserrat', sans-serif;
@@ -226,7 +315,9 @@
         }
 
         .btn-main:hover {
-            background: var(--dark);
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .btn-sub {
@@ -235,6 +326,11 @@
             text-decoration: none;
             font-size: 1.2rem;
             font-family: 'Montserrat', sans-serif;
+            transition: 0.3s;
+        }
+
+        .btn-sub:hover {
+            color: var(--primary);
         }
 
         .image-overlay-card {
@@ -245,10 +341,11 @@
             padding: 40px;
             width: 420px;
             box-shadow: 20px 20px 0px var(--primary);
-            border: 1px solid #eee;
+            border: 1px solid rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             gap: 15px;
+            transition: var(--transition);
         }
 
         .card-tag {
@@ -277,7 +374,7 @@
         .authority-stack {
             padding: 80px 10%;
             background: var(--primary);
-            color: var(--white);
+            color: #ffffff;
         }
 
         .authority-grid {
@@ -296,7 +393,7 @@
         }
 
         .award-card h3 {
-            color: var(--white);
+            color: #ffffff;
             font-size: 2.2rem;
             text-transform: uppercase;
         }
@@ -327,6 +424,7 @@
         .icon-pill .icon {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            color: #ffffff;
         }
 
         .icon-pill p {
@@ -339,8 +437,56 @@
 
         .icon-pill strong {
             font-family: 'Montserrat';
-            color: var(--white);
+            color: #ffffff;
             font-size: 1.1rem;
+        }
+
+        /* =========================================
+            NEW CONTENT: LOCAL ADVANTAGE
+            ========================================= */
+        .local-advantage {
+            padding: 120px 10%;
+            background: var(--light-bg);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .advantage-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .advantage-text h2 span {
+            color: var(--primary);
+        }
+
+        .advantage-text p {
+            color: var(--slate);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .advantage-img-wrapper {
+            position: relative;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .advantage-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* =========================================
@@ -360,7 +506,7 @@
             position: absolute;
             top: 0;
             left: 5%;
-            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.05);
+            -webkit-text-stroke: 1px rgba(128, 128, 128, 0.2);
             color: transparent;
             z-index: -1;
             font-weight: 900;
@@ -384,7 +530,7 @@
         .service-check-list {
             list-style: none;
             margin-top: 40px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(128, 128, 128, 0.2);
             padding-top: 30px;
         }
 
@@ -421,8 +567,7 @@
             top: 0;
             left: 0;
             transition: var(--transition);
-            border: 1px solid #ddd;
-            background-image: url('');
+            border: 1px solid rgba(128, 128, 128, 0.2);
         }
 
         .accent-img {
@@ -436,12 +581,6 @@
             border: 15px solid var(--white);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
             transition: var(--transition);
-            background-image: url('');
-        }
-
-        .reveal-effect:hover {
-            transform: scale(1.02);
-            z-index: 10;
         }
 
         /* =========================================
@@ -450,7 +589,7 @@
         .team-section {
             padding: 100px 10%;
             background: var(--light-bg);
-            border-top: 1px solid #eee;
+            border-top: 1px solid rgba(128, 128, 128, 0.1);
         }
 
         .section-header {
@@ -480,10 +619,10 @@
             background: var(--white);
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
             text-align: center;
             width: 60%;
             margin: 0 auto;
+            border: 1px solid rgba(128, 128, 128, 0.1);
         }
 
         .team-card img {
@@ -516,12 +655,21 @@
             ========================================= */
         .reviews-section {
             padding: 120px 10%;
-            background: var(--dark);
+            background: var(--slate);
             color: var(--white);
+            transition: var(--transition);
+        }
+
+        body.dark-theme .reviews-section {
+            background: #0a0a0a;
         }
 
         .reviews-section .section-header h2 {
-            color: var(--white);
+            color: #ffffff;
+        }
+
+        .reviews-section .section-header p {
+            color: #a0aec0;
         }
 
         .reviews-grid {
@@ -549,20 +697,51 @@
         .review-card cite {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            color: var(--white);
+            color: #ffffff;
             font-size: 0.9rem;
             text-transform: uppercase;
         }
 
         /* =========================================
-            8. STICKY MODAL CTA (NO JS)
+            NEW CONTENT: SEO FAQ SECTION
+            ========================================= */
+        .faq-section {
+            padding: 100px 10%;
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            padding: 25px 0;
+        }
+
+        .faq-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-transform: none;
+        }
+
+        .faq-item p {
+            color: var(--slate);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* =========================================
+            8. STICKY MODAL CTA
             ========================================= */
         .floating-cta-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
             background: var(--accent);
-            color: var(--white);
+            color: #ffffff;
             padding: 18px 35px;
             border-radius: 50px;
             font-family: 'Montserrat', sans-serif;
@@ -573,7 +752,7 @@
             cursor: pointer;
             z-index: 2000;
             transition: 0.3s;
-            border: 2px solid var(--white);
+            border: 2px solid #ffffff;
         }
 
         .floating-cta-btn:hover {
@@ -581,12 +760,10 @@
             transform: translateY(-3px);
         }
 
-        /* The Hidden Checkbox */
         .modal-toggle {
             display: none;
         }
 
-        /* The Overlay Background */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -604,13 +781,11 @@
             align-items: center;
         }
 
-        /* Show modal when checkbox is checked */
         .modal-toggle:checked~.modal-overlay {
             opacity: 1;
             visibility: visible;
         }
 
-        /* The Modal Content Box */
         .modal-content {
             background: var(--white);
             padding: 50px;
@@ -643,7 +818,6 @@
             color: var(--primary);
         }
 
-        /* Form styling matches existing */
         .modal-form {
             display: flex;
             flex-direction: column;
@@ -656,7 +830,7 @@
             padding: 15px 0;
             background: transparent;
             border: none;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid rgba(128, 128, 128, 0.2);
             margin-bottom: 20px;
             font-family: 'Montserrat';
             font-weight: 700;
@@ -678,7 +852,7 @@
             ========================================= */
         .modern-footer {
             padding: 100px 10% 50px;
-            background: var(--dark);
+            background: #12141d;
             color: #fff;
             border-top: 5px solid var(--primary);
         }
@@ -692,7 +866,7 @@
 
         .footer-brand h2 {
             font-size: 2.5rem;
-            color: var(--white);
+            color: #ffffff;
             text-transform: uppercase;
             font-weight: 900;
         }
@@ -705,6 +879,7 @@
             opacity: 0.6;
             max-width: 300px;
             margin-top: 15px;
+            color: #fff;
         }
 
         .footer-links h4,
@@ -747,6 +922,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             opacity: 0.4;
+            color: #fff;
         }
 
         .footer-logo-main {
@@ -792,8 +968,6 @@
             .nav-menu {
                 display: none;
             }
-
-            /* Simplified for demo */
 
             .split-hero {
                 flex-direction: column;
@@ -846,10 +1020,13 @@
                 font-size: 2.2rem;
             }
 
+            .advantage-grid {
+                grid-template-columns: 1fr;
+            }
+
             .team-card {
                 width: 100%;
             }
-
 
             .award-card {
                 border-right: none;
@@ -934,31 +1111,33 @@
     <section class="split-hero">
         <div class="hero-left">
             <div class="floating-badge">EL PASO'S GARAGE DOOR EXPERTS</div>
-            <h1 class="giant-text">
+            <h1 class="giant-text reveal-up">
                 El Paso<br>
                 <span>Garage Door</span><br>
                 Repair
             </h1>
-            <p><strong>We fix, install, and maintain your garage with precision and care.</strong> Trust our certified
-                El Paso technicians to deliver top-quality service every time. From broken springs to new installations,
-                we handle it all.</p>
-            <div class="hero-actions">
+            <p class="reveal-up" style="transition-delay: 0.1s;"><strong>We fix, install, and maintain your garage with
+                    precision and care.</strong> Trust our certified El Paso technicians to deliver top-quality service
+                every time. From broken springs to new installations, we handle it all.</p>
+            <div class="hero-actions reveal-up" style="transition-delay: 0.2s;">
                 <label for="modal-toggle" class="btn-main">Request Service</label>
                 <a href="tel:9153190083" class="btn-sub">915.319.0083</a>
             </div>
         </div>
         <div class="hero-right">
-            <div class="image-overlay-card">
-                <img src="images/wayne-dalton.webp" alt="Wayne Dalton Logo" class="wd-partner-logo">
+            <div class="image-overlay-card reveal-up" style="transition-delay: 0.3s;">
+                <img src="images/wayne-dalton.webp" alt="Wayne Dalton Logo" class="wd-partner-logo theme-invert"
+                    onerror="this.style.display='none'">
                 <span class="card-tag">OFFICIAL DEALER</span>
                 <h3>Authorized Installer</h3>
-                <p>We supply and maintain genuine Wayne Dalton systems for maximum durability and curb appeal.</p>
+                <p style="color: var(--slate); font-size: 0.9rem;">We supply and maintain genuine Wayne Dalton systems
+                    for maximum durability and curb appeal.</p>
             </div>
         </div>
     </section>
 
     <section class="authority-stack">
-        <div class="authority-grid">
+        <div class="authority-grid reveal-up">
             <div class="award-card">
                 <h3>Certified Pro</h3>
                 <p>Expert Techs & Lasting Repairs</p>
@@ -978,64 +1157,81 @@
         </div>
     </section>
 
+    <section class="local-advantage">
+        <div class="advantage-grid">
+            <div class="advantage-text reveal-up">
+                <h2>Local Service.<br><span>Master Quality.</span></h2>
+                <p>As a locally owned and operated business, we know what El Paso homes need. Our severe heat and desert
+                    dust can wreak havoc on mechanical systems like torsion springs and motor belts.</p>
+                <p>That is why we never use standard builder-grade parts. We engineer and calibrate every repair and
+                    installation to handle local weather extremes, ensuring your family's safety and your home's
+                    security.</p>
+                <label for="modal-toggle" class="btn-main" style="margin-top: 15px;">Schedule an Inspection</label>
+            </div>
+            <div class="advantage-img-wrapper hover-lift reveal-up" style="transition-delay: 0.2s;">
+                <img src="images/glass-garage.webp" alt="El Paso Garage Repair Technician"
+                    onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000';">
+            </div>
+        </div>
+    </section>
+
     <section id="services" class="overlap-grid">
-        <div class="content-block">
+        <div class="content-block reveal-up">
             <h2 class="outline-text">Doors</h2>
             <h2>Comprehensive<br>Garage <span>Solutions</span></h2>
             <p>From complex off-track repairs to installing brand new Wayne Dalton systems, we handle every garage
                 challenge with expertise. Don't let a broken spring or faulty opener disrupt your day.</p>
             <ul class="service-check-list">
-                <li>Garage Door Spring Repair</li>
-                <li>New Garage Installations</li>
-                <li>Opener Motor Diagnostics</li>
-                <li>Panel Replacement</li>
-                <li>Preventative Maintenance</li>
+                <li class="hover-lift">Garage Door Spring Repair</li>
+                <li class="hover-lift">New Garage Installations</li>
+                <li class="hover-lift">Opener Motor Diagnostics</li>
+                <li class="hover-lift">Panel Replacement</li>
+                <li class="hover-lift">Preventative Maintenance</li>
             </ul>
         </div>
-        <div class="image-block">
-            <div class="main-img reveal-effect" style="background-image: url('images/glass-garage.webp');">
-            </div>
-            <div class="accent-img reveal-effect" style="background-image: url('images/opener.jpg');">
-            </div>
+        <div class="image-block reveal-up" style="transition-delay: 0.2s;">
+            <div class="main-img hover-lift" style="background-image: url('images/wood-garage.webp');"></div>
+            <div class="accent-img hover-lift" style="background-image: url('images/opener.jpg');"></div>
         </div>
     </section>
 
     <section id="team" class="team-section">
-        <div class="section-header">
+        <div class="section-header reveal-up">
             <h2>Meet Our <span>Team</span></h2>
             <p style="margin-top: 15px; color: var(--slate); font-size: 1.1rem;">Skilled professionals dedicated to
                 solving your garage challenges.</p>
         </div>
         <div class="team-grid">
-            <div class="team-card">
-                <img src="images/team.webp" alt="Rene Gutierrez">
+            <div class="team-card hover-lift reveal-up">
+                <img src="images/team.webp" alt="Rene Gutierrez"
+                    onerror="this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80&w=800';">
                 <div class="team-info">
                     <h3>Rene & Rene Gutierrez</h3>
                     <p>Owner & Lead Technician</p>
                 </div>
             </div>
-            </div>
         </div>
     </section>
 
     <section class="reviews-section">
-        <div class="section-header">
-            <h2>Customer <span>Reviews</span></h2>
+        <div class="section-header reveal-up">
+            <h2>Customer <span style="color: var(--accent);">Reviews</span></h2>
+            <p style="margin-top: 10px; font-family: 'Montserrat';">See what El Paso is saying about us.</p>
         </div>
         <div class="reviews-grid">
-            <div class="review-card">
+            <div class="review-card hover-lift reveal-up">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"Quick and reliable fixes for my garage door mechanism. Trust their certified technicians to
                     deliver top-quality service every time."</blockquote>
                 <cite>— El Paso Resident</cite>
             </div>
-            <div class="review-card">
+            <div class="review-card hover-lift reveal-up" style="transition-delay: 0.1s;">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"Fair and transparent pricing without compromising on service quality. They fixed our broken
                     spring the same day we called."</blockquote>
                 <cite>— Local Homeowner</cite>
             </div>
-            <div class="review-card">
+            <div class="review-card hover-lift reveal-up" style="transition-delay: 0.2s;">
                 <div class="star-rating">★★★★★</div>
                 <blockquote>"We use only top-grade components for lasting garage repairs. Very professional team from
                     start to finish."</blockquote>
@@ -1044,10 +1240,36 @@
         </div>
     </section>
 
+    <section class="faq-section">
+        <div class="section-header reveal-up">
+            <h2>Frequently Asked <span>Questions</span></h2>
+            <p style="color: var(--slate); margin-top: 10px;">Expert insights for homeowners.</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item reveal-up">
+                <h3>How do I know if my garage spring is broken?</h3>
+                <p>A broken spring usually happens with a loud "bang." Afterwards, the door will be extremely heavy to
+                    lift manually, or your opener will strain and stop moving. Do not attempt to operate the door, as
+                    this can damage the motor. Call us immediately for a safe replacement.</p>
+            </div>
+            <div class="faq-item reveal-up">
+                <h3>Do you offer same-day garage repair in El Paso?</h3>
+                <p>Yes! We prioritize emergency calls like broken springs, snapped cables, or off-track doors. We strive
+                    to provide same-day or next-day service to ensure your home remains secure.</p>
+            </div>
+            <div class="faq-item reveal-up">
+                <h3>Which garage door openers do you repair?</h3>
+                <p>Our technicians are trained to diagnose and repair all major brands, including LiftMaster,
+                    Chamberlain, and Genie. If your unit is beyond repair, we can install a modern, quiet, WiFi-enabled
+                    smart motor.</p>
+            </div>
+        </div>
+    </section>
+
     <footer class="modern-footer">
-        <div class="footer-top">
+        <div class="footer-top reveal-up">
             <div class="footer-brand">
-                <img src="images/logo.webp" alt="RPG Logo" class="footer-logo-main">
+                <img src="images/logo.webp" alt="RPG Logo" class="footer-logo-main" onerror="this.style.display='none'">
                 <p>El Paso's leader in comprehensive garage door repair, installation, and maintenance.</p>
                 <div class="social-tags">
                     <a href="#" class="social-btn">Facebook</a>
@@ -1057,7 +1279,8 @@
             <div class="footer-links">
                 <h4>Partners</h4>
                 <img src="images/wayne-dalton.webp" alt="Wayne Dalton"
-                    style="width: 150px; padding: 5px; border-radius: 2px;">
+                    style="width: 150px; padding: 5px; border-radius: 2px; background: white;"
+                    onerror="this.style.display='none'">
                 <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Authorized Dealer & Installer</p>
             </div>
             <div class="footer-contact">
@@ -1073,7 +1296,7 @@
 
     <input type="checkbox" id="modal-toggle" class="modal-toggle">
 
-    <label for="modal-toggle" class="floating-cta-btn">
+    <label for="modal-toggle" class="floating-cta-btn hover-lift">
         Get a Free Quote
     </label>
 
@@ -1096,6 +1319,29 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal-up');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                reveals.forEach(reveal => {
+                    const revealTop = reveal.getBoundingClientRect().top;
+                    if (revealTop < windowHeight - 50) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Trigger immediately on load
+
+            // Failsafe backup
+            setTimeout(() => {
+                reveals.forEach(r => r.classList.add('active'));
+            }, 1500);
+        });
+    </script>
 </body>
 
 </html>
