@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sugar Rush Sweets | Custom Sugar Cookies & Bakery in El Paso, TX</title>
+    <meta name="description"
+        content="El Paso's favorite local baker for custom decorated sugar cookies! Specializing in bespoke cookies for birthdays, weddings, holidays, and corporate events.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+            0. PLAYFUL LUXURY BRAND VARIABLES (PINKS)
+            ========================================= */
+        :root {
+            --bg-main: #FFFFFF;
+            --bg-sec: #FFF5F7;
+            /* Very faint pink/cream */
+
+            --brand-choco: #3E2723;
+            --text-main: #2A2A2A;
+            --text-muted: #666666;
+
+            /* Updated to Pink Palette */
+            --pastel-pink-light: #FCE4EC;
+            /* Very soft pink for backgrounds/accents */
+            --pastel-pink: #FADADD;
+            /* Pale Pink */
+            --pastel-pink-deep: #FFB6C1;
+            /* Light Pink for stronger accents */
+
+            --accent-gold: #C5A059;
+
+            --glass: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --shadow-subtle: 0 15px 40px rgba(0, 0, 0, 0.02);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* =========================================
+            1. RESET & CUSTOM CURSOR
+            ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            color: var(--brand-choco);
+        }
+
+        /* Updated Pink Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--pastel-pink-deep);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .cursor-outline {
+            width: 45px;
+            height: 45px;
+            border: 1px solid rgba(255, 182, 193, 0.6);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: 0.15s ease-out;
+        }
+
+        /* =========================================
+            2. BOUTIQUE NAVIGATION
+            ========================================= */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .nav-header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .nav-header.scrolled .logo-img {
+            height: 55px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--pastel-pink-deep);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn-gold {
+            background: transparent;
+            color: var(--brand-choco);
+            border: 1px solid var(--brand-choco);
+            padding: 12px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: none;
+            transition: var(--transition);
+            border-radius: 0;
+            font-weight: 700;
+        }
+
+        .btn-gold:hover {
+            background: var(--brand-choco);
+            color: var(--bg-main);
+        }
+
+        /* =========================================
+            3. ELEGANT HERO SECTION
+            ========================================= */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.7)), url('images/hero-cookies.jpg') center/cover;
+            z-index: -1;
+            animation: slideBg 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-main) 0%, transparent 100%);
+        }
+
+        @keyframes slideBg {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        .hero-label {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: clamp(3.2rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .hero-title i {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--pastel-pink-deep);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            font-weight: 400;
+            margin-bottom: 50px;
+        }
+
+        /* =========================================
+            4. BESPOKE COLLECTIONS (PINKS)
+            ========================================= */
+        .section-padding {
+            padding: 120px 5%;
+        }
+
+        .bg-sec {
+            background-color: var(--bg-sec);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-card {
+            background: var(--bg-main);
+            padding: 50px 40px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            border-bottom: 2px solid var(--accent-gold);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .collection-card:hover {
+            background: var(--pastel-pink-light);
+            transform: translateY(-10px);
+        }
+
+        .collection-icon {
+            font-size: 2.5rem;
+            color: var(--pastel-pink-deep);
+            margin-bottom: 25px;
+        }
+
+        .collection-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-family: 'Cormorant Garamond';
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .collection-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .link-rose {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--pastel-pink-deep);
+            padding-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .link-rose:hover {
+            color: var(--pastel-pink-deep);
+        }
+
+        /* =========================================
+            5. NEW: SEO SERVICE LIST
+            ========================================= */
+        .seo-services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .seo-text-block h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .seo-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .seo-list li {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .seo-list li i {
+            color: var(--pastel-pink-deep);
+            font-size: 0.8rem;
+        }
+
+        /* =========================================
+            6. THE ART OF BAKING (ABOUT)
+            ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            height: 600px;
+        }
+
+        .about-img {
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            box-shadow: var(--shadow-subtle);
+            border-radius: 8px;
+        }
+
+        .about-img-accent {
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            border: 15px solid var(--bg-main);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .about-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .about-content h2 i {
+            font-weight: 400;
+            color: var(--pastel-pink-deep);
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        /* =========================================
+            7. REFINED BOUTIQUE FOOTER
+            ========================================= */
+        .boutique-footer {
+            padding: 100px 5% 40px;
+            background: var(--bg-main);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .footer-logo {
+            height: 100px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .footer-info div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-info strong {
+            color: var(--brand-choco);
+            font-weight: 600;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-lux {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-lux a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-lux a:hover {
+            color: var(--pastel-pink-deep);
+        }
+
+        /* =========================================
+            8. BULLETPROOF ANIMATIONS
+            ========================================= */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate-1 {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .hero-animate-2 {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-animate-3 {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-animate-4 {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-bg {
+                width: 100%;
+                opacity: 0.3;
+            }
+
+            .hero-bg::after {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .collections-grid,
+            .seo-services-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-img-wrap {
+                height: 400px;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo hover-target">
+                <img src="images/logo.jpg" alt="Sugar Rush Sweets Logo" class="logo-img"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span
+                    style="display: none; font-family: 'Cormorant Garamond'; font-size: 1.8rem; font-weight: 700; color: var(--brand-choco);">Sugar
+                    Rush</span>
+            </a>
+            <div class="nav-links">
+                <a href="#collections" class="hover-target">Sweet Treats</a>
+                <a href="#about" class="hover-target">Our Story</a>
+                <a href="#catering" class="hover-target">Order Now</a>
+            </div>
+            <a href="#" class="btn-gold hover-target">Message Me</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-label hero-animate-1">Custom Sugar Cookies in El Paso, TX</span>
+            <h1 class="hero-title hero-animate-2">
+                Making Life Sweeter,<br><i>One Cookie</i> at a Time!
+            </h1>
+            <p class="hero-desc hero-animate-3">
+                Welcome to Sugar Rush Sweets! We specialize in beautifully handcrafted, custom decorated sugar cookies
+                right here in El Paso. From birthdays to holidays, we turn your sweetest ideas into edible art! 💕
+            </p>
+            <div class="hero-animate-4">
+                <a href="#collections" class="btn-gold hover-target">See What We Bake</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="collections" class="section-padding bg-sec">
+        <div class="section-header reveal-up">
+            <span>Our Offerings</span>
+            <h2>Sweet <i>Treats</i> for Every Occasion</h2>
+        </div>
+
+        <div class="collections-grid">
+            <div class="collection-card hover-target reveal-up" style="transition-delay: 0.1s;">
+                <i class="fas fa-magic collection-icon"></i>
+                <h3>Custom Sugar Cookies</h3>
+                <p>Detailed, delicious, and perfectly matched to your party's theme! Let's make your birthdays, baby
+                    showers, and celebrations extra special.</p>
+                <a href="#" class="link-rose hover-target">Request Custom Set</a>
+            </div>
+            <div class="collection-card hover-target reveal-up" style="transition-delay: 0.2s;">
+                <i class="fas fa-store collection-icon"></i>
+                <h3>Local Pop-Ups & Markets</h3>
+                <p>Catch us around town! We love partnering with local El Paso coffee shops and markets. Follow our
+                    holiday pre-sales for seasonal treats!</p>
+                <a href="#" class="link-rose hover-target">Find Us Locally</a>
+            </div>
+            <div class="collection-card hover-target reveal-up" style="transition-delay: 0.3s;">
+                <i class="fas fa-gift collection-icon"></i>
+                <h3>Corporate & Events</h3>
+                <p>Say "thank you" with custom logo cookies, or let us curate a stunning, mouth-watering dessert table
+                    for your next big El Paso event.</p>
+                <a href="#" class="link-rose hover-target">Event Inquiry</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-main">
+        <div class="seo-services-grid">
+            <div class="seo-text-block reveal-up">
+                <h3>Custom Themes & Designs</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">We specialize in creating unique, personalized
+                    cookies that taste as good as they look. Our royal icing designs are perfect for:</p>
+                <ul class="seo-list">
+                    <li><i class="fas fa-heart"></i> Elegant Wedding Favors & Bridal Showers</li>
+                    <li><i class="fas fa-baby-carriage"></i> Baby Showers & Gender Reveals</li>
+                    <li><i class="fas fa-birthday-cake"></i> Themed Birthday Parties</li>
+                    <li><i class="fas fa-graduation-cap"></i> Graduations & Milestones</li>
+                    <li><i class="fas fa-tree"></i> Holiday Pre-Sales (Halloween, Christmas, Valentine's)</li>
+                </ul>
+            </div>
+            <div class="seo-text-block reveal-up" style="transition-delay: 0.2s;">
+                <h3>How to Order in El Paso</h3>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Because every batch is made-to-order and
+                    meticulously hand-decorated, our calendar fills up quickly! Here is how to secure your sweets:</p>
+                <ul class="seo-list">
+                    <li><i class="fas fa-calendar-check"></i> <strong>Book Early:</strong> We recommend reaching out 3-4
+                        weeks in advance.</li>
+                    <li><i class="fas fa-envelope"></i> <strong>Send a Message:</strong> Reach out via Facebook or
+                        Instagram with your theme, date, and quantity.</li>
+                    <li><i class="fas fa-car"></i> <strong>Local Pickup:</strong> All orders are available for local
+                        pickup in the El Paso area.</li>
+                </ul>
+                <a href="#" class="btn-gold hover-target" style="margin-top: 20px; display: inline-block;">Message for
+                    Availability</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-sec">
+        <div class="about-grid">
+            <div class="about-img-wrap reveal-up">
+                <img src="images/limes.jpg" alt="Custom Decorated Sugar Cookies El Paso" class="about-img">
+                <img src="images/pan-dulce.jpg" alt="Baking Process Sugar Rush Sweets" class="about-img-accent">
+            </div>
+            <div class="about-content reveal-up" style="transition-delay: 0.2s;">
+                <span class="hero-label">The Face Behind the Icing</span>
+                <h2>Baked with Love <i>in El Paso</i></h2>
+                <p>Hi! I'm the heart behind the apron at Sugar Rush Sweets. What started as a passion for baking is
+                    slowly getting me closer to my dream of a full-scale bakery! Thank y'all so much for your continued
+                    support on this amazing journey. 💕</p>
+                <p>Every single cookie is rolled, baked, and meticulously decorated by hand using the best ingredients.
+                    Whether you need a spooky Halloween set, elegant wedding favors, or just a sweet treat to brighten
+                    your day, I pour my heart into every batch.</p>
+                <br>
+                <a href="#" class="btn-gold hover-target">Message Me</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="boutique-footer">
+        <img src="images/logo.jpg" alt="Sugar Rush Sweets Logo" class="footer-logo reveal-up"
+            onerror="this.style.display='none'">
+
+        <div class="footer-info reveal-up" style="transition-delay: 0.1s;">
+            <div>
+                <span>Service Area</span>
+                <strong>El Paso, Texas & Surrounding</strong>
+            </div>
+            <div>
+                <span>Let's Chat</span>
+                <strong>Message on Facebook/Insta</strong>
+            </div>
+            <div>
+                <span>Order Pickups</span>
+                <strong>Message for Availability</strong>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sugar Rush Sweets. Baked with love in El Paso, TX.</p>
+            <div class="social-lux">
+                <a href="#" class="hover-target"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover-target"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+                    cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
+                    setTimeout(() => { cursorOutline.style.left = `${posX}px`; cursorOutline.style.top = `${posY}px`; }, 50);
+                });
+
+                hoverTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursorOutline.style.backgroundColor = 'rgba(250, 218, 221, 0.2)';
+                    });
+                    target.addEventListener('mouseleave', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                    });
+                });
+            }
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) { navbar.classList.add('scrolled'); }
+                else { navbar.classList.remove('scrolled'); }
+            });
+
+            function checkReveals() {
+                var reveals = document.querySelectorAll('.reveal-up');
+                var windowHeight = window.innerHeight;
+                for (var i = 0; i < reveals.length; i++) {
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) { reveals[i].classList.add('active-reveal'); }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) { el.classList.add('active-reveal'); });
+            }, 1500);
+        });
+    </script>
+</body>
+
+</html>
