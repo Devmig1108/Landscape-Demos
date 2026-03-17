@@ -78,6 +78,7 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            overflow-x: hidden;
         }
 
         body {
@@ -274,6 +275,7 @@
             transition: var(--transition);
             border-radius: 0;
             font-weight: 600;
+            text-align: center;
         }
 
         .btn-gold:hover {
@@ -286,6 +288,7 @@
             ========================================= */
         .hero {
             height: 100vh;
+            min-height: 600px;
             width: 100%;
             display: flex;
             align-items: center;
@@ -331,6 +334,7 @@
         }
 
         .hero-content {
+            width: 100%;
             max-width: 650px;
             z-index: 1;
             margin-top: 50px;
@@ -348,9 +352,10 @@
         }
 
         .hero-title {
-            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
             line-height: 1.05;
             margin-bottom: 30px;
+            word-wrap: break-word;
         }
 
         .hero-title i {
@@ -367,6 +372,18 @@
             font-weight: 300;
             margin-bottom: 50px;
             transition: color 0.5s ease;
+        }
+
+        /* FIX: Prevents buttons from expanding off screen */
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .hero-actions a {
+            white-space: nowrap;
         }
 
         /* =========================================
@@ -398,16 +415,16 @@
         }
 
         .section-header h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
         }
 
         .bg-outline-text {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 12vw, 10rem);
+            font-size: clamp(3rem, 10vw, 10rem);
             color: transparent;
             -webkit-text-stroke: 1px var(--outline-color);
             position: absolute;
-            top: -80px;
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 0;
@@ -418,7 +435,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             max-width: 1400px;
             margin: 0 auto;
@@ -491,6 +508,8 @@
         .about-img-wrap {
             position: relative;
             height: 650px;
+            width: 100%;
+            max-width: 100%;
         }
 
         .about-img {
@@ -524,7 +543,7 @@
         }
 
         .about-content h2 {
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
             margin-bottom: 30px;
             line-height: 1.1;
         }
@@ -543,7 +562,7 @@
         }
 
         /* =========================================
-            6. MEET THE ARTISTS (NEW SEO SECTION)
+            6. MEET THE ARTISTS
             ========================================= */
         .artists-section {
             padding: 150px 5%;
@@ -554,7 +573,7 @@
 
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
@@ -594,11 +613,11 @@
         }
 
         /* =========================================
-            7. LOOKBOOK & GOOGLE REVIEWS (NEW SEO SECTION)
+            7. LOOKBOOK & GOOGLE REVIEWS
             ========================================= */
         .lookbook-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             max-width: 1600px;
             margin: 0 auto;
@@ -634,7 +653,7 @@
 
         .review-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
@@ -692,6 +711,13 @@
             text-decoration: none;
         }
 
+        .footer-logo-wrap img {
+            width: auto;
+            max-width: 250px;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
         .footer-logo-wrap h2 {
             font-size: 2.5rem;
             line-height: 1;
@@ -711,7 +737,7 @@
         .footer-info {
             display: flex;
             justify-content: center;
-            gap: 60px;
+            gap: 40px;
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -731,7 +757,7 @@
             color: var(--text-main);
             font-weight: 600;
             font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             letter-spacing: 1px;
             text-transform: none;
             transition: color 0.5s ease;
@@ -772,6 +798,8 @@
             justify-content: space-between;
             align-items: center;
             transition: border-color 0.5s ease;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .social-lux {
@@ -833,7 +861,7 @@
         }
 
         /* =========================================
-            10. RESPONSIVE DESIGN
+            10. RESPONSIVE OVERRIDES (MOBILE FIXES)
             ========================================= */
         @media (max-width: 900px) {
             .nav-links {
@@ -842,15 +870,11 @@
 
             .hero-bg {
                 width: 100%;
-                opacity: 0.4;
+                opacity: 0.3;
             }
 
             .bg-outline-text {
                 display: none;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
             }
 
             .about-grid {
@@ -859,29 +883,31 @@
             }
 
             .about-img-wrap {
-                height: 450px;
+                height: 400px;
             }
 
-            .lookbook-grid {
-                grid-template-columns: 1fr 1fr;
-                margin-bottom: 40px;
+            /* Ensures images don't break grid on mobile */
+            .about-img {
+                width: 90%;
             }
 
-            .review-grid {
-                grid-template-columns: 1fr;
+            .about-img-accent {
+                width: 50%;
             }
 
             .footer-info {
                 flex-direction: column;
                 gap: 30px;
+                text-align: center;
             }
 
             .footer-bottom {
                 flex-direction: column;
-                gap: 20px;
+                justify-content: center;
                 text-align: center;
             }
 
+            /* Disable custom cursor on mobile */
             .cursor-dot,
             .cursor-outline {
                 display: none;
@@ -889,6 +915,17 @@
 
             * {
                 cursor: auto !important;
+            }
+
+            /* Fix button stack */
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-actions a:nth-child(2) {
+                margin-left: 0 !important;
+                margin-top: 10px;
             }
         }
     </style>
@@ -936,7 +973,7 @@
                 Rtistic Hair Studio is El Paso’s destination for precision cuts, custom color, dimensional balayage, and
                 luxury styling. Experience elevated haircare tailored entirely to you.
             </p>
-            <div class="hero-animate-4">
+            <div class="hero-actions hero-animate-4">
                 <a href="#services" class="btn-gold hover-target"
                     style="background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg);">View
                     Services</a>
@@ -983,7 +1020,7 @@
         <div class="about-grid">
             <div class="about-img-wrap reveal-up">
                 <img src="images/chair.jpg" alt="Luxury Hair Salon in El Paso" class="about-img">
-                <img src="images/logo.png" alt="Rtistic Hair Studio Process" class="about-img-accent"
+                <img src="images/logo.png" alt="Rtistic Hair Studio Process" class="about-img-accent theme-invert"
                     onerror="this.src='https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800'">
             </div>
             <div class="about-content reveal-up" style="transition-delay: 0.2s;">
@@ -1020,7 +1057,7 @@
                 <p>Precision Cutting & Styling Expert</p>
             </div>
             <div class="artist-card reveal-up" style="transition-delay: 0.3s;">
-                <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?auto=format&fit=crop&q=80&w=600"
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f10d5e43?auto=format&fit=crop&q=80&w=600"
                     alt="Extensions Specialist" class="artist-img">
                 <h3>Sarah</h3>
                 <p>Extensions & Bridal Stylist</p>
@@ -1069,7 +1106,7 @@
 
     <footer class="salon-footer">
         <a href="#" class="footer-logo-wrap reveal-up hover-target">
-            <img src="images/logo.png" alt="Rtistic Logo" class="footer-logo-img theme-invert"
+            <img src="images/logo.png" alt="Rtistic Logo" class="theme-invert"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block';">
             <h2 style="display: none;">Rtistic</h2>
             <span style="display: none;">Hair Studio</span>
