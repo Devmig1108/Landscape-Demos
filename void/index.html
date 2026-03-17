@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamerName | Elite One-Handed Gameplay</title>
+    <meta name="description"
+        content="Top-tier competitive gameplay. One hand. Zero excuses. Join the stream and watch the meta get redefined.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+            0. ESPORTS/GAMING VARIABLES
+            ========================================= */
+        :root {
+            --bg-deep: #050505;
+            /* Void Black */
+            --bg-surface: #0f0f13;
+            /* Slightly lighter surface for cards */
+            --bg-elevated: #1a1a24;
+            /* Elevated elements */
+
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+
+            --neon-purple: #8b5cf6;
+            /* Core Brand Purple */
+            --neon-purple-glow: rgba(139, 92, 246, 0.4);
+            --neon-purple-dim: #6d28d9;
+
+            --accent-cyan: #06b6d4;
+            /* Secondary accent for contrast */
+            --accent-danger: #ef4444;
+            /* For "LIVE" indicators */
+
+            --glass: rgba(5, 5, 5, 0.85);
+            --glass-border: rgba(139, 92, 246, 0.15);
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* =========================================
+            1. RESET & GAMER CURSOR
+            ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Subtle grid background for tech feel */
+            background-image:
+                linear-gradient(var(--glass-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Custom Crosshair Cursor */
+        .cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: #fff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-outline {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--neon-purple);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: width 0.15s, height 0.15s, background-color 0.15s;
+            mix-blend-mode: screen;
+        }
+
+        /* =========================================
+            2. CYBER NAVIGATION
+            ========================================= */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: var(--transition);
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0) 100%);
+        }
+
+        .nav-header.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .brand-logo {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo span {
+            color: var(--neon-purple);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple-glow);
+        }
+
+        .live-btn {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--neon-purple);
+            color: #fff !important;
+            padding: 10px 25px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 0 15px var(--neon-purple-glow);
+            transition: var(--transition);
+        }
+
+        .live-btn:hover {
+            background: var(--neon-purple);
+            box-shadow: 0 0 25px var(--neon-purple);
+            transform: translateY(-2px);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-danger);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-danger);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* =========================================
+            3. GLITCH HERO SECTION
+            ========================================= */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+            padding: 0 10%;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Replace with a cool gaming setup or abstract game background */
+            background: linear-gradient(90deg, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.7) 50%, rgba(5, 5, 5, 0.2) 100%), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1600') center/cover;
+            z-index: -1;
+            filter: contrast(1.2) saturate(1.1);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-tag {
+            color: var(--neon-purple);
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: 5px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.1);
+            padding: 5px 15px;
+            border-left: 3px solid var(--neon-purple);
+        }
+
+        /* GLITCH EFFECT */
+        .glitch-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .glitch {
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            color: #fff;
+            position: relative;
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Hover glitch effect to show it's dynamic */
+        .glitch-wrapper:hover .glitch::before,
+        .glitch-wrapper:hover .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-deep);
+        }
+
+        .glitch-wrapper:hover .glitch::before {
+            left: 3px;
+            text-shadow: -2px 0 var(--accent-cyan);
+            clip: rect(24px, 550px, 90px, 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+        }
+
+        .glitch-wrapper:hover .glitch::after {
+            left: -3px;
+            text-shadow: -2px 0 var(--neon-purple);
+            clip: rect(85px, 550px, 140px, 0);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% {
+                clip: rect(11px, 9999px, 84px, 0);
+            }
+
+            20% {
+                clip: rect(44px, 9999px, 10px, 0);
+            }
+
+            40% {
+                clip: rect(88px, 9999px, 98px, 0);
+            }
+
+            60% {
+                clip: rect(22px, 9999px, 23px, 0);
+            }
+
+            80% {
+                clip: rect(77px, 9999px, 55px, 0);
+            }
+
+            100% {
+                clip: rect(33px, 9999px, 44px, 0);
+            }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% {
+                clip: rect(65px, 9999px, 100px, 0);
+            }
+
+            20% {
+                clip: rect(12px, 9999px, 54px, 0);
+            }
+
+            40% {
+                clip: rect(98px, 9999px, 32px, 0);
+            }
+
+            60% {
+                clip: rect(43px, 9999px, 76px, 0);
+            }
+
+            80% {
+                clip: rect(21px, 9999px, 11px, 0);
+            }
+
+            100% {
+                clip: rect(87px, 9999px, 99px, 0);
+            }
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            font-size: 1.5rem;
+            color: #fff;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--neon-purple);
+            box-shadow: 0 0 20px var(--neon-purple-glow);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+            4. THE META (ABOUT/SKILL)
+            ========================================= */
+        .section-padding {
+            padding: 150px 10%;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .vid-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--bg-surface);
+            border: 1px solid var(--neon-purple);
+            border-radius: 8px;
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vid-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.5s;
+        }
+
+        .vid-container:hover::before {
+            transform: translateX(100%);
+        }
+
+        .play-btn {
+            font-size: 4rem;
+            color: var(--neon-purple);
+            filter: drop-shadow(0 0 10px var(--neon-purple));
+            transition: var(--transition);
+        }
+
+        .vid-container:hover .play-btn {
+            transform: scale(1.1);
+            color: #fff;
+            filter: drop-shadow(0 0 15px var(--neon-purple));
+        }
+
+        .about-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .about-content h2 span {
+            color: var(--neon-purple);
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px var(--neon-purple-glow);
+        }
+
+        .stat-box p {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+            5. THE ARSENAL (GEAR/SETUP)
+            ========================================= */
+        .gear-section {
+            background: var(--bg-surface);
+            position: relative;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--neon-purple);
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+        }
+
+        .gear-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gear-card {
+            background: var(--bg-elevated);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gear-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--neon-purple);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .gear-card:hover {
+            transform: translateY(-10px);
+            background: #22222f;
+            box-shadow: 0 15px 30px var(--neon-purple-glow);
+        }
+
+        .gear-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .gear-icon {
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .gear-card:hover .gear-icon {
+            color: var(--neon-purple);
+            transform: scale(1.1);
+        }
+
+        .gear-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .gear-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* =========================================
+            6. FOOTER
+            ========================================= */
+        .stream-footer {
+            padding: 80px 10% 40px;
+            background: var(--bg-deep);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand span {
+            color: var(--neon-purple);
+            text-shadow: 0 0 15px var(--neon-purple-glow);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-family: var(--font-display);
+            font-weight: 700;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .footer-nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* =========================================
+            7. ANIMATIONS
+            ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+            8. RESPONSIVE
+            ========================================= */
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                padding: 0 5%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-bg {
+                width: 100%;
+                filter: grayscale(70%) opacity(0.3);
+            }
+
+            .glitch {
+                font-size: 3.5rem;
+            }
+
+            .social-row {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .gear-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo hover-target">
+                [TAG]<span>.</span>
+            </a>
+
+            <ul class="nav-menu">
+                <li><a href="#about" class="hover-target">The Meta</a></li>
+                <li><a href="#arsenal" class="hover-target">Arsenal</a></li>
+                <li><a href="#vods" class="hover-target">Highlights</a></li>
+                <li>
+                    <a href="#" class="live-btn hover-target">
+                        <div class="pulse-dot"></div> WATCH LIVE
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-tag reveal-up">Competitive • Tactician • Creator</span>
+
+            <div class="glitch-wrapper reveal-up" style="transition-delay: 0.1s;">
+                <h1 class="glitch" data-text="UNMATCHED SKILL.">UNMATCHED SKILL.</h1>
+                <h1 class="glitch" data-text="ZERO EXCUSES." style="color: var(--neon-purple);">ZERO EXCUSES.</h1>
+            </div>
+
+            <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">
+                High-tier competitive gameplay, aggressive strategies, and an unbreakable mindset. Proving that game
+                sense and mechanical execution outclass everything else.
+            </p>
+
+            <div class="social-row reveal-up" style="transition-delay: 0.3s;">
+                <a href="#" class="social-icon hover-target"><i class="fab fa-twitch"></i></a>
+                <a href="#" class="social-icon hover-target"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon hover-target"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-icon hover-target"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon hover-target"><i class="fab fa-discord"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding">
+        <div class="about-grid">
+            <div class="vid-container reveal-up hover-target">
+                <i class="fas fa-play play-btn"></i>
+            </div>
+
+            <div class="about-content reveal-up" style="transition-delay: 0.2s;">
+                <h2>Redefining <br><span>The Meta.</span></h2>
+                <p>I don't just play the game; I break it down, analyze it, and execute with absolute precision. Known
+                    for a heavily aggressive playstyle and high-IQ rotations.</p>
+                <p>I play entirely one-handed. While others see a limitation, I built a custom playstyle that maximizes
+                    APM (Actions Per Minute) and efficiency. It's not about how many hands are on the keyboard—it's
+                    about the speed of the processor behind the screen.</p>
+
+                <div class="stat-row">
+                    <div class="stat-box hover-target">
+                        <h4>15K+</h4>
+                        <p>HOURS LOGGED</p>
+                    </div>
+                    <div class="stat-box hover-target">
+                        <h4>TOP 1%</h4>
+                        <p>COMPETITIVE RANK</p>
+                    </div>
+                    <div class="stat-box hover-target">
+                        <h4>ONE</h4>
+                        <p>HAND REQUIRED</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="arsenal" class="section-padding gear-section">
+        <div class="section-header reveal-up">
+            <p>THE HARDWARE</p>
+            <h2>MY <span>ARSENAL</span></h2>
+        </div>
+
+        <div class="gear-grid">
+            <div class="gear-card reveal-up hover-target">
+                <i class="fas fa-mouse gear-icon"></i>
+                <h3>MMO Hyper-Mouse</h3>
+                <p>Equipped with a 12-button thumb grid. Every critical macro, movement, and weapon swap is mapped
+                    directly to my right hand for instantaneous reaction times.</p>
+            </div>
+
+            <div class="gear-card reveal-up hover-target" style="transition-delay: 0.1s;">
+                <i class="fas fa-keyboard gear-icon"></i>
+                <h3>Custom Foot Pedals</h3>
+                <p>Why waste a limb? I utilize triple-action foot pedals mapped to crouch, sprint, and push-to-talk,
+                    freeing up my mouse hand for pure mechanical aim.</p>
+            </div>
+
+            <div class="gear-card reveal-up hover-target" style="transition-delay: 0.2s;">
+                <i class="fas fa-headset gear-icon"></i>
+                <h3>Audio Engineering</h3>
+                <p>Studio-grade DACs and open-back audiophile headphones. Game sense requires hearing the enemy's
+                    footsteps three rooms away before they even know I'm there.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="stream-footer">
+        <div class="footer-brand reveal-up hover-target">
+            [TAG]<span>.</span>
+        </div>
+
+        <div class="footer-nav reveal-up" style="transition-delay: 0.1s;">
+            <a href="#" class="hover-target">Twitch</a>
+            <a href="#" class="hover-target">YouTube</a>
+            <a href="#" class="hover-target">Merch</a>
+            <a href="#" class="hover-target">Business Inquiries</a>
+        </div>
+
+        <div class="footer-bottom reveal-up" style="transition-delay: 0.2s;">
+            <p>&copy; 2026 [StreamerName]. Built for the grind.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* --- 1. Gamer Cursor Logic --- */
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button, .vid-container, .gear-card');
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+
+                    setTimeout(() => {
+                        cursorOutline.style.left = `${posX}px`;
+                        cursorOutline.style.top = `${posY}px`;
+                    }, 40); // Slightly faster snap for a "gaming" feel
+                });
+
+                hoverTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                        cursorOutline.style.backgroundColor = 'rgba(139, 92, 246, 0.2)'; // Purple tint
+                        cursorOutline.style.borderColor = '#06b6d4'; // Snap to cyan on hover
+                    });
+                    target.addEventListener('mouseleave', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                        cursorOutline.style.borderColor = 'var(--neon-purple)';
+                    });
+                });
+            }
+
+            /* --- 2. Cyber Navbar Glass Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- 3. Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+
+                reveals.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        el.classList.add('active');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            // Failsafe
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active'));
+            }, 1500);
+
+        });
+    </script>
+</body>
+
+</html>
