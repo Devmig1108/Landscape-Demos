@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunTex Concrete & Landscaping | Luxury Outdoor Living in El Paso</title>
+    <meta name="description"
+        content="El Paso's premier designer of custom concrete, artificial turf, stamped driveways, and bespoke outdoor living spaces.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+            0. $20K DYNAMIC THEME VARIABLES
+            ========================================= */
+        :root {
+            /* Brand Gold derived from Logo */
+            --brand-gold: #C89F3C;
+            --brand-gold-muted: #a6812c;
+
+            /* DARK MODE (NATIVE DEFAULT FOR LUXURY) */
+            --bg-main: #050505;
+            --bg-sec: #111111;
+            --text-main: #F5F5F5;
+            --text-muted: #888888;
+
+            --glass: rgba(5, 5, 5, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-lux: 0 30px 60px rgba(0, 0, 0, 0.8);
+
+            --hero-overlay: linear-gradient(rgba(5, 5, 5, 0.5), rgba(5, 5, 5, 0.95));
+            --outline-color: rgba(255, 255, 255, 0.03);
+
+            --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* LIGHT MODE OVERRIDES */
+        body.light-theme {
+            --bg-main: #FFFFFF;
+            --bg-sec: #F7F7F7;
+            --text-main: #0A0A0A;
+            --text-muted: #555555;
+
+            --glass: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --shadow-lux: 0 30px 60px rgba(0, 0, 0, 0.05);
+
+            --hero-overlay: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.95));
+            --outline-color: rgba(0, 0, 0, 0.03);
+        }
+
+        body.light-theme .dynamic-logo {
+            filter: invert(1) hue-rotate(180deg) contrast(1.2);
+        }
+
+        /* =========================================
+            1. RESET & CUSTOM CURSOR
+            ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.8s ease, color 0.8s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            color: var(--text-main);
+            transition: color 0.8s ease;
+        }
+
+        /* Minimalist Gold Cursor */
+        .cursor-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--brand-gold);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .cursor-outline {
+            width: 50px;
+            height: 50px;
+            border: 1px solid rgba(200, 159, 60, 0.3);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transform: translate(-50%, -50%);
+            transition: 0.15s ease-out, transform 0.3s ease;
+        }
+
+        /* =========================================
+            2. EDITORIAL NAVIGATION
+            ========================================= */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 30px 5%;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .nav-header.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: auto;
+            transition: var(--transition);
+            object-fit: contain;
+        }
+
+        .nav-header.scrolled .logo-img {
+            height: 55px;
+        }
+
+        .nav-actions-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-gold);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--brand-gold);
+        }
+
+        .btn-gold {
+            background: transparent;
+            color: var(--brand-gold);
+            border: 1px solid var(--brand-gold);
+            padding: 15px 40px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: var(--transition);
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: var(--brand-gold);
+            color: var(--bg-main);
+        }
+
+        /* =========================================
+            3. MONOLITHIC HERO SECTION
+            ========================================= */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 70%;
+            height: 100%;
+            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=1600') center/cover;
+            z-index: -1;
+            animation: cinematicZoom 30s infinite alternate;
+            transition: background 0.8s ease;
+        }
+
+        @keyframes cinematicZoom {
+            from {
+                transform: scale(1);
+                filter: grayscale(30%);
+            }
+
+            to {
+                transform: scale(1.15);
+                filter: grayscale(0%);
+            }
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+            margin-top: 80px;
+        }
+
+        .hero-label {
+            color: var(--brand-gold);
+            font-size: 0.7rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            display: block;
+            font-family: 'Inter';
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 7.5rem);
+            line-height: 1;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+        }
+
+        .hero-title i {
+            font-style: italic;
+            color: var(--brand-gold);
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 550px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            transition: color 0.8s ease;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-top: 50px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .trust-badge i {
+            color: var(--brand-gold);
+            font-size: 1.2rem;
+        }
+
+        /* =========================================
+            4. ASYMMETRIC EXPERTISE (20K LAYOUT)
+            ========================================= */
+        .section-padding {
+            padding: 180px 5%;
+            transition: background-color 0.8s ease;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .section-header span {
+            color: var(--brand-gold);
+            font-size: 0.7rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            letter-spacing: -1px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .port-card {
+            position: relative;
+            width: 100%;
+            transition: var(--transition);
+        }
+
+        .port-card:nth-child(even) {
+            margin-top: 150px;
+        }
+
+        .port-img-wrap {
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-lux);
+            margin-bottom: 30px;
+        }
+
+        .port-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+        }
+
+        .port-card:hover .port-img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+
+        .port-info h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .port-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 300;
+            max-width: 85%;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-list {
+            list-style: none;
+            font-family: 'Inter';
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--brand-gold);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .service-list li {
+            border: 1px solid rgba(200, 159, 60, 0.3);
+            padding: 5px 15px;
+            border-radius: 50px;
+        }
+
+        .port-number {
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            font-family: 'Playfair Display';
+            font-size: 8rem;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--brand-gold);
+            opacity: 0.3;
+            z-index: -1;
+            line-height: 1;
+        }
+
+        /* =========================================
+            5. THE SUNTEX STANDARD (ABOUT)
+            ========================================= */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 100px;
+            max-width: 1600px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+            transition: color 0.8s ease;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 50px;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            transition: border-color 0.8s ease;
+        }
+
+        .stat div {
+            font-family: 'Playfair Display';
+            font-size: 3.5rem;
+            color: var(--brand-gold);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .about-image-collage {
+            position: relative;
+            height: 800px;
+        }
+
+        .img-large {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            box-shadow: var(--shadow-lux);
+            filter: grayscale(10%);
+            transition: var(--transition);
+        }
+
+        .img-small {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 55%;
+            height: 50%;
+            object-fit: cover;
+            border: 20px solid var(--bg-main);
+            box-shadow: var(--shadow-lux);
+            z-index: 2;
+            transition: border-color 0.8s ease, transform 0.5s ease;
+        }
+
+        .about-image-collage:hover .img-small {
+            transform: translateY(-15px);
+        }
+
+        .about-image-collage:hover .img-large {
+            filter: grayscale(0%);
+        }
+
+        /* =========================================
+            6. REFINED EDITORIAL FOOTER
+            ========================================= */
+        .footer-sec {
+            background: var(--bg-sec);
+            padding: 120px 5% 50px;
+            border-top: 1px solid var(--glass-border);
+            transition: background-color 0.8s ease;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 80px;
+            max-width: 1600px;
+            margin: 0 auto;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 80px;
+            transition: border-color 0.8s ease;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-brand .logo-img {
+            height: 90px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            font-family: 'Playfair Display';
+            color: var(--text-muted);
+            max-width: 400px;
+            line-height: 1.6;
+        }
+
+        .footer-column h4 {
+            font-family: 'Inter';
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-main);
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 20px;
+        }
+
+        .footer-column a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: var(--brand-gold);
+        }
+
+        .footer-column .contact-gold {
+            color: var(--brand-gold);
+            font-family: 'Playfair Display';
+            font-size: 1.5rem;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 50px auto 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .social-lux {
+            display: flex;
+            gap: 30px;
+        }
+
+        .social-lux a {
+            color: var(--text-main);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-lux a:hover {
+            color: var(--brand-gold);
+            transform: translateY(-3px);
+        }
+
+        /* =========================================
+            7. CINEMATIC REVEAL ANIMATIONS
+            ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-1 {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        .load-2 {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .load-3 {
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+        }
+
+        /* =========================================
+            8. RESPONSIVE DESIGN
+            ========================================= */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-bg {
+                width: 100%;
+                opacity: 0.5;
+            }
+
+            .trust-badges {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .port-card:nth-child(even) {
+                margin-top: 0;
+            }
+
+            .about-split {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image-collage {
+                height: 500px;
+                margin-top: 50px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo hover-target">
+                <img src="images/logo.jpg" alt="SunTex LLC Logo" class="logo-img dynamic-logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="brand-text" style="display: none;">
+                    <span class="title">SunTex</span>
+                    <span class="subtitle">Concrete</span>
+                </div>
+            </a>
+
+            <div class="nav-actions-wrapper">
+                <div class="nav-links">
+                    <a href="#expertise" class="hover-target">Expertise</a>
+                    <a href="#studio" class="hover-target">The Standard</a>
+                    <a href="#portfolio" class="hover-target">Portfolio</a>
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle hover-target" aria-label="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+
+                <a href="tel:9158017459" class="btn-gold hover-target">Free Estimate</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-label load-1">El Paso, Texas</span>
+            <h1 class="hero-title load-2">
+                Redefining Your<br><i>Outdoors.</i>
+            </h1>
+            <p class="hero-desc load-3">
+                SunTex Concrete & Landscaping is El Paso's premier design and build firm. From stamped concrete
+                driveways to custom pergolas and artificial turf, we turn standard yards into structural masterpieces.
+                Any size, any shape, we can do it.
+            </p>
+            <div class="load-3" style="animation-delay: 0.2s;">
+                <a href="#portfolio" class="btn-gold hover-target"
+                    style="background: var(--brand-gold); color: #000; border-color: var(--brand-gold);">View
+                    Services</a>
+                <a href="tel:9158017459" class="hover-target"
+                    style="font-family: 'Inter'; font-weight: 500; font-size: 0.8rem; letter-spacing: 2px; margin-left: 30px; text-decoration: none; color: var(--text-main); text-transform: uppercase; border-bottom: 1px solid var(--brand-gold); padding-bottom: 5px;">(915)
+                    801-7459</a>
+            </div>
+
+            <div class="trust-badges load-3" style="animation-delay: 0.4s;">
+                <div class="trust-badge"><i class="fas fa-file-invoice-dollar"></i> Free Estimates</div>
+                <div class="trust-badge"><i class="fas fa-hand-holding-usd"></i> Financing Available</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="section-padding bg-sec">
+        <div class="section-header reveal-up">
+            <span>Our Expertise</span>
+            <h2>Architectural <i>Hardscapes</i></h2>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <div class="port-card hover-target reveal-up">
+                <div class="port-number">01</div>
+                <div class="port-img-wrap">
+                    <img src="images/stamped.jpg"
+                        alt="Stamped Concrete Driveway" class="port-img">
+                </div>
+                <div class="port-info">
+                    <h3>Premium Concrete</h3>
+                    <p>Engineered foundations, elegant stamped designs, and durable driveways tailored to withstand the
+                        Texas climate while elevating your property value.</p>
+                    <ul class="service-list">
+                        <li>Regular Gray</li>
+                        <li>Stamped Concrete</li>
+                        <li>Colored Concrete</li>
+                        <li>Driveways</li>
+                        <li>Sidewalks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="port-card hover-target reveal-up" style="transition-delay: 0.2s;">
+                <div class="port-number">02</div>
+                <div class="port-img-wrap">
+                    <img src="images/landscape.jpg"
+                        alt="Artificial Turf and Landscaping" class="port-img">
+                </div>
+                <div class="port-info">
+                    <h3>Architectural Landscaping</h3>
+                    <p>Complete yard transformations featuring pristine artificial turf, custom planters, and
+                        meticulously placed landscaping rock for a zero-maintenance oasis.</p>
+                    <ul class="service-list">
+                        <li>Artificial Turf</li>
+                        <li>Landscaping Rock</li>
+                        <li>Planters</li>
+                        <li>Sod Installation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="port-card hover-target reveal-up">
+                <div class="port-number">03</div>
+                <div class="port-img-wrap">
+                    <img src="images/pergola.jpg"
+                        alt="Custom Pergolas and Patios" class="port-img">
+                </div>
+                <div class="port-info">
+                    <h3>Custom Structures</h3>
+                    <p>Bespoke pergolas, elegant steps, and expansive patios designed to blur the line between indoor
+                        comfort and outdoor majesty.</p>
+                    <ul class="service-list">
+                        <li>Pergolas</li>
+                        <li>Custom Patios</li>
+                        <li>Steps & Foundations</li>
+                        <li>Outdoor Living</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="studio" class="section-padding">
+        <div class="about-split">
+            <div class="about-text reveal-up">
+                <span
+                    style="color: var(--brand-gold); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 20px;">
+                    The SunTex Standard
+                </span>
+                <h2>Any Size, <br>Any <i>Shape.</i></h2>
+                <p>At SunTex Concrete, we do not believe in limitations. Whether you need a massive commercial
+                    foundation poured or a delicate stamped concrete patio for your backyard, our team executes with
+                    absolute precision.</p>
+                <p>Serving El Paso and the surrounding areas, we source only the highest-grade materials to ensure your
+                    outdoor sanctuary stands the test of time. We proudly offer <strong>100% Free Estimates</strong> and
+                    flexible <strong>Financing Options</strong> to bring your vision to life.</p>
+
+                <div class="about-stats">
+                    <div>
+                        <div>100%</div>
+                        <span>Custom Engineered</span>
+                    </div>
+                    <div>
+                        <div>0$</div>
+                        <span>Free Estimates</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-image-collage reveal-up" style="transition-delay: 0.2s;">
+                <img src="images/front-yard.jpg"
+                    alt="Luxury Patio Design" class="img-large hover-target">
+                <img src="images/concrete.jpg"
+                    alt="Concrete Pouring" class="img-small hover-target">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-sec">
+        <div class="footer-content">
+            <div class="footer-brand reveal-up">
+                <img src="images/logo.png" alt="SunTex LLC Logo" class="logo-img dynamic-logo"
+                    onerror="this.style.display='none'">
+                <p>Elevating the standard of custom concrete, landscaping, and outdoor living structures in El Paso,
+                    Texas.</p>
+            </div>
+
+            <div class="footer-column reveal-up" style="transition-delay: 0.1s;">
+                <h4>Expertise</h4>
+                <ul>
+                    <li><a href="#" class="hover-target">Concrete Driveways</a></li>
+                    <li><a href="#" class="hover-target">Stamped & Colored Concrete</a></li>
+                    <li><a href="#" class="hover-target">Artificial Turf & Sod</a></li>
+                    <li><a href="#" class="hover-target">Custom Pergolas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column reveal-up" style="transition-delay: 0.2s;">
+                <h4>Inquiries & Quotes</h4>
+                <ul>
+                    <li><a href="tel:9158017459" class="contact-gold hover-target">(915) 801-7459</a></li>
+                    <li><span
+                            style="color: var(--brand-gold); font-size: 0.8rem; font-weight: bold; letter-spacing: 1px;">FINANCING
+                            AVAILABLE</span></li>
+                    <li style="margin-top: 20px; color: var(--text-muted);">El Paso, TX & Surrounding Areas<br>Call or
+                        Text for Free Estimate</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+            <p>&copy; 2026 SunTex Concrete & Landscaping.</p>
+            <div class="social-lux">
+                <a href="#" class="hover-target"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover-target"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- 1. Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                const body = document.body;
+
+                if (body.classList.contains('light-theme')) {
+                    // Switch to Dark
+                    body.classList.remove('light-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    // Switch to Light
+                    body.classList.add('light-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+
+            /* --- 2. Luxury Custom Cursor Logic --- */
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+
+                    setTimeout(() => {
+                        cursorOutline.style.left = `${posX}px`;
+                        cursorOutline.style.top = `${posY}px`;
+                    }, 60);
+                });
+
+                hoverTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.8)';
+                        cursorOutline.style.backgroundColor = 'rgba(200, 159, 60, 0.1)';
+                    });
+                    target.addEventListener('mouseleave', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                    });
+                });
+            }
+
+            /* --- 3. Sticky Navbar Glass Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- 4. Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                var reveals = document.querySelectorAll('.reveal-up');
+                var windowHeight = window.innerHeight;
+
+                for (var i = 0; i < reveals.length; i++) {
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            // FAILSAFE: Reveal everything after 1.5 seconds if script gets blocked
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1500);
+
+        });
+    </script>
+</body>
+
+</html>
