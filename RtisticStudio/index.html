@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rtistic Hair Studio | Premier Salon in El Paso, TX</title>
+    <meta name="description"
+        content="El Paso's top-rated hair studio specializing in precision cuts, custom color, balayage, and luxury styling. Book your transformation today.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+            0. DYNAMIC THEME VARIABLES (SALON GLAMOUR)
+            ========================================= */
+        :root {
+            --brand-maroon: #5a2a2a;
+            --brand-maroon-dark: #3a1919;
+            --brand-copper: #c48b5d;
+
+            --bg-main: #FAFAFA;
+            --bg-sec: #FFFFFF;
+            --text-main: #1A1A1A;
+            --text-muted: #666666;
+
+            --glass: rgba(250, 250, 250, 0.95);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --shadow-soft: 0 15px 40px rgba(0, 0, 0, 0.04);
+
+            --hero-overlay: linear-gradient(rgba(250, 250, 250, 0.4), rgba(250, 250, 250, 0.95));
+            --outline-color: rgba(90, 42, 42, 0.05);
+
+            --highlight: var(--brand-maroon);
+            --accent: var(--brand-copper);
+            --btn-bg: var(--brand-maroon);
+            --btn-text: #FFFFFF;
+            --btn-hover: var(--brand-copper);
+
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* DARK MODE OVERRIDES */
+        body.dark-theme {
+            --bg-main: #0D0D0D;
+            --bg-sec: #141414;
+            --text-main: #F5F5F5;
+            --text-muted: #A3A3A3;
+            --glass: rgba(13, 13, 13, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --hero-overlay: linear-gradient(rgba(13, 13, 13, 0.6), rgba(13, 13, 13, 0.95));
+            --outline-color: rgba(255, 255, 255, 0.03);
+            --highlight: var(--brand-copper);
+            --accent: var(--brand-copper);
+            --btn-bg: var(--brand-copper);
+            --btn-text: #0D0D0D;
+            --btn-hover: #FFFFFF;
+        }
+
+        body.dark-theme .theme-invert {
+            filter: brightness(0) invert(1);
+        }
+
+        /* =========================================
+            1. RESET & CUSTOM CURSOR
+            ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--text-main);
+            transition: color 0.5s ease;
+        }
+
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.5s ease;
+        }
+
+        .cursor-outline {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--accent);
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.5;
+            transform: translate(-50%, -50%);
+            transition: 0.15s ease-out, border-color 0.5s ease;
+        }
+
+        /* =========================================
+            2. BOUTIQUE NAVIGATION
+            ========================================= */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 5%;
+            transition: var(--transition);
+            background: transparent;
+        }
+
+        .nav-header.scrolled {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .nav-header.scrolled .logo-img {
+            height: 40px;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-text .title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            line-height: 1;
+            color: var(--text-main);
+        }
+
+        .brand-text .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-actions-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            font-weight: 500;
+            transition: color 0.5s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .theme-toggle:hover {
+            background: var(--glass-border);
+            color: var(--accent);
+        }
+
+        .btn-gold {
+            background: var(--bg-main);
+            color: var(--text-main);
+            border: 1px solid var(--text-main);
+            padding: 12px 35px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: none;
+            transition: var(--transition);
+            border-radius: 0;
+            font-weight: 600;
+        }
+
+        .btn-gold:hover {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        /* =========================================
+            3. CINEMATIC HERO SECTION
+            ========================================= */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0 5%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 65%;
+            height: 100%;
+            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=1200') center/cover;
+            z-index: -1;
+            animation: slideBg 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+            transition: background 0.5s ease;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, var(--bg-main) 0%, transparent 100%);
+        }
+
+        @keyframes slideBg {
+            from {
+                opacity: 0;
+                transform: scale(1.05) translateX(30px);
+                filter: grayscale(50%);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateX(0);
+                filter: grayscale(0%);
+            }
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 1;
+            margin-top: 50px;
+        }
+
+        .hero-label {
+            color: var(--accent);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: block;
+            font-weight: 600;
+            transition: color 0.5s ease;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            line-height: 1.05;
+            margin-bottom: 30px;
+        }
+
+        .hero-title i {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--highlight);
+            transition: color 0.5s ease;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            transition: color 0.5s ease;
+        }
+
+        /* =========================================
+            4. THE SALON EXPERIENCE (SERVICES)
+            ========================================= */
+        .section-padding {
+            padding: 150px 5%;
+            transition: background-color 0.5s ease;
+        }
+
+        .bg-sec {
+            background-color: var(--bg-sec);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+        }
+
+        .bg-outline-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 12vw, 10rem);
+            color: transparent;
+            -webkit-text-stroke: 1px var(--outline-color);
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            white-space: nowrap;
+            pointer-events: none;
+            transition: -webkit-text-stroke 0.5s ease;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card {
+            background: var(--bg-main);
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-soft);
+            border-bottom-color: var(--accent);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--highlight);
+            margin-bottom: 25px;
+            transition: color 0.5s ease;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .link-editorial {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 5px;
+            transition: var(--transition);
+        }
+
+        .link-editorial:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+            5. ARTISTRY & EXPERTISE (ABOUT)
+            ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-img-wrap {
+            position: relative;
+            height: 650px;
+        }
+
+        .about-img {
+            width: 85%;
+            height: 90%;
+            object-fit: cover;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+
+        .about-img-wrap:hover .about-img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .about-img-accent {
+            width: 55%;
+            height: 55%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            border: 15px solid var(--bg-main);
+            box-shadow: var(--shadow-soft);
+            transition: border-color 0.5s ease;
+        }
+
+        .about-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .about-content h2 i {
+            font-weight: 400;
+            color: var(--accent);
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* =========================================
+            6. MEET THE ARTISTS (NEW SEO SECTION)
+            ========================================= */
+        .artists-section {
+            padding: 150px 5%;
+            background-color: var(--bg-main);
+            transition: background-color 0.5s ease;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .artist-card {
+            text-align: center;
+        }
+
+        .artist-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            filter: grayscale(20%);
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .artist-card:hover .artist-img {
+            filter: grayscale(0%);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .artist-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .artist-card p {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* =========================================
+            7. LOOKBOOK & GOOGLE REVIEWS (NEW SEO SECTION)
+            ========================================= */
+        .lookbook-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1600px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+        }
+
+        .lookbook-item {
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(50%);
+            transition: var(--transition);
+            transform: scale(1.05);
+        }
+
+        .lookbook-item:hover img {
+            filter: grayscale(0%);
+            transform: scale(1);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-box {
+            background: var(--bg-main);
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .review-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-soft);
+            border-color: var(--accent);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        /* =========================================
+            8. REFINED FOOTER & FAQ
+            ========================================= */
+        .salon-footer {
+            padding: 100px 5% 40px;
+            background: var(--bg-sec);
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .footer-logo-wrap {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+            text-decoration: none;
+        }
+
+        .footer-logo-wrap h2 {
+            font-size: 2.5rem;
+            line-height: 1;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .footer-logo-wrap span {
+            font-family: 'Inter';
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            transition: color 0.5s ease;
+        }
+
+        .footer-info div {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-info strong {
+            color: var(--text-main);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+            text-transform: none;
+            transition: color 0.5s ease;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            text-align: left;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--glass-border);
+            padding-top: 30px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.5s ease;
+        }
+
+        .social-lux {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-lux a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-lux a:hover {
+            color: var(--accent);
+        }
+
+        /* =========================================
+            9. BULLETPROOF ANIMATIONS
+            ========================================= */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-animate-1 {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .hero-animate-2 {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-animate-3 {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-animate-4 {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+        }
+
+        /* =========================================
+            10. RESPONSIVE DESIGN
+            ========================================= */
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-bg {
+                width: 100%;
+                opacity: 0.4;
+            }
+
+            .bg-outline-text {
+                display: none;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-img-wrap {
+                height: 450px;
+            }
+
+            .lookbook-grid {
+                grid-template-columns: 1fr 1fr;
+                margin-bottom: 40px;
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .cursor-dot,
+            .cursor-outline {
+                display: none;
+            }
+
+            * {
+                cursor: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo hover-target">
+                <img src="images/logo.png" alt="Rtistic Hair Studio Logo" class="logo-img theme-invert"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="brand-text" style="display: none;">
+                    <span class="title">Rtistic</span>
+                    <span class="subtitle">Hair Studio</span>
+                </div>
+            </a>
+
+            <div class="nav-actions-wrapper">
+                <div class="nav-links">
+                    <a href="#services" class="hover-target">Services</a>
+                    <a href="#about" class="hover-target">The Studio</a>
+                    <a href="#artists" class="hover-target">Artists</a>
+                    <a href="#lookbook" class="hover-target">Lookbook</a>
+                </div>
+
+                <button id="theme-toggle" class="theme-toggle hover-target" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <span class="hero-label hero-animate-1">Premier Salon in El Paso, TX</span>
+            <h1 class="hero-title hero-animate-2">
+                Artistry in <br><i>Every Strand.</i>
+            </h1>
+            <p class="hero-desc hero-animate-3">
+                Rtistic Hair Studio is El Paso’s destination for precision cuts, custom color, dimensional balayage, and
+                luxury styling. Experience elevated haircare tailored entirely to you.
+            </p>
+            <div class="hero-animate-4">
+                <a href="#services" class="btn-gold hover-target"
+                    style="background: var(--btn-bg); color: var(--btn-text); border-color: var(--btn-bg);">View
+                    Services</a>
+                <a href="tel:9155982900" class="hover-target"
+                    style="font-family: 'Inter'; font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; margin-left: 25px; text-decoration: none; color: var(--text-main); text-transform: uppercase;">(915)
+                    598-2900</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-padding bg-sec">
+        <div class="section-header reveal-up">
+            <div class="bg-outline-text">SERVICES</div>
+            <span>Our Expertise</span>
+            <h2>Tailored <i>Treatments</i></h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card hover-target reveal-up" style="transition-delay: 0.1s;">
+                <i class="fas fa-cut service-icon"></i>
+                <h3>Precision Cuts</h3>
+                <p>From modern textured lobs to classic tailoring. Every haircut is designed to complement your face
+                    shape, lifestyle, and natural hair texture.</p>
+                <a href="#" class="link-editorial hover-target">Learn More</a>
+            </div>
+            <div class="service-card hover-target reveal-up" style="transition-delay: 0.2s;">
+                <i class="fas fa-palette service-icon"></i>
+                <h3>Custom Color</h3>
+                <p>Dimensional balayage, seamless highlights, and rich all-over color. We formulate custom palettes
+                    using premium, hair-safe products.</p>
+                <a href="#" class="link-editorial hover-target">Learn More</a>
+            </div>
+            <div class="service-card hover-target reveal-up" style="transition-delay: 0.3s;">
+                <i class="fas fa-magic service-icon"></i>
+                <h3>Styling & Care</h3>
+                <p>Brazilian blowouts, deep conditioning treatments, and luxury styling for your most important events
+                    and everyday confidence.</p>
+                <a href="#" class="link-editorial hover-target">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-padding bg-main">
+        <div class="about-grid">
+            <div class="about-img-wrap reveal-up">
+                <img src="images/chair.jpg" alt="Luxury Hair Salon in El Paso" class="about-img">
+                <img src="images/logo.png" alt="Rtistic Hair Studio Process" class="about-img-accent"
+                    onerror="this.src='https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&q=80&w=800'">
+            </div>
+            <div class="about-content reveal-up" style="transition-delay: 0.2s;">
+                <span class="hero-label">The Rtistic Experience</span>
+                <h2>Elevating El Paso's <i>Standards</i></h2>
+                <p>At Rtistic Hair Studio, we believe that your hair is your most important accessory. Located in the
+                    heart of El Paso, our studio is designed to be a sanctuary of style, comfort, and creativity.</p>
+                <p>Our master stylists continuously educate themselves on the latest trends and techniques in the
+                    industry. Whether you are looking for a subtle refresh or a complete transformation, we take the
+                    time to listen, consult, and deliver results that exceed expectations.</p>
+                <br>
+                <a href="tel:9155982900" class="btn-gold hover-target">Book Your Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="artists" class="artists-section">
+        <div class="section-header reveal-up">
+            <div class="bg-outline-text" style="top: -60px;">STYLISTS</div>
+            <span>The Visionaries</span>
+            <h2>Meet The <i>Artists</i></h2>
+        </div>
+        <div class="artists-grid">
+            <div class="artist-card reveal-up" style="transition-delay: 0.1s;">
+                <img src="https://images.unsplash.com/photo-1595959183082-7b570b7e08e2?auto=format&fit=crop&q=80&w=600"
+                    alt="Master Stylist El Paso" class="artist-img">
+                <h3>Elena</h3>
+                <p>Master Colorist & Balayage Specialist</p>
+            </div>
+            <div class="artist-card reveal-up" style="transition-delay: 0.2s;">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=80&w=600"
+                    alt="Precision Hair Cutter" class="artist-img">
+                <h3>Marcus</h3>
+                <p>Precision Cutting & Styling Expert</p>
+            </div>
+            <div class="artist-card reveal-up" style="transition-delay: 0.3s;">
+                <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?auto=format&fit=crop&q=80&w=600"
+                    alt="Extensions Specialist" class="artist-img">
+                <h3>Sarah</h3>
+                <p>Extensions & Bridal Stylist</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="lookbook" class="section-padding bg-sec" style="padding-bottom: 80px;">
+        <div class="section-header reveal-up" style="margin-bottom: 50px;">
+            <span>The Lookbook</span>
+            <h2>Our <i>Canvas</i></h2>
+        </div>
+
+        <div class="lookbook-grid reveal-up">
+            <div class="lookbook-item"><img src="images/guy.jpg" alt="Men's Haircut El Paso"
+                    onerror="this.src='https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&q=80&w=600'">
+            </div>
+            <div class="lookbook-item"><img src="images/red.jpg" alt="Vibrant Red Hair Color"
+                    onerror="this.src='https://images.unsplash.com/photo-1562322140-8baeececf3ce?auto=format&fit=crop&q=80&w=600'">
+            </div>
+            <div class="lookbook-item"><img src="images/brown.jpg" alt="Brunette Balayage"
+                    onerror="this.src='https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&q=80&w=600'">
+            </div>
+            <div class="lookbook-item"><img src="images/blue.jpg" alt="Creative Fashion Color Hair"
+                    onerror="this.src='https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&q=80&w=600'">
+            </div>
+        </div>
+
+        <div class="reviews-container reveal-up">
+            <div class="review-grid">
+                <div class="review-box">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Absolutely the best salon in El Paso. My balayage turned out flawless and
+                        the studio atmosphere is so relaxing."</p>
+                    <p class="review-author">Jessica M.</p>
+                </div>
+                <div class="review-box">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"I've been looking for a precision cutter for years. The attention to detail
+                        here is unmatched. Highly recommend!"</p>
+                    <p class="review-author">David T.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="salon-footer">
+        <a href="#" class="footer-logo-wrap reveal-up hover-target">
+            <img src="images/logo.png" alt="Rtistic Logo" class="footer-logo-img theme-invert"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'; this.nextElementSibling.nextElementSibling.style.display='block';">
+            <h2 style="display: none;">Rtistic</h2>
+            <span style="display: none;">Hair Studio</span>
+        </a>
+
+        <div class="footer-info reveal-up" style="transition-delay: 0.1s;">
+            <div>
+                <span>Location</span>
+                <strong>El Paso, Texas</strong>
+            </div>
+            <div>
+                <span>Appointments</span>
+                <strong>(915) 598-2900</strong>
+            </div>
+            <div>
+                <span>Availability</span>
+                <strong>By Appointment</strong>
+            </div>
+        </div>
+
+        <div class="faq-container reveal-up" style="transition-delay: 0.2s;">
+            <div class="faq-item">
+                <h4>Do I need an appointment?</h4>
+                <p>Yes, to ensure every client receives our full attention, Rtistic Hair Studio operates by appointment
+                    only.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What type of color products do you use?</h4>
+                <p>We use exclusively premium, professional-grade color lines designed to protect hair integrity while
+                    delivering vibrant, lasting results.</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Rtistic Hair Studio. All rights reserved.</p>
+            <div class="social-lux">
+                <a href="#" class="hover-target"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover-target"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- 1. Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+
+                if (document.body.classList.contains('dark-theme')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
+
+            /* --- 2. Custom Cursor Logic --- */
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button');
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                window.addEventListener('mousemove', (e) => {
+                    const posX = e.clientX;
+                    const posY = e.clientY;
+
+                    cursorDot.style.left = `${posX}px`;
+                    cursorDot.style.top = `${posY}px`;
+
+                    setTimeout(() => {
+                        cursorOutline.style.left = `${posX}px`;
+                        cursorOutline.style.top = `${posY}px`;
+                    }, 50);
+                });
+
+                hoverTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                        cursorOutline.style.backgroundColor = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+                        cursorOutline.style.opacity = '0.15';
+                    });
+                    target.addEventListener('mouseleave', () => {
+                        cursorOutline.style.transform = 'translate(-50%, -50%) scale(1)';
+                        cursorOutline.style.backgroundColor = 'transparent';
+                        cursorOutline.style.opacity = '0.5';
+                    });
+                });
+            }
+
+            /* --- 3. Sticky Navbar Glass Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- 4. Bulletproof Scroll Reveals --- */
+            function checkReveals() {
+                var reveals = document.querySelectorAll('.reveal-up');
+                var windowHeight = window.innerHeight;
+
+                for (var i = 0; i < reveals.length; i++) {
+                    var elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            // FAILSAFE
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1500);
+
+        });
+    </script>
+</body>
+
+</html>
