@@ -4,9 +4,1014 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BC Pro | Contractors & Landscape El Paso</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Green Sight | Premium Landscaping & Irrigation El Paso</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        /* =========================================
+           0. DESIGN SYSTEM (Premium Green Theme)
+           ========================================= */
+        :root {
+            /* Main Brand Colors - Extracted from Green Sight Logo */
+            --accent-main: #14792b;
+            --accent-hover: #0f5c20;
+            --accent-soft: rgba(20, 121, 43, 0.1);
+
+            /* Layout Colors (Light Mode Baseline) */
+            --primary-light: #ffffff;
+            --secondary-light: #f8faf9;
+            /* Cooler, premium light gray */
+            --navbar-bg: rgba(255, 255, 255, 0.98);
+
+            /* Dark Mode Elements (Trust Bar/Reviews) */
+            --primary-dark: #121c15;
+            /* Tinted dark green/slate */
+            --secondary-dark: #1b261e;
+            --surface-dark: rgba(255, 255, 255, 0.04);
+
+            /* Typography */
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --text-white: #ffffff;
+            --text-inv: #0f172a;
+
+            /* UI Elements */
+            --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            --border-subtle: #e2e8f0;
+            --border-dark-subtle: rgba(255, 255, 255, 0.08);
+
+            /* Ratings & Accents */
+            --star-gold: #f59e0b;
+            --star-rating-color: #f59e0b;
+        }
+
+        /* =========================================
+           1. RESET & BASE STYLES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--primary-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-inv);
+        }
+
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--text-inv);
+        }
+
+        /* =========================================
+           2. HEADER & NAVIGATION
+           ========================================= */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--navbar-bg);
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Top Bar Styles */
+        .top-bar {
+            background: var(--primary-dark);
+            padding: 10px 8%;
+            border-bottom: 1px solid var(--border-dark-subtle);
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: flex-end;
+            gap: 30px;
+        }
+
+        .top-info {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .phone-link {
+            color: var(--accent-main);
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .phone-link:hover {
+            color: var(--text-white);
+        }
+
+        /* Main Nav Container */
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+        }
+
+        .header-logo {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            color: var(--text-muted);
+        }
+
+        nav a:hover {
+            color: var(--accent-main);
+        }
+
+        /* Custom Button for Header */
+        .btn-primary-header {
+            background: var(--accent-main);
+            color: var(--text-white) !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 10px rgba(20, 121, 43, 0.2);
+        }
+
+        .btn-primary-header:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Hidden Checkbox & Hamburger setup for Desktop */
+        #menu-toggle {
+            display: none !important;
+            visibility: hidden;
+            position: absolute;
+            left: -9999px;
+        }
+
+        .hamburger {
+            display: none;
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(18, 28, 21, 0.6), rgba(18, 28, 21, 0.8)),
+                url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 5% 0;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: var(--accent-soft);
+            color: #4ade80;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 7vw, 5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            color: var(--text-white);
+        }
+
+        .hero-content span {
+            color: #4ade80;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 45px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        .trust-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 10%;
+            background: var(--primary-dark);
+            color: var(--text-white);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .trust-num {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-main);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .trust-text {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* =========================================
+           4. BUTTONS
+           ========================================= */
+        .btn-primary,
+        .btn-outline {
+            padding: 18px 40px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            margin: 10px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent-main);
+            color: var(--text-white);
+            border: 2px solid var(--accent-main);
+            box-shadow: 0 10px 20px rgba(20, 121, 43, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(20, 121, 43, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--text-white);
+            background: transparent;
+            color: var(--text-white);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-white);
+            color: var(--text-inv);
+        }
+
+        /* =========================================
+           5. SERVICES & VALUE CARDS
+           ========================================= */
+        .services-container {
+            padding: 40px 8%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-inv);
+        }
+
+        .section-header h2 span {
+            color: var(--accent-main);
+            font-style: italic;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 350px;
+            gap: 30px;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+        }
+
+        .value-card {
+            background: var(--primary-light);
+            padding: 50px 40px;
+            text-align: center;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--border-subtle);
+            transition: 0.4s ease;
+        }
+
+        .value-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--accent-main);
+        }
+
+        .value-card h4 {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-main);
+            box-shadow: 0 30px 60px rgba(20, 121, 43, 0.08);
+        }
+
+        .service-card.large {
+            grid-column: span 2;
+        }
+
+        .service-card.medium {
+            grid-column: span 3;
+        }
+
+        .card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .service-card:hover .card-bg {
+            transform: scale(1.08);
+        }
+
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(18, 28, 21, 0.9) 0%, transparent 100%);
+            z-index: 2;
+            color: var(--text-white);
+        }
+
+        .card-content h3 {
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+
+        /* =========================================
+           6. 5-STEP PROCESS SECTION
+           ========================================= */
+        .process-section {
+            padding: 100px 8%;
+            background: var(--primary-light);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 40px 20px;
+            text-align: center;
+            background: var(--secondary-light);
+            border-radius: 16px;
+            transition: 0.3s;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+            border-color: var(--accent-soft);
+        }
+
+        .step-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-soft);
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .process-step h4 {
+            position: relative;
+            z-index: 2;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .process-step p {
+            position: relative;
+            z-index: 2;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* =========================================
+           7. PORTFOLIO & GALLERY
+           ========================================= */
+        .portfolio-section {
+            background: var(--secondary-light);
+            padding: 120px 8%;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--primary-light);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 12px 28px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--accent-main);
+            border-color: var(--accent-main);
+            color: var(--text-white);
+            box-shadow: 0 4px 15px rgba(20, 121, 43, 0.2);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #eee;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* =========================================
+           8. CONTACT SECTION
+           ========================================= */
+        .contact-section {
+            padding: 120px 8%;
+            background: var(--primary-light);
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-item .icon {
+            font-size: 1.5rem;
+            background: var(--secondary-light);
+            padding: 15px;
+            border-radius: 50%;
+            color: var(--accent-main);
+        }
+
+        .info-item p {
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 1.05rem;
+        }
+
+        .contact-form-container {
+            background: var(--primary-light);
+            padding: 50px;
+            border-radius: 16px;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--box-shadow);
+        }
+
+        .modern-form input,
+        .modern-form select,
+        .modern-form textarea {
+            width: 100%;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            background: var(--secondary-light);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            transition: 0.3s;
+        }
+
+        .modern-form input:focus,
+        .modern-form select:focus,
+        .modern-form textarea:focus {
+            border-color: var(--accent-main);
+            outline: none;
+            background: var(--primary-light);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        /* =========================================
+           9. FOOTER & STICKY CTA
+           ========================================= */
+        .main-footer {
+            padding: 60px 5%;
+            text-align: center;
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .sticky-cta {
+            display: none;
+        }
+
+        /* =========================================
+           10. TRANSFORMATION (BEFORE & AFTER)
+           ========================================= */
+        .transformation-section {
+            padding: 40px 8%;
+            background: var(--primary-light);
+        }
+
+        .before-after-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .ba-card {
+            display: flex;
+            gap: 20px;
+            height: 480px;
+        }
+
+        .ba-image {
+            flex: 1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(18, 28, 21, 0.7);
+            backdrop-filter: blur(5px);
+            color: var(--text-white);
+            padding: 8px 18px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+
+        .ba-label.active {
+            background: var(--accent-main);
+            color: var(--text-white);
+        }
+
+        .ba-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        .ba-content p {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .ba-features li {
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .ba-features li span {
+            color: var(--accent-main);
+            background: var(--accent-soft);
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        /* =========================================
+           11. TEAM GRID
+           ========================================= */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .team-img {
+            height: 400px;
+            background-color: var(--secondary-light);
+            background-size: cover;
+            background-position: center;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            filter: grayscale(100%);
+            transition: 0.5s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .team-card:hover .team-img {
+            filter: grayscale(0%);
+            transform: translateY(-10px);
+        }
+
+        /* =========================================
+           12. REVIEWS & TRUST STACK
+           ========================================= */
+        .review-section {
+            padding: 120px 8%;
+            background: var(--primary-dark);
+            color: var(--text-white);
+            text-align: center;
+        }
+
+        .review-badges {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            background: var(--surface-dark);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border-dark-subtle);
+        }
+
+        .badge-logo span {
+            font-weight: 700;
+            color: var(--text-white);
+            font-size: 1.1rem;
+        }
+
+        .star-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rating-num {
+            font-weight: 700;
+            color: var(--text-white);
+            font-size: 1.2rem;
+        }
+
+        .stars-outer {
+            position: relative;
+            display: inline-block;
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 2px;
+        }
+
+        .stars-outer::before {
+            content: "\2605 \2605 \2605 \2605 \2605";
+        }
+
+        .stars-inner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            color: var(--star-rating-color);
+        }
+
+        .stars-inner::before {
+            content: "\2605 \2605 \2605 \2605 \2605";
+        }
+
+        .review-section blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            line-height: 1.4;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .review-section cite {
+            color: var(--accent-main);
+            font-style: normal;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+        }
+
+        /* =========================================
+           RESPONSIVE OVERRIDES
+           ========================================= */
+        @media (max-width: 1024px) {
+            .trust-num {
+                font-size: 1.5em;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-card.large {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 0;
+            }
+
+            /* Hamburger Setup */
+            .hamburger {
+                display: block;
+                width: 30px;
+                height: 20px;
+                position: relative;
+                cursor: pointer;
+                z-index: 1100;
+                margin-left: auto;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 3px;
+                background: var(--text-inv);
+                border-radius: 4px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                transition: 0.3s;
+            }
+
+            .hamburger span::before,
+            .hamburger span::after {
+                content: "";
+                width: 100%;
+                height: 3px;
+                background: var(--text-inv);
+                border-radius: 4px;
+                position: absolute;
+                left: 0;
+                transition: 0.3s;
+            }
+
+            .hamburger span::before {
+                top: -8px;
+            }
+
+            .hamburger span::after {
+                top: 8px;
+            }
+
+            #menu-toggle:checked+.hamburger span {
+                background: transparent;
+            }
+
+            #menu-toggle:checked+.hamburger span::before {
+                top: 0;
+                transform: rotate(45deg);
+            }
+
+            #menu-toggle:checked+.hamburger span::after {
+                top: 0;
+                transform: rotate(-45deg);
+            }
+
+            /* Mobile Nav Overlay */
+            nav {
+                position: fixed;
+                top: 0px;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--navbar-bg);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1050;
+            }
+
+            #menu-toggle:checked~nav {
+                transform: translateX(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            nav a {
+                font-size: 1.2rem;
+            }
+
+            .btn-primary-header {
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card.medium {
+                grid-column: span 1;
+            }
+
+            .before-after-container {
+                grid-template-columns: 1fr;
+            }
+
+            .ba-card {
+                height: 350px;
+            }
+
+            .review-section blockquote {
+                font-size: 1.5rem;
+            }
+
+            .review-badges {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .sticky-cta {
+                display: block;
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--accent-main);
+                color: var(--text-white);
+                padding: 16px 40px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: 700;
+                z-index: 9999;
+                box-shadow: 0 10px 25px rgba(20, 121, 43, 0.4);
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                width: 90%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -15,16 +1020,23 @@
         <div class="top-bar">
             <div class="top-bar-content">
                 <div class="top-info">
-                    <span class="top-icon">📍</span> 301 Lafayette Drive, El Paso, TX
+                    <span>📍</span> Serving El Paso & Surrounding Areas
                 </div>
                 <div class="top-info">
-                    <span class="top-icon">📞</span> <a href="tel:9155989049" class="phone-link">915-598-9049</a>
+                    <span>📞</span> <a href="tel:9155989049" class="phone-link">915-598-9049</a>
                 </div>
             </div>
         </div>
 
         <div class="nav-container">
-            <div class="logo">BC PRO & LANDSCAPE<span>.</span></div>
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="Green Sight Logo" class="header-logo"
+                    onerror="this.outerHTML='GREEN SIGHT<span>.</span>'">
+            </a>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger"><span></span></label>
+
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
@@ -38,12 +1050,12 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="badge-tag">BC Pro Contractors & Landscape</div>
+            <div class="badge-tag">Green Sight Landscaping & Irrigation</div>
 
-            <h1>Premium <span>Hardscaping & Landscape</span> Design in El Paso</h1>
+            <h1>Premium <span>Landscaping & Irrigation</span> in El Paso</h1>
 
-            <p>Transforming West Texas backyards with custom pergolas, outdoor kitchens, and water-smart xeriscaping
-                since 1993.</p>
+            <p>Transforming West Texas properties with intelligent irrigation, beautiful sod, and custom architectural
+                hardscapes.</p>
 
             <div class="hero-btns">
                 <a href="#gallery" class="btn-primary">View Project Gallery</a>
@@ -54,12 +1066,12 @@
 
     <section class="trust-bar">
         <div class="trust-item">
-            <span class="trust-num">30+</span>
-            <span class="trust-text">Years in El Paso</span>
+            <span class="trust-num">100%</span>
+            <span class="trust-text">Customer Satisfaction</span>
         </div>
         <div class="trust-item">
-            <span class="trust-num">100%</span>
-            <span class="trust-text">Family Owned</span>
+            <span class="trust-num">Licensed</span>
+            <span class="trust-text">Irrigation Experts</span>
         </div>
         <div class="trust-item">
             <span class="trust-num">500+</span>
@@ -69,23 +1081,24 @@
 
     <section class="services-container">
         <div class="section-header">
-            <h2>Why El Paso Homeowners <span>Choose BC Pro</span></h2>
+            <h2>Why El Paso Homeowners <span>Choose Green Sight</span></h2>
+            <p>We blend technical irrigation expertise with high-end landscape design.</p>
         </div>
         <div class="process-grid">
             <div class="value-card">
-                <div class="icon">🛠️</div>
-                <h4>All-in-One Team</h4>
-                <p>We handle design, build, and maintenance so you don't need multiple crews.</p>
+                <div class="icon">💧</div>
+                <h4>Smart Irrigation</h4>
+                <p>We design water-efficient sprinkler systems built specifically for the harsh Texas climate.</p>
             </div>
             <div class="value-card">
-                <div class="icon">🌵</div>
-                <h4>Desert-Smart Design</h4>
-                <p>Our plans use drought-resistant plants and efficient irrigation for the Texas heat.</p>
+                <div class="icon">🌱</div>
+                <h4>Lush Landscaping</h4>
+                <p>From fresh sod installation to native plants, we bring vibrant life to your outdoor space.</p>
             </div>
             <div class="value-card">
                 <div class="icon">💎</div>
-                <h4>Quality Craftsmanship</h4>
-                <p>Decades of experience ensure attention to detail and premium materials.</p>
+                <h4>Premium Quality</h4>
+                <p>Meticulous attention to detail, quality soil, and materials that stand the test of time.</p>
             </div>
         </div>
     </section>
@@ -93,58 +1106,61 @@
     <section class="transformation-section">
         <div class="section-header">
             <h2>Real <span>Results</span> Across El Paso</h2>
-            <p>Transforming messy, unusable backyards into premium outdoor living spaces.</p>
+            <p>Transforming dry, unusable yards into lush outdoor living spaces.</p>
         </div>
         <div class="before-after-container">
             <div class="ba-card">
-                <div class="ba-image" style="background-image: url('images/before.jpg');">
+                <div class="ba-image" style="background-image: url('images/before.jpg'); background-color: #e2e8f0;">
                     <span class="ba-label">Before</span>
                 </div>
-                <div class="ba-image" style="background-image: url('images/after.jpg');">
+                <div class="ba-image" style="background-image: url('images/after.jpg'); background-color: #cbd5e1;">
                     <span class="ba-label active">After</span>
                 </div>
             </div>
             <div class="ba-content">
-                <h3>The Central El Paso Project</h3>
-                <p>"We were blown away by the transformation! What used to be a messy, unusable backyard is now our
-                    favorite part of the house."</p>
+                <h3>The Westside Transformation</h3>
+                <p>"We were blown away by the transformation! What used to be a dry, dusty yard is now a lush green
+                    oasis for our family."</p>
                 <ul class="ba-features">
-                    <li>✓ Custom Hardscape Installation</li>
-                    <li>✓ Smart Irrigation System</li>
-                    <li>✓ Native Desert Xeriscaping</li>
+                    <li><span>✓</span> Automated Sprinkler System</li>
+                    <li><span>✓</span> Premium Sod Installation</li>
+                    <li><span>✓</span> Custom Planter Beds</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="services" class="services-container" style="background: #fcfcfc;">
+    <section id="services" class="services-container" style="background: var(--secondary-light);">
         <div class="section-header">
             <h2>Our <span>Expertise</span></h2>
-            <p>BC Pro provides a diverse selection of products to fit into any outdoor design plan.</p>
+            <p>Green Sight provides comprehensive solutions for your exterior property.</p>
         </div>
 
         <div class="services-grid">
             <div class="service-card large">
-                <div class="card-bg" style="background-image: url(images/kitchen.webp);"></div>
+                <div class="card-bg"
+                    style="background-image: url(images/irrigation_field.jpg); background-color: #94a3b8;"></div>
+                <div class="card-content">
+                    <h3>Irrigation Systems</h3>
+                    <p>Code-compliant installations, repairs, and smart-water management systems.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg" style="background-image: url('images/landscape.jpg'); background-color: #64748b;">
+                </div>
+                <div class="card-content">
+                    <h3>Sod & Turf</h3>
+                    <p>Professional soil prep and installation for instant green lawns.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-bg" style="background-image: url('images/hardscape.jpg'); background-color: #475569;">
+                </div>
                 <div class="card-content">
                     <h3>Hardscaping</h3>
-                    <p>Pergolas, Patios, pathways, Firepits, Outdoor Kitchens, and Lighting.</p>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-bg" style="background-image: url('images/landscape.webp');"></div>
-                <div class="card-content">
-                    <h3>Landscaping & Xeriscape</h3>
-                    <p>Irrigation, Drainage, and native plants designed for El Paso.</p>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-bg" style="background-image: url('images/home-front.webp');"></div>
-                <div class="card-content">
-                    <h3>Creative Designs</h3>
-                    <p>Quality workmanship focused on exceeding customers' expectations.</p>
+                    <p>Integrating stonework, pathways, and patios seamlessly with your greenery.</p>
                 </div>
             </div>
         </div>
@@ -152,33 +1168,28 @@
 
     <section class="process-section">
         <div class="section-header">
-            <h2>Our <span>Simple 5-Step Process</span></h2>
+            <h2>Our <span>Simple Process</span></h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
                 <span class="step-num">01</span>
                 <h4>Consultation</h4>
-                <p>On-site visit to discuss your ideas and budget.</p>
+                <p>On-site visit to evaluate soil, grading, and your vision.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">02</span>
-                <h4>3D Design</h4>
-                <p>We create a plan that fits your vision.</p>
+                <h4>Design & Plan</h4>
+                <p>Mapping out efficient irrigation lines and planting zones.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">03</span>
-                <h4>Scheduling</h4>
-                <p>We handle permits and set a start date.</p>
+                <h4>Installation</h4>
+                <p>Our skilled crew executes the build with precision.</p>
             </div>
             <div class="process-step">
                 <span class="step-num">04</span>
-                <h4>Construction</h4>
-                <p>Our skilled crew brings your yard to life.</p>
-            </div>
-            <div class="process-step">
-                <span class="step-num">05</span>
                 <h4>Completion</h4>
-                <p>Ensuring 100% satisfaction with your space.</p>
+                <p>System testing and ensuring 100% satisfaction.</p>
             </div>
         </div>
     </section>
@@ -192,9 +1203,9 @@
                     <span>Google</span>
                 </div>
                 <div class="star-rating">
-                    <span class="rating-num">4.8</span>
+                    <span class="rating-num">5.0</span>
                     <div class="stars-outer">
-                        <div class="stars-inner" style="width: 96%;"></div>
+                        <div class="stars-inner" style="width: 100%;"></div>
                     </div>
                 </div>
             </div>
@@ -204,18 +1215,18 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Yelp_Logo.svg" alt="Yelp" width="50">
                 </div>
                 <div class="star-rating">
-                    <span class="rating-num">4.2</span>
+                    <span class="rating-num">4.9</span>
                     <div class="stars-outer">
-                        <div class="stars-inner" style="width: 84%;"></div>
+                        <div class="stars-inner" style="width: 98%;"></div>
                     </div>
                 </div>
             </div>
         </div>
         <blockquote>
-            "Fantastic work and very efficient! Working team was friendly and respectful. Would recommend to anyone in
-            El Paso. Thanks for an amazing job, we love our backyard."
+            "Fantastic work and very efficient! The team was friendly and respectful. They completely fixed our
+            irrigation issues and the new sod looks perfect. Would recommend to anyone in El Paso."
         </blockquote>
-        <cite>— Danielle Patrick, El Paso, TX</cite>
+        <cite>— Verified Customer, El Paso, TX</cite>
     </section>
 
     <section id="gallery" class="portfolio-section">
@@ -224,40 +1235,22 @@
         </div>
         <div class="filter-tabs">
             <button class="tab-btn active">All Projects</button>
-            <button class="tab-btn">Fireplace & Fire Pits</button>
-            <button class="tab-btn">Pergolas & Patios</button>
-            <button class="tab-btn">Landscape & Paths</button>
+            <button class="tab-btn">Irrigation</button>
+            <button class="tab-btn">Sod & Planting</button>
+            <button class="tab-btn">Hardscaping</button>
         </div>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/backyard.webp" alt="Work 1"></div>
-            <div class="gallery-item"><img src="images/waterfall.webp" alt="Work 2"></div>
-            <div class="gallery-item"><img src="images/pergola.webp" alt="Work 3"></div>
-            <div class="gallery-item"><img src="images/poolside.webp" alt="Work 4"></div>
-            <div class="gallery-item"><img src="images/stage.webp" alt="Work 5"></div>
-            <div class="gallery-item"><img src="images/steps.webp" alt="Work 6"></div>
-        </div>
-    </section>
-
-    <section id="team" class="services-container">
-        <div class="section-header">
-            <h2>Meet Our <span>Expert Team</span></h2>
-            <p>The hands-on craftsmanship behind every BC Pro project.</p>
-        </div>
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('images/manager.jpg');"></div>
-                <h4>Project Management</h4>
-                <p>Expert coordination from start to finish.</p>
+            <div class="gallery-item"><img src="images/fire_pit.jpg" alt="Work 1" onerror="this.style.display='none'">
             </div>
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('images/designer.jpg');"></div>
-                <h4>Design Specialists</h4>
-                <p>Bringing your vision to a 3D reality.</p>
+            <div class="gallery-item"><img src="images//irrigation.jpg" alt="Work 2"
+                    onerror="this.style.display='none'"></div>
+            <div class="gallery-item"><img src="images/kitchen.jpg" alt="Work 3" onerror="this.style.display='none'">
             </div>
-            <div class="team-card">
-                <div class="team-img" style="background-image: url('images/workers.jpg');"></div>
-                <h4>Master Installers</h4>
-                <p>Precision hardscaping and rockwork.</p>
+            <div class="gallery-item"><img src="images/stamped.jpg" alt="Work 4" onerror="this.style.display='none'">
+            </div>
+            <div class="gallery-item"><img src="images/trees.jpg" alt="Work 5" onerror="this.style.display='none'">
+            </div>
+            <div class="gallery-item"><img src="images/backyard.jpg" alt="Work 6" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -266,19 +1259,15 @@
         <div class="contact-wrapper">
             <div class="contact-info">
                 <h2>Looking for a <span>Free Quote?</span></h2>
-                <p>Please fill out the following form and we will respond as soon as possible.</p>
+                <p>Please fill out the following form and our team will respond as soon as possible.</p>
 
                 <div class="info-item">
                     <span class="icon">📍</span>
-                    <p>301 Lafayette Drive, El Paso, TX 79915</p>
+                    <p>Serving El Paso, TX & Surrounding Areas</p>
                 </div>
                 <div class="info-item">
                     <span class="icon">📞</span>
                     <p>915-598-9049</p>
-                </div>
-                <div class="info-item">
-                    <span class="icon">✉️</span>
-                    <p>bcproelpaso@gmail.com</p>
                 </div>
                 <div class="info-item">
                     <span class="icon">⏰</span>
@@ -293,20 +1282,21 @@
                     <div class="form-group">
                         <select required>
                             <option value="" disabled selected>Service Interested In</option>
-                            <option value="hardscape">Hardscape</option>
-                            <option value="landscape">Landscape / Xeriscape</option>
+                            <option value="irrigation">Irrigation / Sprinklers</option>
+                            <option value="landscape">Landscaping / Sod</option>
+                            <option value="hardscape">Hardscape Design</option>
                             <option value="other">Other</option>
                         </select>
                     </div>
-                    <div class="form-group"><textarea placeholder="Message" rows="5"></textarea></div>
-                    <button type="submit" class="btn-primary" style="width: 100%; border:none;">Submit</button>
+                    <div class="form-group"><textarea placeholder="Project Details" rows="5"></textarea></div>
+                    <button type="submit" class="btn-primary" style="width: 100%; border:none;">Submit Request</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer class="main-footer">
-        <p>&copy; 2026 BC Pro Contractors & Landscape. All Rights Reserved.</p>
+        <p>&copy; 2026 Green Sight Landscaping & Irrigation. All Rights Reserved.</p>
     </footer>
 
     <a href="#contact" class="sticky-cta">Book Free Quote</a>
