@@ -1,0 +1,229 @@
+/* css/expertise.css */
+
+/* =========================================
+    3. INTERNAL HERO
+    ========================================= */
+.internal-hero {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 5%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: cinematicZoom 30s infinite alternate;
+    transition: background 0.8s ease;
+    /* Note: Background image is applied inline in HTML for dynamic URL control */
+}
+
+.hero-content {
+    z-index: 1;
+    margin-top: 50px;
+}
+
+.hero-label {
+    color: var(--brand-gold);
+    font-size: 0.7rem;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 6rem);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.hero-title i {
+    font-style: italic;
+    color: var(--brand-gold);
+}
+
+@keyframes cinematicZoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+/* =========================================
+    4. Z-PATTERN SERVICES (Detailed)
+    ========================================= */
+.service-detail-section {
+    padding: 150px 5%;
+    background: var(--bg-main);
+    transition: background-color 0.8s ease;
+}
+
+.service-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto 150px;
+    align-items: center;
+}
+
+.service-row:nth-child(even) {
+    direction: rtl;
+}
+
+/* Reverses the grid for Z-pattern */
+.service-row:nth-child(even)>* {
+    direction: ltr;
+}
+
+/* Resets text direction inside the reversed grid */
+.service-row:last-child {
+    margin-bottom: 0;
+}
+
+.service-img-container {
+    position: relative;
+    height: 600px;
+    box-shadow: var(--shadow-lux);
+    overflow: hidden;
+}
+
+.service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+}
+
+.service-row:hover .service-img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+.service-number {
+    position: absolute;
+    top: -30px;
+    left: -20px;
+    font-family: 'Playfair Display';
+    font-size: 10rem;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--brand-gold);
+    opacity: 0.2;
+    z-index: 1;
+    line-height: 1;
+}
+
+.service-text {
+    position: relative;
+    z-index: 2;
+}
+
+.service-text h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+.service-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.feature-list {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+.feature-list li i {
+    color: var(--brand-gold);
+}
+
+/* =========================================
+    5. CTA STRIP
+    ========================================= */
+.cta-strip {
+    background: var(--bg-sec);
+    padding: 100px 5%;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+    transition: background-color 0.8s ease;
+}
+
+.cta-strip h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.cta-strip p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+/* =========================================
+    RESPONSIVE DESIGN (Expertise Page Specific)
+    ========================================= */
+@media (max-width: 1024px) {
+    .service-row {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 100px;
+    }
+
+    .service-row:nth-child(even) {
+        direction: ltr;
+    }
+
+    /* Disable Z-pattern on tablet/mobile */
+    .service-img-container {
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .internal-hero {
+        height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .service-img-container {
+        height: 350px;
+    }
+}

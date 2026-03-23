@@ -1,0 +1,398 @@
+/* css/global.css */
+/* =========================================
+    0. $20K DYNAMIC THEME VARIABLES
+    ========================================= */
+:root {
+    --brand-gold: #C89F3C;
+    --brand-gold-muted: #a6812c;
+    --bg-main: #050505;
+    --bg-sec: #111111;
+    --text-main: #F5F5F5;
+    --text-muted: #888888;
+    --glass: rgba(5, 5, 5, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --shadow-lux: 0 30px 60px rgba(0, 0, 0, 0.8);
+    --hero-overlay: linear-gradient(rgba(5, 5, 5, 0.5), rgba(5, 5, 5, 0.95));
+    --outline-color: rgba(255, 255, 255, 0.03);
+    --transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    --input-bg: #050505;
+    /* Darker than the container to create depth */
+    --input-border: rgba(255, 255, 255, 0.2);
+    /* Stronger border line */
+}
+
+body.light-theme {
+    --bg-main: #FFFFFF;
+    --bg-sec: #F7F7F7;
+    --text-main: #0A0A0A;
+    --text-muted: #555555;
+    --glass: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --shadow-lux: 0 30px 60px rgba(0, 0, 0, 0.05);
+    --hero-overlay: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.95));
+    --outline-color: rgba(0, 0, 0, 0.03);
+    /* Form Specific - Light Mode */
+    --input-bg: #FFFFFF;
+    /* Lighter than the container to pop out */
+    --input-border: rgba(0, 0, 0, 0.2);
+    /* Stronger border line */
+}
+
+body.light-theme .dynamic-logo {
+    filter: invert(1) hue-rotate(180deg) contrast(1.2);
+}
+
+/* =========================================
+    1. RESET & CUSTOM CURSOR
+    ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.8s ease, color 0.8s ease;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    color: var(--text-main);
+    transition: color 0.8s ease;
+}
+
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--brand-gold);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s;
+}
+
+.cursor-outline {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(200, 159, 60, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: 0.15s ease-out, transform 0.3s ease;
+}
+
+/* =========================================
+    2. EDITORIAL NAVIGATION
+    ========================================= */
+
+/* Hidden Checkbox & Hamburger setup for Desktop */
+#menu-toggle {
+    display: none !important;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+
+/* Hide the hamburger icon on desktop too */
+.hamburger {
+    display: none;
+}
+
+.nav-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 30px 5%;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.nav-header.scrolled {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    padding: 15px 5%;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 75px;
+    width: auto;
+    transition: var(--transition);
+    object-fit: contain;
+}
+
+.nav-header.scrolled .logo-img {
+    height: 55px;
+}
+
+.nav-actions-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    font-weight: 500;
+    transition: color 0.5s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--brand-gold);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    color: var(--brand-gold);
+}
+
+.btn-gold {
+    background: transparent;
+    color: var(--brand-gold);
+    border: 1px solid var(--brand-gold);
+    padding: 15px 40px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: var(--transition);
+    border-radius: 0;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    background: var(--brand-gold);
+    color: var(--bg-main);
+}
+
+/* =========================================
+    6. REFINED EDITORIAL FOOTER
+    ========================================= */
+.footer-sec {
+    background: var(--bg-sec);
+    padding: 120px 5% 50px;
+    border-top: 1px solid var(--glass-border);
+    transition: background-color 0.8s ease;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 80px;
+    max-width: 1600px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 80px;
+    transition: border-color 0.8s ease;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-brand .logo-img {
+    height: 90px;
+    margin-bottom: 30px;
+}
+
+.footer-brand p {
+    font-size: 1.1rem;
+    font-family: 'Playfair Display';
+    color: var(--text-muted);
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.footer-column h4 {
+    font-family: 'Inter';
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--text-main);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column li {
+    margin-bottom: 20px;
+}
+
+.footer-column a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.footer-column a:hover {
+    color: var(--brand-gold);
+}
+
+.footer-column .contact-gold {
+    color: var(--brand-gold);
+    font-family: 'Playfair Display';
+    font-size: 1.5rem;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 50px auto 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.social-lux {
+    display: flex;
+    gap: 30px;
+}
+
+.social-lux a {
+    color: var(--text-main);
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-lux a:hover {
+    color: var(--brand-gold);
+    transform: translateY(-3px);
+}
+
+/* =========================================
+    7. CINEMATIC REVEAL ANIMATIONS
+    ========================================= */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.active-reveal {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.load-1 {
+    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.load-2 {
+    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.load-3 {
+    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+
+/* =========================================
+    8. RESPONSIVE DESIGN (Global Elements)
+    ========================================= */
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .cursor-dot,
+    .cursor-outline {
+        display: none;
+    }
+
+    * {
+        cursor: auto !important;
+    }
+}

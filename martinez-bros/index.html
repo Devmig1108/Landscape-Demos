@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martinez Brothers Contractors | Architect in El Paso, TX</title>
+    <meta name="description"
+        content="Elite contracting and architectural services in El Paso, Texas. Available 24 hours.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Oswald:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           0. ELITE CONTRACTOR THEME VARIABLES
+           ========================================= */
+        :root {
+            /* The Flag Palette - Refined for Luxury */
+            --mb-navy: #0B192C;
+            /* Deep, authoritative blue */
+            --mb-navy-light: #1A2E4C;
+            --mb-crimson: #C8102E;
+            /* Strong, urgent red */
+            --mb-crimson-hover: #9B0C23;
+            --mb-white: #FFFFFF;
+            --mb-off-white: #F8FAFC;
+
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --border-light: #E2E8F0;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* =========================================
+           1. RESET & BASE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--mb-off-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--mb-navy);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* =========================================
+           2. UTILITY STRIP & NAVIGATION
+           ========================================= */
+        .utility-strip {
+            background-color: var(--mb-crimson);
+            color: var(--mb-white);
+            padding: 10px 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .utility-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .utility-info {
+            display: flex;
+            gap: 30px;
+        }
+
+        .utility-info span i {
+            margin-right: 8px;
+        }
+
+        .nav-header {
+            background-color: var(--mb-navy);
+            padding: 15px 0;
+            /* Tightened up for the logo */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- LOGO UPGRADE --- */
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 75px;
+            /* Adjust based on their actual logo aspect ratio */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Fallback text if image doesn't load */
+        .logo-text {
+            color: var(--mb-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text i {
+            color: var(--mb-crimson);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--mb-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--mb-crimson);
+        }
+
+        .btn-primary {
+            background: var(--mb-crimson);
+            color: var(--mb-white) !important;
+            padding: 12px 30px;
+            border: 2px solid var(--mb-crimson);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--mb-crimson) !important;
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 80vh;
+            min-height: 650px;
+            /* High-end architectural background */
+            background: linear-gradient(rgba(11, 25, 44, 0.85), rgba(11, 25, 44, 0.95)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            color: var(--mb-white);
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--mb-crimson);
+            color: var(--mb-white);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 6vw, 5.5rem);
+            color: var(--mb-white);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #CBD5E1;
+            margin-bottom: 40px;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--mb-white);
+            padding: 12px 30px;
+            border: 2px solid var(--mb-white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--mb-white);
+            color: var(--mb-navy);
+        }
+
+        /* =========================================
+           4. INFO / TRUST BANNER
+           ========================================= */
+        .info-banner {
+            background: var(--mb-white);
+            padding: 50px 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 10;
+            margin-top: -60px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            color: var(--mb-crimson);
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           5. CORE SERVICES (Visual Upgrade)
+           ========================================= */
+        .section-pad {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--mb-white);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-10px);
+            border-color: transparent;
+        }
+
+        .service-img-wrapper {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .service-content {
+            padding: 40px 30px 30px;
+            position: relative;
+            flex-grow: 1;
+        }
+
+        /* Luxury Overlapping Icon */
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--mb-crimson);
+            color: var(--mb-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: absolute;
+            top: -30px;
+            left: 30px;
+            box-shadow: 0 10px 20px rgba(200, 16, 46, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* =========================================
+           6. FOOTER
+           ========================================= */
+        .footer {
+            background: var(--mb-navy);
+            color: var(--mb-white);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--mb-white);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #94A3B8;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: var(--mb-white);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+            color: #94A3B8;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-col ul li i {
+            color: var(--mb-crimson);
+            margin-top: 5px;
+        }
+
+        .footer-col a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--mb-crimson);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #64748B;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+
+            .utility-strip,
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-banner {
+                margin-top: 0;
+                padding: 40px 5%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-strip">
+        <div class="utility-container">
+            <div class="utility-info">
+                <span><i class="fas fa-map-marker-alt"></i> 5875 Cromo Dr # 200, El Paso, TX 79912</span>
+                <span><i class="fas fa-clock"></i> Open 24 Hours</span>
+            </div>
+            <div class="utility-contact">
+                <span><i class="fas fa-phone"></i> (915) 584-3900</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-header">
+        <div class="container nav-wrapper">
+
+            <a href="#" class="brand-logo">
+                <img src="images/logo.png" alt="Martinez Brothers Logo" class="header-logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <span class="logo-text" style="display: none;">
+                    <i class="fas fa-hard-hat"></i> MARTINEZ BROS.
+                </span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About Firm</a>
+                <a href="tel:9155843900" class="btn-primary">Call (915) 584-3900</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">Architectural Contracting</span>
+                <h1 class="hero-title">Building El Paso's Future.</h1>
+                <p class="hero-desc">Elite contracting and architectural design services. With 24-hour availability,
+                    Martinez Brothers Contractors delivers uncompromising structural integrity and precision.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn-primary">Request Consultation</a>
+                    <a href="#services" class="btn-outline">Our Expertise</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="info-banner">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-map-location-dot"></i>
+                    <h4>Headquarters</h4>
+                    <p>5875 Cromo Dr # 200<br>El Paso, TX 79912</p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-phone-volume"></i>
+                    <h4>Direct Line</h4>
+                    <p>Estimates & Inquiries<br><strong>(915) 584-3900</strong></p>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-business-time"></i>
+                    <h4>Operating Hours</h4>
+                    <p>Available for critical<br>projects <strong>24 Hours a day.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section-pad">
+        <div class="container">
+            <div class="section-header">
+                <h2>Structural & Architectural Expertise</h2>
+                <p>We provide end-to-end contracting solutions, bridging the gap between high-level architectural design
+                    and boots-on-the-ground execution.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop"
+                            alt="Architectural Design">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+                        <h3>Architectural Design</h3>
+                        <p>Comprehensive blueprints, structural engineering, and design-build services tailored to
+                            commercial and high-end residential specifications.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=800&auto=format&fit=crop"
+                            alt="Commercial Contracting">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-building"></i></div>
+                        <h3>Commercial Contracting</h3>
+                        <p>Full-scale commercial build-outs, renovations, and structural reinforcements delivered on
+                            time and strictly to code.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=800&auto=format&fit=crop"
+                            alt="General Construction">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                        <h3>General Construction</h3>
+                        <p>Expert project management and execution for complex builds, ensuring precision from the
+                            foundation pour to the final architectural details.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>MARTINEZ BROTHERS</h2>
+                    <p>Premier architectural and contracting services in El Paso, Texas. Dedicated to structural
+                        excellence and unwavering professional standards.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 5875 Cromo Dr # 200<br>El Paso, TX 79912</li>
+                        <li><i class="fas fa-phone"></i> (915) 584-3900</li>
+                        <li><i class="fas fa-clock"></i> Open 24 Hours</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Architectural Services</a></li>
+                        <li><a href="#">Commercial Contracting</a></li>
+                        <li><a href="#">Project Portfolio</a></li>
+                        <li><a href="#">Request Estimate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Martinez Brothers Contractors. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
