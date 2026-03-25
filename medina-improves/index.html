@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medina Improves | Remodeling, Repairs & Landscaping in El Paso, TX</title>
+    <meta name="description"
+        content="Elite remodeling, painting, landscaping, and repair services for residential and commercial properties in El Paso. 100% Guaranteed.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           0. ELITE CONTRACTOR THEME VARIABLES
+           ========================================= */
+        :root {
+            /* Medina Brand Palette */
+            --medina-black: #050505;
+            --medina-card: #111418;
+            --medina-blue: #00A8E8;
+            /* Electric Cyan from the roofs */
+            --medina-blue-hover: #008CBA;
+            --medina-silver: #E0E4E8;
+            /* Metallic gear color */
+            --medina-silver-dark: #8A94A0;
+
+            --text-main: #FFFFFF;
+            --text-muted: #A0ABC0;
+            --border-glow: rgba(0, 168, 232, 0.2);
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-neon: 0 10px 30px rgba(0, 168, 232, 0.1);
+        }
+
+        /* =========================================
+           1. RESET & BASE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--medina-black);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* =========================================
+           2. UTILITY STRIP & NAVIGATION
+           ========================================= */
+        .utility-strip {
+            background-color: #000;
+            color: var(--medina-silver-dark);
+            padding: 10px 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .utility-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .utility-info span {
+            margin-right: 25px;
+        }
+
+        .utility-info span i {
+            margin-right: 8px;
+            color: var(--medina-blue);
+        }
+
+        .nav-header {
+            background-color: rgba(5, 5, 5, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-header.scrolled {
+            backdrop-filter: blur(15px);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-glow);
+            box-shadow: var(--shadow-neon);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo img {
+            height: auto;
+            width: 80px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            line-height: 1;
+        }
+
+        .logo-text .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--medina-blue);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--medina-silver);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--medina-blue);
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--medina-blue);
+            padding: 12px 30px;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            border: 2px solid var(--medina-blue);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--medina-blue);
+            color: var(--medina-black);
+            box-shadow: var(--shadow-neon);
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 85vh;
+            min-height: 650px;
+            background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            border-bottom: 2px solid var(--medina-blue);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--medina-silver);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero-label i {
+            color: var(--medina-blue);
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+            font-weight: 800;
+        }
+
+        .hero-title span {
+            color: var(--medina-blue);
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 650px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-solid {
+            background: var(--medina-blue);
+            color: var(--medina-black);
+            padding: 14px 35px;
+            border: 2px solid var(--medina-blue);
+            border-radius: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-solid:hover {
+            background: transparent;
+            color: var(--medina-blue);
+        }
+
+        /* =========================================
+           4. GUARANTEE BANNER
+           ========================================= */
+        .guarantee-banner {
+            background: var(--medina-card);
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .guarantee-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .guarantee-item i {
+            font-size: 2rem;
+            color: var(--medina-blue);
+        }
+
+        .guarantee-item h4 {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: var(--medina-silver);
+            margin: 0;
+        }
+
+        /* =========================================
+           5. SERVICES GRID
+           ========================================= */
+        .services-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            color: var(--medina-blue);
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--medina-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle blue glow on hover */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--medina-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: #151a22;
+            box-shadow: var(--shadow-neon);
+            border-color: var(--border-glow);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 168, 232, 0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .service-icon i {
+            font-size: 1.8rem;
+            color: var(--medina-blue);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: var(--medina-silver);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .service-list li i {
+            color: var(--medina-blue);
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        /* =========================================
+           6. CTA SECTION
+           ========================================= */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 168, 232, 0.05), rgba(5, 5, 5, 1));
+            text-align: center;
+            border-top: 1px solid var(--border-glow);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-section p {
+            color: var(--medina-silver-dark);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        /* =========================================
+           7. FOOTER
+           ========================================= */
+        .footer {
+            background: var(--medina-black);
+            padding: 80px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--medina-silver-dark);
+            max-width: 400px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+            color: var(--medina-silver-dark);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .footer-col ul li i {
+            color: var(--medina-blue);
+            margin-top: 5px;
+        }
+
+        .footer-col a {
+            color: var(--medina-silver-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--medina-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--medina-silver-dark);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================
+           8. ANIMATIONS
+           ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-1 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .load-2 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+
+        .load-3 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+
+        /* =========================================
+           9. RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+
+            .utility-strip,
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+            }
+
+            .guarantee-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 5%;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-strip">
+        <div class="utility-container">
+            <div class="utility-info">
+                <span><i class="fas fa-map-marker-alt"></i> Serving El Paso, TX & Surrounding Areas</span>
+                <span><i class="fas fa-building"></i> Commercial & Residential Solutions</span>
+            </div>
+            <div class="utility-contact">
+                <span><i class="fas fa-phone"></i> (915) 221-4078</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <img src="images/logo.jpg" alt="Medina Improves Logo" class="header-logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <!-- <div class="logo-text">
+                    <span class="title">MEDINA IMPROVES</span>
+                    <span class="subtitle"><i class="fas fa-hammer" style="margin-right: 5px;"></i> Remodeling &
+                        Repairs</span>
+                </div> -->
+            </a>
+            <div class="nav-links">
+                <a href="#services">Expertise</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:9152214078" class="btn-primary">Free Estimate</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label load-1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i> Top Rated Contractor</span>
+                <h1 class="hero-title load-2">Elevating El Paso, <br>From <span>Foundation to Finish.</span></h1>
+                <p class="hero-desc load-3">Expert remodeling, precision painting, and complete landscape
+                    transformations for apartments, offices, and residential properties. No project is too complex.</p>
+                <div class="hero-actions load-3" style="animation-delay: 0.6s;">
+                    <a href="tel:9152214078" class="btn-solid">Get a Quote</a>
+                    <a href="#services" class="btn-primary"
+                        style="border-color: var(--text-main); color: var(--text-main);">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="guarantee-banner">
+        <div class="container guarantee-grid">
+            <div class="guarantee-item reveal-up">
+                <i class="fas fa-clipboard-check"></i>
+                <h4>Jobs 100% Guaranteed</h4>
+            </div>
+            <div class="guarantee-item reveal-up" style="transition-delay: 0.1s;">
+                <i class="fas fa-calculator"></i>
+                <h4>Free Estimates</h4>
+            </div>
+            <div class="guarantee-item reveal-up" style="transition-delay: 0.2s;">
+                <i class="fas fa-handshake"></i>
+                <h4>Zero Commitment Quotes</h4>
+            </div>
+            <div class="guarantee-item reveal-up" style="transition-delay: 0.3s;">
+                <i class="fas fa-tools"></i>
+                <h4>All Kinds of Jobs Done</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span>OUR EXPERTISE</span>
+                <h2>Complete Property Solutions</h2>
+                <p>We provide end-to-end contracting, remodeling, and exterior maintenance for all property types,
+                    ensuring pristine results on every job.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card reveal-up">
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Interior & Remodeling</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Remodeling, Removal & Additions</li>
+                        <li><i class="fas fa-check"></i> Drywall Finishing, Paint & Texture</li>
+                        <li><i class="fas fa-check"></i> Flawless Interior Painting</li>
+                        <li><i class="fas fa-check"></i> Professional Electrical Services</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Exterior & Landscaping</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Complete Landscape Design</li>
+                        <li><i class="fas fa-check"></i> Turf Grass & Sod Installation</li>
+                        <li><i class="fas fa-check"></i> Irrigation System Setup</li>
+                        <li><i class="fas fa-check"></i> Tree Removal & Lawn Maintenance</li>
+                        <li><i class="fas fa-check"></i> Exterior Protective Painting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="service-icon"><i class="fas fa-city"></i></div>
+                    <h3>Properties We Service</h3>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Residential Homes</li>
+                        <li><i class="fas fa-check"></i> Apartment Complexes</li>
+                        <li><i class="fas fa-check"></i> Commercial Offices</li>
+                        <li><i class="fas fa-check"></i> Retail & Business Spaces</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section reveal-up">
+        <div class="container">
+            <h2>Ready to improve your space?</h2>
+            <p>Quote your project today without any commitment.</p>
+            <a href="tel:9152214078" class="btn-solid">(915) 221-4078</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand reveal-up">
+                    <div class="logo-text">
+                        <span class="title">MEDINA IMPROVES</span>
+                        <span class="subtitle">Remodeling & Repairs</span>
+                    </div>
+                    <p>Elite remodeling, painting, landscaping, and electrical repair services for El Paso, TX. We
+                        guarantee 100% satisfaction on all jobs, big or small.</p>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-user-tie"></i> <span>Jorge Medina</span></li>
+                        <li><i class="fas fa-phone"></i> <span>(915) 221-4078</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>El Paso, TX & Surrounding Areas</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Interior Remodeling</a></li>
+                        <li><a href="#services">Landscaping & Exterior</a></li>
+                        <li><a href="tel:9152214078">Request Free Estimate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 Medina Improves Remodeling & Repairs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- Sticky Navbar Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            // Failsafe
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1000);
+
+        });
+    </script>
+</body>
+
+</html>
