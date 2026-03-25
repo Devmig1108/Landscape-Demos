@@ -15,25 +15,55 @@
 
     <style>
         /* =========================================
-           0. ELITE CONTRACTOR THEME VARIABLES
+           0. DYNAMIC THEME VARIABLES
            ========================================= */
         :root {
-            /* Medina Brand Palette */
-            --medina-black: #050505;
-            --medina-card: #111418;
+            /* Core Brand Colors (Remain constant) */
             --medina-blue: #00A8E8;
-            /* Electric Cyan from the roofs */
             --medina-blue-hover: #008CBA;
-            --medina-silver: #E0E4E8;
-            /* Metallic gear color */
-            --medina-silver-dark: #8A94A0;
+
+            /* DARK MODE (Default) */
+            --bg-main: #050505;
+            --bg-card: #111418;
+            --bg-nav: rgba(5, 5, 5, 0.95);
+            --bg-cta: linear-gradient(rgba(0, 168, 232, 0.05), rgba(5, 5, 5, 1));
 
             --text-main: #FFFFFF;
             --text-muted: #A0ABC0;
-            --border-glow: rgba(0, 168, 232, 0.2);
+            --text-silver: #E0E4E8;
+            --text-silver-dark: #8A94A0;
 
-            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --border-soft: rgba(255, 255, 255, 0.05);
+            --border-glow: rgba(0, 168, 232, 0.2);
+            --icon-bg: rgba(0, 168, 232, 0.1);
+
             --shadow-neon: 0 10px 30px rgba(0, 168, 232, 0.1);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+            --hero-overlay: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* LIGHT MODE VARIABLES */
+        body.light-theme {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-nav: rgba(255, 255, 255, 0.95);
+            --bg-cta: linear-gradient(rgba(0, 168, 232, 0.05), rgba(248, 250, 252, 1));
+
+            --text-main: #0F172A;
+            --text-muted: #475569;
+            --text-silver: #1E293B;
+            --text-silver-dark: #334155;
+
+            --border-soft: rgba(0, 0, 0, 0.08);
+            --border-glow: rgba(0, 168, 232, 0.3);
+            --icon-bg: rgba(0, 168, 232, 0.08);
+
+            --shadow-neon: 0 10px 30px rgba(0, 168, 232, 0.15);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+            --hero-overlay: linear-gradient(to right, rgba(248, 250, 252, 0.95) 0%, rgba(248, 250, 252, 0.7) 100%);
         }
 
         /* =========================================
@@ -51,10 +81,11 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--medina-black);
+            background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         h1,
@@ -64,6 +95,7 @@
             font-family: 'Montserrat', sans-serif;
             color: var(--text-main);
             text-transform: uppercase;
+            transition: color 0.4s ease;
         }
 
         .container {
@@ -77,7 +109,7 @@
            ========================================= */
         .utility-strip {
             background-color: #000;
-            color: var(--medina-silver-dark);
+            color: #8A94A0;
             padding: 10px 0;
             font-size: 0.8rem;
             font-weight: 500;
@@ -104,7 +136,7 @@
         }
 
         .nav-header {
-            background-color: rgba(5, 5, 5, 0.95);
+            background-color: var(--bg-nav);
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -139,28 +171,10 @@
             object-fit: contain;
         }
 
-        .logo-text {
+        .nav-controls {
             display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text .title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            line-height: 1;
-        }
-
-        .logo-text .subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--medina-blue);
-            font-weight: 600;
-            margin-top: 4px;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links {
@@ -170,7 +184,7 @@
         }
 
         .nav-links a {
-            color: var(--medina-silver);
+            color: var(--text-silver);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 600;
@@ -180,6 +194,20 @@
         }
 
         .nav-links a:hover {
+            color: var(--medina-blue);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
             color: var(--medina-blue);
         }
 
@@ -201,8 +229,30 @@
 
         .btn-primary:hover {
             background: var(--medina-blue);
-            color: var(--medina-black);
+            color: #fff;
             box-shadow: var(--shadow-neon);
+        }
+
+        /* Mobile Menu Checkbox Setup */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--medina-blue);
+            transition: var(--transition);
+            border-radius: 2px;
         }
 
         /* =========================================
@@ -211,11 +261,12 @@
         .hero {
             height: 85vh;
             min-height: 650px;
-            background: linear-gradient(to right, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.7) 100%), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop') center/cover;
+            background: var(--hero-overlay), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop') center/cover;
             display: flex;
             align-items: center;
             position: relative;
             border-bottom: 2px solid var(--medina-blue);
+            transition: background 0.4s ease;
         }
 
         .hero-content {
@@ -226,7 +277,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            color: var(--medina-silver);
+            color: var(--text-silver);
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 4px;
@@ -265,7 +316,7 @@
 
         .btn-solid {
             background: var(--medina-blue);
-            color: var(--medina-black);
+            color: #fff;
             padding: 14px 35px;
             border: 2px solid var(--medina-blue);
             border-radius: 2px;
@@ -287,9 +338,10 @@
            4. GUARANTEE BANNER
            ========================================= */
         .guarantee-banner {
-            background: var(--medina-card);
+            background: var(--bg-card);
             padding: 40px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-soft);
+            transition: background-color 0.4s ease;
         }
 
         .guarantee-grid {
@@ -314,7 +366,7 @@
         .guarantee-item h4 {
             font-size: 1.1rem;
             letter-spacing: 1px;
-            color: var(--medina-silver);
+            color: var(--text-silver);
             margin: 0;
         }
 
@@ -360,16 +412,16 @@
         }
 
         .service-card {
-            background: var(--medina-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
             padding: 50px 40px;
             border-radius: 4px;
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-card);
         }
 
-        /* Subtle blue glow on hover */
         .service-card::before {
             content: '';
             position: absolute;
@@ -385,7 +437,6 @@
 
         .service-card:hover {
             transform: translateY(-5px);
-            background: #151a22;
             box-shadow: var(--shadow-neon);
             border-color: var(--border-glow);
         }
@@ -397,12 +448,13 @@
         .service-icon {
             width: 60px;
             height: 60px;
-            background: rgba(0, 168, 232, 0.1);
+            background: var(--icon-bg);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 30px;
+            transition: background 0.4s ease;
         }
 
         .service-icon i {
@@ -414,7 +466,7 @@
             font-size: 1.4rem;
             margin-bottom: 20px;
             letter-spacing: 1px;
-            color: var(--medina-silver);
+            color: var(--text-silver);
         }
 
         .service-list {
@@ -441,9 +493,10 @@
            ========================================= */
         .cta-section {
             padding: 100px 0;
-            background: linear-gradient(rgba(0, 168, 232, 0.05), rgba(5, 5, 5, 1));
+            background: var(--bg-cta);
             text-align: center;
             border-top: 1px solid var(--border-glow);
+            transition: background 0.4s ease;
         }
 
         .cta-section h2 {
@@ -453,7 +506,7 @@
         }
 
         .cta-section p {
-            color: var(--medina-silver-dark);
+            color: var(--text-silver-dark);
             font-size: 1.2rem;
             margin-bottom: 40px;
         }
@@ -462,22 +515,23 @@
            7. FOOTER
            ========================================= */
         .footer {
-            background: var(--medina-black);
+            background: var(--bg-card);
             padding: 80px 0 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid var(--border-soft);
+            transition: background-color 0.4s ease;
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--border-soft);
             padding-bottom: 60px;
             margin-bottom: 40px;
         }
 
         .footer-brand p {
-            color: var(--medina-silver-dark);
+            color: var(--text-silver-dark);
             max-width: 400px;
             margin-top: 20px;
             line-height: 1.8;
@@ -496,7 +550,7 @@
 
         .footer-col ul li {
             margin-bottom: 15px;
-            color: var(--medina-silver-dark);
+            color: var(--text-silver-dark);
             display: flex;
             gap: 15px;
             align-items: flex-start;
@@ -508,7 +562,7 @@
         }
 
         .footer-col a {
-            color: var(--medina-silver-dark);
+            color: var(--text-silver-dark);
             text-decoration: none;
             transition: var(--transition);
         }
@@ -519,7 +573,7 @@
 
         .footer-bottom {
             text-align: center;
-            color: var(--medina-silver-dark);
+            color: var(--text-silver-dark);
             font-size: 0.85rem;
         }
 
@@ -562,17 +616,61 @@
         }
 
         /* =========================================
-           9. RESPONSIVE
+           9. RESPONSIVE & MOBILE NAV
            ========================================= */
         @media (max-width: 900px) {
-
-            .utility-strip,
-            .nav-links {
+            .utility-strip {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            /* Mobile Nav Menu Setup */
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-nav);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition);
+                border-top: 1px solid var(--border-glow);
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            /* Checkbox Hack for Mobile Menu */
+            #menu-toggle:checked~.nav-links {
+                right: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
             }
 
             .hero-title {
                 font-size: 2.8rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .guarantee-grid {
@@ -599,7 +697,7 @@
                 <span><i class="fas fa-building"></i> Commercial & Residential Solutions</span>
             </div>
             <div class="utility-contact">
-                <span><i class="fas fa-phone"></i> (915) 221-4078</span>
+                <span><i class="fas fa-phone"></i> Jorge Medina: (915) 221-4078</span>
             </div>
         </div>
     </div>
@@ -607,19 +705,27 @@
     <nav class="nav-header" id="navbar">
         <div class="container nav-wrapper">
             <a href="#" class="brand-logo">
-                <img src="images/logo.jpg" alt="Medina Improves Logo" class="header-logo"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                <!-- <div class="logo-text">
-                    <span class="title">MEDINA IMPROVES</span>
-                    <span class="subtitle"><i class="fas fa-hammer" style="margin-right: 5px;"></i> Remodeling &
-                        Repairs</span>
-                </div> -->
+                <img src="images/logo.jpg" alt="Medina Improves Logo" onerror="this.style.display='none';">
             </a>
-            <div class="nav-links">
-                <a href="#services">Expertise</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-                <a href="tel:9152214078" class="btn-primary">Free Estimate</a>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <div class="nav-links">
+                    <a href="#services">Expertise</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="tel:9152214078" class="btn-primary">Free Estimate</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -634,8 +740,7 @@
                     transformations for apartments, offices, and residential properties. No project is too complex.</p>
                 <div class="hero-actions load-3" style="animation-delay: 0.6s;">
                     <a href="tel:9152214078" class="btn-solid">Get a Quote</a>
-                    <a href="#services" class="btn-primary"
-                        style="border-color: var(--text-main); color: var(--text-main);">View Services</a>
+                    <a href="#services" class="btn-primary">View Services</a>
                 </div>
             </div>
         </div>
@@ -672,7 +777,6 @@
             </div>
 
             <div class="services-grid">
-
                 <div class="service-card reveal-up">
                     <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
                     <h3>Interior & Remodeling</h3>
@@ -706,7 +810,6 @@
                         <li><i class="fas fa-check"></i> Retail & Business Spaces</li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
@@ -723,10 +826,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand reveal-up">
-                    <div class="logo-text">
-                        <span class="title">MEDINA IMPROVES</span>
-                        <span class="subtitle">Remodeling & Repairs</span>
-                    </div>
+                    <h2 style="font-size: 1.5rem; margin-bottom: 10px;">MEDINA IMPROVES</h2>
                     <p>Elite remodeling, painting, landscaping, and electrical repair services for El Paso, TX. We
                         guarantee 100% satisfaction on all jobs, big or small.</p>
                 </div>
@@ -755,6 +855,23 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                const body = document.body;
+                if (body.classList.contains('light-theme')) {
+                    body.classList.remove('light-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    body.classList.add('light-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            });
 
             /* --- Sticky Navbar Effect --- */
             const navbar = document.getElementById('navbar');
@@ -788,6 +905,19 @@
                     el.classList.add('active-reveal');
                 });
             }, 1000);
+
+            /* --- Mobile Menu Link Click Handler --- */
+            // Close the mobile menu automatically when a link is clicked
+            const mobileLinks = document.querySelectorAll('.nav-links a');
+            const menuCheckbox = document.getElementById('menu-toggle');
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        menuCheckbox.checked = false;
+                    }
+                });
+            });
 
         });
     </script>
