@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolve Soccer Academy | Develop. Compete. Evolve.</title>
+    <meta name="description"
+        content="Elite private and small group soccer training in El Paso, TX. Focused on developing players physically and technically for ages 5-14.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:ital,wght@0,500;0,700;0,800;0,900;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           0. DYNAMIC THEME VARIABLES (LIGHT DEFAULT)
+           ========================================= */
+        :root {
+            /* Brand Colors extracted from logo/flyers */
+            --ev-yellow: #FFDF00;
+            /* Energetic Athletic Yellow */
+            --ev-yellow-hover: #E6C800;
+            --ev-black: #0B0C10;
+            /* Deep Pitch Black */
+
+            /* LIGHT MODE (Default - Bright Game Day) */
+            --bg-main: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --bg-nav: rgba(255, 255, 255, 0.95);
+            --bg-cta: #F3F4F6;
+
+            --text-main: #111827;
+            --text-muted: #4B5563;
+            --text-accent: #000000;
+
+            --border-soft: rgba(17, 24, 39, 0.08);
+            --border-glow: rgba(255, 223, 0, 0.6);
+            --icon-bg: rgba(255, 223, 0, 0.15);
+
+            --shadow-accent: 0 10px 30px rgba(255, 223, 0, 0.2);
+            --shadow-card: 0 15px 35px rgba(17, 24, 39, 0.05);
+
+            --hero-overlay: linear-gradient(to right, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.6) 100%);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* DARK MODE VARIABLES (Friday Night Lights) */
+        body.dark-theme {
+            --bg-main: #0B0C10;
+            --bg-card: #15161A;
+            --bg-nav: rgba(11, 12, 16, 0.95);
+            --bg-cta: #111216;
+
+            --text-main: #F9FAFB;
+            --text-muted: #9CA3AF;
+            --text-accent: #FFDF00;
+
+            --border-soft: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(255, 223, 0, 0.3);
+            --icon-bg: rgba(255, 223, 0, 0.1);
+
+            --shadow-accent: 0 10px 30px rgba(255, 223, 0, 0.15);
+            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.5);
+
+            --hero-overlay: linear-gradient(to right, rgba(11, 12, 16, 0.95) 0%, rgba(11, 12, 16, 0.7) 100%);
+        }
+
+        /* =========================================
+           1. RESET & BASE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* =========================================
+           2. UTILITY STRIP & NAVIGATION
+           ========================================= */
+        .utility-strip {
+            background-color: var(--ev-black);
+            color: #FFFFFF;
+            padding: 10px 0;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .utility-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .utility-info span {
+            margin-right: 25px;
+        }
+
+        .utility-info span i {
+            margin-right: 8px;
+            color: var(--ev-yellow);
+        }
+
+        .nav-header {
+            background-color: var(--bg-nav);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav-header.scrolled {
+            backdrop-filter: blur(15px);
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-card);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Brand Logo */
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo img{
+            width: 80px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 0.9;
+            letter-spacing: -1px;
+        }
+
+        .logo-text .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: #D1B300;
+        }
+
+        /* Darker yellow for text hover readability */
+
+        body.dark-theme .nav-links a:hover {
+            color: var(--ev-yellow);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--ev-yellow);
+        }
+
+        .btn-primary {
+            background: var(--ev-yellow);
+            color: var(--ev-black) !important;
+            padding: 12px 30px;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+            /* Slanted athletic button effect */
+            transform: skewX(-5deg);
+        }
+
+        .btn-primary span {
+            display: inline-block;
+            transform: skewX(5deg);
+        }
+
+        .btn-primary:hover {
+            background: var(--ev-yellow-hover);
+            box-shadow: var(--shadow-accent);
+            transform: skewX(-5deg) translateY(-2px);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--text-main);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* =========================================
+           3. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 85vh;
+            min-height: 650px;
+            /* Energetic soccer turf/stadium image */
+            background: var(--hero-overlay), url('images/hero.png') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: background 0.4s ease;
+            border-bottom: 4px solid var(--ev-yellow);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding-bottom: 50px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: var(--ev-yellow);
+            padding: 5px 15px;
+            border-radius: 2px;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 6vw, 6rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            font-style: italic;
+        }
+
+        .hero-title span {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--text-main);
+            transition: all 0.4s ease;
+        }
+
+        body.dark-theme .hero-title span {
+            color: var(--ev-yellow);
+            -webkit-text-stroke: 0;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 650px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            padding: 12px 30px;
+            border: 2px solid var(--text-main);
+            border-radius: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            transform: skewX(-5deg);
+        }
+
+        .btn-outline span {
+            display: inline-block;
+            transform: skewX(5deg);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        /* =========================================
+           4. ATHLETIC VALUE BANNER
+           ========================================= */
+        .value-banner {
+            background: var(--bg-card);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-soft);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .value-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .value-item i {
+            font-size: 2rem;
+            color: #D1B300;
+            transition: color 0.4s ease;
+        }
+
+        body.dark-theme .value-item i {
+            color: var(--ev-yellow);
+        }
+
+        .value-item h4 {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            margin: 0;
+            font-weight: 800;
+            font-style: italic;
+        }
+
+        /* =========================================
+           5. PROGRAMS GRID
+           ========================================= */
+        .programs-section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            color: #D1B300;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            transition: color 0.4s ease;
+        }
+
+        body.dark-theme .section-header span {
+            color: var(--ev-yellow);
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .program-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            padding: 50px 40px;
+            border-radius: 4px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .program-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: var(--icon-bg);
+            border-radius: 100% 0 0 0;
+            z-index: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-accent);
+            border-color: var(--border-glow);
+        }
+
+        .program-card:hover::after {
+            transform: scale(1.5);
+        }
+
+        .program-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--ev-black);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-icon i {
+            font-size: 1.8rem;
+            color: var(--ev-yellow);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-list {
+            list-style: none;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-list li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.4s ease;
+        }
+
+        .program-list li i {
+            color: #D1B300;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            transition: color 0.4s ease;
+        }
+
+        body.dark-theme .program-list li i {
+            color: var(--ev-yellow);
+        }
+
+        /* =========================================
+           6. PRICING & PROMO SECTION
+           ========================================= */
+        .pricing-section {
+            padding: 120px 0;
+            background: var(--bg-cta);
+            border-top: 1px solid var(--border-soft);
+            transition: background 0.4s ease;
+        }
+
+        .pricing-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .pricing-content h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 25px;
+            line-height: 1.1;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .pricing-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .promo-box {
+            background: var(--ev-yellow);
+            color: var(--ev-black);
+            padding: 25px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transform: skewX(-5deg);
+            margin-top: 30px;
+        }
+
+        .promo-box i {
+            font-size: 2.5rem;
+        }
+
+        .promo-box div {
+            transform: skewX(5deg);
+        }
+
+        .promo-box h4 {
+            color: var(--ev-black);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .promo-box p {
+            color: var(--ev-black);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-card);
+            border: 2px solid var(--ev-yellow);
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .price-tag span {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .pricing-details {
+            margin: 25px 0;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        .pricing-details strong {
+            color: var(--text-main);
+        }
+
+        /* =========================================
+           7. FOOTER
+           ========================================= */
+        .footer {
+            background: var(--ev-black);
+            padding: 80px 0 40px;
+            color: #FFFFFF;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand .title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            line-height: 0.9;
+            letter-spacing: -1px;
+        }
+
+        .footer-brand .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .footer-brand p {
+            color: #9CA3AF;
+            max-width: 400px;
+            margin-top: 20px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .footer-col h4 {
+            color: #FFFFFF;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            font-weight: 800;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+            color: #9CA3AF;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            font-weight: 500;
+        }
+
+        .footer-col ul li i {
+            color: var(--ev-yellow);
+            margin-top: 5px;
+        }
+
+        .footer-col a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--ev-yellow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #6B7280;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* =========================================
+           8. ANIMATIONS
+           ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-1 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .load-2 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+
+        .load-3 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+
+        /* =========================================
+           9. RESPONSIVE & MOBILE NAV
+           ========================================= */
+        @media (max-width: 1024px) {
+            .pricing-wrapper {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .utility-strip {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-nav);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition);
+                border-top: 1px solid var(--border-soft);
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            #menu-toggle:checked~.nav-links {
+                right: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .value-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 5%;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-strip">
+        <div class="utility-container">
+            <div class="utility-info">
+                <span><i class="fas fa-map-marker-alt"></i> El Paso Westside & Eastside</span>
+                <span><i class="fas fa-users"></i> Boys & Girls Ages 5-14</span>
+            </div>
+            <div class="utility-contact">
+                <a href="mailto:evolvesoccer915@gmail.com"
+                    style="color: inherit; text-decoration: none; margin-right: 20px;"><i class="fas fa-envelope"></i>
+                    evolvesoccer915@gmail.com</a>
+                <span><i class="fas fa-phone"></i> (915) 234-3994</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <img src="images/logo.jpg" alt="Evolve Soccer Academy"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            </a>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span><span></span><span></span>
+                </label>
+
+                <div class="nav-links">
+                    <a href="#programs">Programs</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#join" class="btn-primary"><span>Join Now</span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label load-1">El Paso's Premier Training Environment</span>
+                <h1 class="hero-title load-2">Develop.<br>Compete.<br><span>Evolve.</span></h1>
+                <p class="hero-desc load-3">Private and small group soccer training focused on developing players
+                    physically, technically, and tactically. Year-round programs available for boys and girls ages 5-14.
+                </p>
+                <div class="hero-actions load-3" style="animation-delay: 0.6s;">
+                    <a href="#join" class="btn-primary" style="padding: 16px 40px; font-size: 1rem;"><span>Register
+                            Today</span></a>
+                    <a href="#programs" class="btn-outline"><span>View Programs</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-banner">
+        <div class="container value-grid">
+            <div class="value-item reveal-up">
+                <i class="fas fa-running"></i>
+                <h4>Focused Development</h4>
+            </div>
+            <div class="value-item reveal-up" style="transition-delay: 0.1s;">
+                <i class="fas fa-whistle"></i>
+                <h4>Certified Coaches</h4>
+            </div>
+            <div class="value-item reveal-up" style="transition-delay: 0.2s;">
+                <i class="fas fa-trophy"></i>
+                <h4>Competitive Environment</h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span>WHAT WE OFFER</span>
+                <h2>Elevate Your Game</h2>
+                <p>We break down the fundamentals to build elite athletes. Our curriculum focuses on ball control,
+                    tactical awareness, and game intelligence.</p>
+            </div>
+
+            <div class="services-grid programs-grid">
+
+                <div class="program-card reveal-up">
+                    <div class="program-icon"><i class="fas fa-futbol"></i></div>
+                    <h3>Technical Skills</h3>
+                    <ul class="program-list">
+                        <li><i class="fas fa-caret-right"></i> Advanced Ball Control</li>
+                        <li><i class="fas fa-caret-right"></i> Precision Passing Drills</li>
+                        <li><i class="fas fa-caret-right"></i> Elite Shooting Mechanics</li>
+                        <li><i class="fas fa-caret-right"></i> 1v1 Attacking & Defending</li>
+                    </ul>
+                </div>
+
+                <div class="program-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="program-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Game Intelligence</h3>
+                    <ul class="program-list">
+                        <li><i class="fas fa-caret-right"></i> Tactical Awareness</li>
+                        <li><i class="fas fa-caret-right"></i> Small-Sided Games & Match Play</li>
+                        <li><i class="fas fa-caret-right"></i> Spatial Recognition</li>
+                        <li><i class="fas fa-caret-right"></i> Decision Making Under Pressure</li>
+                    </ul>
+                </div>
+
+                <div class="program-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="program-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Physical Development</h3>
+                    <ul class="program-list">
+                        <li><i class="fas fa-caret-right"></i> Speed & Agility Training</li>
+                        <li><i class="fas fa-caret-right"></i> Match Endurance & Fitness</li>
+                        <li><i class="fas fa-caret-right"></i> Core Strength & Balance</li>
+                        <li><i class="fas fa-caret-right"></i> Player Progress Tracking</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing-section">
+        <div class="container pricing-wrapper">
+            <div class="pricing-content reveal-up">
+                <h2>Join the Academy.</h2>
+                <p>We offer a year-round developmental program. You can join at any time! Training takes place on
+                    Mondays and Wednesdays, with league matches and clinics on the weekends.</p>
+
+                <div style="margin-bottom: 20px;">
+                    <strong><i class="fas fa-map-marker-alt" style="color: #D1B300;"></i> Eastside Location:</strong>
+                    Dick Shinaut Park<br>
+                    <strong><i class="fas fa-map-marker-alt" style="color: #D1B300;"></i> Westside Location:</strong>
+                    Contact for field assignment
+                </div>
+
+                <div class="promo-box">
+                    <i class="fas fa-bullhorn"></i>
+                    <div>
+                        <h4>Refer a Player, Get 1 Month Free!</h4>
+                        <p>Refer a friend to the academy. If they sign up and complete registration, you receive one
+                            month of free dues.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-card reveal-up" style="transition-delay: 0.2s;">
+                <h3>Monthly Training Package</h3>
+                <div class="price-tag">$80<span>/mo</span></div>
+
+                <div class="pricing-details">
+                    <p><strong>Ages:</strong> 5 - 14 (Boys & Girls)</p>
+                    <p><strong>Frequency:</strong> 2 Sessions per week</p>
+                    <p><strong>Duration:</strong> 45 - 90 Minutes</p>
+                </div>
+
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 25px;">*A one-time $80
+                    registration fee is required upon sign-up.</p>
+
+                <a href="#contact" class="btn-primary" style="width: 100%;"><span>Secure Your Spot</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand reveal-up">
+                    <div class="logo-text">
+                        <span class="title" style="font-size: 2rem;">EVOLVE</span>
+                        <span class="subtitle">SOCCER ACADEMY</span>
+                    </div>
+                    <p>Develop. Compete. Evolve. El Paso's premier destination for youth soccer development, elite
+                        coaching, and mentorship.</p>
+
+                    <div style="margin-top: 20px; display: flex; gap: 15px;">
+                        <a href="#" style="color: var(--ev-yellow); font-size: 1.5rem;"><i
+                                class="fab fa-facebook-square"></i></a>
+                        <a href="#" style="color: var(--ev-yellow); font-size: 1.5rem;"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <span>(915) 234-3994 <br> (915) 270-2088</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>evolvesoccer915@gmail.com</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>El Paso, TX (Eastside & Westside)</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#programs">Training Curriculum</a></li>
+                        <li><a href="#pricing">Pricing & Registration</a></li>
+                        <li><a href="#">U5/U6 Developmental</a></li>
+                        <li><a href="#">Open Tryout Info</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 Evolve Soccer Academy. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                const body = document.body;
+
+                // Since light mode is default (no class), we toggle .dark-theme
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    body.classList.add('dark-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
+
+            /* --- Sticky Navbar Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            // Failsafe
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1000);
+
+            /* --- Mobile Menu Link Click Handler --- */
+            const mobileLinks = document.querySelectorAll('.nav-links a');
+            const menuCheckbox = document.getElementById('menu-toggle');
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        menuCheckbox.checked = false;
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
