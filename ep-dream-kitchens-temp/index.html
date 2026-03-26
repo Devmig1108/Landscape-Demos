@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EP Dream Kitchens | Affordable Custom Kitchen Remodels in El Paso</title>
+    <meta name="description"
+        content="Dream kitchens at an affordable price in El Paso, TX. We specialize in full kitchen remodels, custom cabinetry, and premium countertops.">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Raleway:wght@400;500;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           0. DYNAMIC THEME VARIABLES (LIGHT DEFAULT)
+           ========================================= */
+        :root {
+            /* Brand Colors extracted from logo */
+            --dk-teal: #5BBDB6;
+            /* Primary Action Color */
+            --dk-teal-hover: #4AA39D;
+            --dk-green: #9ACD5B;
+            /* Secondary/Accent Color */
+
+            /* LIGHT MODE (Default - Premium Editorial) */
+            --bg-main: #FFFFFF;
+            --bg-card: #FDFDFD;
+            --bg-nav: rgba(255, 255, 255, 0.98);
+            --bg-cta: #F8FAFC;
+
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --text-silver: #94A3B8;
+
+            --border-soft: rgba(30, 41, 59, 0.06);
+            --border-glow: rgba(91, 189, 182, 0.3);
+
+            /* Glassmorphism setup for Light Mode */
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(255, 255, 255, 0.5);
+
+            --shadow-accent: 0 10px 30px rgba(91, 189, 182, 0.2);
+            --shadow-card: 0 20px 40px rgba(30, 41, 59, 0.06);
+
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* DARK MODE VARIABLES (Moody Luxury) */
+        body.dark-theme {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2A;
+            --bg-nav: rgba(11, 15, 25, 0.98);
+            --bg-cta: #131A2A;
+
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-silver: #64748B;
+
+            --border-soft: rgba(255, 255, 255, 0.05);
+            --border-glow: rgba(91, 189, 182, 0.4);
+
+            /* Glassmorphism setup for Dark Mode */
+            --glass-bg: rgba(19, 26, 42, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.1);
+
+            --shadow-accent: 0 10px 30px rgba(91, 189, 182, 0.15);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* =========================================
+           1. RESET & BASE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Raleway', sans-serif;
+            color: var(--text-main);
+            transition: color 0.4s ease;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* =========================================
+           2. UTILITY STRIP & NAVIGATION
+           ========================================= */
+        .utility-strip {
+            background-color: var(--text-main);
+            color: var(--bg-main);
+            padding: 10px 0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .utility-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .utility-info span {
+            margin-right: 25px;
+        }
+
+        .utility-info span i {
+            margin-right: 8px;
+            color: var(--dk-teal);
+        }
+
+        .nav-header {
+            background-color: var(--bg-nav);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .nav-header.scrolled {
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            box-shadow: var(--shadow-card);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Brand Logo */
+        .brand-logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo img {
+            width: 100px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text .title {
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            line-height: 1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo-text .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--dk-teal);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--dk-teal);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--dk-teal);
+        }
+
+        .btn-primary {
+            background: var(--dk-teal);
+            color: #FFFFFF !important;
+            padding: 14px 35px;
+            border-radius: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition);
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--dk-teal-hover);
+            box-shadow: var(--shadow-accent);
+            transform: translateY(-3px);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        /* =========================================
+           3. HERO SECTION (GLASSMORPHISM EDITORIAL)
+           ========================================= */
+        .hero {
+            height: 90vh;
+            min-height: 700px;
+            /* Stunning, unobstructed luxury kitchen photo */
+            background: url('images/hero.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .container-hero {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .hero-glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 60px 50px;
+            max-width: 650px;
+            border-radius: 4px;
+            box-shadow: var(--shadow-card);
+            transition: background 0.4s ease, border 0.4s ease;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dk-teal);
+            font-size: 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .hero-title span {
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-main);
+            padding: 12px 35px;
+            border: 1px solid var(--text-main);
+            border-radius: 2px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-main);
+            color: var(--bg-main);
+        }
+
+        /* =========================================
+           4. VISUAL SERVICES GRID (IMAGE FIRST)
+           ========================================= */
+        .services-section {
+            padding: 120px 0;
+            position: relative;
+            background: var(--bg-main);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header span {
+            color: var(--dk-teal);
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 2px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .service-img {
+            height: 280px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .service-list li {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .service-list li i {
+            color: var(--dk-green);
+            font-size: 0.8rem;
+            margin-top: 6px;
+        }
+
+        .service-link {
+            color: var(--text-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            border-bottom: 1px solid var(--dk-teal);
+            padding-bottom: 5px;
+            align-self: flex-start;
+        }
+
+        .service-link:hover {
+            color: var(--dk-teal);
+            gap: 15px;
+        }
+
+        /* =========================================
+           5. PORTFOLIO TEASER (MASONRY)
+           ========================================= */
+        .portfolio-section {
+            padding: 0 0 120px 0;
+            background: var(--bg-main);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 300px 300px;
+            gap: 20px;
+        }
+
+        .port-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .port-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .port-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Spanning grid items to create masonry look */
+        .port-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .port-item.tall {
+            grid-row: span 2;
+        }
+
+        /* Overlay text on hover */
+        .port-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+        }
+
+        .port-item:hover .port-overlay {
+            opacity: 1;
+        }
+
+        .port-overlay h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            font-family: 'Raleway', sans-serif;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* =========================================
+           6. CTA SECTION
+           ========================================= */
+        .cta-section {
+            padding: 120px 0;
+            background: var(--bg-cta);
+            text-align: center;
+            border-top: 1px solid var(--border-soft);
+            transition: background 0.4s ease;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-inline: auto;
+        }
+
+        /* =========================================
+           7. FOOTER
+           ========================================= */
+        .footer {
+            background: var(--bg-card);
+            padding: 80px 0 40px;
+            border-top: 1px solid var(--border-soft);
+            transition: background-color 0.4s ease;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid var(--border-soft);
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .footer-col ul li i {
+            color: var(--dk-teal);
+            margin-top: 5px;
+        }
+
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--dk-teal);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-silver);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================
+           8. ANIMATIONS
+           ========================================= */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .load-1 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .load-2 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+        }
+
+        .load-3 {
+            animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+        }
+
+        /* =========================================
+           9. RESPONSIVE & MOBILE NAV
+           ========================================= */
+        @media (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+
+            .port-item.large {
+                grid-column: span 2;
+                grid-row: auto;
+                height: 400px;
+            }
+
+            .port-item.tall {
+                grid-row: auto;
+                height: 300px;
+            }
+
+            .port-item {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .utility-strip {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--bg-nav);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                gap: 40px;
+                transition: var(--transition);
+                border-top: 1px solid var(--border-glow);
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+
+            #menu-toggle:checked~.nav-links {
+                right: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+
+            #menu-toggle:checked~.hamburger span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .hero-glass-card {
+                padding: 40px 30px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .port-item.large {
+                grid-column: span 1;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="utility-strip">
+        <div class="utility-container">
+            <div class="utility-info">
+                <span><i class="fas fa-map-marker-alt"></i> Serving El Paso, TX</span>
+                <span class="pro-email"><i class="fas fa-check"></i> Quality Remodels. Affordable Prices.</span>
+            </div>
+            <div class="utility-contact">
+                <span><i class="fas fa-phone"></i> Design Consultation: (915) 791-7892</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav-header" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <img src="images/logo.jpg" alt="EP Dream Kitchens Logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <div class="logo-text" style="display: none;">
+                    <span class="title">EP DREAM KITCHENS</span>
+                    <span class="subtitle"><i class="fas fa-home" style="margin-right: 5px;"></i> Remodeling
+                        Experts</span>
+                </div>
+            </a>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="hamburger">
+                    <span></span><span></span><span></span>
+                </label>
+
+                <div class="nav-links">
+                    <a href="#services">Expertise</a>
+                    <a href="#portfolio">Gallery</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#quote" class="btn-primary">Free Estimate</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container-hero">
+            <div class="hero-glass-card">
+                <span class="hero-label load-1"><i class="fas fa-star" style="color: var(--dk-teal);"></i> El Paso's
+                    Kitchen Experts</span>
+                <h1 class="hero-title load-2">Your Dream Kitchen. <br><span>Made Affordable.</span></h1>
+                <p class="hero-desc load-3">We specialize in transforming outdated spaces into stunning, modern
+                    kitchens. Custom cabinetry, beautiful stone countertops, and full-scale remodels tailored to your
+                    lifestyle.</p>
+                <div class="hero-actions load-3" style="animation-delay: 0.6s;">
+                    <a href="#quote" class="btn-primary" style="padding: 16px 40px; font-size: 0.9rem;">Start Your
+                        Design</a>
+                    <a href="#portfolio" class="btn-outline">View Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span>OUR EXPERTISE</span>
+                <h2>Complete Transformations</h2>
+                <p>From minor aesthetic upgrades to full structural tear-downs and rebuilds, we handle every aspect of
+                    your kitchen remodel with architectural precision.</p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card reveal-up">
+                    <div class="service-img">
+                        <img src="images/kitchen.jpg"
+                            alt="Full Kitchen Remodel">
+                    </div>
+                    <div class="service-content">
+                        <h3>Full Kitchen Remodels</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> End-to-End Design & Build</li>
+                            <li><i class="fas fa-check"></i> Structural Layout Changes</li>
+                            <li><i class="fas fa-check"></i> Backsplash & Flooring Integration</li>
+                            <li><i class="fas fa-check"></i> Turnkey Project Management</li>
+                        </ul>
+                        <a href="#quote" class="service-link">Discuss Your Remodel <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.1s;">
+                    <div class="service-img">
+                        <img src="images/custom-cabinets.jpg"
+                            alt="Custom Navy Cabinetry">
+                    </div>
+                    <div class="service-content">
+                        <h3>Custom Cabinetry</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Bespoke Cabinet Fabrication</li>
+                            <li><i class="fas fa-check"></i> Professional Cabinet Refacing</li>
+                            <li><i class="fas fa-check"></i> Custom Islands & Pantries</li>
+                            <li><i class="fas fa-check"></i> Modern Hardware Upgrades</li>
+                        </ul>
+                        <a href="#quote" class="service-link">View Cabinet Options <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                    <div class="service-img">
+                        <img src="images/countertops.jpg"
+                            alt="Quartz Countertop Overhang">
+                    </div>
+                    <div class="service-content">
+                        <h3>Premium Countertops</h3>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i> Luxury Granite & Quartz Slabs</li>
+                            <li><i class="fas fa-check"></i> Durable Solid Surface Options</li>
+                            <li><i class="fas fa-check"></i> Precision Fabrication & Cutting</li>
+                            <li><i class="fas fa-check"></i> Seamless Edge Installation</li>
+                        </ul>
+                        <a href="#quote" class="service-link">Explore Stone Slabs <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <div class="section-header reveal-up">
+                <span>OUR WORK</span>
+                <h2>Recent Transformations</h2>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="port-item large reveal-up">
+                    <img src="images/bathroom.jpg"
+                        alt="Modern white kitchen remodel">
+                    <div class="port-overlay">
+                        <h3>Modern Minimalist</h3>
+                    </div>
+                </div>
+                <div class="port-item reveal-up" style="transition-delay: 0.1s;">
+                    <img src="images/island.jpg"
+                        alt="Custom kitchen island">
+                    <div class="port-overlay">
+                        <h3>Custom Islands</h3>
+                    </div>
+                </div>
+                <div class="port-item reveal-up" style="transition-delay: 0.2s;">
+                    <img src="images/quartz.jpg"
+                        alt="Kitchen countertop detail">
+                    <div class="port-overlay">
+                        <h3>Quartz Finishes</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section reveal-up">
+        <div class="container">
+            <h2>Ready to build your dream kitchen?</h2>
+            <p>Don't wait to get the kitchen you've always wanted. Contact our team in El Paso today to schedule your
+                design consultation and receive a free, detailed estimate.</p>
+            <a href="#contact" class="btn-primary" style="padding: 16px 40px; font-size: 0.9rem;">Start Your Project
+                Today</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand reveal-up">
+                    <div class="logo-text">
+                        <span class="title" style="font-size: 1.4rem;">EP DREAM KITCHENS</span>
+                    </div>
+                    <p>Providing high-end kitchen remodeling, custom cabinetry, and premium countertops at an affordable
+                        price in El Paso, Texas.</p>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <span>info@epdreamkitchens.com</span></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <span>El Paso, TX & Surrounding Areas</span></li>
+                        <li><i class="fas fa-calculator"></i> <span>Free Design Consultations</span></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Full Kitchen Remodels</a></li>
+                        <li><a href="#services">Custom Cabinets</a></li>
+                        <li><a href="#services">Premium Countertops</a></li>
+                        <li><a href="#portfolio">View Our Portfolio</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 EP Dream Kitchens LLC. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                const body = document.body;
+
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    body.classList.add('dark-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
+
+            /* --- Sticky Navbar Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1000);
+
+            /* --- Mobile Menu Link Click Handler --- */
+            const mobileLinks = document.querySelectorAll('.nav-links a');
+            const menuCheckbox = document.getElementById('menu-toggle');
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        menuCheckbox.checked = false;
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>
+
+</html>
