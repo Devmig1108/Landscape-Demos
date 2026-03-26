@@ -21,10 +21,8 @@
         :root {
             /* Brand Colors extracted from logo/flyers */
             --ev-yellow: #FFDF00;
-            /* Energetic Athletic Yellow */
             --ev-yellow-hover: #E6C800;
             --ev-black: #0B0C10;
-            /* Deep Pitch Black */
 
             /* LIGHT MODE (Default - Bright Game Day) */
             --bg-main: #FAFAFA;
@@ -39,6 +37,12 @@
             --border-soft: rgba(17, 24, 39, 0.08);
             --border-glow: rgba(255, 223, 0, 0.6);
             --icon-bg: rgba(255, 223, 0, 0.15);
+
+            /* Logo Specific Fixes for Light Mode */
+            --logo-bg: var(--ev-black);
+            /* Dark pill background */
+            --logo-title: #FFFFFF;
+            /* Force white text against dark pill */
 
             --shadow-accent: 0 10px 30px rgba(255, 223, 0, 0.2);
             --shadow-card: 0 15px 35px rgba(17, 24, 39, 0.05);
@@ -61,6 +65,11 @@
             --border-soft: rgba(255, 255, 255, 0.08);
             --border-glow: rgba(255, 223, 0, 0.3);
             --icon-bg: rgba(255, 223, 0, 0.1);
+
+            /* Logo Specific Fixes for Dark Mode */
+            --logo-bg: transparent;
+            /* Remove pill background */
+            --logo-title: var(--text-main);
 
             --shadow-accent: 0 10px 30px rgba(255, 223, 0, 0.15);
             --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.5);
@@ -160,12 +169,16 @@
             align-items: center;
         }
 
-        /* Brand Logo */
+        /* Brand Logo (Updated with Dynamic Pill Background) */
         .brand-logo {
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 15px;
+            background-color: var(--logo-bg);
+            padding: 5px 12px;
+            border-radius: 6px;
+            transition: var(--transition);
         }
 
         .brand-logo img {
@@ -181,9 +194,11 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 900;
-            color: var(--text-main);
+            color: var(--logo-title);
+            /* Updated to dynamic color */
             line-height: 0.9;
             letter-spacing: -1px;
+            transition: var(--transition);
         }
 
         .logo-text .subtitle {
@@ -222,8 +237,6 @@
             color: #D1B300;
         }
 
-        /* Darker yellow for text hover readability */
-
         body.dark-theme .nav-links a:hover {
             color: var(--ev-yellow);
         }
@@ -255,7 +268,6 @@
             border: none;
             display: inline-block;
             text-decoration: none;
-            /* Slanted athletic button effect */
             transform: skewX(-5deg);
         }
 
@@ -297,7 +309,6 @@
         .hero {
             height: 85vh;
             min-height: 650px;
-            /* Energetic soccer turf/stadium image */
             background: var(--hero-overlay), url('images/hero.png') center/cover;
             display: flex;
             align-items: center;
@@ -898,8 +909,13 @@
     <nav class="nav-header" id="navbar">
         <div class="container nav-wrapper">
             <a href="#" class="brand-logo">
-                <img src="images/logo.png" alt="Evolve Soccer Academy"
+                <img src="images/logo.jpg" alt="Evolve Soccer Academy"
                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                <div class="logo-text" style="display: none;">
+                    <span class="title">EVOLVE</span>
+                    <span class="subtitle">SOCCER ACADEMY</span>
+                </div>
             </a>
 
             <div class="nav-controls">
@@ -1009,7 +1025,7 @@
             <div class="pricing-content reveal-up">
                 <h2>Join the Academy.</h2>
                 <p>We offer a year-round developmental program. You can join at any time! Training takes place on
-                    Mondays and Wednesdays, with league matches and clinics on the weekends.</p>
+                    Mondsays and Wednesdays, with league matches and clinics on the weekends.</p>
 
                 <div style="margin-bottom: 20px;">
                     <strong><i class="fas fa-map-marker-alt" style="color: #D1B300;"></i> Eastside Location:</strong>
