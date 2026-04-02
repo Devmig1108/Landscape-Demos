@@ -1,56 +1,55 @@
 <?php
-// Only process POST requests
+// Include the ZeptoMail function we created earlier
+require_once 'mailer.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-    // 1. Set your email address where you want to receive leads
-    $recipient_email = "contact@ervotechep.com"; // CHANGE THIS TO CLIENT EMAIL
-    
-    // 2. Sanitize and grab the form data
-    $name = strip_tags(trim($_POST["fullName"]));
-    $phone = strip_tags(trim($_POST["phone"]));
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+
+    // 1. Set your recipient email
+    $recipient_email = "contact@ervotechep.com";
+
+    // 2. Sanitize form data
+    $name    = strip_tags(trim($_POST["fullName"]));
+    $phone   = strip_tags(trim($_POST["phone"]));
+    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $service = strip_tags(trim($_POST["service"]));
-    
+
     // 3. Basic validation
     if (empty($name) || empty($phone) || empty($service)) {
-        // Redirect back with an error
-        header("Location: " . $_SERVER["HTTP_REFERER"] . "?status=error");
+        header("Location: " . explode('?', $_SERVER['HTTP_REFERER'])[0] . "?status=error");
         exit;
     }
 
-    // 4. Construct the email subject and body
+    // 4. Construct the email subject and HTML body
     $subject = "New Lead: $service - $name";
-    
-    $email_content = "You have received a new estimate request from the Lawn Heros website.\n\n";
-    $email_content .= "Name: $name\n";
-    $email_content .= "Phone: $phone\n";
-    if (!empty($email)) {
-        $email_content .= "Email: $email\n";
-    }
-    $email_content .= "Service Requested: $service\n";
 
-    // 5. Build the email headers
-    $headers = "From: Lawn Heros Website <noreply@lawnheros.com>\r\n";
+    // ZeptoMail likes HTML, so let's format it nicely
+    $html_content = "<h2>New Estimate Request: Lawn Heros</h2>";
+    $html_content .= "<p><strong>Service:</strong> $service</p>";
+    $html_content .= "<p><strong>Name:</strong> $name</p>";
+    $html_content .= "<p><strong>Phone:</strong> $phone</p>";
     if (!empty($email)) {
-        $headers .= "Reply-To: $email\r\n";
+        $html_content .= "<p><strong>Email:</strong> $email</p>";
     }
 
-    // 6. Send the email using PHP's mail() function
-    if (mail($recipient_email, $subject, $email_content, $headers)) {
-        // Success! Redirect back to the previous page with a success flag
-        // The explode gets rid of any existing query strings so it doesn't duplicate
+    // 5. Use the ZeptoMail function instead of mail()
+    // We pass the project name as 'Lawn Heros' for your sandbox tracker
+    $emailData = [
+        'project' => 'Lawn Heros',
+        'subject' => $subject,
+        'body'    => $html_content
+    ];
+
+    if (sendZeptoEmail($emailData)) {
+        // Success!
         $referer = explode('?', $_SERVER['HTTP_REFERER'])[0];
         header("Location: " . $referer . "?status=success");
         exit;
     } else {
-        // Failed to send
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=error");
+        // Failed
+        header("Location: " . explode('?', $_SERVER['HTTP_REFERER'])[0] . "?status=error");
         exit;
     }
-
 } else {
-    // If someone tries to visit process-form.php directly, kick them back to home
     header("Location: index.php");
     exit;
 }
-?>
