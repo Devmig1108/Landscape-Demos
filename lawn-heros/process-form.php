@@ -1,6 +1,6 @@
 <?php
 // Include the ZeptoMail function we created earlier
-require_once 'mailer.php';
+require_once __DIR__ . '/mailer.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
