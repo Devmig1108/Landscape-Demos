@@ -38,30 +38,33 @@ include $basePath . 'includes/header.php';
         <aside class="sidebar reveal-up" style="transition-delay: 0.2s;">
             <div class="quote-widget" style="box-shadow: var(--shadow-accent); border-color: var(--lh-orange);">
                 <h3>Request an Estimate</h3>
-                <form action="#" method="POST">
+                <form action="<?php echo $basePath; ?>process-form.php" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name" required>
+                        <input type="text" name="fullName" class="form-control" placeholder="Full Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number" required>
+                        <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email Address">
+                        <input type="email" name="email" class="form-control" placeholder="Email Address">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" required>
+                        <select name="service" class="form-control" required>
                             <option value="" disabled selected>Select Service Needed...</option>
-                            <option value="weed-control">Weed Control (Rock/Dirt)</option>
-                            <option value="lawn-care">Lawn Care & Fertilization</option>
-                            <option value="pest-control">Exterior Pest Protection</option>
-                            <option value="other">Multiple Services / Other</option>
+                            <option value="Weed Control">Weed Control (Rock/Dirt)</option>
+                            <option value="Lawn Care">Lawn Care & Fertilization</option>
+                            <option value="Pest Control">Exterior Pest Protection</option>
+                            <option value="Other">Multiple Services / Other</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <textarea class="form-control" rows="4" placeholder="Tell us a bit about your property (e.g., massive rock yard full of weeds, Bermuda grass dying...)" style="resize: vertical;"></textarea>
-                    </div>
-                    <button type="submit" class="btn-primary widget-btn"><span>Send Request</span></button>
+                    <button type="submit" class="btn-primary widget-btn"><span>Request Estimate</span></button>
                 </form>
+
+                <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
+                    <div style="background: var(--lh-green); color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; font-weight: bold;">
+                        Thanks! We will contact you shortly.
+                    </div>
+                <?php endif; ?>
             </div>
         </aside>
 
