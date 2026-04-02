@@ -92,7 +92,7 @@ include $basePath . 'includes/header.php';
             </div>
 
             <div class="sidebar-image">
-                <img src="https://images.unsplash.com/photo-1592424001713-b9b5f54cc270?q=80&w=600&auto=format&fit=crop" alt="Beautifully maintained weed-free lawn in El Paso">
+                <img src="../images/side-lawn.jpeg" alt="Beautifully maintained weed-free lawn in El Paso">
             </div>
         </aside>
 
