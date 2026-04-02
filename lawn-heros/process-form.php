@@ -3,7 +3,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // 1. Set your email address where you want to receive leads
-    $recipient_email = "your-email@example.com"; // CHANGE THIS TO YOUR EMAIL
+    $recipient_email = "contact@ervotechep.com"; // CHANGE THIS TO CLIENT EMAIL
     
     // 2. Sanitize and grab the form data
     $name = strip_tags(trim($_POST["fullName"]));
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email_content .= "Service Requested: $service\n";
 
     // 5. Build the email headers
-    $headers = "From: Lawn Heros Website <noreply@ervotech.site>\r\n";
+    $headers = "From: Lawn Heros Website <noreply@lawnheros.com>\r\n";
     if (!empty($email)) {
         $headers .= "Reply-To: $email\r\n";
     }
