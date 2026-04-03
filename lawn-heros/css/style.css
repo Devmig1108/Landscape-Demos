@@ -137,7 +137,7 @@ strong {
    2. BUTTONS
    ========================================= */
 .btn-primary {
-    background: var(--lh-orange);
+    background: var(--lh-orange) !important;
     color: #FFFFFF !important;
     padding: 14px 35px;
     border-radius: var(--radius-sharp) var(--radius-curve) var(--radius-sharp) var(--radius-curve);
@@ -327,6 +327,7 @@ strong {
     transition: var(--transition);
     cursor: pointer;
     border: none;
+    background: none;
     font-family: 'Inter', sans-serif;
 }
 
