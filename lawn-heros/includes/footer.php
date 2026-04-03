@@ -15,7 +15,7 @@
                 <h4>CONTACT US</h4>
                 <ul>
                     <li><i class="fas fa-envelope"></i> <span>Message us for inquiries</span></li>
-                    <li><i class="fas fa-map-marker-alt"></i> <span>El Paso, Horizon, Socorro</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>El Paso</span></li>
                 </ul>
             </div>
             

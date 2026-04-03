@@ -34,7 +34,7 @@ include $basePath . 'includes/header.php';
             <aside class="sidebar reveal-up" style="transition-delay: 0.2s;">
                 <div class="quote-widget" style="background: var(--lh-green); border: none;">
                     <h3 style="color: #FFF;"><i class="fas fa-users" style="color: var(--lh-orange); margin-right: 10px;"></i> Family Operated</h3>
-                    <p style="color: rgba(255,255,255,0.9);">Fully Licensed, Insured, and dedicated to our neighbors in El Paso, Horizon City, and the Upper Valley.</p>
+                    <p style="color: rgba(255,255,255,0.9);">Fully Licensed, Insured, and dedicated to our neighbors in El Paso</p>
                 </div>
                 
                 <div class="sidebar-image">

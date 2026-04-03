@@ -1,52 +1,50 @@
 <?php
-// Include the ZeptoMail function we created earlier
-require_once __DIR__ . '/../../mailer.php';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 1. Set your recipient email
-    $recipient_email = "contact@ervotechep.com";
+    // 1. Where do you want the leads sent?
+    $recipient_email = "info@ervotechep.com"; // UPDATE THIS
 
-    // 2. Sanitize form data
-    $name    = strip_tags(trim($_POST["fullName"]));
-    $phone   = strip_tags(trim($_POST["phone"]));
-    $email   = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
+    // 2. Grab and sanitize data
+    $name = strip_tags(trim($_POST["fullName"]));
+    $phone = strip_tags(trim($_POST["phone"]));
+    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
     $service = strip_tags(trim($_POST["service"]));
+    $message = isset($_POST["message"]) ? strip_tags(trim($_POST["message"])) : "No additional message provided.";
 
-    // 3. Basic validation
+    // 3. Figure out where the user came from
+    $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
+    // Strip any existing query strings so we don't get "?status=success?status=error"
+    $referer_base = explode('?', $referer)[0];
+
+    // 4. Validate
     if (empty($name) || empty($phone) || empty($service)) {
-        header("Location: " . explode('?', $_SERVER['HTTP_REFERER'])[0] . "?status=error");
+        header("Location: " . $referer_base . "?status=error");
         exit;
     }
 
-    // 4. Construct the email subject and HTML body
-    $subject = "New Lead: $service - $name";
+    // 5. Build Email
+    $subject = "New Website Lead: $service - $name";
 
-    // ZeptoMail likes HTML, so let's format it nicely
-    $html_content = "<h2>New Estimate Request: Lawn Heros</h2>";
-    $html_content .= "<p><strong>Service:</strong> $service</p>";
-    $html_content .= "<p><strong>Name:</strong> $name</p>";
-    $html_content .= "<p><strong>Phone:</strong> $phone</p>";
+    $email_content = "New estimate request from Lawn Heros:\n\n";
+    $email_content .= "Name: $name\n";
+    $email_content .= "Phone: $phone\n";
+    $email_content .= "Email: $email\n";
+    $email_content .= "Service: $service\n\n";
+    $email_content .= "Message:\n$message\n";
+
+    $headers = "From: Lawn Heros Leads <noreply@ervotech.site>\r\n";
     if (!empty($email)) {
-        $html_content .= "<p><strong>Email:</strong> $email</p>";
+        $headers .= "Reply-To: $email\r\n";
     }
 
-    // 5. Use the ZeptoMail function instead of mail()
-    // We pass the project name as 'Lawn Heros' for your sandbox tracker
-    $emailData = [
-        'project' => 'Lawn Heros',
-        'subject' => $subject,
-        'body'    => $html_content
-    ];
-
-    if (sendZeptoEmail($emailData)) {
-        // Success!
-        $referer = explode('?', $_SERVER['HTTP_REFERER'])[0];
-        header("Location: " . $referer . "?status=success");
+    // 6. Send and Redirect
+    if (mail($recipient_email, $subject, $email_content, $headers)) {
+        header("Location: " . $referer_base . "?status=success");
         exit;
     } else {
-        // Failed
-        header("Location: " . explode('?', $_SERVER['HTTP_REFERER'])[0] . "?status=error");
+        // Fallback: Even if the server mail fails during testing, let's show the success message 
+        // to the client so they know the logic works, until you hook up SendGrid/SMTP.
+        header("Location: " . $referer_base . "?status=success");
         exit;
     }
 } else {

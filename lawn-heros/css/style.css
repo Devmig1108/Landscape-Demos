@@ -226,13 +226,16 @@ strong {
     color: var(--lh-orange);
 }
 
+/* Update these specific blocks in your style.css */
+
 .nav-header {
     background-color: var(--bg-nav);
     padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: var(--transition);
+    /* Only transition colors and shadows here, not height */
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
     border-bottom: 1px solid var(--border-soft);
 }
 
@@ -245,6 +248,15 @@ strong {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Lock the initial height */
+    min-height: 100px;
+    /* Smoothly animate the container shrinking */
+    transition: min-height 0.4s ease;
+}
+
+.nav-header.scrolled .nav-wrapper {
+    /* Target shrunk height */
+    min-height: 70px;
 }
 
 .brand-logo {
@@ -253,17 +265,19 @@ strong {
     align-items: center;
     gap: 15px;
     padding: 5px 15px;
-    transition: var(--transition);
 }
 
 .brand-logo img {
     width: 150px;
+    max-height: 80px;
     object-fit: contain;
-    transition: var(--transition);
+    /* Animate both width and height smoothly */
+    transition: width 0.4s ease, max-height 0.4s ease;
 }
 
 .nav-header.scrolled .brand-logo img {
-    width: 80px;
+    width: 100px;
+    max-height: 50px;
 }
 
 .logo-text {
@@ -313,7 +327,6 @@ strong {
     transition: var(--transition);
     cursor: pointer;
     border: none;
-    background: none;
     font-family: 'Inter', sans-serif;
 }
 
@@ -480,7 +493,7 @@ strong {
 /* Conversion Widget */
 .quote-widget {
     background: var(--bg-card);
-    padding: 50px 40px;
+    padding: 20px 15px;
     border-radius: var(--radius-curve) var(--radius-sharp) var(--radius-curve) var(--radius-sharp);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-soft);
@@ -544,7 +557,8 @@ strong {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(39, 99, 42, 0.95), rgba(21, 101, 192, 0.8));
+    /* A rich, dark overlay that lets the background image do the talking */
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.6) 100%);
     z-index: 1;
 }
 

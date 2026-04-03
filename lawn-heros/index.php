@@ -34,32 +34,11 @@ include $basePath . 'includes/header.php';
 <header class="hero">
     <div class="container hero-grid">
         <div class="hero-text">
-            <span class="hero-label reveal-up"><i class="fas fa-shield-alt"></i> El Paso's Technical Turf Experts</span>
+            <span class="hero-label reveal-up"><i class="fas fa-shield-alt"></i> El Paso's Trusted Lawn Care</span>
             <h1 class="hero-title reveal-up" style="transition-delay: 0.1s;">Expert Weed Control & Lawn Care in <span>El Paso, TX</span></h1>
             <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">Dependable, family-owned lawn maintenance and landscaping services. From precision mowing to specialized weed control, the Heros have you covered.</p>
         </div>
-
-        <div class="quote-widget reveal-up" style="transition-delay: 0.3s;">
-            <h3>Get a Fast Estimate</h3>
-            <p>Enter your details and our family will reach out today.</p>
-            <form action="#" method="POST">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required>
-                </div>
-                <div class="form-group">
-                    <select class="form-control" required>
-                        <option value="" disabled selected>Select Service Needed...</option>
-                        <option value="weed-control">Non-Selective Weed Control (Rock/Dirt)</option>
-                        <option value="lawn-care">Lawn Care & NPK Fertilization</option>
-                        <option value="pest-control">Exterior Pest Protection</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-primary widget-btn"><span>Request Estimate</span></button>
-            </form>
-        </div>
+        <?php include $basePath . 'includes/quote-widget.php'; ?>
     </div>
 </header>
 
@@ -82,7 +61,7 @@ include $basePath . 'includes/header.php';
                     <li><i class="fas fa-check"></i> Pre-Emergent Seed Barriers</li>
                     <li><i class="fas fa-check"></i> Perennial & Annual Control</li>
                 </ul>
-                <a href="weed-control-el-paso/index.php" class="service-link">View Weed Control <i class="fas fa-arrow-right"></i></a>
+                <a href="weed-control-el-paso" class="service-link">View Weed Control <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card offset reveal-up" style="transition-delay: 0.15s;">
@@ -95,7 +74,7 @@ include $basePath . 'includes/header.php';
                     <li><i class="fas fa-check"></i> Iron & Soil Conditioning</li>
                     <li><i class="fas fa-check"></i> Top Soil & Water Scheduling</li>
                 </ul>
-                <a href="lawn-care-el-paso/index.php" class="service-link">View Lawn Care <i class="fas fa-arrow-right"></i></a>
+                <a href="lawn-care-el-paso" class="service-link">View Lawn Care <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="service-card reveal-up" style="transition-delay: 0.3s;">
@@ -108,7 +87,7 @@ include $basePath . 'includes/header.php';
                     <li><i class="fas fa-check"></i> Lawn Insect & Grub Control</li>
                     <li><i class="fas fa-check"></i> Seasonal Pest Prevention</li>
                 </ul>
-                <a href="contact/index.php" class="service-link">Request Pest Control <i class="fas fa-arrow-right"></i></a>
+                <a href="contact" class="service-link">Request Pest Control <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -157,7 +136,7 @@ include $basePath . 'includes/header.php';
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
                 <p class="review-text">"We have a massive rock lawn that was constantly overrun with weeds. Since Lawn Heros started their pre-emergent treatments, I haven't had to pull a single weed. Unbelievable service."</p>
-                <div class="author">Michael T. <span>Upper Valley, TX</span></div>
+                <div class="author">Michael T. <span>West Side El Paso</span></div>
             </div>
 
             <div class="review-card reveal-up" style="transition-delay: 0.15s;">
@@ -175,7 +154,7 @@ include $basePath . 'includes/header.php';
                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
                 <p class="review-text">"It is so refreshing to deal directly with a father and sons team instead of a massive corporation. They are dependable, communicate well, and their exterior pest perimeter works flawlessly."</p>
-                <div class="author">David R. <span>Horizon City, TX</span></div>
+                <div class="author">David R. <span>Horizon City</span></div>
             </div>
         </div>
     </div>

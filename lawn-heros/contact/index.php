@@ -24,7 +24,7 @@ include $basePath . 'includes/header.php';
             <ul style="margin-top: 40px;">
                 <li style="font-size: 1.2rem;"><i class="fas fa-phone-alt"></i> <strong>Direct Line:</strong> <a href="tel:9150000000" style="color: var(--text-muted); text-decoration: none;">(915) 000-0000</a></li>
                 <li style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@lawnheros.com" style="color: var(--text-muted); text-decoration: none;">info@lawnheros.com</a></li>
-                <li style="font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> <strong>Service Area:</strong> El Paso, Horizon City, Socorro, Upper Valley</li>
+                <li style="font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> <strong>Service Area:</strong> El Paso</li>
             </ul>
 
             <div class="highlight-box">
@@ -36,36 +36,13 @@ include $basePath . 'includes/header.php';
         </div>
 
         <aside class="sidebar reveal-up" style="transition-delay: 0.2s;">
-            <div class="quote-widget" style="box-shadow: var(--shadow-accent); border-color: var(--lh-orange);">
-                <h3>Request an Estimate</h3>
-                <form action="<?php echo $basePath; ?>process-form.php" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="fullName" class="form-control" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control" placeholder="Email Address">
-                    </div>
-                    <div class="form-group">
-                        <select name="service" class="form-control" required>
-                            <option value="" disabled selected>Select Service Needed...</option>
-                            <option value="Weed Control">Weed Control (Rock/Dirt)</option>
-                            <option value="Lawn Care">Lawn Care & Fertilization</option>
-                            <option value="Pest Control">Exterior Pest Protection</option>
-                            <option value="Other">Multiple Services / Other</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary widget-btn"><span>Request Estimate</span></button>
-                </form>
-
+                <?php include $basePath . 'includes/quote-widget.php'; ?>
                 <?php if (isset($_GET['status']) && $_GET['status'] == 'success'): ?>
                     <div style="background: var(--lh-green); color: white; padding: 15px; border-radius: 8px; margin-top: 15px; text-align: center; font-weight: bold;">
                         Thanks! We will contact you shortly.
                     </div>
                 <?php endif; ?>
-            </div>
+
         </aside>
 
     </div>
