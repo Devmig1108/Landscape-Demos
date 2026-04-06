@@ -21,6 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: " . $referer_base . "?status=error");
         exit;
     }
+    // If the honeypot field is NOT empty, it's a bot.
+    if (!empty($_POST['website_verification_code'])) {
+        // Silently fail or redirect back. Don't let the mailer run.
+        header("Location: index.php?status=success");
+        exit;
+    }
 
     // 5. Build Email
     $subject = "New Website Lead: $service - $name";

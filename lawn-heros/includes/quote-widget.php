@@ -15,6 +15,10 @@
     <?php endif; ?>
 
     <form action="<?php echo $basePath; ?>process-form.php" method="POST">
+        <div style="display:none;">
+            <label>Leave this field blank</label>
+            <input type="text" name="website_verification_code" value="">
+        </div>
         <div class="form-group">
             <input type="text" name="fullName" class="form-control" placeholder="Full Name" required>
         </div>
