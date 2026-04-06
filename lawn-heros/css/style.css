@@ -277,7 +277,6 @@ strong {
 
 .nav-header.scrolled .brand-logo img {
     width: 100px;
-    max-height: 50px;
 }
 
 .logo-text {
@@ -340,6 +339,7 @@ strong {
 .dropdown {
     position: relative;
     display: inline-block;
+    text-align: center;
 }
 
 .dropdown-content {
@@ -1139,6 +1139,16 @@ strong {
 }
 
 @media (max-width: 1024px) {
+    .nav-header.scrolled .nav-wrapper {
+        /* Target shrunk height */
+        min-height: 100px;
+    }
+
+    .nav-header.scrolled .brand-logo img {
+        width: 150px;
+        height: 80px;
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1212,6 +1222,10 @@ strong {
         font-weight: 800;
     }
 
+    .internal-hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+    }
+
     .dropdown-content {
         position: static;
         box-shadow: none;
@@ -1229,6 +1243,10 @@ strong {
         color: var(--text-muted);
     }
 
+    .quote-widget {
+        margin-bottom: 20px;
+    }
+
     #menu-toggle:checked~.nav-links {
         right: 0;
     }
@@ -1243,6 +1261,10 @@ strong {
 
     #menu-toggle:checked~.hamburger span:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .about-badge {
+        right: 0px;
     }
 
     .services-grid {
