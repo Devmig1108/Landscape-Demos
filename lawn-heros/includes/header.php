@@ -30,7 +30,7 @@
                 <span><i class="fas fa-users"></i> Father & Sons Company</span>
             </div>
             <div class="utility-contact">
-                <span><i class="fas fa-phone-alt"></i> Fast, Free, Dependable Quotes: <a href="tel:9150000000" style="color: #FFF; text-decoration: none;">(915) 000-0000</a></span>
+                <span><i class="fas fa-phone-alt"></i> Fast, Free, Dependable Quotes: <a href="tel:9152416986" style="color: #FFF; text-decoration: none;">(915) 241-6986</a></span>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                     </div>
 
                     <a href="<?php echo $basePath; ?>contact/index.php">Contact Us</a>
-                    <a href="tel:9150000000" class="btn-primary">Call Now</a>
+                    <a href="tel:9152416986" class="btn-primary">Call Now</a>
                 </div>
             </div>
         </div>

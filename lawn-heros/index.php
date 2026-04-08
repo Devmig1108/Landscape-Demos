@@ -12,7 +12,7 @@ $schemaJson = '{
   "image": "https://www.lawnheros.com/images/logo.png",
   "description": "Expert weed control, lawn fertilization, and exterior pest control services operating throughout El Paso, TX, Horizon City, and the Upper Valley.",
   "url": "https://www.lawnheros.com/",
-  "telephone": "+19150000000",
+  "telephone": "+19152416986",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "El Paso",
