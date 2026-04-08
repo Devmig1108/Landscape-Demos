@@ -10,7 +10,7 @@ $schemaJson = '{
   "@type": "LocalBusiness",
   "name": "Lawn Heros Father & Sons Company",
   "image": "https://www.lawnheros.com/images/logo.png",
-  "description": "Expert weed control, lawn fertilization, and exterior pest control services operating throughout El Paso, TX, Horizon City, and the Upper Valley.",
+  "description": "Expert weed control, lawn fertilization, and exterior pest control services operating throughout El Paso, TX, Horizon City, and Socorro.",
   "url": "https://www.lawnheros.com/",
   "telephone": "+19152416986",
   "address": {
@@ -24,7 +24,7 @@ $schemaJson = '{
     "latitude": 31.7619,
     "longitude": -106.4850
   },
-  "areaServed": ["El Paso", "Horizon City", "Socorro", "Upper Valley"],
+  "areaServed": ["El Paso", "Horizon City", "Socorro",],
   "priceRange": "$$"
 }';
 

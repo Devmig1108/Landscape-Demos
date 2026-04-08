@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 1. Where do you want the leads sent?
-    $recipient_email = "info@ervotechep.com"; // UPDATE THIS
+    $recipient_email = "service@lawnheros.com"; // UPDATE THIS
 
     // 2. Grab and sanitize data
     $name = strip_tags(trim($_POST["fullName"]));

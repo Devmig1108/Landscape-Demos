@@ -21,7 +21,7 @@ $schemaJson = '{
     },
     "telephone": "+19152416986"
   },
-  "areaServed": ["El Paso", "Horizon City", "Socorro", "Upper Valley"],
+  "areaServed": ["El Paso", "Horizon City", "Socorro""],
   "description": "Technical lawn care services including custom NPK fertilization, soil testing, iron treatments, and selective weed eradication for southern grasses."
 }';
 

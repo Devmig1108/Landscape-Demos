@@ -23,7 +23,7 @@ include $basePath . 'includes/header.php';
 
             <ul style="margin-top: 40px;">
                 <li style="font-size: 1.2rem;"><i class="fas fa-phone-alt"></i> <strong>Direct Line:</strong> <a href="tel:9152416986" style="color: var(--text-muted); text-decoration: none;">(915) 241-6986</a></li>
-                <li style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@lawnheros.com" style="color: var(--text-muted); text-decoration: none;">info@lawnheros.com</a></li>
+                <li style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@lawnheros.com" style="color: var(--text-muted); text-decoration: none;">service@lawnheros.com</a></li>
                 <li style="font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> <strong>Service Area:</strong> El Paso, Horizon City, Socorro</li>
             </ul>
 

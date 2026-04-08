@@ -21,7 +21,7 @@ $schemaJson = '{
     },
     "telephone": "+19152416986"
   },
-  "areaServed": ["El Paso", "Horizon City", "Socorro", "Upper Valley"],
+  "areaServed": ["El Paso", "Horizon City", "Socorro""],
   "description": "Professional selective and non-selective weed control services, featuring pre-emergent seed barriers and targeted elimination for rock beds and lawn in the Chihuahuan desert."
 }';
 
