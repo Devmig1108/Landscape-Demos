@@ -36,7 +36,7 @@ include $basePath . 'includes/header.php';
         <div class="hero-text">
             <span class="hero-label reveal-up"><i class="fas fa-shield-alt"></i> El Paso's Trusted Lawn Care</span>
             <h1 class="hero-title reveal-up" style="transition-delay: 0.1s;">Expert Weed Control & Lawn Care in <span>El Paso, TX</span></h1>
-            <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">Dependable, family-owned lawn maintenance and landscaping services. From precision mowing to specialized weed control, the Heros have you covered.</p>
+            <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">Dependable, family-owned lawn maintenance and landscaping services. From precision fertilization to specialized weed control, the Heros have you covered.</p>
         </div>
         <?php include $basePath . 'includes/quote-widget.php'; ?>
     </div>
@@ -47,7 +47,7 @@ include $basePath . 'includes/header.php';
         <div class="section-header reveal-up">
             <span>OUR CORE CAPABILITIES</span>
             <h2>Technical Yard Solutions</h2>
-            <p>We deploy professional-grade formulas and precise application schedules designed specifically for El Paso's unique climate and soil conditions.</p>
+            <p>We deploy our pet safe,  professional-grade formulas and precise application schedules designed specifically for El Paso's unique climate and soil conditions.</p>
         </div>
 
         <div class="services-grid">
@@ -69,7 +69,7 @@ include $basePath . 'includes/header.php';
                 <h3>Lawn Care & Fertilization</h3>
                 <p class="service-desc">We engineer healthy, green lawns that naturally choke out aggressive weeds like Poa and Foxtails. We utilize a custom 4-1-2 NPK ratio, humic acids, and micronutrients tailored specifically for southern Bermuda grass.</p>
                 <ul class="service-list">
-                    <li><i class="fas fa-check"></i> Selective Lawn Weed Elimination</li>
+                    <li><i class="fas fa-check"></i> Selective Lawn Weed Control</li>
                     <li><i class="fas fa-check"></i> Custom NPK Fertilization</li>
                     <li><i class="fas fa-check"></i> Iron & Soil Conditioning</li>
                     <li><i class="fas fa-check"></i> Top Soil & Water Scheduling</li>
@@ -108,7 +108,7 @@ include $basePath . 'includes/header.php';
                     <i class="fas fa-check-circle" style="color: var(--lh-orange); font-size: 1.2rem;"></i> Consistent, Data-Driven Applications
                 </li>
                 <li style="font-size: 1.1rem; font-weight: 600; display: flex; align-items: center; gap: 15px;">
-                    <i class="fas fa-check-circle" style="color: var(--lh-orange); font-size: 1.2rem;"></i> Fully Insured Professional Service
+                    <i class="fas fa-check-circle" style="color: var(--lh-orange); font-size: 1.2rem;"></i> Fully Licensed and Insured Professional Service
                 </li>
             </ul>
         </div>

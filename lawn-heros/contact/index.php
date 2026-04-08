@@ -18,20 +18,19 @@ include $basePath . 'includes/header.php';
     <div class="container content-grid">
 
         <div class="text-block reveal-up">
-            <h2>Ready for a <span>Weed-Free</span> Property?</h2>
-            <p>Fill out the form with your details and the specific issues you are facing with your rock landscaping or turf. As a local Father & Sons company, we pride ourselves on fast response times and direct, neighborly communication.</p>
+            <h2>Ready for a <span>Weed-Free</span> Property and Beatiful Lawn?</h2>
+            <p>Fill out the form with your details and the specific issues you are facing with your rock landscaping or grass. As a local Father & Sons company, we pride ourselves on fast response times and direct, neighborly communication.</p>
 
             <ul style="margin-top: 40px;">
                 <li style="font-size: 1.2rem;"><i class="fas fa-phone-alt"></i> <strong>Direct Line:</strong> <a href="tel:9150000000" style="color: var(--text-muted); text-decoration: none;">(915) 000-0000</a></li>
-                <li style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:info@lawnheros.com" style="color: var(--text-muted); text-decoration: none;">info@lawnheros.com</a></li>
-                <li style="font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> <strong>Service Area:</strong> El Paso</li>
+                <li style="font-size: 1.2rem;"><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:support@lawnheros.com" style="color: var(--text-muted); text-decoration: none;">info@lawnheros.com</a></li>
+                <li style="font-size: 1.2rem;"><i class="fas fa-map-marker-alt"></i> <strong>Service Area:</strong> El Paso, Horizon City, Socorro</li>
             </ul>
 
             <div class="highlight-box">
                 <h4>Hours of Operation</h4>
-                <p style="margin-bottom: 5px;"><strong>Monday - Friday:</strong> 7:00 AM - 6:00 PM</p>
-                <p style="margin-bottom: 5px;"><strong>Saturday:</strong> 8:00 AM - 2:00 PM</p>
-                <p style="margin-bottom: 0;"><strong>Sunday:</strong> Closed</p>
+                <p style="margin-bottom: 5px;"><strong>Monday - Saturday:</strong> 9:00 AM - 5:00 PM</p>
+                <p style="margin-bottom: 0;"><strong>Sunday:</strong> By Appointent Only</p>
             </div>
         </div>
 

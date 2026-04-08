@@ -30,7 +30,7 @@
                 <span><i class="fas fa-users"></i> Father & Sons Company</span>
             </div>
             <div class="utility-contact">
-                <span><i class="fas fa-phone-alt"></i> Fast, Dependable Quotes: <a href="tel:9150000000" style="color: #FFF; text-decoration: none;">(915) 000-0000</a></span>
+                <span><i class="fas fa-phone-alt"></i> Fast, Free, Dependable Quotes: <a href="tel:9150000000" style="color: #FFF; text-decoration: none;">(915) 000-0000</a></span>
             </div>
         </div>
     </div>
