@@ -264,12 +264,10 @@ strong {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 5px 15px;
 }
 
 .brand-logo img {
-    width: 150px;
-    max-height: 80px;
+    width: 160px;
     object-fit: contain;
     /* Animate both width and height smoothly */
     transition: width 0.4s ease, max-height 0.4s ease;

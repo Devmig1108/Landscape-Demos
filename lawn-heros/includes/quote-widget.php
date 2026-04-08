@@ -37,12 +37,9 @@
                 <option value="Other">Multiple Services / Other</option>
             </select>
         </div>
-
-        <?php if (strpos($_SERVER['REQUEST_URI'], 'contact') !== false): ?>
-            <div class="form-group">
-                <textarea name="message" class="form-control" rows="4" placeholder="Tell us a bit about your property..." style="resize: vertical;"></textarea>
-            </div>
-        <?php endif; ?>
+        <div class="form-group">
+            <textarea name="message" class="form-control" rows="4" placeholder="Tell us a bit about your property..." style="resize: vertical;"></textarea>
+        </div>
 
         <button type="submit" class="btn-primary widget-btn" style="width: 100%; justify-content: center;"><span>Send Request</span></button>
     </form>
