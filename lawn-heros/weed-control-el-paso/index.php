@@ -21,7 +21,7 @@ $schemaJson = '{
     },
     "telephone": "+19152416986"
   },
-  "areaServed": ["El Paso", "Horizon City", "Socorro""],
+  "areaServed": ["El Paso", "Horizon City", "Socorro"],
   "description": "Professional selective and non-selective weed control services, featuring pre-emergent seed barriers and targeted elimination for rock beds and lawn in the Chihuahuan desert."
 }';
 
@@ -69,27 +69,7 @@ include $basePath . 'includes/header.php';
         </div>
 
         <aside class="sidebar reveal-up" style="transition-delay: 0.2s;">
-            <div class="quote-widget">
-                <h3>Get a Fast Estimate</h3>
-                <p>Enter your details and our family will reach out today.</p>
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" class="form-control" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" required>
-                            <option value="" disabled selected>Select Service Needed...</option>
-                            <option value="weed-control">Weed Control (Rock/Dirt)</option>
-                            <option value="lawn-care">Lawn Care & Weed Control</option>
-                            <option value="pest-control">Exterior Pest Protection</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-primary widget-btn"><span>Request Estimate</span></button>
-                </form>
-            </div>
+            <?php include $basePath . 'includes/quote-widget.php'; ?>
 
             <div class="sidebar-image">
                 <img src="../images/weed-control-hero.jpeg" alt="Beautifully maintained weed-free lawn in El Paso">

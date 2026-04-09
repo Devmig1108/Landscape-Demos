@@ -2,7 +2,8 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 1. Where do you want the leads sent?
-    $recipient_email = "service@lawnheros.com"; // UPDATE THIS
+    // $recipient_email = "service@lawnheros.com";
+    $recipient_email = "service@lawnheros.com";
 
     // 2. Grab and sanitize data
     $name = strip_tags(trim($_POST["fullName"]));
@@ -13,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // 3. Figure out where the user came from
     $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
-    // Strip any existing query strings so we don't get "?status=success?status=error"
     $referer_base = explode('?', $referer)[0];
 
     // 4. Validate
@@ -21,36 +21,61 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: " . $referer_base . "?status=error");
         exit;
     }
-    // If the honeypot field is NOT empty, it's a bot.
+    // Honeypot check
     if (!empty($_POST['website_verification_code'])) {
-        // Silently fail or redirect back. Don't let the mailer run.
         header("Location: index.php?status=success");
         exit;
     }
 
-    // 5. Build Email
+    // 5. ZeptoMail Integration
+    $apiKey = "Zoho-enczapikey wSsVR61x+R/0CKp0zWb/L7w9yFUDBgz1EE4u2FOk4iD0SPyTocdqlBLJVlOnSfJNRWU6HTdBo799y01W2zJfjd0qnlADXSiF9mqRe1U4J3x17qnvhDzNXWxcmhCNLowAxgRpmmNjG8on+g==";
+    $url = "https://api.zeptomail.com/v1.1/email";
+
     $subject = "New Website Lead: $service - $name";
 
-    $email_content = "New estimate request from Lawn Heros:\n\n";
-    $email_content .= "Name: $name\n";
-    $email_content .= "Phone: $phone\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Service: $service\n\n";
-    $email_content .= "Message:\n$message\n";
+    // Build HTML Body for a professional look
+    $htmlBody = "
+        <h2>New Estimate Request</h2>
+        <p><strong>Name:</strong> $name</p>
+        <p><strong>Phone:</strong> $phone</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Service Requested:</strong> $service</p>
+        <p><strong>Message:</strong><br>$message</p>
+    ";
 
-    $headers = "From: Lawn Heros Leads <noreply@ervotech.site>\r\n";
-    if (!empty($email)) {
-        $headers .= "Reply-To: $email\r\n";
-    }
+    $payload = json_encode([
+        "from" => ["address" => "services@lawnheros.com", "name" => "Lawn Heros"],
+        "to" => [["email_address" => ["address" => $recipient_email, "name" => "Lawn Heros Service"]]],
+        "reply_to" => [["address" => $email, "name" => $name]],
+        "subject" => $subject,
+        "htmlbody" => $htmlBody,
+        "bounce_address" => "bounce@bounce-zem.lawnheros.com"
+    ]);
 
-    // 6. Send and Redirect
-    if (mail($recipient_email, $subject, $email_content, $headers)) {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $payload,
+        CURLOPT_HTTPHEADER     => [
+            "Content-Type: application/json",
+            "Authorization: $apiKey",
+            "Accept: application/json"
+        ],
+        CURLOPT_SSL_VERIFYPEER => false
+    ]);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    // 6. Redirect based on API response
+    if ($httpCode == 201) {
         header("Location: " . $referer_base . "?status=success");
         exit;
     } else {
-        // Fallback: Even if the server mail fails during testing, let's show the success message 
-        // to the client so they know the logic works, until you hook up SendGrid/SMTP.
-        header("Location: " . $referer_base . "?status=success");
+        // Log error locally if needed: error_log($response);
+        header("Location: " . $referer_base . "?status=error");
         exit;
     }
 } else {

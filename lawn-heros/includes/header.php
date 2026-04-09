@@ -7,7 +7,7 @@
 
     <title><?php echo $pageTitle ?? "Lawn Heros | Expert Weed Control & Lawn Care in El Paso, TX"; ?></title>
     <meta name="description" content="<?php echo $pageDescription ?? "El Paso's premier family-owned weed control and lawn care company."; ?>">
-
+    <link rel="canonical" href="https://www.lawnheros.com<?php echo strtok($_SERVER['REQUEST_URI'], '?'); ?>">
     <?php if (isset($schemaJson)): ?>
         <script type="application/ld+json">
             <?php echo $schemaJson; ?>
@@ -37,7 +37,7 @@
 
     <nav class="nav-header" id="navbar">
         <div class="container nav-wrapper">
-            <a href="<?php echo $basePath; ?>index.php" class="brand-logo">
+            <a href="/" class="brand-logo">
                 <img src="<?php echo $basePath; ?>images/logo.png" alt="Lawn Heros Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="logo-text" style="display: none;">
                     <span class="title">LAWN HEROS</span>
@@ -56,18 +56,18 @@
                 </label>
 
                 <div class="nav-links">
-                    <a href="<?php echo $basePath; ?>index.php">Home</a>
-                    <a href="<?php echo $basePath; ?>about/index.php">About Us</a>
+                    <a href="/">Home</a>
+                    <a href="<?php echo $basePath; ?>about/">About Us</a>
 
                     <div class="dropdown">
                         <button class="dropbtn">Services <i class="fas fa-chevron-down"></i></button>
                         <div class="dropdown-content">
-                            <a href="<?php echo $basePath; ?>weed-control-el-paso/index.php">Weed Control</a>
-                            <a href="<?php echo $basePath; ?>lawn-care-el-paso/index.php">Lawn Care</a>
+                            <a href="<?php echo $basePath; ?>weed-control-el-paso/">Weed Control</a>
+                            <a href="<?php echo $basePath; ?>lawn-care-el-paso/">Lawn Care</a>
                         </div>
                     </div>
 
-                    <a href="<?php echo $basePath; ?>contact/index.php">Contact Us</a>
+                    <a href="<?php echo $basePath; ?>contact/">Contact Us</a>
                     <a href="tel:9152416986" class="btn-primary">Call Now</a>
                 </div>
             </div>

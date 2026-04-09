@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /*?status=
+Allow: /
+
+Sitemap: https://www.lawnheros.com/sitemap.xml

@@ -24,7 +24,7 @@ $schemaJson = '{
     "latitude": 31.7619,
     "longitude": -106.4850
   },
-  "areaServed": ["El Paso", "Horizon City", "Socorro",],
+  "areaServed": ["El Paso", "Horizon City", "Socorro"],
   "priceRange": "$$"
 }';
 

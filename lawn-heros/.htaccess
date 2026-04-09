@@ -1,0 +1,31 @@
+# -------------------------------------------------------------------
+# ISOLATION: Keep the parent WordPress site out of this folder
+# -------------------------------------------------------------------
+RewriteEngine On
+# Change this to just / if you are viewing via the live lawnheros.com domain
+RewriteBase /lawnheros/ 
+
+# 1. Force XML headers so Google stops rejecting the sitemap
+<IfModule mod_mime.c>
+    AddType application/xml .xml
+</IfModule>
+
+# 2. Reroute sitemap.xml to the PHP generator safely
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# -------------------------------------------------------------------
+# SPIDER TRAP KILL-SWITCH (Subfolder Version)
+# -------------------------------------------------------------------
+# If a bot tries to dig 3 or more folders deep INSIDE this subfolder, kill it.
+# (Update /lawnheros/ below to match your RewriteBase)
+RewriteCond %{REQUEST_URI} ^/lawnheros/([^/]+/){3,}
+RewriteCond %{REQUEST_URI} !^/lawnheros/(css|images|js|includes)/ 
+RewriteRule ^ - [R=404,L]
+
+# 3. Trailing Slash Fix
+RewriteCond %{REQUEST_URI} ^/+$
+RewriteRule ^(.*)$ /index.php [L]
+
+# NOTE: Do NOT add a catch-all "RewriteRule . index.php" here. 
+# Leaving it out forces Apache to throw real 404 errors for fake ghost pages,
+# which permanently kills the Ubersuggest infinite loop.

@@ -1,7 +1,7 @@
 <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <a href="<?php echo $basePath; ?>index.php" class="footer-logo-wrapper">
+                <a href="/" class="footer-logo-wrapper">
                     <img src="<?php echo $basePath; ?>images/logo.png" alt="Lawn Heros Logo" class="footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                     <div class="logo-text" style="display: none;">
                         <span class="title" style="font-size: 2.2rem; color: #FFFFFF;">LAWN HEROS</span>
@@ -22,9 +22,9 @@
             <div class="footer-col">
                 <h4>OUR SERVICES</h4>
                 <ul>
-                    <li><a href="<?php echo $basePath; ?>weed-control-el-paso/index.php">Non-Selective Weed Control</a></li>
-                    <li><a href="<?php echo $basePath; ?>lawn-care-el-paso/index.php">Lawn Care & Fertilization</a></li>
-                    <li><a href="<?php echo $basePath; ?>contact/index.php">Exterior Pest Control</a></li>
+                    <li><a href="<?php echo $basePath; ?>weed-control-el-paso/">Non-Selective Weed Control</a></li>
+                    <li><a href="<?php echo $basePath; ?>lawn-care-el-paso/">Lawn Care & Fertilization</a></li>
+                    <li><a href="<?php echo $basePath; ?>contact/">Exterior Pest Control</a></li>
                 </ul>
             </div>
         </div>
