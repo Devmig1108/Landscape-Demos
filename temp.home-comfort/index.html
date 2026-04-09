@@ -24,6 +24,7 @@
             --transition-fast: all 0.2s ease-in-out;
             --shadow-corporate: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         /* =========================================
@@ -178,12 +179,11 @@
         }
 
         /* =========================================
-           3. HERO SECTION (Updated with Image Background)
+           3. HERO SECTION 
            ========================================= */
         .hero {
             position: relative;
             padding: 80px 0 120px;
-            /* Deep Slate Gradient Overlay + High-Quality HVAC Rooftop Placeholder */
             background: linear-gradient(to right, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.7) 100%), url('images/hero.jpg') center/cover no-repeat;
             border-bottom: 1px solid var(--border-color);
         }
@@ -333,10 +333,6 @@
             gap: 5px;
         }
 
-        .form-trust-badges span::before {
-            content: "🛡️";
-        }
-
         /* =========================================
            BRAND AUTHORITY STRIP
            ========================================= */
@@ -415,7 +411,7 @@
         }
 
         /* =========================================
-           5. ENGINEERED SERVICES GRID
+           5. ENGINEERED SERVICES GRID (UPDATED WITH IMAGES)
            ========================================= */
         .services-section {
             padding: 100px 0;
@@ -443,35 +439,63 @@
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
 
         .service-card {
-            padding: 40px 30px;
             background: var(--surface-light);
             border: 1px solid var(--border-color);
-            border-radius: 6px;
+            border-radius: 8px;
+            overflow: hidden;
             transition: var(--transition-fast);
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
             border-color: var(--brand-red);
-            box-shadow: var(--shadow-card);
+            box-shadow: var(--shadow-hover);
             transform: translateY(-5px);
             background: var(--white);
         }
 
-        .service-card h3 {
+        /* New Image Header inside Card */
+        .service-image {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-content h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
             letter-spacing: -0.5px;
         }
 
-        .service-card p {
+        .service-content p {
             font-size: 0.95rem;
             margin-bottom: 25px;
             line-height: 1.6;
+            flex-grow: 1;
         }
 
         .service-highlight {
@@ -480,7 +504,8 @@
         }
 
         .service-link {
-            display: inline-block;
+            display: inline-table;
+            align-self: flex-start;
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
             font-size: 0.8rem;
@@ -712,44 +737,73 @@
             border-top: 1px solid var(--border-color);
         }
 
+        /* =========================================
+           SERVICE AREAS (UPDATED WITH MAP)
+           ========================================= */
         .service-areas {
-            padding: 60px 0;
+            padding: 80px 0;
             background: var(--brand-slate);
             color: var(--white);
-            text-align: center;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-areas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .service-areas h3 {
             color: var(--white);
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .service-areas p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
         }
 
         .areas-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 15px;
             list-style: none;
         }
 
         .areas-list li {
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--border-color);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .areas-list li::after {
-            content: "•";
-            color: var(--brand-red);
-            margin-left: 15px;
+        .areas-list li::before {
+            content: "📍";
+            font-size: 1.1rem;
         }
 
-        .areas-list li:last-child::after {
-            display: none;
+        .areas-map-wrapper {
+            width: 100%;
+            height: 400px;
+            background: var(--surface-light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-corporate);
+        }
+
+        .areas-map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
         /* =========================================
@@ -864,7 +918,8 @@
                 gap: 10px;
             }
 
-            .team-grid {
+            .team-grid,
+            .service-areas-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -907,6 +962,10 @@
 
             .team-certifications {
                 flex-direction: column;
+            }
+
+            .areas-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -1026,46 +1085,82 @@
 
             <div class="service-grid">
                 <div class="service-card reveal-up">
-                    <h3>Refrigerated Air Conversions</h3>
-                    <p>Upgrade your swamp cooler to high-efficiency refrigerated air. <span
-                            class="service-highlight">Conversions start at just $6,200</span> with $0 down options
-                        available.</p>
-                    <a href="#contact" class="service-link">Get Conversion Quote</a>
+                    <div class="service-image">
+                        <img src="images/conversions.jpg"
+                            alt="Refrigerated Air Unit">
+                    </div>
+                    <div class="service-content">
+                        <h3>Refrigerated Air Conversions</h3>
+                        <p>Upgrade your swamp cooler to high-efficiency refrigerated air. <span
+                                class="service-highlight">Conversions start at just $6,200</span> with $0 down options
+                            available.</p>
+                        <a href="#contact" class="service-link">Get Conversion Quote</a>
+                    </div>
                 </div>
 
                 <div class="service-card reveal-up" style="transition-delay: 0.1s;">
-                    <h3>Service & Repairs</h3>
-                    <p>Rapid diagnostics and repair for all commercial and residential makes/models. We fix it right the
-                        first time.</p>
-                    <a href="#contact" class="service-link">Request Service</a>
+                    <div class="service-image">
+                        <img src="images/service.jpg"
+                            alt="HVAC Repair">
+                    </div>
+                    <div class="service-content">
+                        <h3>Service & Repairs</h3>
+                        <p>Rapid diagnostics and repair for all commercial and residential makes/models. We fix it right
+                            the first time.</p>
+                        <a href="#contact" class="service-link">Request Service</a>
+                    </div>
                 </div>
 
                 <div class="service-card reveal-up" style="transition-delay: 0.2s;">
-                    <h3>Mini Splits & Ductwork</h3>
-                    <p>Precision installation of ductless mini-splits, central heating, and complete custom ductwork
-                        fabrication and cleaning.</p>
-                    <a href="#contact" class="service-link">View Install Options</a>
+                    <div class="service-image">
+                        <img src="images/duct-work.jpg"
+                            alt="Mini Split Installation">
+                    </div>
+                    <div class="service-content">
+                        <h3>Mini Splits & Ductwork</h3>
+                        <p>Precision installation of ductless mini-splits, central heating, and complete custom ductwork
+                            fabrication and cleaning.</p>
+                        <a href="#contact" class="service-link">View Install Options</a>
+                    </div>
                 </div>
 
                 <div class="service-card reveal-up" style="transition-delay: 0.3s;">
-                    <h3>Maintenance</h3>
-                    <p>Preventative maintenance protocols designed to extend system lifespan, prevent breakdowns, and
-                        lower energy bills.</p>
-                    <a href="#contact" class="service-link">Schedule Tune-up</a>
+                    <div class="service-image">
+                        <img src="images/maintenance.jpg"
+                            alt="HVAC Maintenance">
+                    </div>
+                    <div class="service-content">
+                        <h3>Maintenance</h3>
+                        <p>Preventative maintenance protocols designed to extend system lifespan, prevent breakdowns,
+                            and lower energy bills.</p>
+                        <a href="#contact" class="service-link">Schedule Tune-up</a>
+                    </div>
                 </div>
 
                 <div class="service-card reveal-up" style="transition-delay: 0.4s;">
-                    <h3>Smart Home & IAQ</h3>
-                    <p>Modernize your system with Nest/Ecobee smart thermostats, UV air purifiers, and whole-home
-                        filtration systems.</p>
-                    <a href="#contact" class="service-link">Explore Upgrades</a>
+                    <div class="service-image">
+                        <img src="images/smart-thermo.jpg"
+                            alt="Smart Thermostat">
+                    </div>
+                    <div class="service-content">
+                        <h3>Smart Home & IAQ</h3>
+                        <p>Modernize your system with Nest/Ecobee smart thermostats, UV air purifiers, and whole-home
+                            filtration systems.</p>
+                        <a href="#contact" class="service-link">Explore Upgrades</a>
+                    </div>
                 </div>
 
                 <div class="service-card reveal-up" style="transition-delay: 0.5s;">
-                    <h3>Commercial HVAC</h3>
-                    <p>Heavy-duty rooftop units and complex zoning solutions tailored for El Paso businesses and
-                        property managers.</p>
-                    <a href="#contact" class="service-link">Commercial Services</a>
+                    <div class="service-image">
+                        <img src="images/commercial.jpg"
+                            alt="Commercial HVAC Rooftop">
+                    </div>
+                    <div class="service-content">
+                        <h3>Commercial HVAC</h3>
+                        <p>Heavy-duty rooftop units and complex zoning solutions tailored for El Paso businesses and
+                            property managers.</p>
+                        <a href="#contact" class="service-link">Commercial Services</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1169,17 +1264,29 @@
 
     <section class="service-areas">
         <div class="container reveal-up">
-            <h3>Proudly Serving the Borderland</h3>
-            <ul class="areas-list">
-                <li>El Paso</li>
-                <li>Socorro</li>
-                <li>Horizon City</li>
-                <li>Anthony</li>
-                <li>Canutillo</li>
-                <li>Clint</li>
-                <li>Fabens</li>
-                <li>San Elizario</li>
-            </ul>
+            <div class="service-areas-grid">
+                <div class="areas-text">
+                    <h3>Proudly Serving the Borderland</h3>
+                    <p>We provide fast, reliable commercial and residential HVAC services throughout El Paso County and
+                        surrounding areas.</p>
+                    <ul class="areas-list">
+                        <li>El Paso</li>
+                        <li>Socorro</li>
+                        <li>Horizon City</li>
+                        <li>Anthony</li>
+                        <li>Canutillo</li>
+                        <li>Clint</li>
+                        <li>Fabens</li>
+                        <li>San Elizario</li>
+                    </ul>
+                </div>
+
+                <div class="areas-map-wrapper reveal-up" style="transition-delay: 0.2s;">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d216962.33621415254!2d-106.56846152912445!3d31.834415848316132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e73f8bc5fea3b1%3A0xe18a149c4dcb7c63!2sEl%20Paso%2C%20TX!5e0!3m2!1sen!2sus!4v1684340000000!5m2!1sen!2sus"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
