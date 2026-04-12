@@ -14,7 +14,7 @@
             <div class="footer-col">
                 <h4>CONTACT US</h4>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> <span>Message us for inquiries</span></li>
+                    <li><a href="<?php echo $basePath; ?>contact/"><i class="fas fa-envelope"></i> <span>Message us for inquiries</span></a></li>
                     <li><i class="fas fa-map-marker-alt"></i> <span>El Paso</span></li>
                 </ul>
             </div>
