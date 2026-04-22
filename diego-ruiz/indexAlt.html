@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego Ruiz | Curated El Paso Real Estate</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* --- CSS RESET & BOUTIQUE VARIABLES --- */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f7f6f2;
+            /* Warm, museum-wall off-white */
+            --text-dark: #1a1a1a;
+            --text-light: #737373;
+            --accent: #a38f72;
+            /* Muted, sophisticated taupe/gold */
+
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+
+            --transition-smooth: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-padding {
+            padding: 8rem 0;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s cubic-bezier(0.21, 0.83, 0.26, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-2 {
+            transition-delay: 0.4s;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-serif);
+            font-weight: 400;
+        }
+
+        .eyebrow {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .heading-hero {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            color: var(--text-dark);
+        }
+
+        .heading-hero i {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .heading-section {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .text-body {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        .btn-minimal {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--text-dark);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition-smooth);
+            margin-top: 2rem;
+        }
+
+        .btn-minimal:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+            padding-bottom: 8px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 2.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dark);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- HERO: THE GALLERY ENTRY --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 5rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 10;
+            padding-right: 2rem;
+        }
+
+        .hero-text p {
+            margin-top: 2rem;
+            max-width: 400px;
+        }
+
+        .hero-visuals {
+            position: relative;
+            width: 100%;
+            height: 700px;
+        }
+
+        .img-main {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 85%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-accent {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            width: 45%;
+            height: 50%;
+            object-fit: cover;
+            border: 15px solid var(--bg-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- COMMUNITY CANVAS (Advisory) --- */
+        .canvas-section {
+            background: var(--bg-secondary);
+        }
+
+        .canvas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .canvas-image-wrapper {
+            position: relative;
+            padding-bottom: 120%;
+            overflow: hidden;
+        }
+
+        .canvas-image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Decorative minimalist lines */
+        .decor-line {
+            width: 1px;
+            height: 100px;
+            background: var(--accent);
+            margin: 3rem 0;
+        }
+
+        /* --- PORTFOLIO GALLERY (B&W to Color Hover) --- */
+        .portfolio-section {
+            background: var(--bg-primary);
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-top: 5rem;
+            text-align: left;
+        }
+
+        .gallery-card {
+            display: block;
+            group;
+            cursor: pointer;
+        }
+
+        .gallery-img-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            margin-bottom: 1.5rem;
+        }
+
+        /* The B&W Filter Magic */
+        .gallery-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1);
+            transition: transform 1.2s ease, filter 0.8s ease;
+        }
+
+        .gallery-card:hover .gallery-img-wrap img {
+            transform: scale(1.05);
+            filter: grayscale(0%) contrast(1);
+        }
+
+        .gallery-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .gallery-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .gallery-card:hover h3 {
+            color: var(--accent);
+        }
+
+        /* --- PRIVATE REGISTRY (Lead Magnet) --- */
+        .registry-section {
+            background: var(--bg-secondary);
+            padding: 10rem 0;
+        }
+
+        .registry-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-primary);
+            padding: 5rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.03);
+            text-align: center;
+            position: relative;
+        }
+
+        /* Subtle corner accents mimicking a physical invitation */
+        .registry-box::before,
+        .registry-box::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 1px solid var(--accent);
+            transition: var(--transition-smooth);
+        }
+
+        .registry-box::before {
+            top: 20px;
+            left: 20px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .registry-box::after {
+            bottom: 20px;
+            right: 20px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .registry-box:hover::before {
+            top: 15px;
+            left: 15px;
+        }
+
+        .registry-box:hover::after {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .registry-box h2 {
+            margin-bottom: 1rem;
+        }
+
+        .registry-box p {
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .registry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .registry-form input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-dark);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .registry-form input:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        .registry-form input::placeholder {
+            color: #aaa;
+            font-weight: 300;
+        }
+
+        .btn-submit {
+            background: var(--text-dark);
+            color: var(--bg-primary);
+            border: none;
+            padding: 1.2rem;
+            font-family: var(--font-sans);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--bg-primary);
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-logos img {
+            height: 30px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            transition: 0.3s;
+        }
+
+        .footer-logos img:hover {
+            opacity: 0.8;
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        .footer-text a {
+            text-decoration: underline;
+        }
+
+        .footer-text a:hover {
+            color: var(--accent);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .canvas-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+                text-align: center;
+            }
+
+            .hero-text {
+                padding-right: 0;
+            }
+
+            .hero-text p {
+                margin: 2rem auto 0 auto;
+            }
+
+            .hero-visuals {
+                height: 500px;
+                margin-top: 2rem;
+            }
+
+            .img-main {
+                width: 100%;
+            }
+
+            .img-accent {
+                display: none;
+                /* Hide overlapping image on mobile for clean layout */
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .gallery-img-wrap {
+                aspect-ratio: 16/9;
+            }
+
+            .registry-box {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            header {
+                justify-content: center;
+            }
+
+            .heading-hero {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="#" class="logo">DIEGO RUIZ</a>
+        <nav class="nav-links">
+            <a href="#vision">The Vision</a>
+            <a href="#collection">Collection</a>
+            <a href="#registry">Registry</a>
+        </nav>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-grid">
+            <div class="hero-text reveal">
+                <span class="eyebrow">Cornerstone Realty • El Paso, TX</span>
+                <h1 class="heading-hero">Curating the <i>Art</i> of El Paso Living.</h1>
+                <p class="text-body">A boutique real estate advisory providing discerning buyers and sellers with an
+                    elevated, deeply personal approach to the Sun City market.</p>
+                <a href="#collection" class="btn-minimal">Explore the Collection <span>&rarr;</span></a>
+            </div>
+
+            <div class="hero-visuals reveal delay-1">
+                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200&auto=format&fit=crop"
+                    alt="Modern El Paso Architecture" class="img-main">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop"
+                    alt="El Paso Interior Detail" class="img-accent">
+            </div>
+        </div>
+    </section>
+
+    <section id="vision" class="section-padding canvas-section">
+        <div class="container canvas-grid">
+            <div class="canvas-image-wrapper reveal">
+                <img src="images/headshot.jpg" alt="Diego Ruiz Real Estate Agent">
+            </div>
+
+            <div class="canvas-text reveal delay-1">
+                <span class="eyebrow">The Advocate</span>
+                <h2 class="heading-section">Beyond the transaction. Uncovering the soul of the city.</h2>
+                <div class="decor-line"></div>
+                <p class="text-body" style="margin-bottom: 1.5rem;">"I don't just sell property; I share the unique
+                    character and hidden gems of El Paso with my clients. From the historic, tree-lined avenues of the
+                    Upper Valley to the striking, modern developments overlooking the Franklin Mountains, every
+                    neighborhood has a narrative."</p>
+                <p class="text-body">My philosophy is rooted in authenticity and rigorous market knowledge, ensuring
+                    your real estate journey is as refined as the home you acquire.</p>
+
+                <div style="margin-top: 3rem;">
+                    <p style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-dark);">Diego Ruiz
+                    </p>
+                    <p
+                        style="font-size: 0.85rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem;">
+                        Lead Advisor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="section-padding portfolio-section">
+        <div class="container">
+            <div class="reveal">
+                <span class="eyebrow">Architectural Focus</span>
+                <h2 class="heading-section">The Collection</h2>
+                <p class="text-body" style="max-width: 600px; margin: 0 auto;">Highlighting the distinct structural
+                    beauty and lifestyle offerings across El Paso's most coveted zip codes.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="#registry" class="gallery-card reveal">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop"
+                            alt="Desert Modern Home">
+                    </div>
+                    <h3>The Desert Modern</h3>
+                    <p>Westside & Coronado Hills</p>
+                </a>
+
+                <a href="#registry" class="gallery-card reveal delay-1">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?q=80&w=800&auto=format&fit=crop"
+                            alt="Spanish Revival Estate">
+                    </div>
+                    <h3>The Spanish Revival</h3>
+                    <p>Upper Valley Estates</p>
+                </a>
+
+                <a href="#registry" class="gallery-card reveal delay-2">
+                    <div class="gallery-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop"
+                            alt="New Construction">
+                    </div>
+                    <h3>The Contemporary</h3>
+                    <p>East El Paso & Horizon</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="registry" class="registry-section">
+        <div class="container">
+            <div class="registry-box reveal">
+                <span class="eyebrow">Exclusive Access</span>
+                <h2>The Private Registry</h2>
+                <p class="text-body">Join my private client list to receive early insights on off-market opportunities,
+                    curated market reports, and the 2026 Relocation Portfolio.</p>
+
+                <form action="your-zeptomail-handler.php" method="POST" class="registry-form">
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Preferred Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="tel" name="phone" placeholder="Phone Number (Optional)">
+                    </div>
+                    <button type="submit" class="btn-submit">Request Private Access</button>
+                </form>
+
+                <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #eee;">
+                    <p class="text-body" style="font-size: 0.9rem;">Direct Inquiries</p>
+                    <a href="tel:9152727376"
+                        style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-dark); display: block; margin-top: 0.5rem;">(915)
+                        272-7376</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Texas_Association_of_Realtors_logo.png"
+                    alt="Texas Realtors">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Equal_Housing_Opportunity_logo.png"
+                    alt="Equal Housing Opportunity">
+                <img src="https://upload.wikimedia.org/wikipedia/en/3/36/REALTOR®_Membership_Mark.svg" alt="REALTOR">
+            </div>
+
+            <div class="footer-text">
+                <p
+                    style="font-family: var(--font-serif); font-size: 1.2rem; color: var(--text-dark); margin-bottom: 0.5rem;">
+                    Diego Ruiz | Cornerstone Realty</p>
+                <p>&copy; 2026 Diego Ruiz. Crafted by 915.digital.</p>
+                <p style="margin-top: 1rem;">
+                    Texas Real Estate Commission <a href="#">Information About Brokerage Services</a> | <a
+                        href="#">Consumer Protection Notice</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
