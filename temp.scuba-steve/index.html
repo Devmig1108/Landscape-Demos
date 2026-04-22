@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Skuba Steve | El Paso Pool Service & Handyman Repairs</title>
+        <meta name="description" content="Top-rated pool maintenance, green-to-blue restoration, system upgrades, and professional handyman home repairs in El Paso, TX. Call for a free estimate!">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+        <style>
+        /* --- HIGH-END CSS VARIABLES (LIGHT MODE DEFAULT) --- */
+        :root {
+            --bg-deep: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-inverse: #0f172a;
+            
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --text-inverse: #f8fafc;
+            
+            --accent-water: #0ea5e9;
+            --accent-sun: #f97316;
+            
+            --border-subtle: rgba(0, 0, 0, 0.08);
+            --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
+            
+            /* Enhanced Overlay & Nav Variables */
+            --hero-overlay: rgba(248, 250, 252, 0.75);
+            --nav-bg: rgba(255, 255, 255, 0.65);
+            --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+            
+            --font-display: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --space-xl: clamp(5rem, 10vw, 10rem);
+            --space-md: clamp(3rem, 5vw, 5rem);
+            
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-slow: all 0.8s var(--ease-out-expo);
+            --transition-fast: all 0.3s ease;
+        }
+
+        /* --- DARK MODE OVERRIDES --- */
+        [data-theme="dark"] {
+            --bg-deep: #020617;       
+            --bg-surface: #0f172a;    
+            --bg-inverse: #f8fafc;    
+            
+            --text-main: #f8fafc;     
+            --text-muted: #94a3b8;    
+            --text-inverse: #0f172a;  
+            
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.4);
+            
+            /* Enhanced Overlay & Nav Variables */
+            --hero-overlay: rgba(2, 6, 23, 0.75);
+            --nav-bg: rgba(2, 6, 23, 0.65);
+            --nav-bg-scrolled: rgba(2, 6, 23, 0.95);
+        }
+
+        /* --- RESET & BASE --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; background: var(--bg-deep); transition: background-color 0.5s ease; }
+        body { font-family: var(--font-body); color: var(--text-main); line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; transition: color 0.5s ease; }
+        img, video { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+        /* --- UTILITIES & ANIMATIONS --- */
+        .eyebrow { font-family: var(--font-display); color: var(--accent-sun); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; font-weight: 800; display: block; margin-bottom: 1.5rem; }
+        
+        /* Reduced lower bounds for mobile safety */
+        .title-massive { font-family: var(--font-display); font-size: clamp(2.2rem, 8vw, 5.5rem); line-height: 1.05; letter-spacing: -0.03em; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .title-section { font-family: var(--font-display); font-size: clamp(2rem, 6vw, 4rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+        
+        .reveal-up { opacity: 0; transform: translateY(60px); transition: opacity 1s var(--ease-out-expo), transform 1s var(--ease-out-expo); }
+        .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+
+        /* --- PREMIUM HEADER --- */
+        /* Added Frosted Glass to default state */
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100; 
+            padding: .8rem 5%; transition: var(--transition-slow); 
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--nav-bg);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        header.scrolled { 
+            padding: 1rem 5%; 
+            background: var(--nav-bg-scrolled); 
+            box-shadow: var(--shadow-card); 
+        }
+        
+        /* Logo Styling */
+        .logo { display: flex; align-items: center; text-decoration: none; overflow: hidden; border-radius: 8px; }
+        .logo img { height: 65px; width: auto; object-fit: contain; transition: transform 0.4s ease, height var(--transition-slow); }
+        .logo:hover img { transform: scale(1.05); }
+        header.scrolled .logo img { height: 50px; }
+        
+        .header-actions { display: flex; align-items: center; gap: 1.5rem; }
+        .theme-toggle { background: transparent; border: 1px solid var(--border-subtle); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; color: var(--text-main); transition: var(--transition-fast); }
+        .theme-toggle:hover { background: var(--bg-surface); border-color: var(--accent-water); }
+
+        .btn-glow { background: transparent; color: var(--text-main); font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 1rem 2.5rem; border: 1px solid var(--border-subtle); border-radius: 100px; position: relative; overflow: hidden; transition: var(--transition-fast); cursor: pointer; }
+        .btn-glow::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent); transition: left 0.5s ease; }
+        .btn-glow:hover::before { left: 100%; }
+        .btn-glow:hover { border-color: var(--accent-water); box-shadow: 0 0 20px rgba(14, 165, 233, 0.2); }
+
+        /* --- CINEMATIC HERO (Updated Contrast) --- */
+        .hero { height: 100vh; min-height: 800px; position: relative; display: flex; align-items: center; overflow: hidden; }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.9; transform: scale(1.05); }
+        
+        /* Creates a strong top wash for text readability, fading perfectly at the bottom */
+        .hero-gradient { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(to bottom, var(--hero-overlay) 0%, var(--hero-overlay) 60%, var(--bg-deep) 100%); 
+            z-index: 1; transition: background 0.5s ease; 
+        }
+        .hero-content { position: relative; z-index: 2; width: 100%; padding-top: 80px; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.4rem); color: var(--text-muted); max-width: 650px; margin-bottom: 3rem; }
+
+        /* --- OVERLAPPING SOCIAL PROOF --- */
+        .proof-bar { position: relative; z-index: 10; margin-top: -100px; padding: 0 5%; }
+        .proof-card { background: var(--bg-surface); backdrop-filter: blur(24px); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 3rem; display: flex; align-items: center; gap: 4rem; box-shadow: var(--shadow-card); transition: background 0.5s ease, border 0.5s ease, box-shadow 0.5s ease; }
+        .proof-rating { flex-shrink: 0; text-align: center; }
+        .proof-rating h4 { font-family: var(--font-display); font-size: 4rem; color: var(--accent-sun); line-height: 1; }
+        .proof-quote { font-size: 1.25rem; font-style: italic; color: var(--text-main); }
+
+        /* --- SEO CONTENT SECTION --- */
+        .seo-section { padding: var(--space-xl) 0 0; }
+        .seo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .seo-content{padding: 10px;}
+        .seo-content p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem; }
+        .seo-content strong { color: var(--text-main); }
+        .seo-image { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-card); }
+
+        /* --- INTERACTIVE BEFORE/AFTER SLIDER --- */
+        .transformation-section { padding: var(--space-md) 0; }
+        .slider-wrapper { position: relative; width: 100%; max-width: 1000px; margin: 4rem auto 0; aspect-ratio: 16/9; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-card); border: 1px solid var(--border-subtle); min-height: 250px; }
+        .slider-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        .img-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+        .img-after { z-index: 1; }
+        .slider-control { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; opacity: 0; cursor: pointer; }
+        .slider-line { position: absolute; top: 0; left: 50%; width: 4px; height: 100%; background: #ffffff; z-index: 2; transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        .slider-button { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 50px; height: 50px; background: var(--accent-water); border: 4px solid #ffffff; border-radius: 50%; z-index: 3; pointer-events: none; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .slider-button::before, .slider-button::after { content: ''; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; }
+        .slider-button::before { border-right: 8px solid #ffffff; margin-right: 4px; }
+        .slider-button::after { border-left: 8px solid #ffffff; margin-left: 4px; }
+        .slider-labels { position: absolute; top: 20px; width: 100%; display: flex; justify-content: space-between; padding: 0 30px; z-index: 2; pointer-events: none; }
+        .slider-labels span { background: rgba(0,0,0,0.7); color: #ffffff; backdrop-filter: blur(10px); padding: 8px 16px; border-radius: 50px; font-family: var(--font-display); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- ASYMMETRICAL SERVICES BENTO --- */
+        .services-section { padding: var(--space-md) 0; }
+        .services-section .title-section { margin-left: 20px; }
+        .bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+        .bento-card { background: var(--bg-surface); border-radius: 24px; padding: 3rem; position: relative; overflow: hidden; border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card); transition: var(--transition-slow); }
+        .bento-card:hover { transform: translateY(-10px); border-color: rgba(14, 165, 233, 0.4); }
+        .bento-large { grid-column: span 2; background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(14, 165, 233, 0.05) 100%); }
+        .bento-card h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-main); }
+        .bento-card p { color: var(--text-muted); }
+        .bento-icon { font-size: 3rem; margin-bottom: 2rem; color: var(--accent-water); }
+
+        /* --- BOLD HANDYMAN UPSELL --- */
+        .handyman-section { background: var(--bg-inverse); color: var(--text-inverse); padding: var(--space-xl) 0; border-radius: 40px 40px 0 0; transition: background 0.5s ease, color 0.5s ease; }
+        .handyman-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+        .handyman-section .eyebrow { color: var(--accent-sun); }
+        .handyman-section .title-section { color: var(--text-inverse); }
+        .handyman-list { list-style: none; margin-top: 2rem; }
+        .handyman-list li { font-size: 1.25rem; font-weight: 500; padding: 1rem 0; border-bottom: 1px solid rgba(128,128,128,0.2); display: flex; align-items: center; gap: 1rem; }
+        .handyman-list li::before { content: '✓'; color: var(--accent-sun); font-weight: 900; }
+        .image-stack { position: relative; width: 100%; padding-bottom: 120%; }
+        .img-back, .img-front { position: absolute; border-radius: 20px; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .img-back { top: 0; right: 0; width: 80%; height: 80%; background: #cbd5e1; }
+        .img-front { bottom: 0; left: 0; width: 70%; height: 70%; background: var(--bg-surface); border: 10px solid var(--bg-inverse); transition: border-color 0.5s ease; }
+
+        /* --- FAQ SECTION (SEO BOOST) --- */
+        .faq-section { padding: var(--space-md) 0 var(--space-xl); background: var(--bg-inverse); color: var(--text-inverse); transition: background 0.5s ease, color 0.5s ease; }
+        .faq-grid { max-width: 900px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid rgba(128,128,128,0.2); padding: 1.5rem 0; }
+        .faq-item h4 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text-inverse); transition: color 0.5s ease; }
+        /* Dynamic color variable fixes the disappearing text bug */
+        .faq-item p { color: var(--text-inverse); opacity: 0.8; font-size: 1.05rem; transition: color 0.5s ease; }
+
+        /* --- MODERN MULTI-COLUMN FOOTER --- */
+        .modern-footer { background: #020617; color: #f8fafc; padding: 5rem 5% 2rem; border-top: 4px solid var(--accent-water); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; max-width: 1400px; margin: 0 auto; margin-bottom: 4rem; }
+        .footer-brand img { max-height: 80px; margin-bottom: 1.5rem; border-radius: 8px; background: white; padding: 5px; }
+        .footer-brand p { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; max-width: 300px; }
+        .footer-heading { font-family: var(--font-display); font-size: 1.2rem; color: #f8fafc; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--accent-water); }
+        .footer-contact p { color: #94a3b8; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; font-size: 0.9rem; color: #64748b; }
+        .footer-bottom a { color: var(--accent-water); text-decoration: none; font-weight: 600; }
+
+        /* --- MOBILE RESPONSIVENESS POLISH --- */
+        @media (max-width: 1024px) {
+            .proof-card { flex-direction: column; text-align: center; gap: 2rem; padding: 2.5rem; }
+            .seo-grid, .bento-grid, .handyman-grid { grid-template-columns: 1fr; }
+            .bento-large { grid-column: span 1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            header { padding: 1.2rem 5%; }
+        }
+        @media (max-width: 768px) {
+            .hero { min-height: 100svh; }
+            .proof-card { padding: 2rem 1.5rem; gap: 1.5rem; }
+            .bento-card { padding: 2rem; }
+            .handyman-grid { gap: 3rem; }
+            .slider-labels { padding: 0 15px; top: 10px; }
+            .slider-labels span { font-size: 0.7rem; padding: 6px 12px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+            .footer-brand p { margin: 0 auto; }
+            .footer-contact p { justify-content: center; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+        </style>
+    </head>
+    <body>
+        <header id="header">
+            <a href="#" class="logo">
+                <img src="images/logo.jpg" alt="Skuba Steve Pool Service & Handyman">
+            </a>
+            <div class="header-actions">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+                <a href="#contact" class="btn-glow">Get a Quote</a>
+            </div>
+        </header>
+        <section class="hero">
+            <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?q=80&w=2000&auto=format&fit=crop" class="hero-bg" alt="Crystal clear luxury pool">
+            <div class="hero-gradient"></div>
+            <div class="container hero-content reveal-up">
+                <span class="eyebrow">Local Pool & Home Care</span>
+                <h1 class="title-massive">
+                    Top-Rated Pool Care
+                    <br>
+                    <span style="color: var(--accent-water);">& Handyman Services.</span>
+                </h1>
+                <p>From green-to-blue pool restorations and chemical balancing to comprehensive interior home repairs. El Paso's most trusted property professionals.</p>
+            </div>
+        </section>
+        <section class="proof-bar container">
+            <div class="proof-card reveal-up delay-1">
+                <div class="proof-rating">
+                    <h4>20/10</h4>
+                    <div style="color: #fbbf24; font-size: 1.5rem; letter-spacing: 4px; margin-top: 10px;">★★★★★</div>
+                </div>
+                <p class="proof-quote">
+                    "This company is top notch! I had such a bad experience with my previous company doing a poor job and not even using chemicals
+                    but charging me for them. I called Steve and they made sure to get my pool back into top shape. Trust me, if you're looking for a great company at an agreeable price, this is the one!!"
+                </p>
+            </div>
+        </section>
+        <section class="seo-section container">
+            <div class="seo-grid reveal-up">
+                <div class="seo-content">
+                    <span class="eyebrow">Why Skuba Steve?</span>
+                    <h2 class="title-section">Trusted Property Care in El Paso, TX.</h2>
+                    <p>
+                        Finding a reliable contractor shouldn't be a hassle. Whether your backyard pool has turned green or you have a growing list of interior home repairs,
+                        <strong>Skuba Steve Pool Service</strong>
+                        provides transparent, high-quality workmanship.
+                    </p>
+                    <p>We specialize in severe algae recovery, calcium tile cleaning, complete equipment upgrades, and general handyman services. By combining aquatic expertise with professional home maintenance, we save you the headache of managing multiple contractors.</p>
+                </div>
+                <div class="seo-image">
+                    <img src="images/trusted.jpg" alt="Clean residential pool in El Paso">
+                </div>
+            </div>
+        </section>
+        <section class="transformation-section">
+            <div class="container">
+                <div class="reveal-up">
+                    <span class="eyebrow">The Skuba Steve Difference</span>
+                    <h2 class="title-section">
+                        Drag to Reveal
+                        <br>
+                        the Restoration.
+                    </h2>
+                </div>
+                <div class="slider-wrapper reveal-up delay-1">
+                    <div class="slider-labels">
+                        <span>Before (Old Company)</span>
+                        <span>After (Skuba Steve)</span>
+                    </div>
+                    <img src="images/after.jpg" class="slider-img img-after" alt="Clean Pool">
+                    <img
+                        src="images/before.jpg"
+                        class="slider-img img-before"
+                        id="imgBefore"
+                        alt="Dirty Pool"
+                    >
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="50"
+                        class="slider-control"
+                        id="sliderControl"
+                    >
+                    <div class="slider-line" id="sliderLine"></div>
+                    <div class="slider-button" id="sliderBtn"></div>
+                </div>
+            </div>
+        </section>
+        <section class="services-section container">
+            <div class="reveal-up">
+                <h2 class="title-section">
+                    Comprehensive
+                    <br>
+                    Pool Services.
+                </h2>
+            </div>
+            <div class="bento-grid">
+                <div class="bento-card bento-large reveal-up">
+                    <div class="bento-icon">🧪</div>
+                    <h3>Advanced Water Chemistry</h3>
+                    <p>We don't just dump chlorine and leave. We execute precise, scientific water balancing to protect your plaster, preserve your equipment, and ensure a crystal-clear, safe swimming environment year-round.</p>
+                </div>
+                <div class="bento-card reveal-up delay-1">
+                    <div class="bento-icon">✨</div>
+                    <h3>Tile Restoration</h3>
+                    <p>Professional calcium scaling removal and grout restoration. We strip away years of hard water buildup to return your waterline to its resort-quality shine.</p>
+                </div>
+                <div class="bento-card reveal-up">
+                    <div class="bento-icon">⚙️</div>
+                    <h3>System Upgrades</h3>
+                    <p>Complete teardown and replacement of rusted, inefficient pumps and filters. We install modern Crystal Water systems that lower your energy bill.</p>
+                </div>
+                <div class="bento-card bento-large reveal-up delay-1">
+                    <div class="bento-icon">🌿</div>
+                    <h3>Green-to-Blue Recovery</h3>
+                    <p>Algae blooms and severe neglect require aggressive intervention. Our intensive acid washing and deep-cleaning protocols rescue pools that other companies write off.</p>
+                </div>
+            </div>
+        </section>
+        <section class="handyman-section">
+            <div class="container handyman-grid">
+                <div class="reveal-up">
+                    <span class="eyebrow">Service Expansion</span>
+                    <h2 class="title-section">Expert Handyman Repairs.</h2>
+                    <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem;">Due to overwhelming client demand for reliable, communicative tradesmen, Skuba Steve now offers comprehensive interior and exterior handyman services across El Paso.</p>
+                    <ul class="handyman-list">
+                        <li>Minor Plumbing & Leak Repairs</li>
+                        <li>Electrical Fixture Installation</li>
+                        <li>Furniture Assembly & TV Mounting</li>
+                        <li>Drywall Patchwork & Touch-up Painting</li>
+                        <li>Door, Window & Screen Repairs</li>
+                    </ul>
+                    <br>
+                    <a href="#contact" class="btn-glow" style="border-color: currentColor; color: inherit;">Book Handyman</a>
+                </div>
+                <div class="image-stack reveal-up delay-1">
+                    <div class="img-back" style="background: url('images/repaint.jpg') center/cover;"></div>
+                    <div class="img-front" style="background: url('images/repairs.jpg') center/cover;"></div>
+                </div>
+            </div>
+        </section>
+        <section class="faq-section">
+            <div class="container">
+                <div class="reveal-up text-center" style="text-align: center; margin-bottom: 3rem;">
+                    <h2 class="title-section" style="color: var(--text-inverse);">Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-grid reveal-up delay-1">
+                    <div class="faq-item">
+                        <h4>Do you offer weekly pool cleaning in El Paso?</h4>
+                        <p>Yes! We offer reliable, weekly pool maintenance routes to ensure your water chemistry is perfectly balanced and your pool is always swim-ready.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can you fix a pool that has turned completely green?</h4>
+                        <p>Absolutely. Our "Green-to-Blue" pool recovery service utilizes deep cleaning, acid washing, and heavy shock treatments to restore neglected pools safely.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What kind of handyman services do you provide?</h4>
+                        <p>Our handyman division handles a wide range of home repairs, including drywall patching, painting, fixture installation, minor plumbing, and furniture assembly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="modern-footer">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.jpg" alt="Skuba Steve Pool Service Logo">
+                    <p>El Paso's trusted choice for premium pool maintenance, equipment upgrades, and professional interior home repairs.</p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">Weekly Pool Cleaning</a>
+                        </li>
+                        <li>
+                            <a href="#">Green-to-Blue Recovery</a>
+                        </li>
+                        <li>
+                            <a href="#">Filter & System Upgrades</a>
+                        </li>
+                        <li>
+                            <a href="#">Tile Restoration</a>
+                        </li>
+                        <li>
+                            <a href="#">Handyman Repairs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#">Before & After Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#">Client Reviews</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Get in Touch</h4>
+                    <p>📍 Serving El Paso, TX & Surrounding Areas</p>
+                    <p>
+                        📞
+                        <a href="tel:9155550199" style="color: #f8fafc; text-decoration: none;">(915) 555-0199</a>
+                    </p>
+                    <p>
+                        ✉️
+                        <a href="mailto:info@skubasteve.com" style="color: #f8fafc; text-decoration: none;">info@skubasteve.com</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Skuba Steve Pool Service & Handyman. All Rights Reserved.</p>
+                <p>
+                    Designed & Developed by
+                    <a href="https://ervotechep.com" target="_blank" rel="noopener">Ervotech</a>
+                </p>
+            </div>
+        </footer>
+        <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            let targetTheme = 'light';
+            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+                targetTheme = 'dark';
+                themeToggle.textContent = '☀️';
+            } else {
+                themeToggle.textContent = '🌙';
+            }
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+        });
+
+        // Sticky Header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // Before/After Slider
+        const slider = document.getElementById('sliderControl');
+        const imgBefore = document.getElementById('imgBefore');
+        const sliderLine = document.getElementById('sliderLine');
+        const sliderBtn = document.getElementById('sliderBtn');
+
+        slider.addEventListener('input', (e) => {
+            const sliderValue = e.target.value;
+            imgBefore.style.clipPath = `inset(0 ${100 - sliderValue}% 0 0)`;
+            sliderLine.style.left = `${sliderValue}%`;
+            sliderBtn.style.left = `${sliderValue}%`;
+        });
+
+        // Scroll Reveal Animations
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach((el) => observer.observe(el));
+        </script>
+    </body>
+</html>
