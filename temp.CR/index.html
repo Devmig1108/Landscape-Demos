@@ -1,63 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Care Roofing & Construction | Premium Roofing, Pergolas & Turf in El Paso</title>
-    <meta name="description"
-        content="Transform your indoor and outdoor space with El Paso's experts. Over 7 years of specialized experience in roofing, artificial turf, stamped concrete, and custom pergolas. Starting at just $59/mo.">
-    <link rel="canonical" href="https://www.careconstructionandlandscaping.com/">
-
-    <meta property="og:title" content="Elevate Your Home with Care Roofing & Construction">
-    <meta property="og:description"
-        content="From new roofs to custom pergolas and turf. Explore our high-end construction solutions across El Paso, TX.">
-    <meta property="og:image" content="images/hero.jpg">
-    <meta property="og:url" content="https://www.careconstructionandlandscaping.com/">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:ital,wght@0,500;0,700;0,800;0,900;1,800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Irigoyen Landscape Contractors | Premium Outdoor Living</title>
+        <meta name="description" content="We bring outdoors to life. Expert landscaping, artificial turf, stamped concrete, outdoor kitchens, and custom pergolas in Horizon City and El Paso, TX.">
+        <link rel="canonical" href="https://irigoyenlandscape.net/">
+        <meta property="og:title" content="Elevate Your Outdoors with Irigoyen Landscape Contractors">
+        <meta property="og:description" content="From outdoor kitchens to custom pergolas and premium turf. Explore our high-end landscaping solutions across El Paso and Horizon City.">
+        <meta property="og:image" content="images/hero.jpg">
+        <meta property="og:url" content="https://irigoyenlandscape.net/">
+        <meta name="twitter:card" content="summary_large_image">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:ital,wght@0,500;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+        <style>
         /* =========================================
            0. DYNAMIC THEME VARIABLES (LIGHT DEFAULT)
            ========================================= */
         :root {
-            /* Brand Colors: Extracted from Logo & Flyer */
-            --cr-coral: #E65A42;
-            /* Vibrant Coral/Orange from Logo Text */
-            --cr-coral-hover: #C94C35;
-            --cr-gold: #DDA336;
-            /* Gold/Mustard from Flyer Background */
-            --cr-black: #1A1A1A;
-            /* Deep Architectural Black */
-            --cr-sand: #FDFBF7;
-            /* Warm Sand secondary background */
+            /* Brand Colors: Modern Architectural Gray & Refined Gold */
+            --cr-coral: #C5A880; /* Refined Champagne Gold */
+            --cr-coral-hover: #A68A62; /* Deeper Burnished Gold */
+            --cr-gold: #E5D5B7; /* Light Gold/Sand for backgrounds */
+            --cr-black: #121212; /* Architectural Charcoal (Almost Black) */
+            --cr-sand: #F4F5F7; /* Cool Crisp Stone/Slate */
 
-            /* LIGHT MODE (Default - Organic Luxury Warmth) */
+            /* LIGHT MODE (Default - Clean & Architectural) */
             --bg-main: #FFFFFF;
             --bg-card: #FFFFFF;
             --bg-section: var(--cr-sand);
             --bg-nav: rgba(255, 255, 255, 0.98);
 
             --text-main: var(--cr-black);
-            --text-muted: #5C6658;
+            --text-muted: #6B7280; /* Neutral Slate Gray */
 
-            --border-soft: rgba(26, 26, 26, 0.08);
-            --border-glow: rgba(230, 90, 66, 0.3);
-            --icon-bg: rgba(230, 90, 66, 0.08);
+            --border-soft: rgba(18, 18, 18, 0.08);
+            --border-glow: rgba(197, 168, 128, 0.4);
+            --icon-bg: rgba(197, 168, 128, 0.12);
 
             --logo-bg: transparent;
             --logo-title: var(--cr-black);
 
-            --shadow-accent: 0 10px 30px rgba(230, 90, 66, 0.2);
-            --shadow-card: 0 15px 35px rgba(26, 26, 26, 0.06);
+            --shadow-accent: 0 10px 30px rgba(197, 168, 128, 0.25);
+            --shadow-card: 0 15px 35px rgba(18, 18, 18, 0.06);
 
             --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.3s ease;
 
             /* Organic Curvature Variables */
             --radius-large: 60px;
@@ -65,41 +55,32 @@
             --radius-small: 12px;
         }
 
-        /* DARK MODE VARIABLES (Midnight Architectural Luxury) */
+        /* DARK MODE VARIABLES (Midnight Museum Luxury) */
         body.dark-theme {
-            --bg-main: #0D0F12;
-            --bg-card: #15181D;
-            --bg-section: #111418;
-            --bg-nav: rgba(13, 15, 18, 0.98);
+            --bg-main: #0B0B0D; /* Pitch black with slight blue/cool undertone */
+            --bg-card: #141416;
+            --bg-section: #0F0F11;
+            --bg-nav: rgba(11, 11, 13, 0.98);
 
-            --text-main: #F4F1EA;
-            --text-muted: #A3ACA0;
+            --text-main: #F4F5F7;
+            --text-muted: #9CA3AF;
 
-            --border-soft: rgba(244, 241, 234, 0.08);
-            --border-glow: rgba(230, 90, 66, 0.3);
-            --icon-bg: rgba(230, 90, 66, 0.15);
+            --border-soft: rgba(244, 245, 247, 0.08);
+            --border-glow: rgba(197, 168, 128, 0.3);
+            --icon-bg: rgba(197, 168, 128, 0.15);
 
-            --logo-bg: #FFFFFF;
-            /* Force white pill for logo visibility */
+            --logo-bg: #FFFFFF; /* Pill background to ensure B&W logo is visible */
             --logo-title: var(--cr-black);
 
-            --shadow-accent: 0 10px 30px rgba(230, 90, 66, 0.15);
-            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.4);
+            --shadow-accent: 0 10px 30px rgba(197, 168, 128, 0.15);
+            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.6);
         }
 
         /* =========================================
            1. RESET & BASE
            ========================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: auto; /* Lenis takes over */ }
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-main);
@@ -108,1304 +89,784 @@
             -webkit-font-smoothing: antialiased;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
+        h1, h2, h3, h4 { font-family: 'Nunito', sans-serif; color: var(--text-main); transition: color 0.4s ease; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
 
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Nunito', sans-serif;
-            color: var(--text-main);
-            transition: color 0.4s ease;
+        /* --- CINEMATIC GRAIN OVERLAY --- */
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
+        [data-theme="dark"] .noise-overlay { opacity: 0.05; }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
+        /* --- MAGNETIC BUTTON WRAPPER --- */
+        .magnetic-wrap { display: inline-block; }
 
         /* =========================================
            2. UTILITY STRIP & NAVIGATION
            ========================================= */
-        .utility-strip {
-            background-color: var(--cr-black);
-            color: #FFFFFF;
-            padding: 10px 0;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
+        .utility-strip { background-color: var(--cr-black); color: #FFFFFF; padding: 10px 0; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+        .utility-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+        .utility-info span { margin-right: 25px; }
+        .utility-info span i { margin-right: 8px; color: var(--cr-coral); } /* Swapped to gold */
+        .utility-contact span i { margin-right: 8px; color: var(--cr-coral); }
 
-        .utility-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
-
-        .utility-info span {
-            margin-right: 25px;
-        }
-
-        .utility-info span i {
-            margin-right: 8px;
-            color: var(--cr-coral);
-        }
-
-        .nav-header {
-            background-color: var(--bg-nav);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-            border-bottom: 1px solid transparent;
-        }
-
-        .nav-header.scrolled {
-            backdrop-filter: blur(15px);
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border-soft);
-            box-shadow: var(--shadow-card);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .nav-header { background-color: var(--bg-nav); padding: 15px 0; position: sticky; top: 0; z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
+        .nav-header.scrolled { backdrop-filter: blur(15px); padding: 10px 0; border-bottom: 1px solid var(--border-soft); box-shadow: var(--shadow-card); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
         /* Brand Logo */
-        .brand-logo {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background-color: var(--logo-bg);
-            padding: 5px 20px;
-            border-radius: 50px;
-            transition: var(--transition);
-        }
+        .brand-logo { text-decoration: none; display: flex; align-items: center; gap: 15px; background-color: var(--logo-bg); padding: 5px 20px; border-radius: 50px; transition: var(--transition); }
+        .brand-logo img { height: 60px; width: auto; object-fit: contain; }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .title { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--logo-title); line-height: 1; letter-spacing: 1px; }
+        .logo-text .subtitle { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; color: var(--cr-coral); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;}
 
-        .brand-logo img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
+        .nav-controls { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-family: 'Nunito', sans-serif; font-weight: 800; letter-spacing: 0.5px; transition: var(--transition); }
+        .nav-links a:hover { color: var(--cr-coral); }
 
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
+        .theme-toggle { background: transparent; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; transition: var(--transition); }
+        .theme-toggle:hover { color: var(--cr-coral); }
 
-        .logo-text .title {
-            font-family: 'Nunito', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--logo-title);
-            line-height: 1;
-            letter-spacing: 1px;
-        }
+        .btn-primary { background: var(--cr-coral); color: #121212 !important; padding: 14px 40px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 900; text-transform: uppercase; letter-spacing: 1.5px; transition: var(--transition-fast); border: none; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; box-shadow: var(--shadow-accent);}
+        .btn-primary:hover { background: var(--cr-coral-hover); box-shadow: 0 15px 30px rgba(197, 168, 128, 0.4); transform: translateY(-3px); color: #ffffff !important;}
 
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 35px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-family: 'Nunito', sans-serif;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--cr-coral);
-        }
-
-        .theme-toggle {
-            background: transparent;
-            border: none;
-            color: var(--text-main);
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            color: var(--cr-coral);
-        }
-
-        .btn-primary {
-            background: var(--cr-coral);
-            color: #FFFFFF !important;
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-family: 'Nunito', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: var(--transition);
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .btn-primary:hover {
-            background: var(--cr-coral-hover);
-            box-shadow: var(--shadow-accent);
-            transform: translateY(-3px);
-        }
-
-        #menu-toggle {
-            display: none;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 6px;
-            z-index: 1001;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 30px;
-            height: 3px;
-            background-color: var(--text-main);
-            transition: var(--transition);
-            border-radius: 2px;
-        }
+        #menu-toggle { display: none; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1001; }
+        .hamburger span { display: block; width: 30px; height: 3px; background-color: var(--text-main); transition: var(--transition); border-radius: 2px; }
 
         /* =========================================
            3. UNIQUE PREMIUM: ASYMMETRICAL SPLIT HERO
            ========================================= */
-        .hero-premium {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            min-height: 85vh;
-            background-color: var(--bg-main);
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
+        .hero-premium { display: grid; grid-template-columns: 1.2fr 1fr; min-height: 85vh; background-color: var(--bg-main); align-items: center; overflow: hidden; position: relative; }
+        .hero-premium::before { content: ''; position: absolute; top: 10%; left: -10%; width: 500px; height: 500px; background: var(--cr-sand); border-radius: 50%; opacity: 0.6; z-index: 0; transition: background 0.4s ease; }
+        .hero-text-content { padding: 10%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+        
+        .hero-image-curve { height: 100%; width: 100%; position: relative; overflow: hidden; border-top-left-radius: 120px; border-bottom-left-radius: 120px; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.08); }
+        .hero-bg { width: 100%; height: 100%; object-fit: cover; transform: scale(1.1); filter: grayscale(15%); }
 
-        .hero-premium::before {
-            content: '';
-            position: absolute;
-            top: 10%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: var(--cr-sand);
-            border-radius: 50%;
-            opacity: 0.6;
-            z-index: 0;
-            transition: background 0.4s ease;
-        }
+        .hero-label { display: inline-flex; align-items: center; gap: 10px; color: var(--cr-coral); font-size: 0.9rem; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
+        .hero-title { font-size: clamp(3.2rem, 6vw, 6rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; letter-spacing: -2px; }
+        .hero-title span { color: var(--cr-coral); }
+        .hero-desc { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 50px; max-width: 650px; font-weight: 500; line-height: 1.8; }
+        .hero-actions { display: flex; gap: 20px; align-items: center; }
 
-        .hero-text-content {
-            padding: 10%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-image-curve {
-            height: 100%;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            border-top-left-radius: 120px;
-            border-bottom-left-radius: 120px;
-            box-shadow: -15px 0 45px rgba(0, 0, 0, 0.08);
-        }
-
-        .hero-image-curve img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease;
-        }
-
-        .hero-premium:hover .hero-image-curve img {
-            transform: scale(1.03);
-        }
-
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--cr-coral);
-            font-size: 0.9rem;
-            font-family: 'Inter', sans-serif;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-
-        .hero-title {
-            font-size: clamp(3.2rem, 6vw, 6rem);
-            line-height: 1.05;
-            margin-bottom: 30px;
-            font-weight: 900;
-            letter-spacing: -2px;
-        }
-
-        .hero-title span {
-            color: var(--cr-coral);
-        }
-
-        .hero-desc {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 50px;
-            max-width: 650px;
-            font-weight: 500;
-            line-height: 1.8;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-main);
-            padding: 13px 40px;
-            border: 2px solid var(--text-main);
-            border-radius: 50px;
-            font-size: 0.95rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 800;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .btn-outline:hover {
-            background: var(--text-main);
-            color: var(--bg-main);
-        }
+        .btn-outline { background: transparent; color: var(--text-main); padding: 13px 40px; border: 2px solid var(--text-main); border-radius: 50px; font-size: 0.95rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: var(--transition-fast); font-weight: 800; font-family: 'Nunito', sans-serif; }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-main); }
 
         /* =========================================
-           4. VISUAL PROMO SHOWCASE ($59/mo Offer)
+           4. VISUAL PROMO SHOWCASE (Design & Build)
            ========================================= */
-        .featured-offers {
-            padding: 100px 0 80px;
-            background: var(--bg-main);
-            transition: background-color 0.4s ease;
-            position: relative;
-            z-index: 6;
-        }
+        .featured-offers { padding: 100px 0 80px; background: var(--bg-main); transition: background-color 0.4s ease; position: relative; z-index: 6; }
+        .offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .offer-visual-container { position: relative; }
+        
+        .offer-img-mask { border-radius: var(--radius-large); overflow: hidden; box-shadow: var(--shadow-card); position: relative; z-index: 1; }
+        .offer-img-mask img { width: 100%; display: block; transform: scale(1.1); filter: grayscale(10%);}
 
-        .offers-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
+        .offer-badge { position: absolute; top: -30px; right: -30px; z-index: 2; background: var(--cr-coral); color: #121212; padding: 40px; border-radius: 50%; text-align: center; box-shadow: var(--shadow-accent); transform: rotate(10deg); transition: transform 0.4s ease; border: 4px solid var(--bg-main);}
+        .offer-badge h4 { font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; color: #121212; line-height: 1; margin: 0 0 5px 0; }
+        .offer-badge p { font-size: 1rem; color: #121212; margin: 0; text-transform: uppercase; font-weight: 800; }
 
-        .offer-visual-container {
-            position: relative;
-        }
-
-        .offer-visual-container img {
-            width: 100%;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-card);
-        }
-
-        .offer-badge {
-            position: absolute;
-            top: -30px;
-            right: -30px;
-            background: var(--cr-gold);
-            color: var(--cr-black);
-            padding: 40px;
-            border-radius: 50%;
-            text-align: center;
-            box-shadow: var(--shadow-accent);
-            transform: rotate(10deg);
-            transition: transform 0.4s ease;
-        }
-
-        .offer-badge h4 {
-            font-family: 'Nunito', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: var(--cr-black);
-            line-height: 1;
-            margin: 0 0 5px 0;
-        }
-
-        .offer-badge p {
-            font-size: 1rem;
-            color: var(--cr-black);
-            margin: 0;
-            text-transform: uppercase;
-            font-weight: 800;
-        }
-
-        .offer-content h2 {
-            font-size: clamp(2.8rem, 5vw, 3.5rem);
-            margin-bottom: 25px;
-            font-weight: 900;
-            letter-spacing: -1px;
-            line-height: 1.1;
-        }
-
-        .offer-desc-premium {
-            font-size: 1.25rem;
-            color: var(--text-main);
-            margin-bottom: 30px;
-            font-weight: 600;
-            line-height: 1.8;
-        }
-
-        .offer-list {
-            list-style: none;
-            margin-bottom: 40px;
-        }
-
-        .offer-list li {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .offer-list li i {
-            color: var(--cr-coral);
-            font-size: 1.2rem;
-        }
-
-        .offer-list li strong {
-            color: var(--text-main);
-            font-weight: 800;
-            background: var(--cr-sand);
-            padding: 4px 10px;
-            border-radius: 10px;
-        }
+        .offer-content h2 { font-size: clamp(2.8rem, 5vw, 3.5rem); margin-bottom: 25px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; }
+        .offer-desc-premium { font-size: 1.25rem; color: var(--text-main); margin-bottom: 30px; font-weight: 600; line-height: 1.8; }
+        
+        .offer-list { list-style: none; margin-bottom: 40px; }
+        .offer-list li { margin-bottom: 15px; font-size: 1.1rem; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 15px; }
+        .offer-list li i { color: var(--cr-coral); font-size: 1.2rem; }
+        .offer-list li strong { color: var(--text-main); font-weight: 800; background: var(--cr-sand); padding: 4px 10px; border-radius: 10px; }
 
         /* =========================================
            5. WHY CHOOSE US (4 Pillars)
            ========================================= */
-        .trust-banner {
-            background: var(--cr-black);
-            padding: 60px 0;
-            color: #FFFFFF;
-            margin-top: 40px;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-card);
-        }
-
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .trust-item {
-            padding: 20px;
-        }
-
-        .trust-item i {
-            font-size: 2.5rem;
-            color: var(--cr-gold);
-            margin-bottom: 20px;
-        }
-
-        .trust-item h4 {
-            font-size: 1.2rem;
-            color: #FFFFFF;
-            font-weight: 800;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-
-        .trust-item p {
-            font-size: 0.95rem;
-            color: #A3ACA0;
-            line-height: 1.6;
-        }
+        .trust-banner { background: var(--cr-black); padding: 60px 0; color: #FFFFFF; margin-top: 40px; border-radius: var(--radius-large); box-shadow: var(--shadow-card); }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
+        .trust-item { padding: 20px; }
+        .trust-item i { font-size: 2.5rem; color: var(--cr-coral); margin-bottom: 20px; }
+        .trust-item h4 { font-size: 1.2rem; color: #FFFFFF; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .trust-item p { font-size: 0.95rem; color: #9CA3AF; line-height: 1.6; }
 
         /* =========================================
            6. ORGANIC SERVICES GRID 
            ========================================= */
-        .curved-top {
-            border-top-left-radius: var(--radius-large);
-            border-top-right-radius: var(--radius-large);
-            margin-top: -60px;
-            position: relative;
-            z-index: 5;
-        }
+        .curved-top { border-top-left-radius: var(--radius-large); border-top-right-radius: var(--radius-large); margin-top: -60px; position: relative; z-index: 5; }
+        .services-section { padding: 150px 0 100px; background: var(--bg-section); transition: background-color 0.4s ease; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header span { color: var(--cr-coral); font-size: 0.9rem; letter-spacing: 4px; font-weight: 800; display: block; margin-bottom: 15px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+        .section-header h2 { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -1.5px; text-transform: none; }
+        .section-header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.2rem; }
 
-        .services-section {
-            padding: 150px 0 100px;
-            background: var(--bg-section);
-            transition: background-color 0.4s ease;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .section-header span {
-            color: var(--cr-coral);
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            font-weight: 800;
-            display: block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2.8rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            font-weight: 900;
-            letter-spacing: -1.5px;
-            text-transform: none;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            max-width: 650px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: 50px;
-        }
-
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-soft);
-            padding: 60px 50px;
-            border-radius: var(--radius-large);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            box-shadow: var(--shadow-card);
-            position: relative;
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-accent);
-            border-color: var(--border-glow);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--icon-bg);
-            border-radius: var(--radius-medium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
-            transition: background 0.4s ease;
-        }
-
-        .service-icon i {
-            font-size: 2.2rem;
-            color: var(--cr-coral);
-            transition: color 0.4s ease;
-        }
-
-        .service-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
-
-        .service-list {
-            list-style: none;
-            margin-bottom: 40px;
-            flex-grow: 1;
-        }
-
-        .service-list li {
-            color: var(--text-muted);
-            margin-bottom: 18px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .service-list li i {
-            color: var(--cr-coral);
-            font-size: 1rem;
-            margin-top: 5px;
-        }
-
-        .service-link {
-            color: var(--text-main);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            transition: var(--transition);
-            border-bottom: 3px solid var(--cr-coral);
-            padding-bottom: 7px;
-            align-self: flex-start;
-        }
-
-        .service-link:hover {
-            gap: 18px;
-            color: var(--cr-coral);
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; }
+        .service-card { background: var(--bg-card); border: 1px solid var(--border-soft); padding: 60px 50px; border-radius: var(--radius-large); transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-card); position: relative; }
+        .service-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-accent); border-color: var(--border-glow); }
+        .service-icon { width: 80px; height: 80px; background: var(--icon-bg); border-radius: var(--radius-medium); display: flex; align-items: center; justify-content: center; margin-bottom: 40px; transition: background 0.4s ease; }
+        .service-icon i { font-size: 2.2rem; color: var(--cr-coral); transition: color 0.4s ease; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 25px; font-weight: 900; letter-spacing: -0.5px; }
+        
+        .service-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+        .service-list li { color: var(--text-muted); margin-bottom: 18px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.1rem; font-weight: 500; }
+        .service-list li i { color: var(--cr-coral); font-size: 1rem; margin-top: 5px; }
+        .service-link { color: var(--text-main); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 12px; transition: var(--transition); border-bottom: 3px solid var(--cr-coral); padding-bottom: 7px; align-self: flex-start; }
+        .service-link:hover { gap: 18px; color: var(--cr-coral); }
 
         /* =========================================
            7. MOSAIC PROJECT GALLERY
            ========================================= */
-        .portfolio-section {
-            padding: 120px 0;
-            background: var(--bg-main);
-            transition: background-color 0.4s ease;
-        }
-
-        .mosaic-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 300px;
-            gap: 20px;
-            padding: 0 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .mosaic-item {
-            position: relative;
-            border-radius: var(--radius-large);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-            cursor: pointer;
-        }
-
-        .span-2-row {
-            grid-row: span 2;
-        }
-
-        .mosaic-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .mosaic-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .mosaic-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
-            display: flex;
-            align-items: flex-end;
-            justify-content: flex-start;
-            padding: 30px 40px;
-            pointer-events: none;
-        }
-
-        .mosaic-overlay h4 {
-            color: rgba(255, 255, 255, 0.95);
-            font-family: 'Inter', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
+        .portfolio-section { padding: 120px 0; background: var(--bg-main); transition: background-color 0.4s ease; }
+        .mosaic-gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 300px; gap: 20px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
+        .mosaic-item { position: relative; border-radius: var(--radius-large); overflow: hidden; box-shadow: var(--shadow-card); cursor: pointer; }
+        .span-2-row { grid-row: span 2; }
+        .mosaic-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; filter: grayscale(15%); }
+        .mosaic-item:hover img { transform: scale(1.05); filter: grayscale(0%); }
+        .mosaic-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%); display: flex; align-items: flex-end; justify-content: flex-start; padding: 30px 40px; pointer-events: none; }
+        .mosaic-overlay h4 { color: rgba(255, 255, 255, 0.95); font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 800; margin: 0; letter-spacing: -1px; text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); }
 
         /* =========================================
            8. CTA SECTION
            ========================================= */
-        .cta-section {
-            padding: 150px 0;
-            background: var(--bg-section);
-            text-align: center;
-            transition: background-color 0.4s ease;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            margin-bottom: 25px;
-            font-weight: 900;
-            letter-spacing: -2px;
-        }
-
-        .cta-section p {
-            color: var(--text-muted);
-            font-size: 1.3rem;
-            margin-bottom: 60px;
-            max-width: 750px;
-            margin-inline: auto;
-        }
+        .cta-section { padding: 150px 0; background: var(--bg-section); text-align: center; transition: background-color 0.4s ease; }
+        .cta-section h2 { font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 25px; font-weight: 900; letter-spacing: -2px; }
+        .cta-section p { color: var(--text-muted); font-size: 1.3rem; margin-bottom: 60px; max-width: 750px; margin-inline: auto; }
 
         /* =========================================
            9. FOOTER
            ========================================= */
-        .footer {
-            background: var(--cr-black);
-            padding: 100px 0 50px;
-            color: #FFFFFF;
-            border-top-left-radius: 60px;
-            border-top-right-radius: 60px;
-            margin-top: -60px;
-            position: relative;
-            z-index: 10;
-        }
+        .footer { background: var(--cr-black); padding: 100px 0 50px; color: #FFFFFF; border-top-left-radius: 60px; border-top-right-radius: 60px; margin-top: -60px; position: relative; z-index: 10; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 60px; margin-bottom: 40px; }
+        
+        .footer-logo-wrapper { text-decoration: none; display: inline-flex; align-items: center; gap: 15px; background-color: #FFFFFF; padding: 10px 25px; border-radius: 50px; margin-bottom: 20px; transition: var(--transition); }
+        .footer-logo-wrapper img { height: 60px; width: auto; object-fit: contain; }
+        .footer-logo-text { display: flex; flex-direction: column; }
+        .footer-logo-text .title { font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--cr-black); line-height: 1; letter-spacing: 1px; }
+        .footer-logo-text .subtitle { font-family: 'Inter', sans-serif; font-size: 0.6rem; font-weight: 600; color: var(--cr-coral); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;}
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 60px;
-            margin-bottom: 40px;
-        }
+        .footer-brand p { color: #9CA3AF; max-width: 450px; margin-top: 15px; line-height: 1.8; font-weight: 400; }
+        .footer-col h4 { color: #FFFFFF; font-size: 1.1rem; margin-bottom: 30px; letter-spacing: 1.5px; font-weight: 900; text-transform: uppercase; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 20px; color: #9CA3AF; display: flex; gap: 15px; align-items: flex-start; font-weight: 500; }
+        .footer-col ul li i { color: var(--cr-coral); margin-top: 5px; }
+        .footer-col a { color: #9CA3AF; text-decoration: none; transition: var(--transition); }
+        .footer-col a:hover { color: var(--cr-coral); }
 
-        .footer-logo-wrapper {
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            background-color: #FFFFFF;
-            padding: 5px 20px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-
-        .footer-logo-wrapper img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .footer-logo-text {
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .footer-brand p {
-            color: #A3ACA0;
-            max-width: 450px;
-            margin-top: 15px;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        .footer-col h4 {
-            color: #FFFFFF;
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            letter-spacing: 1.5px;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 20px;
-            color: #A3ACA0;
-            display: flex;
-            gap: 15px;
-            align-items: flex-start;
-            font-weight: 500;
-        }
-
-        .footer-col ul li i {
-            color: var(--cr-coral);
-            margin-top: 5px;
-        }
-
-        .footer-col a {
-            color: #A3ACA0;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: var(--cr-coral);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            color: #6B7280;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .footer-social {
-            margin-top: 25px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .footer-social a {
-            color: #FFFFFF;
-            font-size: 1.8rem;
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            color: var(--cr-coral);
-            transform: translateY(-3px);
-        }
+        .footer-bottom { text-align: center; color: #6B7280; font-size: 0.95rem; font-weight: 500; }
+        .footer-social { margin-top: 25px; display: flex; gap: 20px; }
+        .footer-social a { color: #FFFFFF; font-size: 1.8rem; transition: var(--transition); }
+        .footer-social a:hover { color: var(--cr-coral); transform: translateY(-3px); }
 
         /* =========================================
-           10. ANIMATIONS & RESPONSIVE
+           10. FAB WIDGET (Multi-channel Contact)
            ========================================= */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
+        .floating-widget { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 15px; }
+        .fab-main { width: 65px; height: 65px; background: var(--cr-coral); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; box-shadow: var(--shadow-glow); transition: var(--transition-fast); color: #121212; font-size: 1.8rem; }
+        .fab-main:hover { transform: scale(1.05); background: var(--cr-coral-hover); color: #ffffff;}
+        .fab-main .icon-close { display: none; font-size: 1.5rem; font-weight: bold; }
+        .floating-widget.is-open .fab-main .icon-chat { display: none; }
+        .floating-widget.is-open .fab-main .icon-close { display: block; }
+        
+        .fab-actions { display: flex; flex-direction: column-reverse; gap: 15px; align-items: center; pointer-events: none; }
+        .fab-action { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.2); opacity: 0; transform: translateY(20px) scale(0.8); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; font-size: 1.5rem; }
+        .fab-phone { background: #10b981; }
+        .fab-email { background: #3b82f6; }
+        .fab-action:hover { transform: scale(1.1) !important; color: white;}
+        
+        .floating-widget.is-open .fab-actions { pointer-events: auto; }
+        .floating-widget.is-open .fab-action { opacity: 1; transform: translateY(0) scale(1); }
+        .floating-widget.is-open .fab-phone { transition-delay: 0.05s; }
+        .floating-widget.is-open .fab-email { transition-delay: 0.1s; }
 
-        .active-reveal {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
+        .fab-tooltip { position: absolute; right: 70px; background: var(--cr-black); color: #ffffff; padding: 8px 16px; border-radius: 6px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; white-space: nowrap; pointer-events: none; opacity: 0; transform: translateX(10px); transition: all 0.2s ease; box-shadow: var(--shadow-card); }
+        .fab-tooltip::after { content: ''; position: absolute; top: 50%; right: -6px; transform: translateY(-50%); border-width: 6px 0 6px 6px; border-style: solid; border-color: transparent transparent transparent var(--cr-black); }
+        .floating-widget.is-open .fab-action:hover .fab-tooltip { opacity: 1; transform: translateX(0); }
+
+        /* =========================================
+           11. ANIMATIONS & RESPONSIVE
+           ========================================= */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .active-reveal { opacity: 1 !important; transform: translateY(0) !important; }
 
         @media (max-width: 1200px) {
-            .hero-premium {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto;
-            }
-
-            .hero-text-content {
-                padding: 10% 5%;
-                text-align: center;
-                align-items: center;
-            }
-
-            .hero-label {
-                margin-inline: auto;
-            }
-
-            .hero-actions {
-                flex-direction: column;
-                width: 100%;
-                gap: 15px;
-            }
-
-            .btn-primary,
-            .btn-outline {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero-image-curve {
-                min-height: 450px;
-                border-radius: 0;
-            }
-
-            .offers-grid {
-                grid-template-columns: 1fr;
-                gap: 80px;
-            }
-
-            .offer-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-                display: inline-block;
-                margin-top: -40px;
-                margin-left: 10%;
-            }
+            .hero-premium { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+            .hero-text-content { padding: 10% 5%; text-align: center; align-items: center; }
+            .hero-label { margin-inline: auto; }
+            .hero-actions { flex-direction: column; width: 100%; gap: 15px; }
+            .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+            .hero-image-curve { min-height: 450px; border-radius: 0; }
+            .offers-grid { grid-template-columns: 1fr; gap: 80px; }
+            .offer-badge { position: relative; top: 0; right: 0; display: inline-block; margin-top: -40px; margin-left: 10%; }
         }
 
         @media (max-width: 900px) {
-            .utility-strip {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--bg-nav);
-                backdrop-filter: blur(15px);
-                flex-direction: column;
-                justify-content: center;
-                gap: 40px;
-                transition: var(--transition);
-                border-top: 1px solid var(--border-soft);
-                padding: 10% 5%;
-            }
-
-            .nav-links a {
-                font-size: 1.4rem;
-                font-weight: 800;
-            }
-
-            #menu-toggle:checked~.nav-links {
-                right: 0;
-            }
-
-            #menu-toggle:checked~.hamburger span:nth-child(1) {
-                transform: translateY(9px) rotate(45deg);
-            }
-
-            #menu-toggle:checked~.hamburger span:nth-child(2) {
-                opacity: 0;
-            }
-
-            #menu-toggle:checked~.hamburger span:nth-child(3) {
-                transform: translateY(-9px) rotate(-45deg);
-            }
-
-            .service-card {
-                padding: 50px 30px;
-            }
-
-            /* Stack Mosaic on Mobile */
-            .mosaic-gallery {
-                grid-template-columns: 1fr;
-                grid-auto-rows: 250px;
-            }
-
-            .span-2-row {
-                grid-row: span 1;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
+            .utility-strip { display: none; }
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 80px; right: -100%; width: 100%; height: calc(100vh - 80px); background: var(--bg-nav); backdrop-filter: blur(15px); flex-direction: column; justify-content: center; gap: 40px; transition: var(--transition); border-top: 1px solid var(--border-soft); padding: 10% 5%; }
+            .nav-links a { font-size: 1.4rem; font-weight: 800; }
+            #menu-toggle:checked~.nav-links { right: 0; }
+            #menu-toggle:checked~.hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            #menu-toggle:checked~.hamburger span:nth-child(2) { opacity: 0; }
+            #menu-toggle:checked~.hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+            .service-card { padding: 50px 30px; }
+            .mosaic-gallery { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+            .span-2-row { grid-row: span 1; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+            .theme-toggle { display: none; }
         }
-    </style>
-</head>
-
-<body itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
-
-    <div class="utility-strip">
-        <div class="utility-container">
-            <div class="utility-info">
-                <span><i class="fas fa-map-marker-alt"></i> Serving <span itemprop="areaServed">El Paso,
-                        TX</span></span>
-                <span><i class="fas fa-hammer"></i> 7+ Years of Excellence</span>
-            </div>
-            <div class="utility-contact">
-                <span><i class="fas fa-phone-alt"></i> (915) 288-1889</span>
+        </style>
+    </head>
+    <body itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+        <div class="noise-overlay"></div>
+        <div class="utility-strip">
+            <div class="utility-container">
+                <div class="utility-info">
+                    <span>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Serving
+                        <span itemprop="areaServed">Horizon City & El Paso, TX</span>
+                    </span>
+                    <span>
+                        <i class="fas fa-hammer"></i>
+                        High-End Construction & Landscaping
+                    </span>
+                </div>
+                <div class="utility-contact">
+                    <span>
+                        <i class="fas fa-phone-alt"></i>
+                        (915) 539-0029
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-
-    <nav class="nav-header" id="navbar">
-        <div class="container nav-wrapper">
-            <a href="#" class="brand-logo">
-                <img src="images/logo.jpg" alt="Care Roofing and Construction" itemprop="logo"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-
-                <div class="logo-text" style="display: none; flex-direction: row; gap: 8px; align-items: center;">
-                    <span
-                        style="font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--text-main);">CARE</span>
-                    <span
-                        style="font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--cr-coral); transition: color 0.4s ease;">ROOFING</span>
+        <nav class="nav-header" id="navbar">
+            <div class="container nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <img
+                        src="images/logo.jpg"
+                        alt="Irigoyen Landscape Contractors LLC"
+                        itemprop="logo"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    >
+                    <div class="logo-text" style="display: none;">
+                        <span class="title">IRIGOYEN</span>
+                        <span class="subtitle">LANDSCAPE CONTRACTORS LLC</span>
+                    </div>
+                </a>
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <div class="nav-links">
+                        <a href="#services">Capabilities</a>
+                        <a href="#portfolio">Projects</a>
+                        <a href="#contact">Contact</a>
+                        <div class="magnetic-wrap">
+                            <a href="tel:9155390029" class="btn-primary btn-magnetic" itemprop="telephone">
+                                <i class="fas fa-phone-alt" style="font-size: 0.8rem; margin-top: -2px;"></i>
+                                Free Quote
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </a>
-
-            <div class="nav-controls">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="hamburger">
-                    <span></span><span></span><span></span>
-                </label>
-
-                <div class="nav-links">
-                    <a href="#services">Our Services</a>
-                    <a href="#portfolio">Projects</a>
-                    <a href="#contact">Contact</a>
-                    <a href="tel:9152881889" class="btn-primary" itemprop="telephone">
-                        <i class="fas fa-phone-alt" style="font-size: 0.8rem; margin-top: -2px;"></i> Free Quote
+            </div>
+        </nav>
+        <header class="hero-premium">
+            <div class="hero-text-content">
+                <span class="hero-label reveal-up">
+                    <i class="fas fa-leaf"></i>
+                    Irigoyen Landscape Contractors
+                </span>
+                <h1 class="hero-title reveal-up" style="transition-delay: 0.1s;">
+                    We Bring Outdoors
+                    <br>
+                    <span>To Life.</span>
+                </h1>
+                <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">El Paso & Horizon City's premier builder for luxury outdoor spaces. Specializing in stamped concrete, custom pergolas, outdoor kitchens, and premium artificial turf.</p>
+                <div class="hero-actions reveal-up" style="transition-delay: 0.3s;">
+                    <div class="magnetic-wrap">
+                        <a href="tel:9155390029" class="btn-primary btn-magnetic">
+                            <span>Start Your Project</span>
+                        </a>
+                    </div>
+                    <div class="magnetic-wrap">
+                        <a href="#services" class="btn-outline btn-magnetic">
+                            <span>Explore Capabilities</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-curve">
+                <img
+                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
+                    class="hero-bg"
+                    alt="Premium outdoor kitchen and pergola installation"
+                    itemprop="image"
+                >
+            </div>
+        </header>
+        <section id="design" class="featured-offers">
+            <div class="container offers-grid">
+                <div class="offer-visual-container reveal-up">
+                    <div class="offer-img-mask">
+                        <img src="images/backyard.jpg" class="seo-parallax-img" alt="Custom architectural landscape design">
+                    </div>
+                    <div class="offer-badge">
+                        <h4>100%</h4>
+                        <p>Custom</p>
+                    </div>
+                </div>
+                <div class="offer-content reveal-up" style="transition-delay: 0.2s;">
+                    <span class="hero-label" style="color: var(--cr-coral);">
+                        <i class="fas fa-drafting-compass"></i>
+                        DESIGN & BUILD
+                    </span>
+                    <h2>Transform Your Backyard into a Luxury Retreat.</h2>
+                    <p class="offer-desc-premium">Don't settle for a basic yard. We design and construct cohesive, high-end outdoor living areas that seamlessly blend stamped concrete, elegant rock walls, and custom woodwork.</p>
+                    <ul class="offer-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Complete Yard Overhauls
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Custom Outdoor Kitchens & Seating
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            Durable Concrete & Hardscaping
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>FREE DESIGN CONSULTATION</strong>
+                        </li>
+                    </ul>
+                    <div class="magnetic-wrap">
+                        <a href="tel:9155390029" class="btn-primary btn-magnetic">
+                            <span>Consult With Us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="trust-banner reveal-up">
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Guaranteed Quality</h4>
+                            <p>We stand behind our craftsmanship, ensuring every project is built to last.</p>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-comments"></i>
+                            <h4>Clear Communication</h4>
+                            <p>We work closely with you from initial design to final walkthrough.</p>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4>Local Experts</h4>
+                            <p>Proudly serving the unique climate and terrain of El Paso and Horizon City.</p>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-layer-group"></i>
+                            <h4>Comprehensive Builds</h4>
+                            <p>From the concrete foundation to the pergola roof, we handle everything.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="services-section curved-top">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>OUR EXPERTISE</span>
+                    <h2>Premium Landscape Solutions</h2>
+                    <p>We combine architectural design with heavy-duty construction to deliver outdoor spaces that are as durable as they are beautiful.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <div class="service-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Concrete & Hardscapes</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Decorative Stamped Concrete
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Custom Rock Walls
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Elegant Pavers & Pathways
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Gravel & Xeriscaping
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">
+                            Concrete Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.15s;">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Premium Artificial Turf</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                High-Grade Synthetic Grass
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Pet & Child Safe Materials
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Zero-Maintenance Lawns
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Custom Putting Greens
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">
+                            Turf Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.3s;">
+                        <div class="service-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Kitchens & Pergolas</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Full Outdoor Kitchens
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Custom Wood Pergolas
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Built-in Outdoor Seating
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                Privacy Fencing Installation
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">
+                            Design Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio-section curved-top">
+            <div class="container" style="max-width: 1400px; padding: 0;">
+                <div class="section-header reveal-up">
+                    <span>OUR WORK</span>
+                    <h2>Recent Transformations</h2>
+                    <p>Explore some of the premium outdoor spaces we've brought to life across the region.</p>
+                </div>
+            </div>
+            <div class="mosaic-gallery">
+                <div class="mosaic-item span-2-row reveal-up">
+                    <img src="images/kitchen.jpg" alt="Custom outdoor kitchen">
+                    <div class="mosaic-overlay">
+                        <h4>Outdoor Kitchens</h4>
+                    </div>
+                </div>
+                <div class="mosaic-item reveal-up" style="transition-delay: 0.1s;">
+                    <img src="images/pergola.jpg" alt="Custom wooden pergola">
+                    <div class="mosaic-overlay">
+                        <h4>Custom Pergolas</h4>
+                    </div>
+                </div>
+                <div class="mosaic-item reveal-up" style="transition-delay: 0.2s;">
+                    <img src="images/turf.jpg" alt="Artificial turf installation">
+                    <div class="mosaic-overlay">
+                        <h4>Premium Turf</h4>
+                    </div>
+                </div>
+                <div class="mosaic-item span-2-row reveal-up" style="transition-delay: 0.3s;">
+                    <img src="images/stamped.jpg" alt="Stamped concrete patio">
+                    <div class="mosaic-overlay">
+                        <h4>Stamped Concrete</h4>
+                    </div>
+                </div>
+                <div class="mosaic-item reveal-up" style="transition-delay: 0.1s;">
+                    <img src="images/rock-wall.jpg" alt="Rock wall construction">
+                    <div class="mosaic-overlay">
+                        <h4>Rock Walls</h4>
+                    </div>
+                </div>
+                <div class="mosaic-item reveal-up" style="transition-delay: 0.2s;">
+                    <img src="images/privacy.jpg" alt="Privacy fencing">
+                    <div class="mosaic-overlay">
+                        <h4>Privacy Fencing</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section curved-top">
+            <div class="container">
+                <h2 class="reveal-up">Ready to elevate your property?</h2>
+                <p class="reveal-up" style="transition-delay: 0.1s;">Irigoyen Landscape Contractors brings comprehensive outdoor capabilities. From the concrete foundation to the custom pergola above. Contact us today.</p>
+                <div class="magnetic-wrap reveal-up" style="transition-delay: 0.2s;">
+                    <a href="tel:9155390029" class="btn-primary btn-magnetic" style="padding: 16px 50px; font-size: 1rem;">
+                        <i class="fas fa-phone-alt"></i>
+                        Call (915) 539-0029
                     </a>
                 </div>
             </div>
-        </div>
-    </nav>
-
-    <header class="hero-premium">
-        <div class="hero-text-content">
-            <span class="hero-label load-1"><i class="fas fa-home"></i> Care Roofing and Construction</span>
-            <h1 class="hero-title load-2">El Paso Construction<br><span>& Landscaping</span></h1>
-            <p class="hero-desc load-3">El Paso's trusted experts in premium roofing, custom pergolas, stamped concrete,
-                and artificial turf. Transform your property with a team backed by over 7 years of specialized
-                experience.</p>
-            <div class="hero-actions load-3" style="animation-delay: 0.6s;">
-                <a href="#financing" class="btn-primary"><span>View Financing Plans</span></a>
-                <a href="#services" class="btn-outline"><span>Explore Capabilities</span></a>
-            </div>
-        </div>
-        <div class="hero-image-curve">
-            <img src="images/pergola.jpg" alt="Premium home exterior with new roof and landscaping" itemprop="image">
-        </div>
-    </header>
-
-    <section id="financing" class="featured-offers">
-        <div class="container offers-grid">
-            <div class="offer-visual-container reveal-up">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop"
-                    alt="Custom pergola and patio installation">
-                <div class="offer-badge">
-                    <h4>$59</h4>
-                    <p>Per Month</p>
-                </div>
-            </div>
-            <div class="offer-content reveal-up" style="transition-delay: 0.2s;">
-                <span class="hero-label" style="color: var(--cr-gold);"><i class="fas fa-wallet"></i> FLEXIBLE
-                    FINANCING</span>
-                <h2>Transform Your Space Starting at Only $59/mo.</h2>
-                <p class="offer-desc-premium">Don't delay your dream remodel. We offer highly competitive, transparent
-                    financing options so you can upgrade your roof, patio, or landscaping immediately.</p>
-
-                <ul class="offer-list">
-                    <li><i class="fas fa-check-circle"></i> Low Monthly Payments</li>
-                    <li><i class="fas fa-check-circle"></i> Quick & Easy Approval Process</li>
-                    <li><i class="fas fa-check-circle"></i> Applies to Roofing, Turf, and Hardscaping</li>
-                    <li><i class="fas fa-check-circle"></i> <strong>FREE ESTIMATES INCLUDED</strong></li>
-                </ul>
-
-                <a href="tel:9152881889" class="btn-primary"><span>Call to Pre-Qualify</span></a>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="trust-banner reveal-up">
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h4>Guaranteed Work</h4>
-                        <p>Our goal is to make sure you are fully satisfied. We make any adjustments needed.</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-comments"></i>
-                        <h4>Dependable Services</h4>
-                        <p>Communication is key. We work closely to ensure you are aware of every step.</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-award"></i>
-                        <h4>Reputable Company</h4>
-                        <p>Operating in El Paso for over 7 years with a reputation for quality work.</p>
-                    </div>
-                    <div class="trust-item">
-                        <i class="fas fa-user-tie"></i>
-                        <h4>Specialized Work</h4>
-                        <p>Our team goes through proper training and certifications for best practices.</p>
+        </section>
+        <footer class="footer curved-top" id="contact">
+            <div class="container footer-grid">
+                <div class="footer-brand reveal-up">
+                    <a href="#" class="footer-logo-wrapper">
+                        <img src="images/logo.jpg" alt="Irigoyen Landscape Contractors Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="footer-logo-text" style="display: none;">
+                            <span style="font-family: 'Nunito', sans-serif; font-size: 1.5rem; font-weight: 900; color: var(--cr-black);">IRIGOYEN</span>
+                            <span style="font-family: 'Nunito', sans-serif; font-size: 0.8rem; font-weight: 900; color: var(--cr-coral);">LANDSCAPE CONTRACTORS</span>
+                        </div>
+                    </a>
+                    <p>We bring outdoors to life. Premium concrete, turf, pergolas, and outdoor kitchens serving El Paso and Horizon City.</p>
+                    <div class="footer-social" style="margin-top: 25px; display: flex; gap: 20px;">
+                        <a href="#" aria-label="Follow us on Facebook" style="color: #FFFFFF; font-size: 1.8rem; transition: var(--transition);">
+                            <i class="fab fa-facebook"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="services-section curved-top">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <span>OUR EXPERTISE</span>
-                <h2>Complete Property Solutions</h2>
-                <p>We combine organic design with durable construction. Whether you need a full roof replacement or a
-                    custom outdoor kitchen, we deliver excellence.</p>
-            </div>
-
-            <div class="services-grid">
-
-                <div class="service-card reveal-up">
-                    <div class="service-icon"><i class="fas fa-home"></i></div>
-                    <h3><span itemprop="serviceType">Roofing Services</span></h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Complete Roof Replacements</li>
-                        <li><i class="fas fa-check-circle"></i> Residential & Commercial</li>
-                        <li><i class="fas fa-check-circle"></i> Leak Repair & Inspections</li>
-                        <li><i class="fas fa-check-circle"></i> High-Quality Shingle & Metal</li>
+                <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                    <h4>CONTACT US</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(915) 539-0029</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>Christian@irigoyenlandscape.net</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Horizon City, El Paso, TX 79928</span>
+                        </li>
                     </ul>
-                    <a href="#contact" class="service-link">Roofing Estimate <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="service-card reveal-up" style="transition-delay: 0.15s;">
-                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
-                    <h3><span itemprop="serviceType">Turf & Landscaping</span></h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Premium Artificial Turf</li>
-                        <li><i class="fas fa-check-circle"></i> Natural Grass Solutions</li>
-                        <li><i class="fas fa-check-circle"></i> Custom Built Planters</li>
-                        <li><i class="fas fa-check-circle"></i> Complete Yard Overhauls</li>
+                <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li>
+                            <a href="#services">Stamped Concrete</a>
+                        </li>
+                        <li>
+                            <a href="#services">Artificial Turf</a>
+                        </li>
+                        <li>
+                            <a href="#services">Custom Pergolas</a>
+                        </li>
+                        <li>
+                            <a href="#services">Outdoor Kitchens</a>
+                        </li>
                     </ul>
-                    <a href="#contact" class="service-link">Turf Free Estimate <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <div class="service-card reveal-up" style="transition-delay: 0.3s;">
-                    <div class="service-icon"><i class="fas fa-layer-group"></i></div>
-                    <h3><span itemprop="serviceType">Hardscapes & Pergolas</span></h3>
-                    <ul class="service-list">
-                        <li><i class="fas fa-check-circle"></i> Decorative Stamped Concrete</li>
-                        <li><i class="fas fa-check-circle"></i> Custom Wood Pergolas</li>
-                        <li><i class="fas fa-check-circle"></i> Privacy Fencing Installation</li>
-                        <li><i class="fas fa-check-circle"></i> Indoor/Outdoor Remodeling</li>
-                    </ul>
-                    <a href="#contact" class="service-link">Hardscaping Estimate <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="portfolio-section curved-top">
-        <div class="container" style="max-width: 1400px; padding: 0;">
-            <div class="section-header reveal-up">
-                <span>OUR WORK</span>
-                <h2>Our Projects</h2>
-                <p>If you're looking to replace your roof, upgrade your backyard, or remodel any part of your house, we
-                    are your best option!</p>
-            </div>
-        </div>
-
-        <div class="mosaic-gallery">
-
-            <div class="mosaic-item span-2-row reveal-up">
-                <img src="images/roofing.jpg" alt="Men working on a new roof installation">
-                <div class="mosaic-overlay">
-                    <h4>Roofing</h4>
                 </div>
             </div>
-
-            <div class="mosaic-item reveal-up" style="transition-delay: 0.1s;">
-                <img src="images/back-yard.jpg" alt="Lush artificial grass installed in backyard">
-                <div class="mosaic-overlay">
-                    <h4>Artificial Grass</h4>
-                </div>
-            </div>
-
-            <div class="mosaic-item reveal-up" style="transition-delay: 0.2s;">
-                <img src="images/pergola2.jpg" alt="Custom wooden pergola">
-                <div class="mosaic-overlay">
-                    <h4>Pergolas</h4>
-                </div>
-            </div>
-
-            <div class="mosaic-item span-2-row reveal-up" style="transition-delay: 0.3s;">
-                <img src="images/privacy-fence.jpg" alt="Custom privacy fence">
-                <div class="mosaic-overlay">
-                    <h4>Privacy Fence</h4>
-                </div>
-            </div>
-
-            <div class="mosaic-item reveal-up" style="transition-delay: 0.1s;">
-                <img src="images/ac.jpg" alt="Stamped concrete pavers">
-                <div class="mosaic-overlay">
-                    <h4>Concrete Pavers</h4>
-                </div>
-            </div>
-
-            <div class="mosaic-item reveal-up" style="transition-delay: 0.2s;">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop"
-                    alt="Refrigerated air HVAC unit being installed">
-                <div class="mosaic-overlay">
-                    <h4>Refrigerated Air</h4>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="cta-section curved-top">
-        <div class="container">
-            <h2 class="reveal-up">Ready to elevate your property?</h2>
-            <p class="reveal-up" style="transition-delay: 0.1s;">Care Roofing and Construction brings comprehensive
-                interior and outdoor capability. From the roof above your head to the grass under your feet. Contact us
-                for your free estimate.</p>
-            <a href="tel:9152881889" class="btn-primary reveal-up"
-                style="padding: 16px 50px; font-size: 1rem; transition-delay: 0.2s;"><i class="fas fa-mobile-alt"></i>
-                Call (915) 288-1889</a>
-        </div>
-    </section>
-
-    <footer class="footer curved-top" id="contact">
-        <div class="container footer-grid">
-            <div class="footer-brand reveal-up">
-
-                <a href="#" class="footer-logo-wrapper">
-                    <img src="images/logo.jpg" alt="Care Roofing and Construction Logo"
-                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                    <div class="footer-logo-text" style="display: none;">
-                        <span
-                            style="font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--cr-black);">CARE</span>
-                        <span
-                            style="font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--cr-coral);">ROOFING</span>
-                    </div>
-                </a>
-
-                <p>El Paso's architectural and landscape specialists. Over 7 years of expertise in roofing, turf,
-                    stamped concrete, and remodeling. <span itemprop="location" itemscope
-                        itemtype="https://schema.org/Place">Located in <span itemprop="name">El Paso, TX</span>.</span>
+            <div class="footer-bottom container reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 Irigoyen Landscape Contractors LLC. All Rights Reserved.</p>
+                <p style="margin-top: 10px;">
+                    Designed & Developed by
+                    <a
+                        href="https://ervotechep.com"
+                        target="_blank"
+                        rel="noopener"
+                        style="color: var(--cr-coral); text-decoration: none; font-weight: 600;"
+                    >Ervotech</a>
                 </p>
-
-                <div class="footer-social">
-                    <a href="https://www.instagram.com/Careconstructionandlandscaping" target="_blank"
-                        aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
             </div>
-
-            <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
-                <h4>CONTACT EL PASO</h4>
-                <ul>
-                    <li><i class="fas fa-phone-alt"></i> <span>(915) 288-1889</span></li>
-                    <li><i class="fas fa-envelope"></i> <span>careroofingandconstruction<br>@gmail.com</span></li>
-                    <li><i class="fas fa-map-marker-alt"></i> <span>Proudly serving El Paso, TX</span></li>
-                </ul>
-            </div>
-
-            <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
-                <h4>QUICK LINKS</h4>
-                <ul>
-                    <li><a href="#services">Roofing Services</a></li>
-                    <li><a href="#services">Turf & Grass</a></li>
-                    <li><a href="#services">Stamped Concrete</a></li>
-                    <li><a href="#portfolio">Project Showcase</a></li>
-                </ul>
+        </footer>
+        <div class="floating-widget" id="fabWidget">
+            <button class="fab-main" id="fabMain">
+                <span class="icon-chat">
+                    <i class="fas fa-comment-dots"></i>
+                </span>
+                <span class="icon-close">
+                    <i class="fas fa-times"></i>
+                </span>
+            </button>
+            <div class="fab-actions">
+                <a href="tel:9155390029" class="fab-action fab-phone">
+                    <span class="fab-tooltip">Call Now</span>
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:Christian@irigoyenlandscape.net" class="fab-action fab-email">
+                    <span class="fab-tooltip">Email Us</span>
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
 
-        <div class="footer-bottom container reveal-up" style="transition-delay: 0.3s;">
-            <p>&copy; 2026 Care Roofing and Construction LLC. All Rights Reserved.</p>
-        </div>
-    </footer>
+        /* --- Advanced Theme Toggle --- */
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        themeToggle.addEventListener('click', () => {
+            const body = document.body;
 
-            /* --- Advanced Theme Toggle --- */
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
-
-            themeToggle.addEventListener('click', () => {
-                const body = document.body;
-
-                if (body.classList.contains('dark-theme')) {
-                    body.classList.remove('dark-theme');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                    localStorage.setItem('cr-theme', 'light');
-                } else {
-                    body.classList.add('dark-theme');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                    localStorage.setItem('cr-theme', 'dark');
-                }
-            });
-
-            // Persist theme choice fail-safe
-            const savedTheme = localStorage.getItem('cr-theme');
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-theme');
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('cr-theme', 'light');
+            } else {
+                body.classList.add('dark-theme');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                localStorage.setItem('cr-theme', 'dark');
             }
+        });
 
-            /* --- Performance-Minded Sticky Navbar --- */
-            const navbar = document.getElementById('navbar');
+        const savedTheme = localStorage.getItem('cr-theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
 
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }, { passive: true });
+        /* --- INITIALIZE PREMIUM SMOOTH SCROLLING (Lenis) --- */
+        const lenis = new Lenis({
+            duration: 0.7,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
 
-            /* --- Cinematic Asymmetrical Scroll Reveals --- */
-            function checkReveals() {
-                const reveals = document.querySelectorAll('.reveal-up');
-                const windowHeight = window.innerHeight;
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
 
-                for (let i = 0; i < reveals.length; i++) {
-                    const elementTop = reveals[i].getBoundingClientRect().top;
-                    if (elementTop < windowHeight - 80) {
-                        reveals[i].classList.add('active-reveal');
-                    }
+        /* --- TRUE SCROLL PARALLAX (Hero & Section Images) --- */
+        const heroBg = document.querySelector('.hero-bg');
+        const seoImg = document.querySelector('.seo-parallax-img');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            if(heroBg) {
+                heroBg.style.transform = `scale(1.1) translateY(${scrollY * 0.25}px)`;
+            }
+            if(seoImg) {
+                const imgOffset = seoImg.parentElement.offsetTop;
+                if(scrollY > imgOffset - window.innerHeight) {
+                    const diff = scrollY - (imgOffset - window.innerHeight);
+                    seoImg.style.transform = `scale(1.1) translateY(calc(-5% + ${diff * 0.05}px))`;
                 }
             }
+        });
 
-            window.addEventListener('scroll', checkReveals);
-            checkReveals();
-
-            setTimeout(function () {
-                document.querySelectorAll('.reveal-up').forEach(function (el) {
-                    el.classList.add('active-reveal');
+        /* --- MAGNETIC BUTTON MICRO-INTERACTION --- */
+        if(window.innerWidth > 1024) {
+            const magneticButtons = document.querySelectorAll('.btn-magnetic');
+            
+            magneticButtons.forEach((btn) => {
+                btn.addEventListener('mousemove', (e) => {
+                    const position = btn.getBoundingClientRect();
+                    const x = e.clientX - position.left - position.width / 2;
+                    const y = e.clientY - position.top - position.height / 2;
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
                 });
-            }, 1000);
 
-            /* --- Responsive mobile nav close logic --- */
-            const mobileLinks = document.querySelectorAll('.nav-links a');
-            const menuCheckbox = document.getElementById('menu-toggle');
-
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (window.innerWidth <= 900) {
-                        menuCheckbox.checked = false;
-                    }
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    btn.style.transform = 'translate(0px, 0px)';
+                    setTimeout(() => {
+                        btn.style.transition = 'var(--transition-fast)';
+                    }, 500);
                 });
             });
+        }
 
+        /* --- Performance-Minded Sticky Navbar --- */
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }, { passive: true });
+
+        /* --- Cinematic Asymmetrical Scroll Reveals --- */
+        function checkReveals() {
+            const reveals = document.querySelectorAll('.reveal-up');
+            const windowHeight = window.innerHeight;
+
+            for (let i = 0; i < reveals.length; i++) {
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    reveals[i].classList.add('active-reveal');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', checkReveals);
+        checkReveals();
+
+        setTimeout(function () {
+            document.querySelectorAll('.reveal-up').forEach(function (el) {
+                el.classList.add('active-reveal');
+            });
+        }, 1000);
+
+        /* --- Responsive mobile nav close logic --- */
+        const mobileLinks = document.querySelectorAll('.nav-links a');
+        const menuCheckbox = document.getElementById('menu-toggle');
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    menuCheckbox.checked = false;
+                }
+            });
         });
-    </script>
-</body>
 
+        /* --- Floating Action Button Logic --- */
+        const fabWidget = document.getElementById('fabWidget');
+        const fabMain = document.getElementById('fabMain');
+
+        fabMain.addEventListener('click', () => {
+            fabWidget.classList.toggle('is-open');
+        });
+
+    });
+        </script>
+    </body>
 </html>
