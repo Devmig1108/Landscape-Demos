@@ -131,7 +131,7 @@
         .hero-text-content { padding: 10%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
         
         .hero-image-curve { height: 100%; width: 100%; position: relative; overflow: hidden; border-top-left-radius: 120px; border-bottom-left-radius: 120px; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.08); }
-        .hero-bg { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); } /* Removed transform: scale(1.1); */
+        .hero-bg { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
         
         .hero-label { display: inline-flex; align-items: center; gap: 10px; color: var(--rr-red); font-size: 0.9rem; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
         .hero-title { font-size: clamp(3.2rem, 6vw, 6rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; letter-spacing: -2px; }
@@ -150,7 +150,6 @@
         
         .offer-visual-container { position: relative; }
         
-        /* The Mask Fix for the Badge Clipping Issue */
         .offer-img-mask { border-radius: var(--radius-large); overflow: hidden; box-shadow: var(--shadow-card); position: relative; z-index: 1; }
         .offer-img-mask img { width: 100%; display: block; transform: scale(1.1); }
         
@@ -186,7 +185,9 @@
         .section-header h2 { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -1.5px; text-transform: none; }
         .section-header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.2rem; }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; }
+        /* FIX: Adjusted minmax from 360px to min(100%, 320px) to prevent mobile overflow */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 50px; }
+        
         .service-card { background: var(--bg-card); border: 1px solid var(--border-soft); padding: 60px 50px; border-radius: var(--radius-large); transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-card); position: relative; }
         .service-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-accent); border-color: var(--border-glow); }
         .service-icon { width: 80px; height: 80px; background: var(--icon-bg); border-radius: var(--radius-medium); display: flex; align-items: center; justify-content: center; margin-bottom: 40px; transition: background 0.4s ease; }
@@ -280,6 +281,7 @@
             .offer-badge { position: relative; top: 0; right: 0; display: inline-block; margin-top: -40px; margin-left: 10%; }
         }
 
+        /* FIX: Explicit Mobile Adjustments to fix grid overflow */
         @media (max-width: 900px) {
             .utility-strip { display: none; }
             .hamburger { display: flex; }
@@ -289,11 +291,16 @@
             #menu-toggle:checked~.hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
             #menu-toggle:checked~.hamburger span:nth-child(2) { opacity: 0; }
             #menu-toggle:checked~.hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-            .service-card { padding: 50px 30px; }
+            
+            /* Forces cards to stack directly, fixing overflow */
+            .services-grid { grid-template-columns: 1fr; gap: 30px; }
+            /* Thinner padding on mobile to let content breathe */
+            .service-card { padding: 40px 25px; }
+            
             .mosaic-gallery { grid-template-columns: 1fr; grid-auto-rows: 250px; }
             .span-2-row { grid-row: span 1; }
             .footer-grid { grid-template-columns: 1fr; gap: 50px; }
-            .theme-toggle { display: none; } /* Hide toggle on mobile nav */
+            .theme-toggle { display: none; }
         }
         </style>
     </head>
@@ -743,7 +750,7 @@
 
         /* --- INITIALIZE PREMIUM SMOOTH SCROLLING (Lenis) --- */
         const lenis = new Lenis({
-            duration: 0.7, 
+            duration: 0.7, // Fast, snappy, yet premium smooth scrolling
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
             direction: 'vertical',
             gestureDirection: 'vertical',
