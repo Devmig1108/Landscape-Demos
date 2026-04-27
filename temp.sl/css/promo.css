@@ -1,0 +1,85 @@
+/* css/promo.css */
+.promo-section {
+    padding: 150px 5% 100px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.promo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.promo-copy h1 {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.promo-copy h1 i {
+    color: var(--brand-gold);
+    font-style: italic;
+}
+
+.promo-copy p.lead {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    max-width: 90%;
+}
+
+.bullet-points {
+    list-style: none;
+    margin-bottom: 50px;
+}
+
+.bullet-points li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.bullet-points li i {
+    color: var(--brand-gold);
+    font-size: 1.3rem;
+}
+
+.promo-form-container {
+    background: var(--bg-sec);
+    padding: 50px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lux);
+    border-radius: 4px;
+}
+
+.promo-form-container h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.promo-form-container p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+    .promo-wrapper {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .promo-form-container {
+        padding: 40px 25px;
+    }
+}

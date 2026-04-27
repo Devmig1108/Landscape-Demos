@@ -1,0 +1,92 @@
+/* css/about.css */
+
+/* =========================================
+    3. INTERNAL HERO
+    ========================================= */
+.internal-hero {
+    height: 60vh; width: 100%; display: flex; align-items: center; justify-content: center;
+    position: relative; padding: 0 5%; overflow: hidden; text-align: center;
+}
+.hero-bg {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1; animation: cinematicZoom 30s infinite alternate; transition: background 0.8s ease;
+}
+
+.hero-content { z-index: 1; margin-top: 50px;}
+.hero-label { color: var(--brand-gold); font-size: 0.7rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 20px; display: block; font-family: 'Inter'; font-weight: 600; }
+.hero-title { font-size: clamp(3rem, 6vw, 6rem); line-height: 1; letter-spacing: -2px; margin-bottom: 20px;}
+.hero-title i { font-style: italic; color: var(--brand-gold); }
+
+@keyframes cinematicZoom { from { transform: scale(1); } to { transform: scale(1.15); } }
+
+/* =========================================
+    4. ABOUT SPLIT (The Story)
+    ========================================= */
+.section-padding { padding: 120px 5%; transition: background-color 0.8s ease; }
+
+.about-split {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 100px;
+    max-width: 1600px; margin: 0 auto; align-items: center;
+}
+
+.about-text h2 { font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; margin-bottom: 40px; }
+.about-text h2 i { color: var(--brand-gold); font-style: italic; }
+.about-text p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px; font-weight: 300; transition: color 0.8s ease; }
+
+.about-image-collage { position: relative; height: 700px; }
+.img-large { position: absolute; top: 0; right: 0; width: 80%; height: 80%; object-fit: cover; box-shadow: var(--shadow-lux); filter: grayscale(10%); transition: var(--transition); }
+.img-small { position: absolute; bottom: 0; left: 0; width: 55%; height: 50%; object-fit: cover; border: 20px solid var(--bg-main); box-shadow: var(--shadow-lux); z-index: 2; transition: border-color 0.8s ease, transform 0.5s ease; }
+
+.about-image-collage:hover .img-small { transform: translateY(-15px); }
+.about-image-collage:hover .img-large { filter: grayscale(0%); }
+
+/* =========================================
+    5. CORE VALUES GRID
+    ========================================= */
+.values-section { background: var(--bg-sec); padding: 120px 5%; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); transition: background-color 0.8s ease;}
+.section-header { text-align: center; margin-bottom: 80px; }
+.section-header span { color: var(--brand-gold); font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 20px; }
+.section-header h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
+
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
+
+.value-card {
+    background: var(--bg-main); padding: 50px 40px; border: 1px solid var(--glass-border);
+    text-align: center; transition: var(--transition);
+}
+.value-card:hover { transform: translateY(-10px); border-color: var(--brand-gold); box-shadow: var(--shadow-lux); }
+.value-card i { font-size: 2.5rem; color: var(--brand-gold); margin-bottom: 25px; }
+.value-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+.value-card p { color: var(--text-muted); font-size: 0.95rem; font-weight: 300; }
+
+/* =========================================
+    6. TEAM GRID
+    ========================================= */
+.team-section { padding: 120px 5%; background: var(--bg-main); transition: background-color 0.8s ease;}
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; }
+.team-card { text-align: center; transition: 0.3s; }
+.team-img { height: 450px; background-color: var(--bg-sec); background-size: cover; background-position: center; margin-bottom: 25px; filter: grayscale(100%); transition: 0.5s ease; box-shadow: var(--shadow-lux); }
+.team-card:hover .team-img { filter: grayscale(0%); transform: translateY(-10px); }
+.team-card h3 { font-size: 1.6rem; margin-bottom: 5px; }
+.team-card p { color: var(--brand-gold); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-family: 'Inter'; font-weight: 600;}
+
+/* =========================================
+    7. CTA STRIP
+    ========================================= */
+.cta-strip { background: var(--bg-sec); padding: 100px 5%; text-align: center; border-top: 1px solid var(--glass-border); transition: background-color 0.8s ease;}
+.cta-strip h2 { font-size: 3rem; margin-bottom: 20px; }
+.cta-strip p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 40px; max-width: 600px; margin-inline: auto; font-weight: 300;}
+
+/* =========================================
+    10. RESPONSIVE DESIGN (About Page Specific)
+    ========================================= */
+@media (max-width: 1024px) {
+    .about-split { grid-template-columns: 1fr; gap: 60px;}
+    .about-image-collage { height: 500px; margin-top: 40px;}
+}
+
+@media (max-width: 768px) {
+    .internal-hero { height: 45vh;}
+    .hero-title { font-size: 2.5rem;}
+    .values-grid { grid-template-columns: 1fr; }
+}
