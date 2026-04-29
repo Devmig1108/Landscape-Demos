@@ -105,8 +105,8 @@
         .utility-info span i { margin-right: 8px; color: var(--cr-coral); }
         .utility-contact span i { margin-right: 8px; color: var(--cr-coral); }
 
-        .nav-header { background-color: var(--bg-nav); padding: 15px 0; position: sticky; top: 0; z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
-        .nav-header.scrolled { backdrop-filter: blur(15px); padding: 10px 0; border-bottom: 1px solid var(--border-soft); box-shadow: var(--shadow-card); }
+        .nav-header { background-color: var(--bg-nav); padding: 0; position: sticky; top: 0; z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
+        .nav-header.scrolled { backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-soft); box-shadow: var(--shadow-card); }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
         /* Brand Logo */
@@ -137,7 +137,7 @@
         /* =========================================
            3. ASYMMETRICAL SPLIT HERO (UPDATED HEIGHT)
            ========================================= */
-        .hero-premium { display: grid; grid-template-columns: 1.2fr 1fr; min-height: 70vh; background-color: var(--bg-main); align-items: center; overflow: hidden; position: relative; }
+        .hero-premium { display: grid; grid-template-columns: 1.2fr 1fr; height: 85vh; background-color: var(--bg-main); align-items: center; overflow: hidden; position: relative; }
         .hero-premium::before { content: ''; position: absolute; top: 10%; left: -10%; width: 500px; height: 500px; background: var(--cr-sand); border-radius: 50%; opacity: 0.6; z-index: 0; transition: background 0.4s ease; }
         
         /* Adjusted padding to bring content higher up */
