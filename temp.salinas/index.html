@@ -109,8 +109,17 @@
         .nav-header.scrolled { backdrop-filter: blur(15px); padding: 10px 0; border-bottom: 1px solid var(--border-soft); box-shadow: var(--shadow-card); }
         .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
 
+        /* Brand Logo */
         .brand-logo { text-decoration: none; display: flex; align-items: center; gap: 15px; background-color: var(--logo-bg); padding: 5px 20px; border-radius: 50px; transition: var(--transition); }
-        .brand-logo img { height: 60px; width: auto; object-fit: contain; }
+        
+        /* ADDED TRANSITION HERE FOR SMOOTH SCALING */
+        .brand-logo img { height: 120px; width: auto; object-fit: contain; transition: var(--transition); }
+        #brand-logo.scrolled { padding: 0; }
+        #brand-logo.scrolled img { height: 80px; padding: 0; }
+
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .title { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--logo-title); line-height: 1; letter-spacing: 1px; }
+        .logo-text .subtitle { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; color: var(--cr-coral); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px;}
 
         .nav-controls { display: flex; align-items: center; gap: 30px; }
         .nav-links { display: flex; gap: 35px; align-items: center; }
@@ -188,7 +197,6 @@
         .section-header h2 { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -1.5px; text-transform: none; }
         .section-header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.2rem; }
 
-        /* Fix for mobile grid overflow */
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 50px; }
         
         .service-card { background: var(--bg-card); border: 1px solid var(--border-soft); padding: 60px 50px; border-radius: var(--radius-large); transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-card); position: relative; }
@@ -228,7 +236,7 @@
         .footer { background: var(--cr-black); padding: 100px 0 50px; color: #FFFFFF; border-top-left-radius: 60px; border-top-right-radius: 60px; margin-top: -60px; position: relative; z-index: 10; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 60px; margin-bottom: 40px; }
         
-        .footer-logo-wrapper { text-decoration: none; display: inline-flex; align-items: center; gap: 15px; background-color: #FFFFFF; padding: 10px 25px; border-radius: 50px; margin-bottom: 20px; transition: var(--transition); }
+        .footer-logo-wrapper { text-decoration: none; display: inline-flex; align-items: center; gap: 15px; background-color: #FFFFFF; padding: 5px 20px; border-radius: 50px; margin-bottom: 20px; transition: var(--transition); }
         .footer-logo-wrapper img { height: 50px; width: auto; object-fit: contain; }
         .footer-logo-wrapper:hover { transform: scale(1.05); }
         
@@ -296,10 +304,7 @@
             #menu-toggle:checked~.hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
             #menu-toggle:checked~.hamburger span:nth-child(2) { opacity: 0; }
             #menu-toggle:checked~.hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-            
-            .services-grid { grid-template-columns: 1fr; gap: 30px; }
-            .service-card { padding: 40px 25px; }
-            
+            .service-card { padding: 50px 30px; }
             .mosaic-gallery { grid-template-columns: 1fr; grid-auto-rows: 250px; }
             .span-2-row { grid-row: span 1; }
             .footer-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -333,7 +338,7 @@
     
     <nav class="nav-header" id="navbar">
         <div class="container nav-wrapper">
-            <a href="#" class="brand-logo">
+            <a href="#" class="brand-logo" id="brand-logo">
                 <img
                     src="images/logo.jpg"
                     alt="Salinas Fencing & Decks"
@@ -767,12 +772,15 @@
 
         /* --- Performance-Minded Sticky Navbar --- */
         const navbar = document.getElementById('navbar');
+        const brand = document.getElementById('brand-logo');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
+                brand.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+                brand.classList.remove('scrolled');
             }
         }, { passive: true });
 
