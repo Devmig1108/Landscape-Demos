@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bella's Landscaping | Premium Landscaping & Hardscaping</title>
+        <meta name="description" content="We value honesty and integrity and treat each property as if it were our own. Customizable landscaping, turf, outdoor kitchens, and rock walls. Guaranteed satisfaction.">
+        <link rel="canonical" href="https://www.bellaslandscaping.com/">
+        <meta property="og:title" content="Your Property, Treated Like Our Own | Bella's Landscaping">
+        <meta property="og:description" content="From lush turf to custom outdoor kitchens. Explore our high-end, customizable landscaping solutions.">
+        <meta property="og:image" content="images/hero.jpg">
+        <meta property="og:url" content="https://www.bellaslandscaping.com/">
+        <meta name="twitter:card" content="summary_large_image">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:ital,wght@0,500;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+        /* =========================================
+           0. DYNAMIC THEME VARIABLES (LIGHT DEFAULT)
+           ========================================= */
+        :root {
+            /* Brand Colors: Deep Sage, Warm Stone, Earthy */
+            --bl-green: #386641; /* Deep Sage / Emerald Green */
+            --bl-green-hover: #2c5233;
+            --bl-earth: #F4F1EA; /* Warm Stone / Sand */
+            --bl-charcoal: #1A1C19; /* Soft Off-Black */
+
+            /* LIGHT MODE */
+            --bg-main: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --bg-section: var(--bl-earth);
+            --bg-nav: rgba(255, 255, 255, 0.98);
+
+            --text-main: var(--bl-charcoal);
+            --text-muted: #5C6658;
+
+            --border-soft: rgba(26, 28, 25, 0.08);
+            --border-glow: rgba(56, 102, 65, 0.3);
+            --icon-bg: rgba(56, 102, 65, 0.08);
+
+            --logo-bg: transparent;
+            --logo-title: var(--bl-green);
+
+            --shadow-accent: 0 10px 30px rgba(56, 102, 65, 0.2);
+            --shadow-card: 0 15px 35px rgba(26, 28, 25, 0.06);
+
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Organic Curvature Variables */
+            --radius-large: 60px;
+            --radius-medium: 30px;
+            --radius-small: 12px;
+        }
+
+        /* DARK MODE VARIABLES */
+        body.dark-theme {
+            --bg-main: #0D120E;
+            --bg-card: #151A16;
+            --bg-section: #111612;
+            --bg-nav: rgba(13, 18, 14, 0.98);
+
+            --text-main: #F4F1EA;
+            --text-muted: #A3ACA0;
+
+            --border-soft: rgba(244, 241, 234, 0.08);
+            --border-glow: rgba(56, 102, 65, 0.4);
+            --icon-bg: rgba(56, 102, 65, 0.2);
+
+            --logo-bg: #FFFFFF; /* Ensures logo pill is visible */
+            --logo-title: var(--bl-green);
+
+            --shadow-accent: 0 10px 30px rgba(56, 102, 65, 0.15);
+            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        /* =========================================
+           1. RESET & BASE
+           ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+        h1, h2, h3, h4 { font-family: 'Nunito', sans-serif; color: var(--text-main); transition: color 0.4s ease; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+
+        /* =========================================
+           2. UTILITY STRIP & NAVIGATION
+           ========================================= */
+        .utility-strip { background-color: var(--bl-charcoal); color: #FFFFFF; padding: 10px 0; font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+        .utility-container { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 5%; }
+        .utility-info span { margin-right: 25px; }
+        .utility-info span i { margin-right: 8px; color: var(--bl-green); }
+        
+        .nav-header { background-color: var(--bg-nav); padding: 15px 0; position: sticky; top: 0; z-index: 1000; transition: var(--transition); border-bottom: 1px solid transparent; }
+        .nav-header.scrolled { backdrop-filter: blur(15px); padding: 10px 0; border-bottom: 1px solid var(--border-soft); box-shadow: var(--shadow-card); }
+        .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+
+        .brand-logo { text-decoration: none; display: flex; align-items: center; gap: 15px; background-color: var(--logo-bg); padding: 8px 25px; border-radius: 50px; transition: var(--transition); }
+        .logo-text { display: flex; flex-direction: column; }
+        .logo-text .title { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 900; color: var(--logo-title); line-height: 1; letter-spacing: 0.5px; }
+        .logo-text .subtitle { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; color: var(--text-main); letter-spacing: 3px; text-transform: uppercase; margin-top: 2px;}
+
+        .nav-controls { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.9rem; font-family: 'Nunito', sans-serif; font-weight: 800; letter-spacing: 0.5px; transition: var(--transition); }
+        .nav-links a:hover { color: var(--bl-green); }
+
+        .theme-toggle { background: transparent; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; transition: var(--transition); }
+        .theme-toggle:hover { color: var(--bl-green); }
+
+        .btn-primary { background: var(--bl-green); color: #FFFFFF !important; padding: 14px 40px; border-radius: 50px; font-family: 'Nunito', sans-serif; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; transition: var(--transition); border: none; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+        .btn-primary:hover { background: var(--bl-green-hover); box-shadow: var(--shadow-accent); transform: translateY(-3px); }
+
+        #menu-toggle { display: none; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 6px; z-index: 1001; }
+        .hamburger span { display: block; width: 30px; height: 3px; background-color: var(--text-main); transition: var(--transition); border-radius: 2px; }
+
+        /* =========================================
+           3. ASYMMETRICAL SPLIT HERO
+           ========================================= */
+        .hero-premium { display: grid; grid-template-columns: 1.2fr 1fr; min-height: 85vh; background-color: var(--bg-main); align-items: center; overflow: hidden; position: relative; }
+        .hero-premium::before { content: ''; position: absolute; top: 10%; left: -10%; width: 500px; height: 500px; background: var(--bl-earth); border-radius: 50%; opacity: 0.6; z-index: 0; transition: background 0.4s ease; }
+        .hero-text-content { padding: 10%; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1; }
+        
+        .hero-image-curve { height: 100%; width: 100%; position: relative; overflow: hidden; border-top-left-radius: 120px; border-bottom-left-radius: 120px; box-shadow: -15px 0 45px rgba(0, 0, 0, 0.08); }
+        .hero-image-curve img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s ease; }
+        .hero-premium:hover .hero-image-curve img { transform: scale(1.03); }
+
+        .hero-label { display: inline-flex; align-items: center; gap: 10px; color: var(--bl-green); font-size: 0.9rem; font-family: 'Inter', sans-serif; font-weight: 800; letter-spacing: 3px; margin-bottom: 25px; text-transform: uppercase; }
+        .hero-title { font-size: clamp(3.2rem, 6vw, 6rem); line-height: 1.05; margin-bottom: 30px; font-weight: 900; letter-spacing: -2px; }
+        .hero-title span { color: var(--bl-green); }
+        .hero-desc { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 50px; max-width: 650px; font-weight: 500; line-height: 1.8; }
+        .hero-actions { display: flex; gap: 20px; align-items: center; }
+
+        .btn-outline { background: transparent; color: var(--text-main); padding: 13px 40px; border: 2px solid var(--text-main); border-radius: 50px; font-size: 0.95rem; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: var(--transition); font-weight: 800; font-family: 'Nunito', sans-serif; }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-main); }
+
+        /* =========================================
+           4. VISUAL PROMO SHOWCASE (Value Prop)
+           ========================================= */
+        .featured-offers { padding: 120px 0 80px; background: var(--bg-main); transition: background-color 0.4s ease; position: relative; z-index: 6; }
+        .offers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .offer-visual-container { position: relative; }
+        .offer-visual-container img { width: 100%; border-radius: var(--radius-large); box-shadow: var(--shadow-card); }
+
+        .offer-badge { position: absolute; top: -30px; right: -30px; background: var(--bl-charcoal); color: #FFFFFF; padding: 40px 30px; border-radius: 50%; text-align: center; box-shadow: var(--shadow-accent); transform: rotate(10deg); transition: transform 0.4s ease; border: 4px solid var(--bg-main);}
+        .offer-badge h4 { font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; color: #FFFFFF; line-height: 1; margin: 0 0 5px 0; }
+        .offer-badge p { font-size: 1rem; color: var(--bl-green); margin: 0; text-transform: uppercase; font-weight: 800; }
+
+        .offer-content h2 { font-size: clamp(2.8rem, 5vw, 3.5rem); margin-bottom: 25px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; }
+        .offer-desc-premium { font-size: 1.25rem; color: var(--text-main); margin-bottom: 30px; font-weight: 600; line-height: 1.8; }
+        
+        .offer-list { list-style: none; margin-bottom: 40px; }
+        .offer-list li { margin-bottom: 15px; font-size: 1.1rem; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 15px; }
+        .offer-list li i { color: var(--bl-green); font-size: 1.2rem; }
+        .offer-list li strong { color: var(--text-main); font-weight: 800; background: var(--bl-earth); padding: 4px 10px; border-radius: 10px; }
+
+        /* =========================================
+           5. WHY CHOOSE US (4 Pillars)
+           ========================================= */
+        .trust-banner { background: var(--bl-charcoal); padding: 60px 0; color: #FFFFFF; margin-top: 40px; border-radius: var(--radius-large); box-shadow: var(--shadow-card); }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; text-align: center; }
+        .trust-item { padding: 20px; }
+        .trust-item i { font-size: 2.5rem; color: var(--bl-green); margin-bottom: 20px; }
+        .trust-item h4 { font-size: 1.2rem; color: #FFFFFF; font-weight: 800; margin-bottom: 10px; letter-spacing: 0.5px; }
+        .trust-item p { font-size: 0.95rem; color: #9CA3AF; line-height: 1.6; }
+
+        /* =========================================
+           6. ORGANIC SERVICES GRID 
+           ========================================= */
+        .curved-top { border-top-left-radius: var(--radius-large); border-top-right-radius: var(--radius-large); margin-top: -60px; position: relative; z-index: 5; }
+        .services-section { padding: 150px 0 100px; background: var(--bg-section); transition: background-color 0.4s ease; }
+        .section-header { text-align: center; margin-bottom: 80px; }
+        .section-header span { color: var(--bl-green); font-size: 0.9rem; letter-spacing: 4px; font-weight: 800; display: block; margin-bottom: 15px; text-transform: uppercase; font-family: 'Inter', sans-serif; }
+        .section-header h2 { font-size: clamp(2.8rem, 5vw, 4rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -1.5px; text-transform: none; }
+        .section-header p { color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.2rem; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 50px; }
+        .service-card { background: var(--bg-card); border: 1px solid var(--border-soft); padding: 60px 50px; border-radius: var(--radius-large); transition: var(--transition); display: flex; flex-direction: column; box-shadow: var(--shadow-card); position: relative; }
+        .service-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-accent); border-color: var(--border-glow); }
+        .service-icon { width: 80px; height: 80px; background: var(--icon-bg); border-radius: var(--radius-medium); display: flex; align-items: center; justify-content: center; margin-bottom: 40px; transition: background 0.4s ease; }
+        .service-icon i { font-size: 2.2rem; color: var(--bl-green); transition: color 0.4s ease; }
+        .service-card h3 { font-size: 1.8rem; margin-bottom: 25px; font-weight: 900; letter-spacing: -0.5px; }
+        
+        .service-list { list-style: none; margin-bottom: 40px; flex-grow: 1; }
+        .service-list li { color: var(--text-muted); margin-bottom: 18px; display: flex; align-items: flex-start; gap: 15px; font-size: 1.1rem; font-weight: 500; }
+        .service-list li i { color: var(--bl-green); font-size: 1rem; margin-top: 5px; }
+        .service-link { color: var(--text-main); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 12px; transition: var(--transition); border-bottom: 3px solid var(--bl-green); padding-bottom: 7px; align-self: flex-start; }
+        .service-link:hover { gap: 18px; color: var(--bl-green); }
+
+        /* =========================================
+           7. PROCESS SECTION
+           ========================================= */
+        .process-section { padding: 120px 0; background: var(--bg-main); transition: background-color 0.4s ease; position: relative; z-index: 6; }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; position: relative; }
+        .process-grid::before { content: ''; position: absolute; top: 50px; left: 10%; width: 80%; height: 2px; background: dashed 2px var(--border-soft); z-index: 0; }
+        .process-step { text-align: center; position: relative; z-index: 1; }
+        .step-number { width: 100px; height: 100px; background: var(--bg-card); border: 2px solid var(--border-glow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 900; color: var(--bl-green); font-family: 'Nunito', sans-serif; margin: 0 auto 30px; box-shadow: var(--shadow-card); transition: var(--transition); }
+        .process-step:hover .step-number { transform: scale(1.1); background: var(--bl-green); color: #fff; }
+        .process-step h3 { font-size: 1.6rem; margin-bottom: 15px; font-weight: 800; }
+        .process-step p { color: var(--text-muted); font-size: 1.1rem; padding: 0 20px; }
+
+        /* =========================================
+           8. PORTFOLIO GALLERY
+           ========================================= */
+        .portfolio-section { padding: 120px 0; background: var(--bg-section); transition: background-color 0.4s ease; }
+        .portfolio-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .portfolio-item { position: relative; border-radius: var(--radius-large); overflow: hidden; height: 400px; box-shadow: var(--shadow-card); cursor: pointer; }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .portfolio-item:hover img { transform: scale(1.05); }
+        .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 70%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; opacity: 0; transition: opacity 0.4s ease; }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-overlay h4 { color: #FFFFFF; font-size: 1.8rem; margin-bottom: 5px; font-weight: 800; }
+        .portfolio-overlay p { color: var(--bl-green); margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* =========================================
+           9. REVIEWS SECTION
+           ========================================= */
+        .reviews-section { padding: 120px 0; background: var(--bg-main); transition: background-color 0.4s ease; position: relative; z-index: 6; }
+        .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .review-card { background: var(--bg-card); padding: 50px 40px; border-radius: var(--radius-large); box-shadow: var(--shadow-card); position: relative; border: 1px solid var(--border-soft); transition: var(--transition); }
+        .review-card:hover { transform: translateY(-10px); }
+        .quote-icon { position: absolute; top: 30px; right: 40px; font-size: 4rem; color: var(--icon-bg); opacity: 0.6; }
+        .stars { color: #F59E0B; font-size: 1.2rem; margin-bottom: 20px; }
+        .review-text { font-size: 1.15rem; color: var(--text-muted); font-style: italic; margin-bottom: 30px; line-height: 1.8; }
+        .author { font-family: 'Nunito', sans-serif; font-weight: 800; color: var(--text-main); font-size: 1.2rem; }
+        .author span { display: block; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--text-muted); font-weight: 500; font-style: normal; }
+
+        /* =========================================
+           10. CTA SECTION
+           ========================================= */
+        .cta-section { padding: 150px 0; background: var(--bg-section); text-align: center; transition: background-color 0.4s ease; }
+        .cta-section h2 { font-size: clamp(3rem, 6vw, 4.5rem); margin-bottom: 25px; font-weight: 900; letter-spacing: -2px; }
+        .cta-section p { color: var(--text-muted); font-size: 1.3rem; margin-bottom: 60px; max-width: 750px; margin-inline: auto; }
+
+        /* =========================================
+           11. FOOTER
+           ========================================= */
+        .footer { background: var(--bl-charcoal); padding: 100px 0 50px; color: #FFFFFF; border-top-left-radius: 60px; border-top-right-radius: 60px; margin-top: -60px; position: relative; z-index: 10; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 60px; margin-bottom: 40px; }
+        
+        .footer-brand .title { font-family: 'Nunito', sans-serif; font-size: 2.2rem; font-weight: 900; color: #FFFFFF; letter-spacing: 1px; }
+        .footer-brand .title span { color: var(--bl-green); }
+        .footer-brand p { color: #A3ACA0; max-width: 450px; margin-top: 20px; line-height: 1.8; font-weight: 400; }
+        
+        .footer-col h4 { color: #FFFFFF; font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 1px; font-weight: 800; text-transform: uppercase; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 20px; color: #A3ACA0; display: flex; gap: 15px; align-items: flex-start; font-weight: 500; }
+        .footer-col ul li i { color: var(--bl-green); margin-top: 5px; }
+        .footer-col a { color: #A3ACA0; text-decoration: none; transition: var(--transition); }
+        .footer-col a:hover { color: var(--bl-green); }
+
+        .footer-bottom { text-align: center; color: #6B7280; font-size: 0.95rem; font-weight: 500; }
+
+        /* =========================================
+           12. ANIMATIONS & RESPONSIVE
+           ========================================= */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .active-reveal { opacity: 1 !important; transform: translateY(0) !important; }
+
+        @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        .load-1 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .load-2 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards; }
+        .load-3 { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
+
+        @media (max-width: 1200px) {
+            .hero-premium { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+            .hero-text-content { padding: 10% 5%; text-align: center; align-items: center; }
+            .hero-label { margin-inline: auto; }
+            .hero-actions { flex-direction: column; width: 100%; gap: 15px; }
+            .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+            .hero-image-curve { min-height: 450px; border-radius: 0; }
+            .offers-grid { grid-template-columns: 1fr; gap: 80px; }
+            .offer-badge { position: relative; top: 0; right: 0; display: inline-block; margin-top: -40px; margin-left: 10%; }
+            .process-grid::before { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            .utility-strip { display: none; }
+            .hamburger { display: flex; }
+            .nav-links { position: fixed; top: 80px; right: -100%; width: 100%; height: calc(100vh - 80px); background: var(--bg-nav); backdrop-filter: blur(15px); flex-direction: column; justify-content: center; gap: 40px; transition: var(--transition); border-top: 1px solid var(--border-soft); padding: 10% 5%; z-index: 999; }
+            .nav-links a { font-size: 1.4rem; font-weight: 800; }
+            #menu-toggle:checked~.nav-links { right: 0; }
+            #menu-toggle:checked~.hamburger span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            #menu-toggle:checked~.hamburger span:nth-child(2) { opacity: 0; }
+            #menu-toggle:checked~.hamburger span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+            .service-card { padding: 50px 30px; }
+            .process-grid { grid-template-columns: 1fr; gap: 60px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 50px; }
+        }
+        </style>
+    </head>
+    <body itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+        <div class="utility-strip">
+            <div class="utility-container">
+                <div class="utility-info">
+                    <span>
+                        <i class="fas fa-map-marker-alt"></i> Serving
+                        <span itemprop="areaServed">El Paso, TX</span>
+                    </span>
+                    <span>
+                        <i class="fas fa-handshake"></i> Honesty. Integrity. Quality.
+                    </span>
+                </div>
+                <div class="utility-contact">
+                    <span>
+                        <i class="fas fa-phone-alt"></i> Free Consultation: (915) 555-0199
+                    </span>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-header" id="navbar">
+            <div class="container nav-wrapper">
+                <a href="#" class="brand-logo">
+                    <div class="logo-text">
+                        <span class="title">BELLA'S</span>
+                        <span class="subtitle">LANDSCAPING</span>
+                    </div>
+                </a>
+                <div class="nav-controls">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                    <div class="nav-links">
+                        <a href="#services">Services</a>
+                        <a href="#portfolio">Our Work</a>
+                        <a href="#reviews">Reviews</a>
+                        <a href="tel:9155550199" class="btn-primary" itemprop="telephone">
+                            <i class="fas fa-phone-alt" style="font-size: 0.8rem; margin-top: -2px;"></i>
+                            Get a Quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header class="hero-premium">
+            <div class="hero-text-content">
+                <span class="hero-label load-1">
+                    <i class="fas fa-leaf"></i> Bella's Landscaping
+                </span>
+                <h1 class="hero-title load-2">Custom Landscaping.
+                    <br>
+                    <span>Outstanding Results.</span>
+                </h1>
+                <p class="hero-desc load-3">We are a professional company that values honesty and integrity. We treat every property as if it were our own, offering customizable landscaping solutions for every project.</p>
+                <div class="hero-actions load-3" style="animation-delay: 0.6s;">
+                    <a href="#offers" class="btn-primary">
+                        <span>Start Your Project</span>
+                    </a>
+                    <a href="#portfolio" class="btn-outline">
+                        <span>View Portfolio</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image-curve">
+                <img src="images/hero.jpg" alt="Beautifully landscaped home exterior with fresh turf" itemprop="image">
+            </div>
+        </header>
+        <section id="offers" class="featured-offers">
+            <div class="container offers-grid">
+                <div class="offer-visual-container reveal-up">
+                    <img src="images/outdoor-patio.jpg" alt="Custom built outdoor patio with fire pit and pergola">
+                    <div class="offer-badge">
+                        <h4>100%</h4>
+                        <p>Customized</p>
+                    </div>
+                </div>
+                <div class="offer-content reveal-up" style="transition-delay: 0.2s;">
+                    <span class="hero-label">
+                        <i class="fas fa-drafting-compass"></i> DESIGN & BUILD
+                    </span>
+                    <h2>Customizable Solutions For Every Property.</h2>
+                    <p class="offer-desc-premium">We don't do "cookie-cutter" yards. Bella's Landscaping offers a variety of high-end services that are specifically customized to match your individual project and lifestyle.</p>
+                    <ul class="offer-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i> We treat your property like our own
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i> Honest pricing with no hidden fees
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i> Unmatched commitment to quality
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <strong>YOUR SATISFACTION GUARANTEED</strong>
+                        </li>
+                    </ul>
+                    <a href="tel:9155550199" class="btn-primary">
+                        <span>Book a Free Consultation</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="services-section curved-top">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>WHAT WE DO</span>
+                    <h2>Comprehensive Landscaping</h2>
+                    <p>We take absolute pride in the quality of our work. From the foundation to the finishing touches, we build outdoor spaces meant to last.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <div class="service-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Premium Turf & Sod</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i> Realistic Artificial Turf
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Fresh Natural Sod Installation
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Precision Leveling & Grading
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Professional Drainage Setup
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">Turf Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.15s;">
+                        <div class="service-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Rock Walls & Hardscapes</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i> Custom Stone Rock Walls
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Stamped Concrete Patios
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Structural Retaining Walls
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Elegant Pathways & Pavers
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">Hardscape Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.3s;">
+                        <div class="service-icon">
+                            <i class="fas fa-fire-alt"></i>
+                        </div>
+                        <h3>
+                            <span itemprop="serviceType">Kitchens & Pergolas</span>
+                        </h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i> Full Outdoor Kitchens & Grills
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Custom Built Wood Pergolas
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Built-In Fire Pits & Seating
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i> Complete Backyard Makeovers
+                            </li>
+                        </ul>
+                        <a href="#contact" class="service-link">Design Estimate
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="process" class="process-section curved-top">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>OUR PROMISE</span>
+                    <h2>Building Lasting Relationships</h2>
+                    <p>We believe in honesty, clear communication, and delivering outstanding results on every single project.</p>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step reveal-up">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>We visit your property, listen to your goals, and provide a transparent, customized estimate.</p>
+                    </div>
+                    <div class="process-step reveal-up" style="transition-delay: 0.15s;">
+                        <div class="step-number">2</div>
+                        <h3>Execution</h3>
+                        <p>Our professional crew treats your home like our own, ensuring top-tier quality and cleanliness.</p>
+                    </div>
+                    <div class="process-step reveal-up" style="transition-delay: 0.3s;">
+                        <div class="step-number">3</div>
+                        <h3>Satisfaction</h3>
+                        <p>We guarantee your satisfaction, leaving you with a beautiful yard and a lasting partnership.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="portfolio-section curved-top">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>OUR WORK</span>
+                    <h2>Recent Projects</h2>
+                    <p>Browse some of our favorite recent landscaping and hardscaping transformations.</p>
+                </div>
+                <div class="portfolio-gallery">
+                    <div class="portfolio-item reveal-up">
+                        <img src="images/outdoor-kitchen.jpg" alt="Custom stone outdoor kitchen with grill">
+                        <div class="portfolio-overlay">
+                            <h4>Outdoor Kitchens</h4>
+                            <p>Custom Stonework</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item reveal-up" style="transition-delay: 0.1s;">
+                        <img src="images/pergola.jpg" alt="Custom wooden pergola over stamped concrete">
+                        <div class="portfolio-overlay">
+                            <h4>Wood Pergolas</h4>
+                            <p>Shade & Style</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item reveal-up" style="transition-delay: 0.2s;">
+                        <img src="images/turf.jpg" alt="Artificial turf installed next to rock wall">
+                        <div class="portfolio-overlay">
+                            <h4>Premium Turf</h4>
+                            <p>Zero Maintenance</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item reveal-up" style="transition-delay: 0.3s;">
+                        <img src="images/rock-wall.jpg" alt="Sturdy custom rock wall">
+                        <div class="portfolio-overlay">
+                            <h4>Rock Walls</h4>
+                            <p>Security & Aesthetics</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item reveal-up" style="transition-delay: 0.1s;">
+                        <img src="images/sod.jpg" alt="Fresh natural sod installation">
+                        <div class="portfolio-overlay">
+                            <h4>Natural Sod</h4>
+                            <p>Lush & Green</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item reveal-up" style="transition-delay: 0.2s;">
+                        <img src="images/outdoor-patio.jpg" alt="Outdoor fire pit and seating area">
+                        <div class="portfolio-overlay">
+                            <h4>Custom Patios</h4>
+                            <p>Fire Pits & Seating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="reviews" class="reviews-section curved-top">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>CLIENT REVIEWS</span>
+                    <h2>Satisfaction Guaranteed</h2>
+                </div>
+                <div class="review-grid">
+                    <div class="review-card reveal-up">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"Highly recommend Bellas Landscaping! My husband and I bought a new house, they were able to do front and back-landscaping for a very good price. They started on a Tuesday and finished that Saturday. They are very fast, and we loved how it turned out! 10/10."</p>
+                        <div class="author">Alexis P.
+                            <span>El Paso, TX</span>
+                        </div>
+                    </div>
+                    <div class="review-card reveal-up" style="transition-delay: 0.15s;">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"I recently had my front and backyard done. Ramon and Maria were so wonderful walking me through the process and explaining everything. I really felt like I was being listened to because everything I wanted, they made sure it was done. I will be recommending them to anyone that is thinking about redoing their landscaping."</p>
+                        <div class="author">Dezzerie G.
+                            <span>El Paso, TX</span>
+                        </div>
+                    </div>
+                    <div class="review-card reveal-up" style="transition-delay: 0.3s;">
+                        <i class="fas fa-quote-right quote-icon"></i>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">"This is the second time we hire Bella's Landscaping. Very happy with the results both times. Crew were on time and very professional. Price given was very reasonable. Would definitely hire again."</p>
+                        <div class="author">Jesus B.
+                            <span>El Paso, TX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section curved-top">
+            <div class="container">
+                <h2 class="reveal-up">Ready to build your dream yard?</h2>
+                <p class="reveal-up" style="transition-delay: 0.1s;">Contact Bella's Landscaping today to schedule your consultation. We guarantee outstanding results and your complete satisfaction.</p>
+                <a href="tel:9155550199" class="btn-primary reveal-up" style="padding: 16px 50px; font-size: 1rem; transition-delay: 0.2s;">
+                    <i class="fas fa-phone-alt"></i>
+                    Call For a Free Estimate
+                </a>
+            </div>
+        </section>
+        <footer class="footer curved-top" id="contact">
+            <div class="container footer-grid">
+                <div class="footer-brand reveal-up">
+                    <div style="display: flex; flex-direction: row; gap: 8px; align-items: center; margin-bottom: 20px;">
+                        <span class="title">BELLA'S
+                            <span>LANDSCAPING</span>
+                        </span>
+                    </div>
+                    <p>A professional landscaping company that values honesty and integrity. We treat each property as if it were our own, guaranteeing your satisfaction.
+                        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                            <span itemprop="name">Located in El Paso, TX</span>.</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank" aria-label="Follow us on Facebook">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                    <h4>CONTACT EL PASO</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>(915) 555-0199</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Proudly serving El Paso, TX &
+                                <br> Surrounding Southwest Areas
+                            </span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calculator"></i>
+                            <span>Free, No-Obligation Estimates</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li>
+                            <a href="#services">Turf & Sod</a>
+                        </li>
+                        <li>
+                            <a href="#services">Rock Walls</a>
+                        </li>
+                        <li>
+                            <a href="#services">Outdoor Kitchens</a>
+                        </li>
+                        <li>
+                            <a href="#portfolio">Project Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom container reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 Bella's Landscaping. All Rights Reserved. Built in El Paso.</p>
+            </div>
+        </footer>
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            /* --- Theme Toggle Logic --- */
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            themeToggle.addEventListener('click', () => {
+                const body = document.body;
+
+                if (body.classList.contains('dark-theme')) {
+                    body.classList.remove('dark-theme');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                    body.classList.add('dark-theme');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
+
+            /* --- Sticky Navbar Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+
+            setTimeout(function () {
+                document.querySelectorAll('.reveal-up').forEach(function (el) {
+                    el.classList.add('active-reveal');
+                });
+            }, 1000);
+
+            /* --- Mobile Menu Link Click Handler --- */
+            const mobileLinks = document.querySelectorAll('.nav-links a');
+            const menuCheckbox = document.getElementById('menu-toggle');
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 900) {
+                        menuCheckbox.checked = false;
+                    }
+                });
+            });
+        });
+        </script>
+    </body>
+</html>
