@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sun City Flips | Cabinet Painting & Interior Painting in El Paso, TX</title>
+  <meta
+    name="description"
+    content="Sun City Flips is a woman-owned business specializing in cabinet painting, interior painting, and small remodels in El Paso, TX and surrounding New Mexico areas."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #fcfaf6;
+      --white: #ffffff;
+      --navy: #1A3645;
+      --navy-dark: #10284f;
+      --text: #1f2430;
+      --muted: #667085;
+      --line: rgba(20, 49, 95, 0.10);
+
+      --teal: #51c7c0;
+      --teal-dark: #31b1a9;
+      --pink: #e790b0;
+      --pink-dark: #d87097;
+      --orange: #f2a14f;
+
+      --shadow-sm: 0 8px 24px rgba(20, 49, 95, 0.06);
+      --shadow-md: 0 18px 45px rgba(20, 49, 95, 0.10);
+      --shadow-widget: 0 20px 50px rgba(20, 49, 95, 0.16);
+
+      --radius-sm: 14px;
+      --radius-md: 20px;
+      --radius-lg: 28px;
+
+      --container: 1240px;
+      --section-pad: clamp(4rem, 8vw, 7rem);
+
+      --font-head: "Outfit", sans-serif;
+      --font-body: "Manrope", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: var(--section-pad) 0;
+    }
+
+    .section-sm {
+      padding: 2.2rem 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.65rem 0.95rem;
+      border-radius: 999px;
+      background: rgba(81, 199, 192, 0.14);
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+    }
+
+    .tag::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-head);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      max-width: 10ch;
+      margin-top: 1.2rem;
+    }
+
+    h2 {
+      font-size: clamp(2.1rem, 4.8vw, 4rem);
+      max-width: 11ch;
+    }
+
+    p.lead,
+    .section-copy {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 62ch;
+      margin-top: 1rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 56px;
+      padding: 0 1.4rem;
+      border-radius: 999px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      border: 1px solid transparent;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(216, 112, 151, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--navy);
+      border-color: rgba(20, 49, 95, 0.12);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--teal-dark);
+      color: var(--teal-dark);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(252, 250, 246, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(20, 49, 95, 0.06);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.08rem;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .brand-copy span {
+      display: block;
+      margin-top: 0.18rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .nav-phone {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(20, 49, 95, 0.10);
+      background: #fff;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--navy);
+    }
+
+    .mobile-menu {
+      display: none;
+      padding-bottom: 1rem;
+    }
+
+    .mobile-menu.show {
+      display: block;
+    }
+
+    .mobile-menu-inner {
+      display: grid;
+      gap: 0.7rem;
+      padding: 1rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero {
+      padding: 2.5rem 0 4.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-copy p.lead {
+      margin-top: 1.25rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .hero-points span {
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--navy);
+      font-size: 0.9rem;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-visual {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 620px;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .hero-stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .proof-band {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      color: #fff;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .proof-item {
+      padding: 1rem 0.25rem;
+    }
+
+    .proof-item strong {
+      display: block;
+      font-family: var(--font-head);
+      color: #fff;
+      font-size: 1.35rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .proof-item span {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .feature-list li {
+      list-style: none;
+      padding-left: 1.35rem;
+      position: relative;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .feature-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      position: absolute;
+      left: 0;
+      top: 0.62rem;
+    }
+
+    .before-after-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .ba-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .ba-label {
+      text-align: center;
+      padding: 0.9rem 1rem;
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .ba-label.before {
+      background: linear-gradient(135deg, var(--orange), #ef892c);
+    }
+
+    .ba-label.after {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    }
+
+    .ba-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+    }
+
+    .ba-card p {
+      padding: 1rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-card:nth-child(1) .service-icon,
+    .service-card:nth-child(4) .service-icon {
+      background: rgba(81, 199, 192, 0.14);
+    }
+
+    .service-card:nth-child(2) .service-icon,
+    .service-card:nth-child(5) .service-icon {
+      background: rgba(231, 144, 176, 0.16);
+    }
+
+    .service-card:nth-child(3) .service-icon,
+    .service-card:nth-child(6) .service-icon {
+      background: rgba(242, 161, 79, 0.16);
+    }
+
+    .service-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-photo {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-boxes {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      box-shadow: var(--shadow-sm);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr 0.95fr;
+      grid-auto-rows: 240px;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gallery-card.large {
+      grid-row: span 2;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-label {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 0.7rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--navy);
+      border: 1px solid rgba(20, 49, 95, 0.08);
+    }
+
+    .areas-band {
+      background: linear-gradient(135deg, var(--navy), var(--navy-dark));
+      color: #fff;
+    }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .areas-grid h2,
+    .areas-grid p {
+      color: #fff;
+    }
+
+    .areas-grid p {
+      opacity: 0.84;
+    }
+
+    .areas-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .areas-tags span {
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .cta-band {
+      background: linear-gradient(135deg, #fff4f8, #fff8ef);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .cta-grid h2 {
+      max-width: 12ch;
+    }
+
+    .footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
+      gap: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .footer-brand strong {
+      display: block;
+      font-family: var(--font-head);
+      color: #fff;
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+
+    .footer-brand span {
+      display: block;
+      margin-top: 0.18rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .footer-copy,
+    .footer-col a,
+    .footer-col p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+    }
+
+    .footer-col {
+      display: grid;
+      align-content: start;
+      gap: 0.8rem;
+    }
+
+    .footer-col h4 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #fff;
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      color: rgba(255,255,255,0.58);
+      font-size: 0.9rem;
+    }
+
+    /* Floating Contact Widget */
+    .contact-widget {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.85rem;
+    }
+
+    .contact-widget-panel {
+      width: 320px;
+      background: #ffffff;
+      border: 1px solid rgba(20, 49, 95, 0.10);
+      border-radius: 22px;
+      box-shadow: var(--shadow-widget);
+      padding: 1.15rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(0.98);
+      transition: 0.25s ease;
+      pointer-events: none;
+    }
+
+    .contact-widget.open .contact-widget-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .contact-widget-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      min-height: 58px;
+      padding: 0 1.2rem;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 16px 34px rgba(216, 112, 151, 0.28);
+      transition: 0.25s ease;
+    }
+
+    .contact-widget-toggle:hover {
+      transform: translateY(-2px);
+    }
+
+    .contact-widget-toggle svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-widget-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .contact-widget-head h4 {
+      margin: 0;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      line-height: 1;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
+
+    .contact-widget-head p {
+      margin: 0.45rem 0 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .contact-widget-close {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(20, 49, 95, 0.10);
+      background: #fff;
+      color: var(--navy);
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .contact-widget-actions {
+      display: grid;
+      gap: 0.7rem;
+      margin-top: 1rem;
+    }
+
+    .contact-widget-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.9rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(20, 49, 95, 0.08);
+      background: #fff;
+      transition: 0.2s ease;
+    }
+
+    .contact-widget-link:hover {
+      border-color: rgba(81, 199, 192, 0.45);
+      background: #f9fdfd;
+    }
+
+    .contact-widget-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .contact-widget-link.call .contact-widget-icon {
+      background: rgba(81, 199, 192, 0.16);
+    }
+
+    .contact-widget-link.text .contact-widget-icon {
+      background: rgba(231, 144, 176, 0.16);
+    }
+
+    .contact-widget-link.email .contact-widget-icon {
+      background: rgba(242, 161, 79, 0.16);
+    }
+
+    .contact-widget-link strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .contact-widget-link span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .specialty-grid,
+      .about-grid,
+      .areas-grid,
+      .cta-grid,
+      .footer-top,
+      .proof-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links,
+      .nav-phone,
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 24px), var(--container));
+      }
+
+      .hero-stats,
+      .before-after-grid,
+      .gallery-grid,
+      .cta-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 420px;
+      }
+
+      .gallery-card.large {
+        grid-row: span 1;
+      }
+
+      .btn-row,
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .contact-widget {
+        right: 14px;
+        left: 14px;
+        bottom: 14px;
+        align-items: stretch;
+      }
+
+      .contact-widget-panel {
+        width: 100%;
+      }
+
+      .contact-widget-toggle {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand" aria-label="Sun City Flips home">
+        <img src="images/logo.jpg" alt="Sun City Flips logo" />
+        <div class="brand-copy">
+          <strong>Sun City Flips</strong>
+          <span>Interior Painting • Cabinets • Small Remodels</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#specialty">Cabinets</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="tel:9153455835" class="nav-phone">(915) 345-5835</a>
+        <a href="sms:9153455835" class="btn btn-primary">Text for Quote</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-inner">
+        <a href="#specialty">Cabinets</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="tel:9153455835">Call: (915) 345-5835</a>
+        <a href="sms:9153455835" class="btn btn-primary">Text for Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal-up">
+          <span class="tag">Woman-Owned • Financing Available</span>
+          <h1>Transform your interior with a clean, custom finish.</h1>
+          <p class="lead">
+            Sun City Flips specializes in cabinet painting, interior painting, and
+            small remodels across El Paso, TX and surrounding New Mexico areas.
+            We paint cabinets, walls, doors, trims, ceilings, furniture, and shutters.
+          </p>
+
+          <div class="hero-points">
+            <span>Cabinet Painting Specialists</span>
+            <span>Interior Painting</span>
+            <span>Small Remodels</span>
+            <span>El Paso + Southern NM</span>
+          </div>
+
+          <div class="btn-row">
+            <a href="sms:9153455835" class="btn btn-primary">Text Photos for a Quote</a>
+            <a href="#specialty" class="btn btn-secondary">See Before & After</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up">
+          <div class="hero-image">
+            <img src="images/kitchen_wide.jpg" alt="Bright painted kitchen by Sun City Flips" />
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>Cabinets</strong>
+              <span>Our signature service</span>
+            </div>
+            <div class="hero-stat">
+              <strong>2.6K+</strong>
+              <span>Followers and growing</span>
+            </div>
+            <div class="hero-stat">
+              <strong>Serving</strong>
+              <span>TX + Southern NM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-band section-sm">
+      <div class="container proof-grid">
+        <div class="proof-item reveal-up">
+          <strong>Woman-Owned</strong>
+          <span>Personal, friendly, and detail-focused service.</span>
+        </div>
+        <div class="proof-item reveal-up">
+          <strong>Interior Only</strong>
+          <span>Focused on interior transformations that make a visual difference.</span>
+        </div>
+        <div class="proof-item reveal-up">
+          <strong>Cabinet Experts</strong>
+          <span>Known for brightening kitchens and bathrooms with paint.</span>
+        </div>
+        <div class="proof-item reveal-up">
+          <strong>Financing Available</strong>
+          <span>Flexible options for qualifying projects.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="specialty">
+      <div class="container specialty-grid">
+        <div class="reveal-up">
+          <span class="section-tag">Signature Service</span>
+          <h2>Cabinet painting is what we’re known for.</h2>
+          <p class="section-copy">
+            If you want the kitchen to feel brighter, cleaner, and more updated without
+            replacing everything, cabinet painting is one of the highest-impact upgrades you can make.
+          </p>
+
+          <ul class="feature-list">
+            <li>Refresh dark or dated cabinets with a lighter, more modern finish.</li>
+            <li>Transform kitchens, bathrooms, and vanities without full replacement.</li>
+            <li>Pair cabinet painting with walls, trim, or hardware updates for a cohesive result.</li>
+            <li>Get a cleaner look without the cost of a full renovation.</li>
+          </ul>
+
+          <div class="btn-row">
+            <a href="sms:9153455835" class="btn btn-primary">Get a Cabinet Quote</a>
+          </div>
+        </div>
+
+        <div class="before-after-grid reveal-up">
+          <div class="ba-card">
+            <div class="ba-label before">Before</div>
+            <img src="images/before.jpg" alt="Before kitchen with dark cabinets" />
+            <p>Dark cabinets can make the room feel older and heavier.</p>
+          </div>
+
+          <div class="ba-card">
+            <div class="ba-label after">After</div>
+            <img src="images/after.jpg" alt="After kitchen with painted white cabinets" />
+            <p>A lighter finish can open up the whole kitchen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <span class="section-tag reveal-up">Services</span>
+        <h2 class="reveal-up">Interior painting services built around transformation.</h2>
+        <p class="section-copy reveal-up">
+          Sun City Flips handles more than just cabinets. We help create cleaner,
+          brighter interiors through focused painting and light update work.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card reveal-up">
+            <div class="service-icon">🎨</div>
+            <h3>Cabinet Painting</h3>
+            <p>Our specialty service for kitchens, bathrooms, built-ins, and vanities that need a full refresh.</p>
+          </article>
+
+          <article class="service-card reveal-up">
+            <div class="service-icon">🖌️</div>
+            <h3>Wall Painting</h3>
+            <p>Interior wall painting to clean up, brighten, and modernize living spaces throughout the home.</p>
+          </article>
+
+          <article class="service-card reveal-up">
+            <div class="service-icon">🚪</div>
+            <h3>Doors & Trim</h3>
+            <p>Sharper details and a more finished look through painted doors, trim, and baseboards.</p>
+          </article>
+
+          <article class="service-card reveal-up">
+            <div class="service-icon">🏠</div>
+            <h3>Ceilings</h3>
+            <p>Fresh ceiling painting to complete the room and make the whole space feel cleaner.</p>
+          </article>
+
+          <article class="service-card reveal-up">
+            <div class="service-icon">🪑</div>
+            <h3>Furniture & Shutters</h3>
+            <p>Selected furniture and shutter painting to create a more cohesive interior finish.</p>
+          </article>
+
+          <article class="service-card reveal-up">
+            <div class="service-icon">🛠️</div>
+            <h3>Small Remodels</h3>
+            <p>Light remodeling updates that pair well with cabinet and painting transformations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container about-grid">
+        <div class="about-photo reveal-up">
+          <img src="images/team.jpg" alt="Sun City Flips team" />
+        </div>
+
+        <div class="reveal-up">
+          <span class="section-tag">About Sun City Flips</span>
+          <h2>A woman-owned business with a quality-first approach.</h2>
+          <p class="section-copy">
+            We focus on interior work that creates visible, practical transformation.
+            Whether it’s a kitchen refresh, bathroom vanity update, or full interior repaint,
+            our goal is to leave the space looking brighter, cleaner, and more intentional.
+          </p>
+
+          <div class="about-boxes">
+            <div class="about-box">Friendly, personal client experience</div>
+            <div class="about-box">Clean, quality craftsmanship</div>
+            <div class="about-box">Interior painting and cabinet-focused services</div>
+            <div class="about-box">Serving El Paso and surrounding New Mexico areas</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <span class="section-tag reveal-up">Gallery</span>
+        <h2 class="reveal-up">Show the actual transformations.</h2>
+        <p class="section-copy reveal-up">
+          Use your real project photography here. This section should do the heavy lifting
+          by showing the quality of your cabinet painting and interior work.
+        </p>
+
+        <div class="gallery-grid">
+          <div class="gallery-card large reveal-up">
+            <img src="images//kitchen.jpg" alt="Completed painted kitchen" />
+            <div class="gallery-label">Kitchen Refresh</div>
+          </div>
+
+          <div class="gallery-card reveal-up">
+            <img src="images/cabinets.jpg" alt="White cabinet transformation" />
+            <div class="gallery-label">Cabinet Painting</div>
+          </div>
+
+          <div class="gallery-card reveal-up">
+            <img src="images/bathroom.jpg" alt="Bathroom vanity update" />
+            <div class="gallery-label">Vanity Update</div>
+          </div>
+
+          <div class="gallery-card reveal-up">
+            <img src="images/interior.jpg" alt="Completed interior transformation" />
+            <div class="gallery-label">Interior Finish</div>
+          </div>
+
+          <div class="gallery-card reveal-up">
+            <img src="images/kitchen-after.jpg" alt="Finished bright kitchen" />
+            <div class="gallery-label">After</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="areas-band section">
+      <div class="container areas-grid reveal-up">
+        <div>
+          <span class="section-tag" style="color:#ffd7e5;">Service Area</span>
+          <h2>Serving El Paso and surrounding New Mexico communities.</h2>
+          <p class="section-copy">
+            Based in El Paso, TX and serving nearby NM communities for cabinet painting,
+            interior painting, and selected remodel updates.
+          </p>
+        </div>
+
+        <div class="areas-tags">
+          <span>El Paso, TX</span>
+          <span>Alamogordo, NM</span>
+          <span>Ruidoso, NM</span>
+          <span>Cloudcroft, NM</span>
+          <span>All surrounding areas</span>
+          <span>Cabinets</span>
+          <span>Interior Painting</span>
+          <span>Small Remodels</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band section" id="contact">
+      <div class="container cta-grid reveal-up">
+        <div>
+          <span class="section-tag">Get a Quote</span>
+          <h2>Ready to refresh your space?</h2>
+          <p class="section-copy">
+            Call or text today and send photos of your kitchen, bathroom, or interior project.
+            We’ll help you figure out the best next step.
+          </p>
+        </div>
+
+        <div class="btn-row" style="margin-top:0;">
+          <a href="tel:9153455835" class="btn btn-secondary">Call (915) 345-5835</a>
+          <a href="sms:9153455835" class="btn btn-primary">Text for Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">
+            <img src="images/logo.jpg" alt="Sun City Flips logo" />
+            <div>
+              <strong>Sun City Flips</strong>
+              <span>Interior Painting • Cabinets • Small Remodels</span>
+            </div>
+          </div>
+          <p class="footer-copy">
+            Woman-owned business specializing in cabinet painting, walls, doors, trims,
+            ceilings, furniture, shutters, and small remodels.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#services">Cabinet Painting</a>
+          <a href="#services">Interior Painting</a>
+          <a href="#services">Doors & Trim</a>
+          <a href="#services">Small Remodels</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>(915) 345-5835</p>
+          <p>suncityflips@gmail.com</p>
+          <p>El Paso, TX</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Areas</h4>
+          <p>El Paso</p>
+          <p>Alamogordo</p>
+          <p>Ruidoso</p>
+          <p>Cloudcroft</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sun City Flips. All rights reserved.</span>
+        <span>Engineered by Ervotech.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="contact-widget" id="contactWidget">
+    <div class="contact-widget-panel" id="contactWidgetPanel">
+      <div class="contact-widget-head">
+        <div>
+          <h4>Need a quote?</h4>
+          <p>Call, text, or email Sun City Flips and send photos of your space to get started.</p>
+        </div>
+        <button
+          class="contact-widget-close"
+          id="contactWidgetClose"
+          type="button"
+          aria-label="Close contact widget"
+        >
+          ×
+        </button>
+      </div>
+
+      <div class="contact-widget-actions">
+        <a href="tel:9153455835" class="contact-widget-link call">
+          <div class="contact-widget-icon">📞</div>
+          <div>
+            <strong>Call us</strong>
+            <span>(915) 345-5835</span>
+          </div>
+        </a>
+
+        <a href="sms:9153455835" class="contact-widget-link text">
+          <div class="contact-widget-icon">💬</div>
+          <div>
+            <strong>Text for a quote</strong>
+            <span>Fastest way to reach out</span>
+          </div>
+        </a>
+
+        <a href="mailto:suncityflips@gmail.com" class="contact-widget-link email">
+          <div class="contact-widget-icon">✉️</div>
+          <div>
+            <strong>Email us</strong>
+            <span>suncityflips@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <button
+      class="contact-widget-toggle"
+      id="contactWidgetToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="contactWidgetPanel"
+    >
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 4v-4.5A2.5 2.5 0 0 1 1.5 13v-7.5A2.5 2.5 0 0 1 4 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Reach Out
+    </button>
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("show");
+      });
+    }
+
+    const contactWidget = document.getElementById("contactWidget");
+    const contactWidgetToggle = document.getElementById("contactWidgetToggle");
+    const contactWidgetClose = document.getElementById("contactWidgetClose");
+
+    if (contactWidget && contactWidgetToggle) {
+      contactWidgetToggle.addEventListener("click", () => {
+        contactWidget.classList.toggle("open");
+        const expanded = contactWidget.classList.contains("open");
+        contactWidgetToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+    }
+
+    if (contactWidget && contactWidgetClose) {
+      contactWidgetClose.addEventListener("click", () => {
+        contactWidget.classList.remove("open");
+        contactWidgetToggle.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!contactWidget) return;
+      if (!contactWidget.contains(event.target)) {
+        contactWidget.classList.remove("open");
+        if (contactWidgetToggle) {
+          contactWidgetToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal-up").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
