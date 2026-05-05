@@ -268,7 +268,8 @@
             z-index: 1000;
             padding: 0 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
         
         .navbar {
@@ -285,7 +286,6 @@
             box-shadow: var(--shadow-float);
             transition: var(--transition);
             gap: 1rem;
-            margin-top: 20px;
         }
         
         .brand-logo {
@@ -355,6 +355,53 @@
             transition: var(--transition);
             border-radius: 999px;
         }
+        /* MOBILE MENU STYLING */
+        
+        .mobile-menu {
+            display: none;
+            width: min(100%, 1200px);
+            margin-top: 10px;
+            background: rgba(18, 18, 18, 0.98);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-soft);
+            border-radius: 22px;
+            box-shadow: var(--shadow-float);
+            padding: 1.5rem;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+        
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--bb-copper);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+        }
         /* --- Immersive Hero --- */
         
         .hero {
@@ -363,6 +410,7 @@
             position: relative;
             overflow: hidden;
             margin-top: -100px;
+            /* Pulls hero under nav securely */
         }
         
         .hero-grid {
@@ -923,6 +971,15 @@
         <span></span><span></span><span></span>
       </button>
         </nav>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#about">The Experience</a>
+            <a href="#services">Services</a>
+            <a href="#inclusive">Sensory Friendly</a>
+            <a href="#gallery">Inside The Shop</a>
+            <a href="#contact">Location</a>
+            <a href="tel:9153313251" class="btn-nav" style="display:inline-flex; width: 100%; justify-content: center; margin-top: 10px;">Book a Cut</a>
+        </div>
     </div>
 
     <header class="hero">
@@ -1106,6 +1163,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const navbar = document.getElementById("navbar");
+            const hamburger = document.getElementById("hamburger");
+            const mobileMenu = document.getElementById("mobileMenu");
 
             window.addEventListener("scroll", () => {
                 if (window.scrollY > 50) {
@@ -1117,6 +1176,22 @@
                 }
             });
 
+            /* --- MOBILE MENU LOGIC --- */
+            if (hamburger) {
+                hamburger.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("show");
+                });
+            }
+
+            // Close menu when clicking a link
+            const mobileLinks = mobileMenu.querySelectorAll("a");
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.remove("show");
+                });
+            });
+
+            /* --- SCROLL REVEALS --- */
             function checkReveals() {
                 const reveals = document.querySelectorAll(".reveal-up");
                 const windowHeight = window.innerHeight;
