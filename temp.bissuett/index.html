@@ -349,34 +349,66 @@
             transition: var(--transition);
             border-radius: 999px;
         }
+        /* UPDATED MOBILE MENU CSS */
         
         .mobile-menu {
-            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%, -10px);
             width: min(calc(100% - 40px), 1200px);
-            margin: 10px auto 0;
-            background: rgba(255, 255, 255, 0.96);
-            backdrop-filter: blur(16px);
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--border-soft);
             border-radius: 22px;
-            box-shadow: var(--shadow-float);
-            padding: 1rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: -1;
         }
         
         .mobile-menu.show {
-            display: grid;
-            gap: 0.8rem;
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, 0);
+            z-index: 999;
         }
         
         .mobile-menu a {
-            padding: 0.85rem 0.9rem;
-            border-radius: 14px;
+            padding: 14px 0;
             color: var(--text-main);
             font-weight: 500;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
         }
         
-        .mobile-menu a:hover {
-            background: var(--bs-tint-blue);
+        .mobile-menu a:not(.btn-nav):hover {
+            color: var(--bs-pink-dark);
+            background: var(--bs-tint-pink);
+            border-radius: 8px;
+            border-bottom-color: transparent;
         }
+        
+        .mobile-menu a.btn-nav {
+            background: var(--bs-gradient-main);
+            color: #fff !important;
+            margin-top: 15px;
+            border-bottom: none;
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+        }
+        /* END MOBILE MENU UPDATES */
         
         .hero {
             background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.65), transparent 18%), radial-gradient(circle at 85% 18%, rgba(255, 255, 255, 0.35), transparent 14%), linear-gradient(180deg, #efe1ea 0%, #e8e1f7 52%, #dbe7ff 100%);
@@ -1002,6 +1034,7 @@
             .btn-primary,
             .btn-secondary {
                 width: 100%;
+                justify-content: center;
             }
             .gallery-grid {
                 grid-template-columns: 1fr;
@@ -1019,6 +1052,9 @@
             }
             .hiring-banner {
                 padding: 45px 20px;
+            }
+            .utility-info span:first-child {
+                display: none;
             }
         }
     </style>
@@ -1087,7 +1123,7 @@
             <a href="#gallery">Gallery</a>
             <a href="#faq">FAQ</a>
             <a href="#contact">Location</a>
-            <a href="tel:9153313251" class="btn-nav" style="display:inline-flex; justify-content:center; width:100%;">Book Appointment</a>
+            <a href="tel:9153313251" class="btn-nav">Book Appointment</a>
         </div>
     </div>
 
@@ -1220,7 +1256,7 @@
                 </div>
             </div>
 
-            <div class="btn-row" style="justify-content:center;">
+            <div class="btn-row" style="justify-content:center; margin-top: 40px;">
                 <a href="tel:9153313251" class="btn-primary">Book Your Appointment</a>
             </div>
         </div>
@@ -1399,11 +1435,20 @@
                 }
             });
 
+            // Toggle Mobile Menu
             if (hamburger) {
                 hamburger.addEventListener("click", () => {
                     mobileMenu.classList.toggle("show");
                 });
             }
+
+            // Auto-Close Mobile Menu on Link Click
+            const mobileLinks = mobileMenu.querySelectorAll("a");
+            mobileLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    mobileMenu.classList.remove("show");
+                });
+            });
 
             function checkReveals() {
                 const reveals = document.querySelectorAll(".reveal-up");
