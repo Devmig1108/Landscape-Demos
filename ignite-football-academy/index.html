@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGNITE | Elite Football Academy El Paso</title>
+    <meta name="description" content="El Paso's premier football academy. Elite private and small group training focused on developing youth athletes physically, technically, and mentally.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* =========================================
+           0. ELITE ATHLETIC THEME VARIABLES
+           ========================================= */
+        
+         :root {
+            --brand-red: rgb(190, 28, 0);
+            /* Aggressive Crimson */
+            --brand-red-glow: rgba(225, 29, 72, 0.4);
+            --brand-dark: #050505;
+            --brand-surface: #121212;
+            --brand-surface-glass: rgba(18, 18, 18, 0.7);
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: all 0.6s var(--ease-out-expo);
+        }
+        /* =========================================
+           1. RESET, BASE & TEXTURE
+           ========================================= */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--brand-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            /* Gritty Dot Matrix Pattern */
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        .athletic-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        /* =========================================
+           2. PREMIUM NAVIGATION
+           ========================================= */
+        
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            transition: var(--transition-smooth);
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.9) 0%, transparent 100%);
+            border-bottom: 1px solid transparent;
+        }
+        
+        .nav-header.scrolled {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 15px 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .brand-logo img {
+            width: 50px;
+            border-radius: 4px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text .title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #FFF;
+            line-height: 0.9;
+            letter-spacing: 1px;
+        }
+        
+        .logo-text .title span {
+            color: var(--brand-red);
+        }
+        
+        .logo-text .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-links a.nav-item {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        
+        .nav-links a.nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--brand-red);
+            transition: var(--transition-smooth);
+        }
+        
+        .nav-links a.nav-item:hover::after {
+            width: 100%;
+        }
+        
+        .nav-links a.nav-item:hover {
+            color: var(--brand-red);
+        }
+        
+        .btn-skew {
+            background: var(--brand-red);
+            color: #FFF !important;
+            padding: 14px 35px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            display: inline-block;
+            text-decoration: none;
+            transform: skewX(-10deg);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--brand-red-glow);
+            transition: var(--transition-smooth);
+        }
+        
+        .btn-skew span {
+            display: inline-block;
+            transform: skewX(10deg);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-skew::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+        
+        .btn-skew:hover::before {
+            left: 100%;
+        }
+        
+        .btn-skew:hover {
+            transform: skewX(-10deg) translateY(-3px);
+            box-shadow: 0 15px 40px rgba(225, 29, 72, 0.6);
+            background: #FFF;
+            color: var(--brand-red) !important;
+        }
+        /* =========================================
+           3. CINEMATIC HERO SECTION
+           ========================================= */
+        
+        .hero {
+            height: 100vh;
+            min-height: 800px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: url('images/hero.jpg') center/cover no-repeat;
+            opacity: 0.4;
+            filter: grayscale(50%) contrast(1.2);
+            transform: scale(1.05);
+            animation: slowZoom 20s infinite alternate;
+        }
+        
+        @keyframes slowZoom {
+            100% {
+                transform: scale(1.15);
+            }
+        }
+        
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(90deg, rgba(5, 5, 5, 1) 0%, rgba(5, 5, 5, 0.6) 50%, transparent 100%), linear-gradient(to top, rgba(5, 5, 5, 1) 0%, transparent 30%);
+        }
+        /* Massive Background Typography */
+        
+        .bg-text {
+            position: absolute;
+            top: 50%;
+            left: -2%;
+            transform: translateY(-50%);
+            font-family: 'Oswald', sans-serif;
+            font-size: 35vw;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+            white-space: nowrap;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -5px;
+            line-height: 0.8;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1600px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 5%;
+        }
+        
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--brand-red);
+        }
+        
+        .hero-label::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--brand-red);
+        }
+        
+        .hero-title {
+            font-size: clamp(4rem, 8vw, 8rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+        
+        .hero-title .outline-text {
+            color: transparent;
+            -webkit-text-stroke: 2px #FFF;
+        }
+        
+        .hero-desc {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            max-width: 600px;
+            font-weight: 400;
+            line-height: 1.8;
+            border-left: 2px solid var(--brand-red);
+            padding-left: 20px;
+        }
+        /* =========================================
+           4. INFINITE MARQUEE TICKER
+           ========================================= */
+        
+        .marquee-wrapper {
+            background: var(--brand-red);
+            padding: 15px 0;
+            overflow: hidden;
+            display: flex;
+            white-space: nowrap;
+            position: relative;
+            z-index: 20;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transform: rotate(-1deg) scale(1.02);
+            margin-top: -30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .marquee-content {
+            display: flex;
+            animation: scrollText 20s infinite linear;
+        }
+        
+        .marquee-item {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #FFF;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .marquee-item span {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        
+        @keyframes scrollText {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        /* =========================================
+           5. ELITE PROGRAM GRID (GLASSMORPHISM)
+           ========================================= */
+        
+        .programs-section {
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Red Glowing Orb Background */
+        
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: var(--brand-red);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+        
+        .orb-1 {
+            top: 10%;
+            right: -10%;
+        }
+        
+        .orb-2 {
+            bottom: -10%;
+            left: -10%;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section-header span {
+            color: var(--brand-red);
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .program-card {
+            background: var(--brand-surface-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 2px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0%;
+            background: var(--brand-red);
+            transition: var(--transition-smooth);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            background: rgba(30, 30, 35, 0.9);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .program-card:hover::before {
+            height: 100%;
+        }
+        
+        .program-icon {
+            font-size: 2.5rem;
+            color: var(--brand-red);
+            margin-bottom: 30px;
+        }
+        
+        .program-card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        .program-list {
+            list-style: none;
+        }
+        
+        .program-list li {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+        
+        .program-list li i {
+            color: var(--brand-red);
+            font-size: 0.7rem;
+        }
+        /* =========================================
+           6. ASYMMETRICAL ACADEMY HIGHLIGHTS 
+           ========================================= */
+        
+        .highlights-section {
+            padding: 150px 0;
+            background: #000;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .highlights-wrapper {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .flyer-content h3 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 30px;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+        
+        .flyer-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+        
+        .bento-gallery {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            grid-template-rows: 300px 300px;
+            gap: 20px;
+        }
+        
+        .bento-img {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .bento-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: grayscale(20%);
+        }
+        
+        .bento-img:hover img {
+            transform: scale(1.05);
+            filter: grayscale(0%);
+        }
+        
+        .bento-1 {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+        /* Tall Winners Image */
+        
+        .bento-2 {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+        /* Top Right */
+        
+        .bento-3 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            background: var(--brand-red);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .bento-3 h4 {
+            font-size: 2.5rem;
+            color: #FFF;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .bento-3 p {
+            font-family: 'Inter';
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+        /* =========================================
+           7. FOOTER
+           ========================================= */
+        
+        .footer {
+            background: var(--brand-dark);
+            padding: 100px 0 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 60px;
+            margin-bottom: 40px;
+            max-width: 1600px;
+            margin-inline: auto;
+            padding-inline: 5%;
+        }
+        
+        .footer-brand .title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFFFFF;
+            line-height: 0.9;
+            letter-spacing: -1px;
+        }
+        
+        .footer-brand .title span {
+            color: var(--brand-red);
+        }
+        
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 400px;
+            margin-top: 25px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            color: #FFF;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .footer-col ul li i {
+            color: var(--brand-red);
+        }
+        
+        .footer-col a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        
+        .footer-col a:hover {
+            color: #FFF;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        /* Mobile Nav & Hamburger */
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: #FFF;
+            transition: var(--transition-smooth);
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+        
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(5, 5, 5, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s ease;
+            transform: translateY(-20px);
+        }
+        
+        .mobile-drawer.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        
+        .mobile-drawer a.nav-item {
+            font-size: 2rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            color: #FFF;
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        /* Animations */
+        
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .active-reveal {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        /* =========================================
+           8. RESPONSIVE
+           ========================================= */
+        
+        @media (max-width: 1024px) {
+            .programs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .highlights-wrapper {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            .bg-text {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-title {
+                font-size: 4rem;
+            }
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 300px;
+            }
+            .hero-actions a {
+                text-align: center;
+            }
+            .programs-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+            .bento-1,
+            .bento-2,
+            .bento-3 {
+                grid-column: 1 / -1;
+                grid-row: auto;
+                height: 300px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav-header" id="navbar">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">
+                <img src="images/logo.jpg" alt="Ignite Football Academy" onerror="this.style.display='none';">
+                <div class="logo-text">
+                    <span class="title">IGNITE <span>FOOTBALL</span></span>
+                    <span class="subtitle">ACADEMY</span>
+                </div>
+            </a>
+
+            <div class="nav-links">
+                <a href="#programs" class="nav-item">Training</a>
+                <a href="#highlights" class="nav-item">News</a>
+                <a href="#contact" class="nav-item">Contact</a>
+                <a href="#join" class="btn-skew"><span>Join Now</span></a>
+            </div>
+
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobile-menu">
+        <a href="#programs" class="nav-item">Training</a>
+        <a href="#highlights" class="nav-item">News</a>
+        <a href="#contact" class="nav-item">Contact</a>
+        <a href="#join" class="btn-skew" style="margin-top: 20px;"><span>Join Now</span></a>
+    </div>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-gradient"></div>
+        <div class="bg-text">IGNITE</div>
+
+        <div class="hero-content">
+            <div class="hero-label reveal-up">El Paso's Elite Training Facility</div>
+
+            <h1 class="hero-title reveal-up" style="transition-delay: 0.1s;">
+                Motivate.<br>Coach.<br><span class="outline-text">Ignite.</span>
+            </h1>
+
+            <p class="hero-desc reveal-up" style="transition-delay: 0.2s;">
+                Developing the future football players of El Paso. Elite private and small group training focused on physical dominance, technical precision, and mental toughness.
+            </p>
+
+            <div class="hero-actions reveal-up" style="transition-delay: 0.3s;">
+                <a href="#join" class="btn-skew"><span>Register Today</span></a>
+                <a href="#programs" class="btn-outline"><span>View Programs</span></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <div class="marquee-item">Agility <span>&bull;</span> Strength <span>&bull;</span> Technique <span>&bull;</span> IQ <span>&bull;</span> Discipline <span>&bull;</span> Agility <span>&bull;</span> Strength <span>&bull;</span> Technique <span>&bull;</span> IQ <span>&bull;</span>                Discipline <span>&bull;</span></div>
+            <div class="marquee-item">Agility <span>&bull;</span> Strength <span>&bull;</span> Technique <span>&bull;</span> IQ <span>&bull;</span> Discipline <span>&bull;</span> Agility <span>&bull;</span> Strength <span>&bull;</span> Technique <span>&bull;</span> IQ <span>&bull;</span>                Discipline <span>&bull;</span></div>
+        </div>
+    </div>
+
+    <section id="programs" class="programs-section">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+
+        <div class="section-header reveal-up">
+            <span>THE STANDARD</span>
+            <h2>Elevate Your Game</h2>
+            <p>We break down the fundamentals to build elite athletes. Our curriculum focuses on explosiveness, positional mechanics, and football IQ.</p>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card reveal-up">
+                <div class="program-icon"><i class="fas fa-running"></i></div>
+                <h3>Agility & Footwork</h3>
+                <ul class="program-list">
+                    <li><i class="fas fa-square"></i> Explosive First Step</li>
+                    <li><i class="fas fa-square"></i> Change of Direction</li>
+                    <li><i class="fas fa-square"></i> Speed Mechanics</li>
+                    <li><i class="fas fa-square"></i> Ladder & Cone Drills</li>
+                </ul>
+            </div>
+
+            <div class="program-card reveal-up" style="transition-delay: 0.1s;">
+                <div class="program-icon"><i class="fas fa-crosshairs"></i></div>
+                <h3>Positional Technique</h3>
+                <ul class="program-list">
+                    <li><i class="fas fa-square"></i> Route Running & Hands</li>
+                    <li><i class="fas fa-square"></i> QB Throwing Mechanics</li>
+                    <li><i class="fas fa-square"></i> Defensive Back Coverage</li>
+                    <li><i class="fas fa-square"></i> Safe Tackling Fundamentals</li>
+                </ul>
+            </div>
+
+            <div class="program-card reveal-up" style="transition-delay: 0.2s;">
+                <div class="program-icon"><i class="fas fa-brain"></i></div>
+                <h3>Football IQ</h3>
+                <ul class="program-list">
+                    <li><i class="fas fa-square"></i> Pre-snap Reads</li>
+                    <li><i class="fas fa-square"></i> Understanding Coverages</li>
+                    <li><i class="fas fa-square"></i> Situational Awareness</li>
+                    <li><i class="fas fa-square"></i> Leadership & Discipline</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="highlights" class="highlights-section">
+        <div class="highlights-wrapper">
+            <div class="flyer-content reveal-up">
+                <span style="color: var(--brand-red); font-size: 1rem; font-family: 'Oswald', sans-serif; letter-spacing: 3px; font-weight: 700; display: block; margin-bottom: 15px; text-transform: uppercase;">Academy News</span>
+                <h2>Building <br>Champions.</h2>
+                <p>We are dedicated to forging the next generation of athletes. Stay up to date with our latest camps, upcoming tournaments, and the outstanding achievements of our athletes both on and off the field.</p>
+                <a href="#contact" class="btn-skew mt-4"><span>Join The Roster</span></a>
+            </div>
+
+            <div class="bento-gallery">
+                <div class="bento-img bento-1 reveal-up" style="transition-delay: 0.1s;">
+                    <img src="images/winners.jpg" alt="Ignite Football Academy Champions" onerror="this.src='https://images.unsplash.com/photo-1558237956-62cebb5e7a96?auto=format&fit=crop&q=80&w=600'">
+                </div>
+                <div class="bento-img bento-2 reveal-up" style="transition-delay: 0.2s;">
+                    <img src="images/flyer.jpg" alt="Ignite Football Academy Flyer" onerror="this.src='https://images.unsplash.com/photo-1504450758481-7338eba7524a?auto=format&fit=crop&q=80&w=600'">
+                </div>
+                <div class="bento-img bento-3 reveal-up" style="transition-delay: 0.3s;">
+                    <h4>100%</h4>
+                    <p>Dedication</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand reveal-up">
+                <div class="logo-text">
+                    <span class="title">IGNITE <span>FOOTBALL</span></span>
+                    <span class="subtitle">ACADEMY</span>
+                </div>
+                <p>Motivating & Coaching the future El Paso football players. Elite private and small group training.</p>
+                <div style="margin-top: 30px; display: flex; gap: 20px;">
+                    <a href="#" style="color: #FFF; font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-facebook-f hover:text-red-600"></i></a>
+                    <a href="#" style="color: #FFF; font-size: 1.5rem; transition: color 0.3s;"><i class="fab fa-instagram hover:text-red-600"></i></a>
+                </div>
+            </div>
+            <div class="footer-col reveal-up" style="transition-delay: 0.1s;">
+                <h4>CONTACT US</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> <span>info@ignitefootball.com</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>El Paso, TX</span></li>
+                </ul>
+            </div>
+            <div class="footer-col reveal-up" style="transition-delay: 0.2s;">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#programs">Training Programs</a></li>
+                    <li><a href="#highlights">Academy News</a></li>
+                    <li><a href="#join">Registration</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+            <p>&copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script> Ignite Football Academy. All Rights Reserved. Designed by <a href="https://ervotechep.com" style="color: var(--brand-red); text-decoration: none; font-weight: bold;">Ervotech</a>.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            /* --- Sticky Navbar Effect --- */
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            /* --- Mobile Menu Logic --- */
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('active');
+                    mobileMenu.classList.toggle('active');
+                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+                });
+
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburgerBtn.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                });
+            }
+
+            /* --- Cinematic Scroll Reveals --- */
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 50) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+            setTimeout(() => {
+                document.querySelectorAll('.reveal-up').forEach(el => el.classList.add('active-reveal'));
+            }, 500);
+        });
+    </script>
+</body>
+
+</html>
