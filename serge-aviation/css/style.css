@@ -44,10 +44,7 @@ body {
     overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -114,7 +111,7 @@ h4 {
     text-decoration: none;
 }
 
-/* Nav Links & Dropdown */
+/* Nav Links */
 .nav-menu,
 .nav-links {
     display: flex;
@@ -124,6 +121,7 @@ h4 {
 }
 
 .nav-link {
+    position: relative;
     text-decoration: none;
     color: var(--brand-navy);
     font-family: 'Montserrat', sans-serif;
@@ -131,31 +129,73 @@ h4 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    padding: 8px 0;
     transition: color 0.3s ease;
+}
+
+/* Sleek animated underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--brand-gold);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .nav-link:hover {
     color: var(--brand-gold);
 }
 
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Animation & Chevron */
 .dropdown {
     position: relative;
+    text-align: center;
+}
+
+.dropdown-icon {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    margin-left: 4px;
+}
+
+.dropdown:hover .dropdown-icon {
+    transform: rotate(180deg);
 }
 
 .dropdown-menu {
     position: absolute;
-    top: 100%;
+    top: 120%; /* Starts slightly lower for slide-up effect */
     left: 0;
     background: #ffffff;
-    min-width: 200px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    display: none;
-    padding: 10px 0;
+    min-width: 220px;
+    box-shadow: 0 15px 35px rgba(26, 43, 76, 0.1);
+    border-radius: 8px;
+    padding: 12px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border-top: 3px solid var(--brand-gold);
+    list-style: none !important; /* Forces bullets to hide */
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    top: 100%;
+}
+
+.dropdown-menu li {
+    text-align:left;
+    list-style: none !important; /* Ensure no bullets */
 }
 
 .dropdown-menu li a {
@@ -164,50 +204,58 @@ h4 {
     color: var(--gray-600);
     text-decoration: none;
     font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: none; /* Keeps course names readable */
+    letter-spacing: normal;
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu li a:hover {
     background: var(--bg-surface);
     color: var(--brand-navy);
+    padding-left: 24px; /* Subtle indent effect on hover */
 }
 
-/* Buttons */
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.mobile-only-link {
+    display: none; /* Hide 'All Courses' link on desktop */
 }
 
-.btn-navy {
-    background: var(--brand-navy);
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 12px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: var(--transition-smooth);
-    border: none;
-    cursor: pointer;
-}
-
-.btn-navy:hover {
-    background: var(--brand-blue);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(26, 43, 76, 0.3);
-}
-
-.mobile-toggle,
-.mobile-menu-btn {
+/* --- ANIMATED HAMBURGER ICON --- */
+.mobile-toggle {
     display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    background: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
     border: none;
-    color: var(--brand-navy);
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Keeps the X visible above the open menu */
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-navy);
+    border-radius: 4px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active State (Transforms into the 'X') */
+.mobile-toggle.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--brand-gold);
+}
+
+.mobile-toggle.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--brand-gold);
 }
 
 /* =========================================
@@ -303,17 +351,9 @@ h4 {
 }
 
 @keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(205, 143, 93, 0.7);
-    }
-
-    70% {
-        box-shadow: 0 0 0 10px rgba(205, 143, 93, 0);
-    }
-
-    100% {
-        box-shadow: 0 0 0 0 rgba(205, 143, 93, 0);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(205, 143, 93, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(205, 143, 93, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(205, 143, 93, 0); }
 }
 
 .hero h1 {
@@ -384,7 +424,7 @@ h4 {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Global Internal Page Hero (Used on About, Courses, Contact, etc.) */
+/* Global Internal Page Hero */
 .internal-hero {
     position: relative;
     height: 50vh;
@@ -1196,7 +1236,6 @@ h4 {
 
 /* =========================================
    6. GLOBAL COURSE PAGE TEMPLATE
-   (Master styling used on CFI, CFII, CPL, etc.)
    ========================================= */
 .course-section {
     padding: 96px 0;
@@ -1260,7 +1299,6 @@ h4 {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Modifier class for CPL styling */
 .investment-block.bg-navy {
     background-color: var(--brand-navy);
     padding: 32px 24px;
@@ -1678,14 +1716,13 @@ h4 {
    10. CONSOLIDATED RESPONSIVE QUERIES
    ========================================= */
 @media (max-width: 1024px) {
-
     .nav-links,
     .nav-actions {
         display: none;
     }
 
-    .mobile-menu-btn {
-        display: block;
+    .mobile-toggle {
+        display: flex;
     }
 
     /* Layout adjustments */
@@ -1739,30 +1776,74 @@ h4 {
 
 @media (max-width: 768px) {
 
+    .floating-contact-card {
+        display: none;
+    }
     /* Mobile Menu Logic */
     .mobile-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background: #ffffff;
-        padding: 20px;
-        border-top: 1px solid #eee;
-    }
-
-    .nav-menu.active {
         display: flex;
     }
 
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        padding: 0;
+        max-height: 0; /* Starts hidden */
+        overflow: hidden;
+        border-top: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), padding 0.4s ease;
+    }
+
+    .nav-menu.active {
+        max-height: 800px; /* Slides open smoothly */
+        padding: 24px;
+    }
+
+    .nav-link::after {
+        display: none; /* Turn off hover underline on mobile */
+    }
+
+    /* Mobile Dropdown Slide Accordion Logic */
     .dropdown-menu {
         position: static;
         box-shadow: none;
+        border-top: none;
+        padding: 0 0 0 16px; 
+        margin: 0;
+        max-height: 0; /* Hidden state for smooth slide */
+        overflow: hidden; /* Prevent text clipping during slide */
+        opacity: 0;
+        visibility: hidden;
+        transform: none; /* Removes the desktop Y-axis slide */
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        border-left: 2px solid transparent;   
+    }
+
+    .dropdown.mobile-open .dropdown-menu {
+        max-height: 400px; /* Expands to fit links safely */
+        opacity: 1;
+        visibility: visible;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border-left-color: var(--gray-200); /* Adds that clean left line */
+        padding-top: 8px;
+        padding-bottom: 8px;
+         /* Full width for easy tapping */
+    }
+    
+    .dropdown.mobile-open .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+    .mobile-only-link {
+        display: block; /* Show 'All Courses' link on mobile */
     }
 
     /* Stacking */
