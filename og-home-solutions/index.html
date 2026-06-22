@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OG Home Solutions | Premier Solar & Home Remodeling in El Paso, TX</title>
+    <meta name="description" content="Top-rated home upgrades in El Paso. OG Home Solutions specializes in Solar Panels, Puronics Water Softeners, Refrigerated Air, and custom Windows. $0 Down available.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+    <style>
+        /* =========================================
+           THEME: $20K MINIMALIST & COBALT
+           ========================================= */
+        :root {
+            --og-cobalt: #0047BB; 
+            --og-cobalt-dark: #003388;
+            --og-black: #0A0A0A;
+            --og-charcoal: #4B5563;
+            
+            --bg-white: #FFFFFF;
+            --bg-offwhite: #F9FAFB;
+            
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-float: 0 20px 40px rgba(0, 71, 187, 0.08);
+            --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.02);
+            --radius-sharp: 4px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: auto; }
+        body { font-family: var(--font-body); color: var(--text-main); line-height: 1.7; background-color: var(--bg-white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--og-black); line-height: 1.1; letter-spacing: -0.5px; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; transition: var(--transition); }
+
+        .container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+
+        /* =========================================
+           ULTRA-CLEAN NAVIGATION
+           ========================================= */
+        .top-bar { background: var(--og-black); color: var(--bg-white); padding: 10px 0; font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+        .top-bar .container { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar i { color: var(--og-cobalt); margin-right: 8px; }
+
+        header { background: var(--bg-white); padding: 15px 0; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); transition: var(--transition); }
+        header.scrolled { padding: 10px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Integrated Image Logo */
+        .nav-logo { height: 65px; object-fit: contain; transition: var(--transition); }
+        header.scrolled .nav-logo { height: 55px; }
+        
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { color: var(--og-black); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--og-cobalt); }
+        
+        .btn-primary { background: var(--og-cobalt); color: var(--bg-white) !important; padding: 14px 32px; font-weight: 700; border-radius: var(--radius-sharp); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; border: 1px solid var(--og-cobalt); cursor: pointer; }
+        .btn-primary:hover { background: var(--og-charcoal); border-color: var(--og-black); color: var(--bg-white); }
+
+        /* Mobile Menu */
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background-color: var(--og-black); transition: var(--transition); }
+        #menu-toggle { display: none; }
+
+        /* =========================================
+           HIGH-END HERO & LEAD CAPTURE
+           ========================================= */
+        .hero { position: relative; padding: 100px 0; background: var(--bg-offwhite); overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop') center/cover; z-index: 0; }
+        .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 45%; height: 100%; background: linear-gradient(to right, var(--bg-offwhite) 0%, transparent 100%); z-index: 1; }
+        
+        .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 2; }
+        
+        .hero-content h1 { font-size: clamp(2.8rem, 5vw, 4.2rem); margin-bottom: 25px; }
+        .hero-content h1 span { color: var(--og-cobalt); }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted); max-width: 550px; }
+        
+        .hero-features { display: flex; gap: 30px; margin-bottom: 40px; }
+        .feature-item { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 0.95rem; color: var(--og-black); }
+        .feature-item i { color: var(--og-cobalt); font-size: 1.4rem; }
+
+        /* The $20k CRO Form */
+        .lead-form { background: var(--bg-white); padding: 50px 40px; border-radius: var(--radius-sharp); box-shadow: var(--shadow-float); border-top: 4px solid var(--og-cobalt); position: relative; z-index: 10; }
+        .lead-form h2 { font-size: 1.6rem; margin-bottom: 10px; } /* Changed to H2 for semantic flow inside a section if no prior H2 exists, but we'll use H3 if following an H2 */
+        .lead-form p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-control { width: 100%; padding: 16px; border: 1px solid #E5E7EB; border-radius: var(--radius-sharp); font-family: var(--font-body); font-size: 1rem; background: var(--bg-white); transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--og-cobalt); box-shadow: 0 0 0 3px rgba(0, 71, 187, 0.1); }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1em; }
+        .lead-form .btn-primary { width: 100%; font-size: 1rem; padding: 18px; margin-top: 10px; }
+
+        /* =========================================
+           AUTHORITY STRIP
+           ========================================= */
+        .authority-bar { background: var(--og-black); padding: 50px 0; color: var(--bg-white); }
+        .authority-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .auth-item i { font-size: 2rem; color: var(--og-cobalt); margin-bottom: 15px; }
+        .auth-item h3 { color: var(--bg-white); font-size: 1.1rem; margin-bottom: 8px; letter-spacing: 0; }
+        .auth-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* =========================================
+           EDITORIAL SERVICES GRID
+           ========================================= */
+        .services { padding: 120px 0; background: var(--bg-offwhite); }
+        .section-header { text-align: center; margin-bottom: 80px; max-width: 800px; margin-inline: auto; }
+        .section-header span { color: var(--og-cobalt); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; display: block; margin-bottom: 15px; }
+        .section-header h2 { font-size: 3rem; margin-bottom: 20px; }
+        .section-header p { color: var(--text-muted); font-size: 1.15rem; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .service-card { background: var(--bg-white); padding: 50px 40px; border-radius: var(--radius-sharp); box-shadow: var(--shadow-card); transition: var(--transition); position: relative; overflow: hidden; border: 1px solid rgba(0,0,0,0.03); }
+        .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--og-cobalt); transition: var(--transition); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-float); }
+        .service-card:hover::after { width: 100%; }
+        
+        .service-icon { margin-bottom: 30px; }
+        .service-icon i { font-size: 2.5rem; color: var(--og-black); transition: var(--transition); }
+        .service-card:hover .service-icon i { color: var(--og-cobalt); }
+        
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card p { color: var(--text-muted); margin-bottom: 30px; font-size: 1rem; }
+        .service-link { color: var(--og-cobalt); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px; }
+        .service-link i { transition: transform 0.3s ease; }
+        .service-card:hover .service-link i { transform: translateX(5px); }
+
+        /* =========================================
+           SEO / ABOUT SECTION
+           ========================================= */
+        .about-section { padding: 120px 0; background: var(--bg-white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .about-content h2 { font-size: 3rem; margin-bottom: 25px; }
+        .about-content p { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted); }
+        
+        .puronics-badge { display: inline-flex; align-items: center; gap: 15px; background: var(--bg-offwhite); padding: 15px 25px; border-radius: var(--radius-sharp); margin-top: 20px; border: 1px solid #E5E7EB; }
+        .puronics-badge i { font-size: 2rem; color: var(--og-cobalt); }
+        .puronics-badge div span { display: block; font-weight: 800; color: var(--og-black); }
+        .puronics-badge div small { color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .about-image { position: relative; }
+        .about-image img { border-radius: var(--radius-sharp); box-shadow: var(--shadow-float); }
+
+        /* =========================================
+           MINIMALIST FOOTER
+           ========================================= */
+        footer { background: var(--og-black); color: var(--bg-white); padding: 80px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px; }
+        
+        /* White housing to make the black logo pop in the dark footer */
+        .footer-logo-wrapper { background: var(--bg-white); padding: 15px 25px; border-radius: var(--radius-sharp); display: inline-block; margin-bottom: 25px; }
+        .footer-logo-img { height: 50px; object-fit: contain; }
+        
+        footer p { color: #9CA3AF; font-size: 0.95rem; max-width: 400px; }
+        footer h4 { color: var(--bg-white); font-size: 1rem; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 12px; color: #9CA3AF; }
+        footer ul li i { color: var(--og-cobalt); margin-top: 5px; }
+        .footer-bottom { text-align: center; color: #6B7280; font-size: 0.9rem; }
+
+        /* =========================================
+           ANIMATIONS
+           ========================================= */
+        .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .active-reveal { opacity: 1 !important; transform: translateY(0) !important; }
+
+        @media (max-width: 1024px) {
+            .hero::before, .hero::after { display: none; }
+            .hero .container, .about-grid { grid-template-columns: 1fr; }
+            .hero-content { text-align: center; }
+            .hero-content p { margin: 0 auto 40px; }
+            .hero-features { justify-content: center; }
+            .about-image { order: -1; }
+            .authority-bar .container { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        }
+        @media (max-width: 768px) {
+            .top-bar { display: none; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container">
+            <div><i class="fas fa-map-marker-alt"></i> Serving El Paso, TX & Surrounding Areas</div>
+            <div><i class="fas fa-phone"></i> (915) 247-2626</div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="OG Home Solutions El Paso" class="nav-logo">
+            </a>
+            
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span><span></span><span></span>
+            </label>
+
+            <nav class="nav-links">
+                <a href="#water">Water Softener</a>
+                <a href="#solar">Solar Panels</a>
+                <a href="#windows">Windows</a>
+                <a href="#about">About Us</a>
+                <a href="#contact" class="btn-primary">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="reveal-up">Premier Home Remodeling & Solar in <span>El Paso, TX.</span></h1>
+                    <p class="reveal-up" style="transition-delay: 0.1s;">Elevate your home's efficiency and aesthetic with El Paso's elite installation teams. Premium materials, flawless execution, and intelligent financing.</p>
+                    
+                    <div class="hero-features reveal-up" style="transition-delay: 0.2s;">
+                        <div class="feature-item"><i class="fas fa-percentage"></i> 0% Interest Available</div>
+                        <div class="feature-item"><i class="fas fa-wallet"></i> $0 Down Options</div>
+                    </div>
+                </div>
+
+                <div class="lead-form reveal-up" style="transition-delay: 0.3s;" id="contact">
+                    <h3>Request a Consultation</h3>
+                    <p>Speak with an engineering consultant today.</p>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="fullName" aria-label="Full Name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phoneNumber" aria-label="Phone Number" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="service" aria-label="Service Needed" required>
+                                <option value="" disabled selected>Area of Interest</option>
+                                <option value="water">Water Softening (Puronics)</option>
+                                <option value="solar">Solar Energy Systems</option>
+                                <option value="hvac">Refrigerated Air / HVAC</option>
+                                <option value="windows">Energy Efficient Windows</option>
+                                <option value="landscaping">Outdoor Living / Turf</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">Secure My Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="authority-bar">
+            <div class="container">
+                <div class="auth-item reveal-up">
+                    <i class="fas fa-map-pin"></i>
+                    <h3>Local Experts</h3>
+                    <p>El Paso Based</p>
+                </div>
+                <div class="auth-item reveal-up" style="transition-delay: 0.1s;">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certified Installers</h3>
+                    <p>Rigorous Training</p>
+                </div>
+                <div class="auth-item reveal-up" style="transition-delay: 0.2s;">
+                    <i class="fas fa-handshake"></i>
+                    <h3>No Downpayment</h3>
+                    <p>Flexible Terms</p>
+                </div>
+                <div class="auth-item reveal-up" style="transition-delay: 0.3s;">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Long-Term Value</h3>
+                    <p>Built to Last</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-header reveal-up">
+                    <span>Core Capabilities</span>
+                    <h2>Comprehensive Home Solutions</h2>
+                    <p>We combine advanced engineering with premium aesthetics to deliver upgrades that actively increase your property value.</p>
+                </div>
+                <div class="service-grid">
+                    <div class="service-card reveal-up" id="solar">
+                        <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
+                        <h3>Solar Energy</h3>
+                        <p>Monopolize the sunlight. High-efficiency photovoltaic systems designed to eliminate your reliance on the grid from day one.</p>
+                        <a href="#" class="service-link">Explore Solar <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.1s;" id="water">
+                        <div class="service-icon"><i class="fas fa-faucet-drip"></i></div>
+                        <h3>Water Systems</h3>
+                        <p>Protect your plumbing and your skin. Premium Puronics water softening filtration backed by an industry-leading lifetime guarantee.</p>
+                        <a href="#" class="service-link">Explore Puronics <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                        <div class="service-icon"><i class="fas fa-fan"></i></div>
+                        <h3>Refrigerated Air</h3>
+                        <p>Complete climate control. State-of-the-art HVAC conversions with 0% interest and rock-solid 10-year warranties.</p>
+                        <a href="#" class="service-link">Explore HVAC <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal-up" id="windows">
+                        <div class="service-icon"><i class="fas fa-border-all"></i></div>
+                        <h3>Custom Windows</h3>
+                        <p>Architectural double-pane glass engineered to permanently block desert dust and drastically reduce thermal transfer.</p>
+                        <a href="#" class="service-link">Explore Windows <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.1s;">
+                        <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Outdoor Living</h3>
+                        <p>From zero-maintenance artificial turf to custom pergolas, we design and build resort-quality backyard retreats.</p>
+                        <a href="#" class="service-link">Explore Landscaping <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="service-card reveal-up" style="transition-delay: 0.2s;">
+                        <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                        <h3>Home Remodeling</h3>
+                        <p>Precision execution for major home renovations, ensuring your vision is brought to life flawlessly and on schedule.</p>
+                        <a href="#" class="service-link">Explore Remodeling <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+                <div class="about-image reveal-up">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Premium modern home exterior remodeled by OG Home Solutions" loading="lazy">
+                </div>
+                <div class="about-content reveal-up" style="transition-delay: 0.2s;">
+                    <h2>Driven by Quality. Defined by Service.</h2>
+                    <p>OG Home Solutions is a premier, locally-owned company dedicated to elevating the standard of residential upgrades in El Paso, Texas.</p>
+                    <p>Our technicians undergo rigorous, ongoing training to ensure that every project—from a solar array to a custom window fitting—is executed with absolute precision. We don't compromise on materials, and we don't cut corners on installation.</p>
+                    
+                    <div class="puronics-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <small>Verified Partner</small>
+                            <span>Authorized Puronics Dealer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="reveal-up">
+                    <div class="footer-logo-wrapper">
+                        <img src="images/logo.png" alt="OG Home Solutions Logo" class="footer-logo-img" loading="lazy">
+                    </div>
+                    <p>El Paso's authority in premium home remodeling, energy independence, and architectural landscaping solutions.</p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 0.1s;">
+                    <h4>Direct Contact</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 8800 Yermoland Dr. Ste B<br>El Paso, TX 79907</li>
+                        <li><i class="fas fa-phone-alt"></i> (915) 247-2626</li>
+                        <li><i class="fas fa-envelope"></i> contact@oghsolutions.com</li>
+                    </ul>
+                </div>
+                <div class="reveal-up" style="transition-delay: 0.2s;">
+                    <h4>Core Services</h4>
+                    <ul>
+                        <li><a href="#solar" style="color: #9CA3AF;">Solar Energy Systems</a></li>
+                        <li><a href="#water" style="color: #9CA3AF;">Puronics Water Filtration</a></li>
+                        <li><a href="#windows" style="color: #9CA3AF;">Energy Efficient Windows</a></li>
+                        <li><a href="#hvac" style="color: #9CA3AF;">Refrigerated Air Conversions</a></li>
+                        <li><a href="#landscaping" style="color: #9CA3AF;">Turf & Outdoor Living</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom reveal-up" style="transition-delay: 0.3s;">
+                <p>&copy; 2026 OG Home Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lenis Smooth Scrolling
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true,
+            });
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Sticky Header Shadow
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Cinematic Scroll Reveals
+            function checkReveals() {
+                const reveals = document.querySelectorAll('.reveal-up');
+                const windowHeight = window.innerHeight;
+                for (let i = 0; i < reveals.length; i++) {
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        reveals[i].classList.add('active-reveal');
+                    }
+                }
+            }
+            window.addEventListener('scroll', checkReveals);
+            checkReveals();
+            setTimeout(() => {
+                document.querySelectorAll('.hero .reveal-up').forEach(el => el.classList.add('active-reveal'));
+            }, 300);
+        });
+    </script>
+</body>
+</html>
