@@ -59,7 +59,7 @@
         header .container { display: flex; justify-content: space-between; align-items: center; }
         
         /* Integrated Image Logo */
-        .nav-logo { height: 65px; object-fit: contain; transition: var(--transition); }
+        .nav-logo { height: 65px; object-fit: contain; transition: var(--transition); position: relative; z-index: 1002; }
         header.scrolled .nav-logo { height: 55px; }
         
         .nav-links { display: flex; gap: 35px; align-items: center; }
@@ -69,9 +69,9 @@
         .btn-primary { background: var(--og-cobalt); color: var(--bg-white) !important; padding: 14px 32px; font-weight: 700; border-radius: var(--radius-sharp); text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; border: 1px solid var(--og-cobalt); cursor: pointer; }
         .btn-primary:hover { background: var(--og-charcoal); border-color: var(--og-black); color: var(--bg-white); }
 
-        /* Mobile Menu */
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
-        .hamburger span { width: 25px; height: 3px; background-color: var(--og-black); transition: var(--transition); }
+        /* Mobile Menu Baseline */
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; position: relative; z-index: 1002; }
+        .hamburger span { width: 25px; height: 3px; background-color: var(--og-black); transition: var(--transition); border-radius: 2px; }
         #menu-toggle { display: none; }
 
         /* =========================================
@@ -93,7 +93,7 @@
 
         /* The $20k CRO Form */
         .lead-form { background: var(--bg-white); padding: 50px 40px; border-radius: var(--radius-sharp); box-shadow: var(--shadow-float); border-top: 4px solid var(--og-cobalt); position: relative; z-index: 10; }
-        .lead-form h2 { font-size: 1.6rem; margin-bottom: 10px; } /* Changed to H2 for semantic flow inside a section if no prior H2 exists, but we'll use H3 if following an H2 */
+        .lead-form h2 { font-size: 1.6rem; margin-bottom: 10px; }
         .lead-form p { color: var(--text-muted); margin-bottom: 30px; font-size: 0.95rem; }
         
         .form-group { margin-bottom: 20px; }
@@ -117,7 +117,7 @@
         .services { padding: 120px 0; background: var(--bg-offwhite); }
         .section-header { text-align: center; margin-bottom: 80px; max-width: 800px; margin-inline: auto; }
         .section-header span { color: var(--og-cobalt); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; display: block; margin-bottom: 15px; }
-        .section-header h2 { font-size: 3rem; margin-bottom: 20px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 20px; }
         .section-header p { color: var(--text-muted); font-size: 1.15rem; }
 
         .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
@@ -158,7 +158,6 @@
         footer { background: var(--og-black); color: var(--bg-white); padding: 80px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 60px; }
         
-        /* White housing to make the black logo pop in the dark footer */
         .footer-logo-wrapper { background: var(--bg-white); padding: 15px 25px; border-radius: var(--radius-sharp); display: inline-block; margin-bottom: 25px; }
         .footer-logo-img { height: 50px; object-fit: contain; }
         
@@ -175,6 +174,9 @@
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
         .active-reveal { opacity: 1 !important; transform: translateY(0) !important; }
 
+        /* =========================================
+           RESPONSIVE & MOBILE MENU LOGIC
+           ========================================= */
         @media (max-width: 1024px) {
             .hero::before, .hero::after { display: none; }
             .hero .container, .about-grid { grid-template-columns: 1fr; }
@@ -187,8 +189,44 @@
         @media (max-width: 768px) {
             .top-bar { display: none; }
             .footer-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            
+            /* Enable Hamburger */
             .hamburger { display: flex; }
+            
+            /* Style Nav Links as a Drawer */
+            .nav-links { 
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden off-screen by default */
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transition: var(--transition);
+                z-index: 1001;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            }
+            .nav-links a { font-size: 1.5rem; }
+            .nav-links .btn-primary { font-size: 1.2rem; padding: 18px 40px; }
+
+            /* Checkbox Hack - Slide Drawer In */
+            #menu-toggle:checked ~ .nav-links {
+                right: 0;
+            }
+
+            /* Hamburger to 'X' Animation */
+            #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                opacity: 0;
+            }
+            #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
         }
     </style>
 </head>
@@ -431,6 +469,18 @@
             setTimeout(() => {
                 document.querySelectorAll('.hero .reveal-up').forEach(el => el.classList.add('active-reveal'));
             }, 300);
+
+            // Auto-Close Mobile Menu on Link Click
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileLinks = document.querySelectorAll('.nav-links a');
+            
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.checked = false;
+                    }
+                });
+            });
         });
     </script>
 </body>
