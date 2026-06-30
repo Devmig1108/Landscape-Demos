@@ -209,10 +209,10 @@ textarea {
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.18;
+  opacity: 0.8;
   background:
-    linear-gradient(22deg, transparent 18%, rgba(255, 255, 255, 0.12) 19%, transparent 20%),
-    linear-gradient(157deg, transparent 18%, rgba(255, 255, 255, 0.09) 19%, transparent 20%);
+    linear-gradient(22deg, transparent 18%, rgba(255, 255, 255, 0.308) 19%, transparent 20%),
+    linear-gradient(157deg, transparent 18%, rgba(255, 255, 255, 0.309) 19%, transparent 20%);
   background-size: 150px 80px;
 }
 
@@ -956,7 +956,7 @@ h3 {
     display: grid;
     gap: 4px;
     padding: 16px;
-    background: rgba(32, 37, 42, 0.98);
+    background: var(--off-white);
     border: 1px solid var(--line);
     border-radius: 20px;
     box-shadow: var(--shadow);
@@ -1409,7 +1409,7 @@ h3 {
 
   .nav-menu a:hover,
   .nav-menu a:focus-visible {
-    background: rgba(246, 243, 237, 0.08);
+    background: rgba(243, 243, 243, 0.08);
   }
 }
 
