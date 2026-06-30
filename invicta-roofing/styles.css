@@ -1069,6 +1069,15 @@ h3 {
     width: 100%;
     text-align: center;
   }
+
+  .inspection-ticket {
+    display: none;
+  }
+
+  .split-grid {
+    display: grid;
+    gap:20px;
+  }
 }
 
 /* V3 refinements: video hero + compact navigation */
