@@ -1050,7 +1050,7 @@ h3 {
 
 @media (max-width: 520px) {
   .container {
-    width: min(100% - 28px, var(--container));
+    width: min(100% - 28px, var(90%));
   }
 
   .brand-logo {
