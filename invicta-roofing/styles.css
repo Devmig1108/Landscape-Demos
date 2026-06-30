@@ -1068,6 +1068,7 @@ h3 {
   .trust-row span {
     width: 100%;
     text-align: center;
+    display: none;
   }
 
   .inspection-ticket {
