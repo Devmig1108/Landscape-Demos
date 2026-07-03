@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Me Here Magazine</title>
+
+  <style>
+    :root {
+      --black: #201c1d;
+      --soft-black: #2f2a2b;
+      --gray: #777;
+      --light-gray: #e8e4df;
+      --off-white: #f8f5f0;
+      --white: #ffffff;
+      --yellow: #f4e63b;
+      --orange: #f47b38;
+      --navy: #172033;
+      --teal: #7fd1d0;
+      --max-width: 1180px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--black);
+      background: var(--off-white);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gray);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 4.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.35rem;
+      border: 1px solid var(--black);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--black);
+    }
+
+    .btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* Top Bar */
+
+    .top-strip {
+      border-bottom: 1px solid var(--light-gray);
+      background: var(--white);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .top-strip-inner {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+      padding: 0.65rem 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--gray);
+    }
+
+    /* Header */
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--light-gray);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .masthead {
+      padding: 2.1rem 0 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .logo-wrap img {
+      width: min(420px, 82vw);
+      height: auto;
+    }
+
+    .tagline {
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--soft-black);
+    }
+
+    .nav {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.95rem 0;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    .nav a {
+      font-size: 0.76rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--soft-black);
+    }
+
+    .nav a:hover {
+      color: var(--orange);
+    }
+
+    /* Hero */
+
+    .hero {
+      background: var(--white);
+      padding: clamp(2rem, 5vw, 5rem) 0;
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .hero-image {
+      position: relative;
+      min-height: 560px;
+      background: #ddd;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: var(--yellow);
+      color: var(--black);
+      padding: 0.8rem 1rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .hero-content {
+      max-width: 560px;
+    }
+
+    .hero-content .eyebrow {
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(3.4rem, 8vw, 7.7rem);
+      line-height: 0.88;
+      letter-spacing: -0.075em;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero h1 span::after {
+      content: "";
+      position: absolute;
+      right: -0.5rem;
+      top: 0.22rem;
+      width: 0.35em;
+      height: 0.35em;
+      border: 3px solid var(--yellow);
+      border-radius: 50%;
+    }
+
+    .hero-text {
+      font-size: clamp(1rem, 1.5vw, 1.22rem);
+      color: var(--soft-black);
+      margin-bottom: 1.8rem;
+      max-width: 470px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 2.1rem;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .hero-meta div {
+      padding: 1rem;
+      border-right: 1px solid var(--light-gray);
+    }
+
+    .hero-meta div:last-child {
+      border-right: 0;
+    }
+
+    .hero-meta strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-meta span {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 700;
+    }
+
+    /* Feature Bar */
+
+    .feature-bar {
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+
+    .feature-bar-inner {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .feature-bar span::before {
+      content: "°";
+      color: var(--yellow);
+      margin-right: 2.5rem;
+      font-size: 1.4rem;
+      vertical-align: middle;
+    }
+
+    /* Latest Stories */
+
+    .section {
+      padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2.2rem;
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 1.2rem;
+    }
+
+    .section-heading p {
+      color: var(--gray);
+      max-width: 360px;
+      font-size: 0.95rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 1.4rem;
+    }
+
+    .story-card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      transition: 0.25s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 55px rgba(0,0,0,0.08);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+    }
+
+    .story-card.featured img {
+      height: 470px;
+    }
+
+    .story-body {
+      padding: 1.2rem;
+    }
+
+    .category {
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .story-card h3 {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.65rem;
+    }
+
+    .story-card.featured h3 {
+      font-size: clamp(2rem, 3vw, 3.25rem);
+    }
+
+    .story-card p {
+      color: var(--gray);
+      font-size: 0.94rem;
+    }
+
+    /* Latest Issue */
+
+    .issue-section {
+      background: var(--white);
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .issue-preview {
+      background: var(--off-white);
+      padding: 2rem;
+      border: 1px solid var(--light-gray);
+    }
+
+    .issue-preview img {
+      box-shadow: 0 25px 70px rgba(0,0,0,0.16);
+    }
+
+    .issue-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5vw, 5.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.065em;
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    .issue-content p {
+      max-width: 560px;
+      color: var(--soft-black);
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .issue-list {
+      list-style: none;
+      margin: 1.5rem 0 2rem;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .issue-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.95rem 0;
+      border-bottom: 1px solid var(--light-gray);
+      font-size: 0.9rem;
+    }
+
+    .issue-list strong {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+    }
+
+    .issue-list span {
+      color: var(--gray);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* People */
+
+    .people-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .person-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      min-height: 455px;
+    }
+
+    .person-card img {
+      width: 100%;
+      height: 455px;
+      object-fit: cover;
+      opacity: 0.9;
+      transition: 0.3s ease;
+    }
+
+    .person-card:hover img {
+      transform: scale(1.04);
+      opacity: 0.72;
+    }
+
+    .person-info {
+      position: absolute;
+      left: 1.2rem;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      color: var(--white);
+    }
+
+    .person-info .category {
+      color: var(--yellow);
+    }
+
+    .person-info h3 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 0.45rem;
+    }
+
+    .person-info p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.92rem;
+    }
+
+    /* Local Guide */
+
+    .local-guide {
+      background: var(--navy);
+      color: var(--white);
+      padding: clamp(3.5rem, 7vw, 6rem) 0;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .guide-intro h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 5.4rem);
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+      margin-bottom: 1rem;
+    }
+
+    .guide-intro p {
+      color: rgba(255,255,255,0.72);
+      max-width: 420px;
+      margin-bottom: 1.5rem;
+    }
+
+    .guide-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .guide-item {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 1.3rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .guide-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: var(--black);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .guide-item h3 {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      margin-bottom: 0.35rem;
+    }
+
+    .guide-item p {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.92rem;
+    }
+
+    /* Advertise CTA */
+
+    .advertise {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      background:
+        linear-gradient(90deg, rgba(248,245,240,0.92), rgba(248,245,240,0.78)),
+        url("images/advertise-bg.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .advertise-box {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      padding: clamp(2rem, 5vw, 4rem);
+      max-width: 780px;
+    }
+
+    .advertise-box h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 5.4rem);
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+      margin: 0.7rem 0 1rem;
+    }
+
+    .advertise-box p {
+      color: var(--soft-black);
+      font-size: 1.05rem;
+      max-width: 590px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Newsletter */
+
+    .newsletter {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 0;
+    }
+
+    .newsletter-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .newsletter h2 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .newsletter p {
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.8rem;
+      max-width: 440px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      color: var(--white);
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .newsletter-form button {
+      border: 1px solid var(--yellow);
+      background: var(--yellow);
+      color: var(--black);
+      padding: 1rem 1.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    /* Footer */
+
+    .footer {
+      background: var(--white);
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gray);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .issue-grid,
+      .guide-grid,
+      .newsletter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image,
+      .hero-image img {
+        min-height: 430px;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .story-card.featured {
+        grid-column: span 2;
+      }
+
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .person-card,
+      .person-card img {
+        min-height: 430px;
+        height: 430px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .top-strip-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .top-strip-inner span:last-child {
+        display: none;
+      }
+
+      .masthead {
+        padding: 1.4rem 0 0.9rem;
+      }
+
+      .tagline {
+        font-size: 0.68rem;
+        letter-spacing: 0.19em;
+      }
+
+      .nav {
+        justify-content: flex-start;
+        gap: 1.2rem;
+      }
+
+      .hero {
+        padding-top: 1.5rem;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta div {
+        border-right: 0;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .hero-meta div:last-child {
+        border-bottom: 0;
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card.featured {
+        grid-column: span 1;
+      }
+
+      .story-card img,
+      .story-card.featured img {
+        height: 320px;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 0.8rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="top-strip">
+    <div class="top-strip-inner">
+      <span>El Paso • Culture • Lifestyle • Business</span>
+      <span>Current Issue Available Now</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="masthead">
+      <a href="#" class="logo-wrap" aria-label="Meet Me Here Magazine Home">
+        <img src="images/logo.png" alt="Meet Me Here Magazine Logo">
+      </a>
+      <div class="tagline">Magazine</div>
+    </div>
+
+    <nav class="nav">
+      <a href="#">Latest Issue</a>
+      <a href="#">People</a>
+      <a href="#">Business</a>
+      <a href="#">Lifestyle</a>
+      <a href="#">Food</a>
+      <a href="#">Events</a>
+      <a href="#">Advertise</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-image">
+          <img src="images/hero-feature.jpg" alt="Featured editorial portrait">
+          <div class="hero-badge">Featured Story</div>
+        </div>
+
+        <div class="hero-content">
+          <div class="eyebrow">Digital Edition / Community Features</div>
+          <h1>Stories worth meeting <span>here</span></h1>
+          <p class="hero-text">
+            Meet Me Here Magazine highlights the people, places, businesses, makers, and moments shaping the culture around us.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Read Latest Issue</a>
+            <a href="#" class="btn btn-outline">Advertise With Us</a>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <strong>People</strong>
+              <span>Local voices</span>
+            </div>
+            <div>
+              <strong>Places</strong>
+              <span>City guide</span>
+            </div>
+            <div>
+              <strong>Stories</strong>
+              <span>Fresh features</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="feature-bar">
+      <div class="feature-bar-inner">
+        <span>Culture</span>
+        <span>Beauty</span>
+        <span>Real Estate</span>
+        <span>Events</span>
+        <span>Food</span>
+        <span>Business</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Latest Features</div>
+            <h2 class="section-title">Fresh from the magazine</h2>
+          </div>
+          <p>
+            A curated look at entrepreneurs, creatives, restaurants, community events, and local stories worth sharing.
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card featured">
+            <img src="images/story-1.jpg" alt="Magazine feature story">
+            <div class="story-body">
+              <span class="category">People</span>
+              <h3>The faces building a more connected creative community</h3>
+              <p>
+                Meet the local names turning vision, style, and purpose into stories that deserve a larger stage.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="images/story-2.jpg" alt="Business feature">
+            <div class="story-body">
+              <span class="category">Business</span>
+              <h3>Local brands with something different to say</h3>
+              <p>
+                From beauty to design to hospitality, these businesses are shaping the local conversation.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="images/story-3.jpg" alt="Lifestyle editorial">
+            <div class="story-body">
+              <span class="category">Lifestyle</span>
+              <h3>Where style, community, and culture meet</h3>
+              <p>
+                A closer look at the trends, events, and experiences bringing people together.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section issue-section">
+      <div class="container issue-grid">
+        <div class="issue-preview">
+          <img src="images/issue-preview.jpg" alt="Latest issue preview">
+        </div>
+
+        <div class="issue-content">
+          <div class="eyebrow">Current Issue</div>
+          <h2>Inside the latest edition</h2>
+          <p>
+            Explore the newest issue of Meet Me Here Magazine, featuring local entrepreneurs, community stories, lifestyle editorials, and businesses making an impact.
+          </p>
+
+          <ul class="issue-list">
+            <li>
+              <strong>Featured Interviews</strong>
+              <span>People</span>
+            </li>
+            <li>
+              <strong>Local Business Spotlights</strong>
+              <span>Business</span>
+            </li>
+            <li>
+              <strong>Food, Beauty & Lifestyle Finds</strong>
+              <span>Guide</span>
+            </li>
+            <li>
+              <strong>Community Events & Announcements</strong>
+              <span>Events</span>
+            </li>
+          </ul>
+
+          <a href="#" class="btn btn-primary">View Digital Issue</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Featured People</div>
+            <h2 class="section-title">Meet the names behind the stories</h2>
+          </div>
+          <p>
+            Portrait-driven features celebrating creatives, founders, professionals, and community voices.
+          </p>
+        </div>
+
+        <div class="people-grid">
+          <article class="person-card">
+            <img src="images/portrait-1.jpg" alt="Featured entrepreneur portrait">
+            <div class="person-info">
+              <span class="category">Entrepreneur</span>
+              <h3>Building with purpose</h3>
+              <p>A conversation about growth, identity, and creating something meaningful.</p>
+            </div>
+          </article>
+
+          <article class="person-card">
+            <img src="images/portrait-2.jpg" alt="Featured lifestyle portrait">
+            <div class="person-info">
+              <span class="category">Style</span>
+              <h3>A new local point of view</h3>
+              <p>Personal style, professional presence, and the image behind the brand.</p>
+            </div>
+          </article>
+
+          <article class="person-card">
+            <img src="images/portrait-3.jpg" alt="Featured community portrait">
+            <div class="person-info">
+              <span class="category">Community</span>
+              <h3>The story starts here</h3>
+              <p>Highlighting the people creating spaces, events, and ideas worth remembering.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="local-guide">
+      <div class="container guide-grid">
+        <div class="guide-intro">
+          <div class="eyebrow">Local Guide</div>
+          <h2>Discover what’s happening here</h2>
+          <p>
+            A digital destination for readers who want to know where to go, who to meet, what to try, and what local stories are worth following.
+          </p>
+          <a href="#" class="btn btn-outline">Explore The Guide</a>
+        </div>
+
+        <div class="guide-list">
+          <article class="guide-item">
+            <div class="guide-number">1</div>
+            <div>
+              <h3>Featured Businesses</h3>
+              <p>Spotlights on restaurants, boutiques, beauty brands, service providers, and local professionals.</p>
+            </div>
+          </article>
+
+          <article class="guide-item">
+            <div class="guide-number">2</div>
+            <div>
+              <h3>Events & Community</h3>
+              <p>Upcoming events, announcements, launches, expos, and experiences around the city.</p>
+            </div>
+          </article>
+
+          <article class="guide-item">
+            <div class="guide-number">3</div>
+            <div>
+              <h3>People & Profiles</h3>
+              <p>Editorial features on the individuals shaping local business, creativity, culture, and lifestyle.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="advertise">
+      <div class="container">
+        <div class="advertise-box">
+          <div class="eyebrow">For Brands & Businesses</div>
+          <h2>Get seen by readers who care about local stories</h2>
+          <p>
+            Meet Me Here Magazine gives local businesses a polished space to be discovered through print, digital features, sponsored stories, and community-focused visibility.
+          </p>
+          <div class="hero-actions">
+            <a href="#" class="btn btn-primary">Advertise With Us</a>
+            <a href="#" class="btn btn-outline">Request Media Kit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container newsletter-grid">
+        <div>
+          <div class="eyebrow">Stay Connected</div>
+          <h2>Get the latest stories in your inbox</h2>
+          <p>
+            New features, local highlights, upcoming events, and fresh issue announcements from Meet Me Here Magazine.
+          </p>
+        </div>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">meet me here°</div>
+
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Latest Issue</a>
+        <a href="#">Advertise</a>
+        <a href="#">Submit Story</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

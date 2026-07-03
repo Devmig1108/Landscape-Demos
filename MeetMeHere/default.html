@@ -1,0 +1,1836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet Me Here Magazine | Refined Editorial</title>
+
+  <style>
+    :root {
+      --ink: #1f1b1c;
+      --charcoal: #302b2c;
+      --paper: #fbf8f3;
+      --cream: #ffffff;
+      --white: #ffffff;
+      --muted: #756f6b;
+      --line: #ded6cf;
+
+      --soft-gold: #d8b55a;
+      --soft-red: #9f1f2d;
+      --soft-magenta: #a73b6f;
+      --soft-navy: #1f2b43;
+      --soft-blue: #334c88;
+      --soft-teal: #5b9da0;
+
+      --accent-shadow: rgba(159, 31, 45, 0.16);
+      --gold-shadow: rgba(216, 181, 90, 0.28);
+
+      --max: 1220px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.9rem 1.25rem;
+      border: 1px solid var(--ink);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 900;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-dark {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn-accent {
+      background: transparent;
+      border-color: var(--soft-red);
+      color: var(--soft-red);
+    }
+
+    .btn-accent:hover {
+      background: var(--soft-red);
+      color: var(--white);
+    }
+
+    .btn-light {
+      background: var(--white);
+      border-color: var(--line);
+      color: var(--ink);
+    }
+
+    .btn-light:hover {
+      border-color: var(--ink);
+    }
+
+    .section {
+      padding: clamp(4rem, 7vw, 7rem) 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr minmax(240px, 420px);
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.3rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 6.8rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      font-weight: 900;
+      margin-top: 0.5rem;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .announcement {
+      background: var(--ink);
+      color: var(--white);
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .announcement-inner {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      padding: 0.7rem 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .announcement strong {
+      color: var(--soft-gold);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251,248,243,0.94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 1.2rem;
+      padding: 1rem 0;
+    }
+
+    .menu-word,
+    .feature-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .feature-link {
+      justify-self: end;
+      color: var(--soft-red);
+    }
+
+    .logo {
+      width: min(360px, 60vw);
+      margin: 0 auto;
+    }
+
+    .nav {
+      border-top: 1px solid var(--line);
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+      padding: 0.8rem 0;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav a {
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--charcoal);
+    }
+
+    .nav a:hover {
+      color: var(--soft-red);
+    }
+
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(216,181,90,0.13), transparent 25%),
+        radial-gradient(circle at 90% 18%, rgba(159,31,45,0.06), transparent 27%),
+        linear-gradient(135deg, #ffffff, #f8f4ef);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -10rem;
+      bottom: -10rem;
+      width: 30rem;
+      height: 30rem;
+      background: var(--soft-red);
+      border-radius: 50%;
+      opacity: 0.045;
+    }
+
+    .hero::after {
+      content: "°";
+      position: absolute;
+      left: 4vw;
+      bottom: -2rem;
+      font-family: var(--serif);
+      font-size: 17rem;
+      line-height: 1;
+      color: rgba(32,28,29,0.04);
+      font-weight: 900;
+    }
+
+    .hero-inner {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+      min-height: 760px;
+      padding: clamp(3rem, 6vw, 5.5rem) 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 7px 7px 0 var(--gold-shadow);
+    }
+
+    .hero-kicker span {
+      width: 0.65rem;
+      height: 0.65rem;
+      background: var(--soft-red);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 9vw, 9.5rem);
+      line-height: 0.78;
+      letter-spacing: -0.095em;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--soft-red);
+    }
+
+    .hero h1 strong {
+      position: relative;
+      display: inline-block;
+      color: var(--ink);
+    }
+
+    .hero h1 strong::after {
+      content: "";
+      position: absolute;
+      right: -0.5rem;
+      top: 0.18rem;
+      width: 0.28em;
+      height: 0.28em;
+      border: 4px solid var(--soft-gold);
+      border-radius: 50%;
+    }
+
+    .hero-text {
+      max-width: 560px;
+      color: var(--charcoal);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 640px;
+    }
+
+    .main-photo {
+      position: absolute;
+      inset: 4% 8% 7% 5%;
+      background: var(--white);
+      border: 1px solid var(--ink);
+      padding: 1rem;
+      transform: rotate(-2deg);
+      box-shadow: 16px 16px 0 var(--accent-shadow);
+      z-index: 2;
+    }
+
+    .main-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 560px;
+      filter: saturate(1.02) contrast(1.01);
+    }
+
+    .mini-card {
+      position: absolute;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      padding: 0.85rem;
+      max-width: 230px;
+      z-index: 3;
+      box-shadow: 10px 10px 0 rgba(32,28,29,0.08);
+    }
+
+    .mini-card h3 {
+      font-family: var(--serif);
+      font-size: 1.7rem;
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      margin-top: 0.35rem;
+    }
+
+    .mini-card.one {
+      top: 3%;
+      right: 0;
+      transform: rotate(3deg);
+      border-top: 4px solid var(--soft-red);
+    }
+
+    .mini-card.two {
+      left: 0;
+      bottom: 7%;
+      transform: rotate(-4deg);
+      border-top: 4px solid var(--soft-gold);
+    }
+
+    .shape {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.13;
+    }
+
+    .shape.blue {
+      width: 180px;
+      height: 180px;
+      background: var(--soft-navy);
+      left: 1%;
+      top: 14%;
+    }
+
+    .shape.coral {
+      width: 150px;
+      height: 150px;
+      background: var(--soft-red);
+      right: 4%;
+      bottom: 1%;
+      border-radius: 50%;
+    }
+
+    .shape.stripes {
+      width: 190px;
+      height: 120px;
+      left: 10%;
+      bottom: 20%;
+      opacity: 0.18;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent 0 10px,
+        rgba(32,28,29,0.15) 10px 12px
+      );
+    }
+
+    .ticker {
+      background: var(--white);
+      color: var(--ink);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 2rem;
+      width: max-content;
+      padding: 0.85rem 0;
+      animation: ticker 28s linear infinite;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .ticker-track span::after {
+      content: "°";
+      margin-left: 2rem;
+      color: var(--soft-red);
+      font-size: 1.15rem;
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .mosaic {
+      background: var(--paper);
+    }
+
+    .mosaic-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.8fr 0.8fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    .story-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition: 0.25s ease;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 18px 18px 0 rgba(32,28,29,0.06);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .story-card.large {
+      grid-row: span 2;
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .story-card.large img {
+      height: 520px;
+    }
+
+    .story-card.large .story-body {
+      border-left: 5px solid var(--soft-red);
+    }
+
+    .story-body {
+      padding: 1.2rem;
+    }
+
+    .category {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--soft-red);
+      margin-bottom: 0.6rem;
+    }
+
+    .story-card h3 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      margin-bottom: 0.65rem;
+    }
+
+    .story-card.large h3 {
+      font-size: clamp(2.4rem, 4vw, 4.3rem);
+      color: var(--ink);
+    }
+
+    .story-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .color-card {
+      padding: 1.4rem;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid var(--line);
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .color-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 6px;
+      background: var(--soft-gold);
+    }
+
+    .color-card.teal::before {
+      background: var(--soft-navy);
+    }
+
+    .color-card h3 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4vw, 3.6rem);
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+      color: var(--ink);
+    }
+
+    .color-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .issue {
+      background: var(--white);
+      color: var(--ink);
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .issue-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+
+    .issue-copy {
+      padding-right: 1rem;
+    }
+
+    .issue-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 6.3rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      margin: 0.7rem 0 1.1rem;
+    }
+
+    .issue-copy p {
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 1.5rem;
+      font-size: 1.03rem;
+    }
+
+    .issue-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .issue-points {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+      max-width: 560px;
+    }
+
+    .issue-point {
+      border: 1px solid var(--line);
+      padding: 0.9rem;
+      background: var(--paper);
+    }
+
+    .issue-point strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--soft-red);
+    }
+
+    .issue-point span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .issue-art {
+      position: relative;
+      min-height: 580px;
+      background:
+        linear-gradient(90deg, transparent 0 22%, rgba(31,43,67,0.05) 22% 100%);
+    }
+
+    .issue-cover {
+      position: absolute;
+      left: 12%;
+      top: 4%;
+      width: min(420px, 80%);
+      background: var(--white);
+      padding: 1rem;
+      border: 1px solid var(--line);
+      box-shadow: 22px 22px 0 rgba(159,31,45,0.12);
+      transform: rotate(2deg);
+      z-index: 2;
+    }
+
+    .issue-cover img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+    }
+
+    .issue-note {
+      position: absolute;
+      right: 0;
+      bottom: 6%;
+      max-width: 260px;
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--soft-gold);
+      padding: 1rem;
+      transform: rotate(-3deg);
+      z-index: 3;
+      box-shadow: 10px 10px 0 rgba(32,28,29,0.06);
+    }
+
+    .issue-note h3 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      margin-bottom: 0.5rem;
+    }
+
+    .issue-note p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .category-wall {
+      background: #f7f3ee;
+    }
+
+    .wall-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid var(--line);
+      border-top: 1px solid var(--line);
+    }
+
+    .wall-card {
+      min-height: 310px;
+      padding: 1.1rem;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wall-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: var(--soft-red);
+    }
+
+    .wall-card:nth-child(2)::before {
+      background: var(--soft-navy);
+    }
+
+    .wall-card:nth-child(3)::before {
+      background: var(--soft-gold);
+    }
+
+    .wall-card:nth-child(4)::before {
+      background: var(--soft-magenta);
+    }
+
+    .wall-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 12px 12px 0 rgba(32,28,29,0.08);
+      z-index: 2;
+    }
+
+    .wall-number {
+      font-family: var(--serif);
+      font-size: 4.8rem;
+      line-height: 0.8;
+      letter-spacing: -0.08em;
+      font-weight: 900;
+      opacity: 0.12;
+    }
+
+    .wall-card h3 {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      line-height: 0.9;
+      letter-spacing: -0.07em;
+      margin-bottom: 0.55rem;
+    }
+
+    .wall-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .people {
+      background: var(--paper);
+    }
+
+    .people-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .person {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--ink);
+    }
+
+    .person img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      opacity: 0.94;
+      transition: 0.35s ease;
+    }
+
+    .person:hover img {
+      transform: scale(1.05);
+      opacity: 0.78;
+    }
+
+    .person-info {
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 1rem;
+      background: rgba(251,248,243,0.96);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--soft-red);
+      padding: 1rem;
+    }
+
+    .person-info h3 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      line-height: 0.9;
+      letter-spacing: -0.065em;
+      margin-bottom: 0.5rem;
+    }
+
+    .person-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .video {
+      background: var(--white);
+      color: var(--ink);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: center;
+    }
+
+    .video-frame {
+      position: relative;
+      border: 1px solid var(--line);
+      padding: 1rem;
+      background: var(--paper);
+      transform: rotate(-1.2deg);
+      box-shadow: 18px 18px 0 rgba(31,43,67,0.10);
+    }
+
+    .video-frame img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      opacity: 0.92;
+    }
+
+    .play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      color: var(--soft-red);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 2.6rem;
+      padding-left: 0.25rem;
+      font-weight: 900;
+      box-shadow: 8px 8px 0 rgba(159,31,45,0.12);
+    }
+
+    .video-copy h2 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 6vw, 6.2rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      margin: 0.7rem 0 1.1rem;
+    }
+
+    .video-copy p {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 1.4rem;
+    }
+
+    .video-list {
+      margin-top: 1.5rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .video-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding: 0.8rem 0;
+    }
+
+    .video-item strong {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .video-item span {
+      color: var(--soft-red);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .split-feature {
+      background: var(--paper);
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .event-panel,
+    .ad-panel {
+      min-height: 520px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      padding: clamp(1.4rem, 4vw, 2.5rem);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event-panel::before,
+    .ad-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: var(--soft-gold);
+    }
+
+    .ad-panel::before {
+      background: var(--soft-red);
+    }
+
+    .ad-panel {
+      background:
+        linear-gradient(rgba(255,255,255,0.91), rgba(255,255,255,0.94)),
+        url("images/advertise-bg.jpg");
+      background-size: cover;
+      background-position: center;
+      color: var(--ink);
+    }
+
+    .panel-title {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      margin: 0.6rem 0 1rem;
+    }
+
+    .event-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+    }
+
+    .event-item {
+      display: grid;
+      grid-template-columns: 76px 1fr;
+      gap: 1rem;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 0.85rem;
+    }
+
+    .date {
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      text-align: center;
+      padding: 0.65rem 0.35rem;
+    }
+
+    .date strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 0.8;
+      letter-spacing: -0.06em;
+      color: var(--soft-red);
+    }
+
+    .date span {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--muted);
+    }
+
+    .event-item h3 {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+    }
+
+    .event-item p,
+    .ad-panel p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .ad-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin: 1.5rem 0;
+    }
+
+    .ad-tags span {
+      border: 1px solid var(--line);
+      background: rgba(251,248,243,0.88);
+      padding: 0.5rem 0.65rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      font-weight: 900;
+      color: var(--charcoal);
+    }
+
+    .newsletter {
+      background: var(--white);
+      color: var(--ink);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      position: relative;
+    }
+
+    .newsletter::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--soft-red), var(--soft-gold), var(--soft-navy));
+      opacity: 0.75;
+    }
+
+    .newsletter-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .newsletter h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.7rem, 5vw, 5.7rem);
+      line-height: 0.84;
+      letter-spacing: -0.08em;
+      margin-top: 0.5rem;
+    }
+
+    .newsletter p {
+      color: var(--muted);
+      max-width: 430px;
+      margin-top: 0.8rem;
+    }
+
+    .newsletter-form {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.75rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 0.7rem;
+      box-shadow: 12px 12px 0 rgba(32,28,29,0.05);
+    }
+
+    .newsletter-form input {
+      border: 0;
+      background: transparent;
+      padding: 0.9rem;
+      min-width: 0;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.9rem 1.2rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: var(--ink);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 7vw, 7rem);
+      line-height: 0.78;
+      letter-spacing: -0.095em;
+      font-weight: 900;
+    }
+
+    .footer-logo span {
+      color: var(--soft-gold);
+    }
+
+    .footer-text {
+      color: rgba(255,255,255,0.68);
+      max-width: 520px;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .footer-links h3 {
+      color: var(--soft-gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-links a {
+      display: block;
+      color: rgba(255,255,255,0.66);
+      font-size: 0.9rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.6rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .issue-layout,
+      .video-grid,
+      .split-grid,
+      .newsletter-grid,
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        min-height: auto;
+      }
+
+      .hero-art {
+        min-height: 620px;
+      }
+
+      .issue-art {
+        min-height: 560px;
+      }
+
+      .mosaic-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .story-card.large {
+        grid-column: span 2;
+      }
+
+      .wall-grid,
+      .people-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .announcement-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .announcement-inner span:last-child {
+        display: none;
+      }
+
+      .header-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .menu-word,
+      .feature-link {
+        display: none;
+      }
+
+      .logo {
+        width: min(320px, 82vw);
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .hero-art {
+        min-height: 520px;
+      }
+
+      .main-photo {
+        inset: 7% 2% 10% 2%;
+        box-shadow: 10px 10px 0 var(--accent-shadow);
+      }
+
+      .main-photo img {
+        min-height: 420px;
+      }
+
+      .mini-card {
+        max-width: 190px;
+      }
+
+      .mini-card.one {
+        top: 0;
+        right: 0;
+      }
+
+      .mini-card.two {
+        left: 0;
+        bottom: 0;
+      }
+
+      .shape.blue,
+      .shape.stripes {
+        display: none;
+      }
+
+      .mosaic-grid,
+      .wall-grid,
+      .people-row,
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+
+      .story-card.large {
+        grid-column: span 1;
+      }
+
+      .story-card.large img,
+      .story-card img {
+        height: 340px;
+      }
+
+      .issue-points {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-art {
+        min-height: 520px;
+      }
+
+      .issue-cover {
+        left: 0;
+        width: 88%;
+      }
+
+      .issue-note {
+        right: 0;
+        bottom: 0;
+      }
+
+      .person,
+      .person img {
+        min-height: 430px;
+        height: 430px;
+      }
+
+      .video-frame {
+        transform: none;
+        box-shadow: 10px 10px 0 rgba(31,43,67,0.10);
+      }
+
+      .video-frame img {
+        height: 340px;
+      }
+
+      .newsletter-form {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-form button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="announcement">
+    <div class="announcement-inner">
+      <span><strong>Fresh Issue:</strong> Culture, people, business, beauty, food & events</span>
+      <span>Get featured in the next edition</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="menu-word">Menu</a>
+
+      <a href="#" class="logo" aria-label="Meet Me Here Magazine Home">
+        <img src="images/logo.png" alt="Meet Me Here Magazine Logo">
+      </a>
+
+      <a href="#" class="feature-link">Advertise</a>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#">Latest Issue</a>
+      <a href="#">People</a>
+      <a href="#">Business</a>
+      <a href="#">Lifestyle</a>
+      <a href="#">Food</a>
+      <a href="#">Beauty</a>
+      <a href="#">Events</a>
+      <a href="#">Video</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="hero-kicker">
+            <span></span>
+            <div class="eyebrow">Refined local editorial</div>
+          </div>
+
+          <h1>Meet the <em>stories</em> of the city <strong>here</strong></h1>
+
+          <p class="hero-text">
+            A polished digital home for the stories, people, places, brands, and moments that make the community worth talking about.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-dark">Explore Latest Issue</a>
+            <a href="#" class="btn btn-accent">Get Featured</a>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="shape blue"></div>
+          <div class="shape coral"></div>
+          <div class="shape stripes"></div>
+
+          <div class="main-photo">
+            <img src="images/hero-feature.jpg" alt="Featured magazine editorial portrait">
+          </div>
+
+          <div class="mini-card one">
+            <div class="eyebrow">Cover Story</div>
+            <h3>Fresh voices, bold stories</h3>
+          </div>
+
+          <div class="mini-card two">
+            <div class="eyebrow">Current Issue</div>
+            <h3>Now available online</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Magazine topics">
+      <div class="ticker-track">
+        <span>People</span>
+        <span>Business</span>
+        <span>Culture</span>
+        <span>Food</span>
+        <span>Beauty</span>
+        <span>Events</span>
+        <span>Real Estate</span>
+        <span>Style</span>
+
+        <span>People</span>
+        <span>Business</span>
+        <span>Culture</span>
+        <span>Food</span>
+        <span>Beauty</span>
+        <span>Events</span>
+        <span>Real Estate</span>
+        <span>Style</span>
+      </div>
+    </section>
+
+    <section class="section mosaic">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Editor’s Picks</div>
+            <h2 class="section-title">Stories with personality</h2>
+          </div>
+
+          <p>
+            A refined editorial grid that gives the magazine energy while keeping the experience polished and easy to browse.
+          </p>
+        </div>
+
+        <div class="mosaic-grid">
+          <article class="story-card large">
+            <img src="images/story-1.jpg" alt="Featured local story">
+            <div class="story-body">
+              <span class="category">People</span>
+              <h3>The local names creating momentum</h3>
+              <p>
+                Portrait-driven stories about entrepreneurs, creatives, professionals, and community voices shaping what comes next.
+              </p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="images/story-2.jpg" alt="Business spotlight">
+            <div class="story-body">
+              <span class="category">Business</span>
+              <h3>Brands worth discovering</h3>
+              <p>Local companies with personality, polish, and stories readers connect with.</p>
+            </div>
+          </article>
+
+          <article class="color-card">
+            <div class="eyebrow">Trending</div>
+            <div>
+              <h3>What readers are opening now</h3>
+              <p>Popular stories, city finds, community updates, and features people are sharing.</p>
+            </div>
+          </article>
+
+          <article class="color-card teal">
+            <div class="eyebrow">City Guide</div>
+            <div>
+              <h3>Where to go, who to meet</h3>
+              <p>Restaurants, shops, events, beauty spots, and businesses worth visiting.</p>
+            </div>
+          </article>
+
+          <article class="story-card">
+            <img src="images/story-3.jpg" alt="Lifestyle story">
+            <div class="story-body">
+              <span class="category">Lifestyle</span>
+              <h3>Style, beauty, food, and everyday culture</h3>
+              <p>A visual way to explore the stories that make the magazine feel alive.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section issue">
+      <div class="container issue-layout">
+        <div class="issue-copy">
+          <div class="eyebrow">Current Issue</div>
+          <h2>Flip through the latest edition</h2>
+          <p>
+            Give readers a premium digital version of the magazine while creating stronger value for advertisers, featured businesses, and future issues.
+          </p>
+
+          <div class="issue-buttons">
+            <a href="#" class="btn btn-dark">Read Digital Issue</a>
+            <a href="#" class="btn btn-accent">Download Media Kit</a>
+          </div>
+
+          <div class="issue-points">
+            <div class="issue-point">
+              <strong>Print + Digital</strong>
+              <span>Magazine reach</span>
+            </div>
+
+            <div class="issue-point">
+              <strong>Featured Stories</strong>
+              <span>Editorial value</span>
+            </div>
+
+            <div class="issue-point">
+              <strong>Local Brands</strong>
+              <span>Business spotlight</span>
+            </div>
+
+            <div class="issue-point">
+              <strong>Events</strong>
+              <span>Community coverage</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="issue-art">
+          <div class="issue-cover">
+            <img src="images/issue-preview.jpg" alt="Latest issue cover">
+          </div>
+
+          <div class="issue-note">
+            <h3>Inside this issue</h3>
+            <p>Profiles, food, beauty, events, local businesses, and fresh creative stories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section category-wall">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Explore Sections</div>
+            <h2 class="section-title">A refined way to browse</h2>
+          </div>
+
+          <p>
+            This keeps the homepage curated and creative without letting the accent colors overpower the magazine’s editorial feel.
+          </p>
+        </div>
+
+        <div class="wall-grid">
+          <a href="#" class="wall-card">
+            <div class="wall-number">01</div>
+            <div>
+              <h3>People</h3>
+              <p>Founders, creatives, professionals, artists, and community voices.</p>
+            </div>
+          </a>
+
+          <a href="#" class="wall-card">
+            <div class="wall-number">02</div>
+            <div>
+              <h3>Business</h3>
+              <p>Local brands, sponsored features, entrepreneurs, and spotlight stories.</p>
+            </div>
+          </a>
+
+          <a href="#" class="wall-card">
+            <div class="wall-number">03</div>
+            <div>
+              <h3>Lifestyle</h3>
+              <p>Beauty, food, style, wellness, real estate, and local discoveries.</p>
+            </div>
+          </a>
+
+          <a href="#" class="wall-card">
+            <div class="wall-number">04</div>
+            <div>
+              <h3>Events</h3>
+              <p>Community happenings, launches, celebrations, recaps, and announcements.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section people">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Featured People</div>
+            <h2 class="section-title">Faces of the issue</h2>
+          </div>
+
+          <p>
+            Portrait-forward cards help the site feel like a true magazine while giving featured guests and advertisers something they’ll want to share.
+          </p>
+        </div>
+
+        <div class="people-row">
+          <article class="person">
+            <img src="images/portrait-1.jpg" alt="Featured person portrait">
+            <div class="person-info">
+              <span class="category">Entrepreneur</span>
+              <h3>Building with purpose</h3>
+              <p>A local founder on identity, growth, and making the work matter.</p>
+            </div>
+          </article>
+
+          <article class="person">
+            <img src="images/portrait-2.jpg" alt="Featured person portrait">
+            <div class="person-info">
+              <span class="category">Style</span>
+              <h3>Presence with personality</h3>
+              <p>The people shaping personal brands, beauty, and visual culture.</p>
+            </div>
+          </article>
+
+          <article class="person">
+            <img src="images/portrait-3.jpg" alt="Featured person portrait">
+            <div class="person-info">
+              <span class="category">Community</span>
+              <h3>Stories that connect</h3>
+              <p>Local voices creating spaces, ideas, and events worth remembering.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section video">
+      <div class="container video-grid">
+        <div class="video-frame">
+          <img src="images/video-feature.jpg" alt="Behind the issue video preview">
+          <div class="play">›</div>
+        </div>
+
+        <div class="video-copy">
+          <div class="eyebrow">Video / Behind The Issue</div>
+          <h2>Turn stories into motion</h2>
+          <p>
+            Give the client room to grow beyond print: interviews, short-form clips, business spotlights, event recaps, and behind-the-scenes issue content.
+          </p>
+
+          <a href="#" class="btn btn-accent">Watch Latest Feature</a>
+
+          <div class="video-list">
+            <a href="#" class="video-item">
+              <strong>Behind the cover story</strong>
+              <span>Watch</span>
+            </a>
+
+            <a href="#" class="video-item">
+              <strong>Business spotlight interview</strong>
+              <span>Watch</span>
+            </a>
+
+            <a href="#" class="video-item">
+              <strong>Community event recap</strong>
+              <span>Watch</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split-feature">
+      <div class="container split-grid">
+
+        <div class="event-panel">
+          <div>
+            <div class="eyebrow">Events</div>
+            <h2 class="panel-title">What’s happening here</h2>
+            <p>
+              A polished events panel makes the website feel active and gives readers a reason to return between magazine issues.
+            </p>
+
+            <div class="event-list">
+              <a href="#" class="event-item">
+                <div class="date">
+                  <strong>12</strong>
+                  <span>Oct</span>
+                </div>
+                <div>
+                  <h3>Local business mixer</h3>
+                  <p>Networking, vendors, stories, and community connection.</p>
+                </div>
+              </a>
+
+              <a href="#" class="event-item">
+                <div class="date">
+                  <strong>18</strong>
+                  <span>Oct</span>
+                </div>
+                <div>
+                  <h3>Creative market pop-up</h3>
+                  <p>Designers, artists, makers, food, and local shopping.</p>
+                </div>
+              </a>
+
+              <a href="#" class="event-item">
+                <div class="date">
+                  <strong>26</strong>
+                  <span>Oct</span>
+                </div>
+                <div>
+                  <h3>Feature night</h3>
+                  <p>A celebration of the latest issue’s people and businesses.</p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href="#" class="btn btn-dark">Submit An Event</a>
+        </div>
+
+        <div class="ad-panel">
+          <div>
+            <div class="eyebrow">For Brands & Businesses</div>
+            <h2 class="panel-title">Get featured with style</h2>
+            <p>
+              This gives advertisers a stronger reason to invest: their story can live in print, online, social, video, and community event coverage.
+            </p>
+
+            <div class="ad-tags">
+              <span>Print</span>
+              <span>Digital</span>
+              <span>Sponsored Stories</span>
+              <span>Video</span>
+              <span>Events</span>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#" class="btn btn-dark">Advertise With Us</a>
+            <a href="#" class="btn btn-accent">Request Media Kit</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="newsletter">
+      <div class="container newsletter-grid">
+        <div>
+          <div class="eyebrow">Stay Connected</div>
+          <h2>Fresh stories, straight to your inbox</h2>
+          <p>
+            New features, local highlights, events, business spotlights, and issue announcements from Meet Me Here Magazine.
+          </p>
+        </div>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email address" aria-label="Email address">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-logo">meet me here<span>°</span></div>
+
+        <p class="footer-text">
+          A refined local magazine platform built for editorial storytelling, featured businesses, community visibility, digital issues, video, events, and local discovery.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <h3>Magazine</h3>
+          <a href="#">Latest Issue</a>
+          <a href="#">Past Issues</a>
+          <a href="#">Digital Edition</a>
+          <a href="#">Video</a>
+        </div>
+
+        <div>
+          <h3>Sections</h3>
+          <a href="#">People</a>
+          <a href="#">Business</a>
+          <a href="#">Lifestyle</a>
+          <a href="#">Events</a>
+        </div>
+
+        <div>
+          <h3>Brands</h3>
+          <a href="#">Advertise</a>
+          <a href="#">Get Featured</a>
+          <a href="#">Media Kit</a>
+          <a href="#">Sponsored Stories</a>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <a href="#">Submit Story</a>
+          <a href="#">Submit Event</a>
+          <a href="#">Contact</a>
+          <a href="#">Newsletter</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Meet Me Here Magazine. All rights reserved.</span>
+        <span>Refined editorial website concept.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
