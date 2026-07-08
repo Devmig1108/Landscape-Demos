@@ -1695,3 +1695,121 @@ h3 {
     display: grid;
   }
 }
+
+/* -------------------------------------------------------
+   V6 addition: immediate trust credentials under hero
+-------------------------------------------------------- */
+.credential-band {
+  position: relative;
+  z-index: 5;
+  padding: 0 0 34px;
+  /* background: linear-gradient(180deg, transparent 0%, transparent 46px, var(--off-white) 46px, var(--off-white) 100%); */
+}
+
+.credential-card {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  background: var(--muted-light);
+  border: 1px solid rgba(79, 89, 98, 0.14);
+  /* border-radius: var(--radius-lg);
+  box-shadow: 0 22px 60px rgba(32, 37, 42, 0.16);
+  backdrop-filter: blur(14px); */
+  width:100%;
+}
+
+.credential-copy .eyebrow {
+  margin-bottom: 10px;
+  /* color: var(--pink); */
+}
+
+.credential-copy h2 {
+  max-width: 620px;
+  margin-bottom: 10px;
+  color: var(--charcoal-3);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 0.98;
+}
+
+.credential-copy p:not(.eyebrow) {
+  margin: 0;
+  color: #66686b;
+  font-size: 1rem;
+}
+
+.credential-logos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
+}
+
+.credential-logo {
+  min-height: 138px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  /* background: #fff;
+  border: 1px solid rgba(79, 89, 98, 0.12); */
+  border-radius: 22px;
+  /* box-shadow: 0 12px 30px rgba(49, 57, 65, 0.08); */
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credential-logo:hover,
+.credential-logo:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--pink-line);
+  /* box-shadow: 0 18px 42px rgba(49, 57, 65, 0.13); */
+}
+
+.credential-logo img {
+  width: auto;
+  max-width: 100%;
+  max-height: 94px;
+  object-fit: contain;
+}
+
+.credential-logo-gaf img {
+  max-height: 112px;
+}
+
+.credential-logo-nwir img {
+  max-height: 78px;
+}
+
+.credential-logo-bbb img {
+  max-height: 90px;
+  text-align: center;
+}
+
+@media (max-width: 1080px) {
+  .credential-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 820px) {
+  .credential-band {
+    margin-top: 0;
+    padding: 28px 0;
+    background: var(--off-white);
+  }
+
+  .credential-card {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .credential-logos {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-logo {
+    min-height: 124px;
+  }
+}
+
