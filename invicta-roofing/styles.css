@@ -239,11 +239,15 @@ textarea {
 
 .eyebrow {
   margin: 0 0 14px;
-  color: var(--pink-2);
+  color: var(--gray-2);
   font-size: 0.84rem;
   font-weight: 900;
   letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+.eyebrow span{
+  color: var(--pink-2);
 }
 
 h1,
@@ -1227,11 +1231,6 @@ h3 {
     0 0 0 96px rgba(237, 27, 114, 0.018),
     0 0 0 144px rgba(237, 27, 114, 0.012);
 }
-
-.eyebrow {
-  color: var(--pink);
-}
-
 /* Buttons: pink becomes a signature underline/accent instead of full backgrounds */
 .btn-primary {
   color: var(--charcoal-3);
